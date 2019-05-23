@@ -20,7 +20,7 @@ public class Consulta {
 	 * @param j posiciones de la matriz
 	 * @return true si esta libre
 	 */
-	public boolean comprobarHora(int i, int j) {
+	public boolean validarHora(int i, int j) {
 		// TODO Auto-generated method stub
 		return false;
 	}

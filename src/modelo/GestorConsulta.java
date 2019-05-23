@@ -6,9 +6,10 @@ public class GestorConsulta {
 
 	private ArrayList<Consulta> consultas;
 
-	public GestorConsulta(ArrayList<Consulta> consultas) {
+	public GestorConsulta(int numConsultas) {
 		super();
-		this.consultas = consultas;
+		for (int i = 0; i < numConsultas; i++) {
+			this.consultas.add(new Consulta());
+		}
 	}
-
 }
