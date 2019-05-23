@@ -1,7 +1,5 @@
 package modelo;
 
-import modelo.utiles.Especialidad;
-
 public class Medico extends Persona {
 
 	private Especialidad especialidad;
