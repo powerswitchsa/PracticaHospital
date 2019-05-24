@@ -75,8 +75,8 @@ public class AltaPaciente extends JPanel {
 		this.panelText.setBackground(color);
 		setBackground(color);
 		this.fields = new JTextField[this.label.length];
-		panelText.setLayout(new GridLayout(this.label.length, 1, 30, 50));
-		panelLabel.setLayout(new GridLayout(this.label.length, 1, 10, 50));
+		panelText.setLayout(new GridLayout(this.label.length, 1, 30, 20));
+		panelLabel.setLayout(new GridLayout(this.label.length, 1, 10, 20));
 		for (int i = 0; i < fields.length; i++) {
 			this.fields[i] = crearJText(letraPequena, tipoLetra);
 			this.panelLabel.add(crearLabel(this.label[i], letraPequena, tipoLetra));
