@@ -96,8 +96,8 @@ public class CitaOperacion extends JPanel {
 		setBackground(this.color);
 		this.panelLabel.setBackground(this.color);
 		this.panelCombo.setBackground(this.color);
-		this.panelCombo.setLayout(new GridLayout(0, 1, 0, 80));
-		this.panelLabel.setLayout(new GridLayout(0, 1, 0, 80));
+		this.panelCombo.setLayout(new GridLayout(0, 1, 0, 50));
+		this.panelLabel.setLayout(new GridLayout(0, 1, 0, 50));
 		for (int i = 0; i < this.cadenas.length; i++) {
 			this.panelLabel.add(crearLabel(this.cadenas[i]));
 		}
