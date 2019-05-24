@@ -39,25 +39,24 @@ public class AltaPaciente extends JPanel {
 		btnAceptar.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.TRAILING).addGroup(Alignment.LEADING,
-				groupLayout.createSequentialGroup().addGap(100)
-						.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblMensajeDelSistema, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 458,
-										Short.MAX_VALUE)
-								.addComponent(lblNewLabel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 458,
-										Short.MAX_VALUE)
-								.addComponent(btnAceptar, GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE)
-								.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE))
-						.addGap(100)));
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
+				.createSequentialGroup().addGap(50)
+				.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE)
+				.addPreferredGap(ComponentPlacement.RELATED)
+				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblMensajeDelSistema, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 561,
+								Short.MAX_VALUE)
+						.addComponent(lblNewLabel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+						.addComponent(btnAceptar, GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE)
+						.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE))
+				.addGap(100)));
 		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup().addGap(20)
 						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
 						.addGap(30)
 						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-								.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE))
+								.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE))
 						.addGap(18).addComponent(btnAceptar).addGap(25)
 						.addComponent(lblMensajeDelSistema, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 						.addGap(43)));
