@@ -1,6 +1,8 @@
 package modelo;
 
-public class Medico extends Persona {
+import interfaz.AccionesMedico;
+
+public class Medico extends Persona implements AccionesMedico {
 
 	private Especialidad especialidad;
 	private boolean[][] horario;
