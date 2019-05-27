@@ -29,6 +29,14 @@ public abstract class Persona {
 		this.nacimiento = nacimiento;
 	}
 
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
 	public int getId() {
 		return id;
 	}

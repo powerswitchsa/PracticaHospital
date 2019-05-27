@@ -30,8 +30,8 @@ public class UI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
-//		contentPane.add(this.citaOperacion, BorderLayout.CENTER);
-		contentPane.add(this.altaPaciente, BorderLayout.CENTER);
+		contentPane.add(this.citaOperacion, BorderLayout.CENTER);
+//		contentPane.add(this.altaPaciente, BorderLayout.CENTER);
 		setLocationRelativeTo(null);
 //		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setResizable(false);
