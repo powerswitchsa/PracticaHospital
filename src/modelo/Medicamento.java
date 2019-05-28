@@ -1,4 +1,4 @@
-package modelo.historial;
+package modelo;
 
 public class Medicamento {
 
@@ -6,5 +6,4 @@ public class Medicamento {
 	private String nombre;
 	
 	
-
 }
