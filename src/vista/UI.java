@@ -25,16 +25,24 @@ public class UI extends JFrame {
 	public UI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
-		contentPane = new JPanel();
+		contentPane = new JPanel(); 
 		contentPane.setBackground(colorFondo);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
-		contentPane.add(this.citaOperacion, BorderLayout.CENTER);
-//		contentPane.add(this.altaPaciente, BorderLayout.CENTER);
 		setLocationRelativeTo(null);
 //		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setResizable(false);
+//		contentPane.add(this.citaOperacion, BorderLayout.CENTER);
+		contentPane.add(this.altaPaciente, BorderLayout.CENTER);
+	}
+
+	public AltaPaciente getAltaPaciente() {
+		return altaPaciente;
+	}
+
+	public CitaOperacion getCitaOperacion() {
+		return citaOperacion;
 	}
 
 }
