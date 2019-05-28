@@ -1,5 +1,5 @@
 package modelo;
 
 public enum Especialidad {
-	Dermatologo, Endocrino, Neurologo, Ginecologo, Cabecera, Cirujano, Cacajano
+	Dermatologo, Endocrino, Neurologo, Ginecologo, Cabecera, Cirujano
 }

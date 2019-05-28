@@ -5,11 +5,9 @@ import java.util.ArrayList;
 public class Consulta {
 
 	private boolean[][] horarios;
-	private ArrayList<Medico> medicos;
 
 	public Consulta() {
 		super();
-		this.medicos = new ArrayList<Medico>();
 		this.horarios = new boolean[8][5];
 	}
 
@@ -44,4 +42,5 @@ public class Consulta {
 		// TODO Auto-generated method stub
 
 	}
+
 }

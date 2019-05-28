@@ -9,6 +9,7 @@ public class ParaUI extends UI {
 	public ParaUI() {
 		super();
 		this.control = new Control();
+		control.getCitaOperacion(getCitaOperacion());
 	}
 
 }

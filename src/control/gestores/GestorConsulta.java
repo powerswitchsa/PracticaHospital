@@ -1,6 +1,8 @@
-package modelo;
+package control.gestores;
 
 import java.util.ArrayList;
+
+import modelo.Consulta;
 
 public class GestorConsulta {
 
