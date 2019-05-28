@@ -1,4 +1,4 @@
-package control;
+package control.gestores;
 
 import java.util.ArrayList;
 

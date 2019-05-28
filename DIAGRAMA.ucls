@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="control.Control" project="PracticaHospital" 
     file="/PracticaHospital/src/control/Control.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2182" y="950"/>    
+    <position height="-1" width="-1" x="929" y="214"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="control.ParaUI" project="PracticaHospital" 
     file="/PracticaHospital/src/control/ParaUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2345" y="287"/>    
+    <position height="-1" width="-1" x="513" y="205"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="modelo.Consulta" project="PracticaHospital" 
     file="/PracticaHospital/src/modelo/Consulta.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1066" y="972"/>    
+    <position height="-1" width="-1" x="1122" y="1037"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="modelo.Medico" project="PracticaHospital" 
     file="/PracticaHospital/src/modelo/Medico.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="326" y="689"/>    
+    <position height="-1" width="-1" x="579" y="1039"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="modelo.Paciente" project="PracticaHospital" 
     file="/PracticaHospital/src/modelo/Paciente.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="633" y="228"/>    
+    <position height="-1" width="-1" x="602" y="448"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="modelo.Persona" project="PracticaHospital" 
     file="/PracticaHospital/src/modelo/Persona.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="196" y="213"/>    
+    <position height="-1" width="-1" x="586" y="734"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,15 +57,15 @@
   </class>  
   <class id="7" language="java" name="vista.UI" project="PracticaHospital" file="/PracticaHospital/src/vista/UI.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2803" y="196"/>    
+    <position height="-1" width="-1" x="209" y="211"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="modelo.Tratamiento" project="PracticaHospital" 
-    file="/PracticaHospital/src/modelo/Tratamiento.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="8" language="java" name="modelo.historial.Tratamiento" project="PracticaHospital" 
+    file="/PracticaHospital/src/modelo/historial/Tratamiento.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1088" y="1254"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -73,140 +73,160 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="modelo.Medicamento" project="PracticaHospital" 
-    file="/PracticaHospital/src/modelo/Medicamento.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="288" y="1186"/>    
+  <class id="9" language="java" name="modelo.historial.Medicamento" project="PracticaHospital" 
+    file="/PracticaHospital/src/modelo/historial/Medicamento.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="596" y="1276"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="modelo.Intervencion" project="PracticaHospital" 
-    file="/PracticaHospital/src/modelo/Intervencion.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="286" width="243" x="939" y="571"/>    
+  <class id="10" language="java" name="modelo.historial.Intervencion" project="PracticaHospital" 
+    file="/PracticaHospital/src/modelo/historial/Intervencion.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="286" width="243" x="75" y="565"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="modelo.Cita" project="PracticaHospital" 
-    file="/PracticaHospital/src/modelo/Cita.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1118" y="340"/>    
+  <class id="11" language="java" name="modelo.historial.Cita" project="PracticaHospital" 
+    file="/PracticaHospital/src/modelo/historial/Cita.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="994" y="734"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="control.GestorConsulta" project="PracticaHospital" 
-    file="/PracticaHospital/src/control/GestorConsulta.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1552" y="1032"/>    
+  <class id="12" language="java" name="control.gestores.GestorConsulta" project="PracticaHospital" 
+    file="/PracticaHospital/src/control/gestores/GestorConsulta.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1418" y="949"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="13">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <association id="14">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="15" name="consultas"/>      
-      <multiplicity id="16" minimum="0" maximum="2147483647"/>    
+  <association id="13">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="14" name="medicamento">        
+        <position height="0" width="0" x="308" y="90"/>      
+      </attribute>      
+      <multiplicity id="15" minimum="0" maximum="1">        
+        <position height="0" width="0" x="308" y="90"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="17">    
+  <association id="16">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="18" name="gestorConsulta"/>      
-      <multiplicity id="19" minimum="0" maximum="1"/>    
+      <attribute id="17" name="gestorConsulta">        
+        <position height="0" width="0" x="-134" y="-83"/>      
+      </attribute>      
+      <multiplicity id="18" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-134" y="-83"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="20">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <generalization id="21">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="7"/>  
-  </generalization>  
-  <association id="22">    
+  <association id="19">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="23" name="cirujano"/>      
-      <multiplicity id="24" minimum="0" maximum="1"/>    
+      <attribute id="20" name="cirujano">        
+        <position height="0" width="0" x="253" y="350"/>      
+      </attribute>      
+      <multiplicity id="21" minimum="0" maximum="1">        
+        <position height="0" width="0" x="253" y="350"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="25">    
+  <generalization id="22">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="23">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="24">    
     <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="26" name="paciente"/>      
-      <multiplicity id="27" minimum="0" maximum="1"/>    
+      <attribute id="25" name="medico">        
+        <position height="0" width="0" x="253" y="350"/>      
+      </attribute>      
+      <multiplicity id="26" minimum="0" maximum="1">        
+        <position height="0" width="0" x="253" y="350"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="27">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="28" name="paciente">        
+        <position height="0" width="0" x="-31" y="220"/>      
+      </attribute>      
+      <multiplicity id="29" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-31" y="220"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="28">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="29" name="control">        
-        <position height="0" width="0" x="1143" y="611"/>      
-      </attribute>      
-      <multiplicity id="30" minimum="0" maximum="1">        
-        <position height="0" width="0" x="1143" y="611"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <generalization id="30">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
   <association id="31">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="32" name="paciente"/>      
-      <multiplicity id="33" minimum="0" maximum="1"/>    
+      <attribute id="32" name="paciente">        
+        <position height="0" width="0" x="-31" y="220"/>      
+      </attribute>      
+      <multiplicity id="33" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-31" y="220"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="34">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="35" name="medicos">        
-        <position height="0" width="0" x="-252" y="-46"/>      
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="35" name="medicoSolicitante">        
+        <position height="0" width="0" x="253" y="350"/>      
       </attribute>      
-      <multiplicity id="36" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-252" y="-46"/>      
+      <multiplicity id="36" minimum="0" maximum="1">        
+        <position height="0" width="0" x="253" y="350"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="37">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="38" name="medicamento"/>      
-      <multiplicity id="39" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="38" name="consultas">        
+        <position height="0" width="0" x="56" y="65"/>      
+      </attribute>      
+      <multiplicity id="39" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="56" y="65"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="40">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="41" name="medico"/>      
-      <multiplicity id="42" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="41" name="control">        
+        <position height="0" width="0" x="-110" y="-125"/>      
+      </attribute>      
+      <multiplicity id="42" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-110" y="-125"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="43">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="44" name="medicoSolicitante"/>      
-      <multiplicity id="45" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
