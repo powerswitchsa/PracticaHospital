@@ -1,4 +1,7 @@
-package modelo;
+package modelo.historial;
+
+import modelo.Medico;
+import modelo.Paciente;
 
 public class Cita {
 

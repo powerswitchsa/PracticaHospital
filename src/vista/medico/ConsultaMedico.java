@@ -127,7 +127,7 @@ public class ConsultaMedico extends JPanel {
 		JLabel jLabel = new JLabel();
 		jLabel.setText(cadena);
 		jLabel.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
-		jLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		jLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		return jLabel;
 	}
 

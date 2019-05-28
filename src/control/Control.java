@@ -2,10 +2,11 @@ package control;
 
 import java.util.ArrayList;
 
-import modelo.Cita;
+import control.gestores.GestorConsulta;
 import modelo.Medico;
 import modelo.Paciente;
 import modelo.Validador;
+import modelo.historial.Cita;
 import vista.paciente.CitaEspecialista;
 import vista.paciente.CitaOperacion;
 
@@ -13,14 +14,11 @@ public class Control {
 
 	private Validador validador;
 	private GestorConsulta gestorConsulta;
-	private ArrayList<Medico> medicos;
-	private ArrayList<Paciente> pacientes;
 
 	public Control() {
 		super();
 		this.validador = new Validador();
 		this.gestorConsulta = new GestorConsulta(4);
-		this.medicos = new ArrayList<Medico>();
 	}
 
 	/**
@@ -118,7 +116,7 @@ public class Control {
 	 * @param citaEspecialista panel con la informacion
 	 * @return true si se ha realizado con exito
 	 */
-	public boolean getCitaEspecialista(CitaEspecialista citaEspecialista) {
+	public boolean getCitaEspecialista(String... info) {
 		return false;
 	}
 
