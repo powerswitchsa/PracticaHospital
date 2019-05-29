@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import vista.paciente.AltaPaciente;
+import vista.paciente.BajaPaciente;
 import vista.paciente.CitaOperacion;
 
 public class UI extends JFrame {
@@ -21,6 +22,7 @@ public class UI extends JFrame {
 
 	private AltaPaciente altaPaciente = new AltaPaciente(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private CitaOperacion citaOperacion = new CitaOperacion(colorFondo, letraPequena, letraGrande, tipoLetra);
+	private BajaPaciente bajaPaciente = new BajaPaciente(colorFondo, letraPequena, letraGrande, tipoLetra);
 
 	public UI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -30,7 +32,7 @@ public class UI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
-		contentPane.add(this.citaOperacion, BorderLayout.CENTER);
+		contentPane.add(this.bajaPaciente, BorderLayout.CENTER);
 //		contentPane.add(this.altaPaciente, BorderLayout.CENTER);
 		setLocationRelativeTo(null);
 //		setExtendedState(JFrame.MAXIMIZED_BOTH);
