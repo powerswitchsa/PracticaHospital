@@ -4,13 +4,15 @@ import java.util.ArrayList;
 
 public class Consulta {
 
+	private int id;
 	private boolean[][] horarios;
-	private ArrayList<Medico> medicos;
+	private ArrayList<Integer> idMedicos;
 
-	public Consulta() {
+	public Consulta(int id) {
 		super();
-		this.medicos = new ArrayList<Medico>();
+		this.idMedicos = new ArrayList<Integer>();
 		this.horarios = new boolean[8][5];
+		this.id = id;
 	}
 
 	/**
@@ -44,4 +46,5 @@ public class Consulta {
 		// TODO Auto-generated method stub
 
 	}
+
 }

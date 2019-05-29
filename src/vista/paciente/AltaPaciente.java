@@ -16,11 +16,12 @@ import javax.swing.border.MatteBorder;
 
 public class AltaPaciente extends JPanel {
 
-	private String[] label = { "ID :", "Nombre :", "Apellidos :", "Direccion :", "Nacimiento :", "Telefono :" };
+	private String[] label = { "ID : ", "Nombre :", "Apellidos :", "Direccion :", "Nacimiento :", "Telefono :" };
 	private JTextField[] fields = new JTextField[this.label.length];
 	private JPanel panelLabel = new JPanel();
 	private JPanel panelText = new JPanel();
 	private JButton btnAceptar;
+	private JLabel mensajeSistema;
 
 	public AltaPaciente(Color color, int letraPequena, int letraGrande, String tipoLetra) {
 		setVisible(true);
@@ -30,26 +31,28 @@ public class AltaPaciente extends JPanel {
 		lblNewLabel.setFont(new Font(tipoLetra, Font.BOLD, letraGrande));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
-		JLabel lblMensajeDelSistema = new JLabel("Mensaje del sistema");
-		lblMensajeDelSistema.setForeground(Color.RED);
-		lblMensajeDelSistema.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMensajeDelSistema.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
+		mensajeSistema = new JLabel("Mensaje del sistema");
+		mensajeSistema.setForeground(Color.RED);
+		mensajeSistema.setHorizontalAlignment(SwingConstants.CENTER);
+		mensajeSistema.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
 		btnAceptar = new JButton("Aceptar");
 		btnAceptar.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.TRAILING).addGroup(Alignment.LEADING,
-				groupLayout.createSequentialGroup().addGap(100)
-						.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblMensajeDelSistema, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 458,
-										Short.MAX_VALUE)
-								.addComponent(lblNewLabel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 458,
-										Short.MAX_VALUE)
-								.addComponent(btnAceptar, GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE)
-								.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE))
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(Alignment.TRAILING,
+				groupLayout.createSequentialGroup().addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addGroup(groupLayout.createSequentialGroup().addContainerGap().addComponent(btnAceptar,
+								GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup().addGap(50)
+								.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+										.addComponent(mensajeSistema, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 572,
+												Short.MAX_VALUE)
+										.addComponent(lblNewLabel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 572,
+												Short.MAX_VALUE)
+										.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE))))
 						.addGap(100)));
 		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup().addGap(20)
@@ -57,9 +60,9 @@ public class AltaPaciente extends JPanel {
 						.addGap(30)
 						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-								.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE))
+								.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE))
 						.addGap(18).addComponent(btnAceptar).addGap(25)
-						.addComponent(lblMensajeDelSistema, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+						.addComponent(mensajeSistema, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 						.addGap(43)));
 		panelLabel.setBackground(Color.WHITE);
 		panelText.setBackground(Color.WHITE);
@@ -76,8 +79,8 @@ public class AltaPaciente extends JPanel {
 		this.panelText.setBackground(color);
 		setBackground(color);
 		this.fields = new JTextField[this.label.length];
-		panelText.setLayout(new GridLayout(this.label.length, 1, 30, 50));
-		panelLabel.setLayout(new GridLayout(this.label.length, 1, 10, 50));
+		panelText.setLayout(new GridLayout(this.label.length, 1, 30, 20));
+		panelLabel.setLayout(new GridLayout(this.label.length, 1, 10, 20));
 		for (int i = 0; i < fields.length; i++) {
 			this.fields[i] = crearJText(letraPequena, tipoLetra);
 			this.panelLabel.add(crearLabel(this.label[i], letraPequena, tipoLetra));
@@ -99,7 +102,7 @@ public class AltaPaciente extends JPanel {
 		JLabel jLabel = new JLabel();
 		jLabel.setText(cadena);
 		jLabel.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
-		jLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		jLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		return jLabel;
 	}
 
@@ -109,6 +112,10 @@ public class AltaPaciente extends JPanel {
 
 	public JButton getBtnAceptar() {
 		return btnAceptar;
+	}
+
+	public JLabel getMensajeSistema() {
+		return mensajeSistema;
 	}
 
 }
