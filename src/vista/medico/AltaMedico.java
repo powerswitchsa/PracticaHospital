@@ -48,64 +48,57 @@ public class AltaMedico extends JPanel {
 
 		btnAceptar = new JButton("Aceptar");
 		btnAceptar.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
-
-		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.TRAILING).addGroup(groupLayout
-				.createSequentialGroup()
-				.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addGroup(groupLayout.createSequentialGroup().addContainerGap().addComponent(btnAceptar,
-								GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup().addGap(30)
-								.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(mensajeSistema, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 156,
-												Short.MAX_VALUE)
-										.addComponent(lblNewLabel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 156,
-												Short.MAX_VALUE)
-										.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))))
-				.addGap(100)));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup().addGap(20)
-						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-						.addGap(30)
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-								.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
-						.addGap(18).addComponent(btnAceptar).addGap(25)
-						.addComponent(mensajeSistema, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-						.addGap(43)));
 		panelLabel.setBackground(Color.WHITE);
 		panelText.setBackground(Color.WHITE);
 		panelText.setLayout(new GridLayout(1, 0, 0, 0));
 		panelLabel.setLayout(new GridLayout(1, 0, 0, 0));
+		GroupLayout groupLayout = new GroupLayout(this);
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(286)
+							.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(30)
+							.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE))
+						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+							.addGap(286)
+							.addComponent(mensajeSistema, GroupLayout.PREFERRED_SIZE, 321, GroupLayout.PREFERRED_SIZE)
+							.addGap(4)
+							.addComponent(btnAceptar, GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE)))
+					.addGap(30))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+					.addGap(20)
+					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+					.addGap(30)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
+						.addComponent(panelLabel, GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE))
+					.addGap(10)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(mensajeSistema, GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+						.addComponent(btnAceptar, GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
+					.addGap(20))
+		);
 		setLayout(groupLayout);
-		creandoVista(letraPequena, tipoLetra);
+		creandoVista(color, letraPequena, tipoLetra);
 		setVisible(true);
 	}
 
-	private void creandoVista(int letraPequena, String tipoLetra) {
-		Color color = new Color(133, 200, 255);
+	private void creandoVista(Color color, int letraPequena, String tipoLetra) {
 		this.panelLabel.setBackground(color);
 		this.panelText.setBackground(color);
 		setBackground(color);
 		this.fields = new JTextField[this.label.length];
-		panelText.setLayout(new GridLayout(this.label.length, 1, 20, 20));
-		panelLabel.setLayout(new GridLayout(this.label.length, 1, 10, 20));
-//		for (int i = 0; i < fields.length; i++) {
-//			int index = 0;
-//			do {
-//				this.fields[i] = crearJText(letraPequena, tipoLetra);
-//				this.panelLabel.add(crearLabel(this.label[i], letraPequena, tipoLetra));
-//				this.panelText.add(this.fields[i]);
-//				i++;
-//			} while (i <= 4);
-//			this.dis[index] = crearCombo();
-//			this.panelLabel.add(crearLabel(this.label[i], letraPequena, tipoLetra));
-//			this.panelText.add(this.dis[index]);
-//			index++;
-
-//		}
+		panelText.setLayout(new GridLayout(this.label.length, 1, 0, 40));
+		panelLabel.setLayout(new GridLayout(this.label.length, 1, 0, 40));
 		for (int i = 0; i < fields.length; i++) {
 			if (i == 5) {
 				this.panelText.add(this.comboEspecilidad);
@@ -165,6 +158,7 @@ public class AltaMedico extends JPanel {
 	public JComboBox getComboConsulta() {
 		return comboConsulta;
 	}
+
 	public JComboBox getComboHorario() {
 		return comboHorario;
 	}
