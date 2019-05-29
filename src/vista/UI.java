@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import modelo.Medico;
+import vista.medico.AltaMedico;
 import vista.medico.ConsultaMedico;
 import vista.paciente.AltaPaciente;
 import vista.paciente.CitaOperacion;
@@ -20,17 +21,18 @@ public class UI extends JFrame {
 	private JPanel contentPane;
 
 	private Color colorFondo = new Color(133, 200, 255);
-	private int letraPequena = 20;
-	private int letraGrande = 40;
+	private int letraPequena = 5;
+	private int letraGrande = 25;
 	private String tipoLetra = "Monospaced";
 
 	private AltaPaciente altaPaciente = new AltaPaciente(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private CitaOperacion citaOperacion = new CitaOperacion(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private ConsultaMedico consultaMedico = new ConsultaMedico(colorFondo, letraPequena, letraGrande, tipoLetra);
+	private AltaMedico altaMedico = new AltaMedico(colorFondo, letraGrande, letraGrande, tipoLetra);
 
 	public UI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, 1400, 800);
 		contentPane = new JPanel();
 		contentPane.setBackground(colorFondo);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -41,7 +43,7 @@ public class UI extends JFrame {
 		setResizable(false);
 //		contentPane.add(this.citaOperacion, BorderLayout.CENTER);
 //		contentPane.add(this.altaPaciente, BorderLayout.CENTER);
-		contentPane.add(this.consultaMedico, BorderLayout.CENTER);
+		contentPane.add(this.altaMedico, BorderLayout.CENTER);
 	}
 
 	public AltaPaciente getAltaPaciente() {
@@ -50,6 +52,14 @@ public class UI extends JFrame {
 
 	public CitaOperacion getCitaOperacion() {
 		return citaOperacion;
+	}
+
+	public AltaMedico getAltaMedico() {
+		return altaMedico;
+	}
+
+	public ConsultaMedico getConsultaMedico() {
+		return consultaMedico;
 	}
 
 }
