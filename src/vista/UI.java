@@ -11,6 +11,7 @@ import vista.medico.ConsultaMedico;
 import vista.paciente.AltaPaciente;
 import vista.paciente.BajaPaciente;
 import vista.paciente.CitaOperacion;
+import vista.paciente.VerHistorial;
 
 import java.awt.CardLayout;
 import javax.swing.JMenu;
@@ -35,6 +36,7 @@ public class UI extends JFrame {
 	private BajaPaciente bajaPaciente = new BajaPaciente(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private ConsultaMedico consultaMedico = new ConsultaMedico(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private AltaMedico altaMedico = new AltaMedico(colorFondo, letraPequena, letraGrande, tipoLetra);
+	private VerHistorial verHistorial = new VerHistorial(colorFondo, letraPequena , letraGrande , tipoLetra);
 
 	public UI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,6 +48,7 @@ public class UI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new CardLayout(0, 0));
 //		setExtendedState(JFrame.MAXIMIZED_BOTH);
+		setResizable(true);
 		setContentPane(contentPane);
 		setBackground(colorFondo);
 		// ----------------------------------------------
@@ -70,6 +73,7 @@ public class UI extends JFrame {
 		meterPanel(this.bajaPaciente, jmenuPaciente, "bajaPaciente", "Baja Paciente");
 		meterPanel(this.altaMedico, jmenuMedico, "altaMedico", "Alta Medico");
 		meterPanel(this.consultaMedico, jmenuMedico, "consultaMedico", "Consulta Medico");
+		meterPanel(this.verHistorial, jmenuPaciente, "verHistorial", "Historial Paciente");
 	}
 
 	private void meterPanel(JPanel jPanel, JMenu menu, String nombre, String nombreVisible) {

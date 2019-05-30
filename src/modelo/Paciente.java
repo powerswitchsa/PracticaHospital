@@ -37,4 +37,17 @@ public class Paciente extends Persona {
 		return intervenciones;
 	}
 
+	public String getFullName() {
+		return getApellidos() + ", " + getNombre();
+
+	}
+
+	public void asignarCita(Cita cita) {
+		this.citas.add(cita);
+	}
+
+	public void asigarTratamiento(Tratamiento tratamiento) {
+		this.tratamientos.add(tratamiento);
+	}
+
 }
