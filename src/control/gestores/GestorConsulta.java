@@ -1,6 +1,8 @@
-package modelo;
+package control.gestores;
 
 import java.util.ArrayList;
+
+import modelo.Consulta;
 
 public class GestorConsulta {
 
@@ -9,7 +11,7 @@ public class GestorConsulta {
 	public GestorConsulta(int numConsultas) {
 		super();
 		for (int i = 0; i < numConsultas; i++) {
-			this.consultas.add(new Consulta());
+			this.consultas.add(new Consulta(i));
 		}
 	}
 }
