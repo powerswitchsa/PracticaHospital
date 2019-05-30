@@ -90,7 +90,7 @@ public class VerHistorial extends JPanel {
 		tableCitas = new JTable(defaultTableModelC);
 		tableCitas.setFont(new Font("Tahoma", Font.CENTER_BASELINE, 12));
 		scrollCitas.setViewportView(tableCitas);
-		String columnaNameT[] = { "Paciente	", "Tipo", "Fecha", "Medico" };
+		String columnaNameT[] = { "Paciente	", "Tipo", "Fecha", "Medico"};
 		String datosColumnaT[][] = {
 				{ "Gonzalo Berceo, Jonathan", "Consulta primaria", "16/06/2019", "Jovellanos pursuy,Benito","10-0-10"} };
 		DefaultTableModel defaultTableModelT = new DefaultTableModel(datosColumnaT, columnaNameT);
