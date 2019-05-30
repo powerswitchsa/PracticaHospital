@@ -1,7 +1,6 @@
 package vista.medico;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridLayout;
 
@@ -13,8 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.MatteBorder;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class AltaMedico extends JPanel {
 
@@ -56,7 +55,7 @@ public class AltaMedico extends JPanel {
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(286)
 							.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE))
@@ -65,27 +64,27 @@ public class AltaMedico extends JPanel {
 							.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
 							.addGap(18)
 							.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE))
-						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-							.addGap(286)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap(349, Short.MAX_VALUE)
 							.addComponent(mensajeSistema, GroupLayout.PREFERRED_SIZE, 321, GroupLayout.PREFERRED_SIZE)
-							.addGap(4)
+							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnAceptar, GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE)))
 					.addGap(30))
 		);
 		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(20)
 					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 					.addGap(30)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
-						.addComponent(panelLabel, GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE))
+						.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
+						.addComponent(panelLabel, GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))
 					.addGap(10)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(mensajeSistema, GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-						.addComponent(btnAceptar, GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
-					.addGap(20))
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(mensajeSistema, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(btnAceptar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addGap(108))
 		);
 		setLayout(groupLayout);
 		creandoVista(color, letraPequena, tipoLetra);

@@ -15,6 +15,7 @@ import vista.medico.AltaMedico;
 import vista.medico.ConsultaMedico;
 import vista.paciente.AltaPaciente;
 import vista.paciente.CitaOperacion;
+import vista.paciente.VerHistorial;
 
 public class UI extends JFrame {
 
@@ -29,6 +30,7 @@ public class UI extends JFrame {
 	private CitaOperacion citaOperacion = new CitaOperacion(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private ConsultaMedico consultaMedico = new ConsultaMedico(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private AltaMedico altaMedico = new AltaMedico(colorFondo, letraPequena, letraGrande, tipoLetra);
+	private VerHistorial historialPaciente = new VerHistorial();
 
 	public UI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,7 +45,7 @@ public class UI extends JFrame {
 		setResizable(true);
 //		contentPane.add(this.citaOperacion, BorderLayout.CENTER);
 //		contentPane.add(this.altaPaciente, BorderLayout.CENTER);
-		contentPane.add(this.consultaMedico, BorderLayout.CENTER);
+		contentPane.add(this.historialPaciente, BorderLayout.CENTER);
 //		contentPane.add(this.altaMedico, BorderLayout.CENTER);
 	}
 
