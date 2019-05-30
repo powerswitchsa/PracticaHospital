@@ -16,7 +16,7 @@ import javax.swing.border.MatteBorder;
 
 public class AltaPaciente extends JPanel {
 
-	private String[] label = { "ID : ", "Nombre :", "Apellidos :", "Direccion :", "Nacimiento :", "Telefono :" };
+	private String[] label = { "Nombre :", "Apellidos :", "Direccion :", "Nacimiento :", "Telefono :" };
 	private JTextField[] fields = new JTextField[this.label.length];
 	private JPanel panelLabel = new JPanel();
 	private JPanel panelText = new JPanel();

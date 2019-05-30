@@ -1,15 +1,10 @@
 package vista;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.util.ArrayList;
 
-import javax.swing.ComboBoxEditor;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.MatteBorder;
 
 import vista.medico.AltaMedico;
 import vista.medico.ConsultaMedico;
@@ -42,7 +37,6 @@ public class UI extends JFrame {
 	private AltaMedico altaMedico = new AltaMedico(colorFondo, letraPequena, letraGrande, tipoLetra);
 
 	public UI() {
-
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 800);
 		setLocationRelativeTo(null);
@@ -53,6 +47,7 @@ public class UI extends JFrame {
 		contentPane.setLayout(new CardLayout(0, 0));
 //		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setContentPane(contentPane);
+		setBackground(colorFondo);
 		// ----------------------------------------------
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -72,6 +67,7 @@ public class UI extends JFrame {
 		// ----------------------------------------------
 		meterPanel(this.altaPaciente, jmenuPaciente, "altaPaciente", "Alta Paciente");
 		meterPanel(this.citaOperacion, jmenuPaciente, "citaOperacion", "Cita Operacion");
+		meterPanel(this.bajaPaciente, jmenuPaciente, "bajaPaciente", "Baja Paciente");
 		meterPanel(this.altaMedico, jmenuMedico, "altaMedico", "Alta Medico");
 		meterPanel(this.consultaMedico, jmenuMedico, "consultaMedico", "Consulta Medico");
 	}
@@ -80,7 +76,7 @@ public class UI extends JFrame {
 		this.contentPane.add(jPanel, nombre);
 		JMenuItem jmenuitem = new JMenuItem(nombreVisible);
 		jmenuitem.setFont(new Font(this.tipoLetra, Font.BOLD, 20));
-		jmenuitem.setForeground(Color.RED);
+		jmenuitem.setForeground(new Color(22, 85, 148));
 		jmenuitem.setBackground(Color.WHITE);
 		jmenuitem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
