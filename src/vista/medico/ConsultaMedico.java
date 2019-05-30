@@ -49,7 +49,6 @@ public class ConsultaMedico extends JPanel {
 		panelText = new JPanel();
 
 		GroupLayout groupLayout = new GroupLayout(this);
-<<<<<<< HEAD
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
@@ -90,47 +89,6 @@ public class ConsultaMedico extends JPanel {
 						.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
 					.addGap(30))
 		);
-=======
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
-				.createSequentialGroup().addGap(30)
-				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup().addComponent(lblNombre)
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 197, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(lblId).addGap(18)
-								.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-								.addGap(40))
-						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-										.addComponent(lblConsultaMedico, Alignment.LEADING, GroupLayout.DEFAULT_SIZE,
-												396, Short.MAX_VALUE)
-										.addGroup(groupLayout.createSequentialGroup()
-												.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 163,
-														GroupLayout.PREFERRED_SIZE)
-												.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(panelText,
-														GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-								.addGap(30)))));
-		groupLayout
-				.setVerticalGroup(
-						groupLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(groupLayout.createSequentialGroup().addContainerGap()
-										.addComponent(lblConsultaMedico).addGap(38)
-										.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-												.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-												.addComponent(lblId)
-												.addComponent(comboBox, GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-												.addComponent(lblNombre, GroupLayout.PREFERRED_SIZE, 17,
-														GroupLayout.PREFERRED_SIZE))
-										.addGap(26)
-										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-												.addComponent(panelLabel, GroupLayout.DEFAULT_SIZE, 245,
-														Short.MAX_VALUE)
-												.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 245,
-														Short.MAX_VALUE))
-										.addGap(30)));
->>>>>>> branch 'master' of https://github.com/powerswitchsa/PracticaHospital.git
 		setLayout(groupLayout);
 
 		creandoVista(letraPequena, tipoLetra);

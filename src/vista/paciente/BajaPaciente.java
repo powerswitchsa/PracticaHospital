@@ -114,8 +114,8 @@ public class BajaPaciente extends JPanel {
 		this.panelText.setBackground(color);
 		setBackground(color);
 		this.fields = new JTextField[this.label.length];
-		panelText.setLayout(new GridLayout(this.label.length, 1, 30, 40));
-		panelLabel.setLayout(new GridLayout(this.label.length, 1, 10, 40));
+		panelText.setLayout(new GridLayout(this.label.length, 1, 30, 60));
+		panelLabel.setLayout(new GridLayout(this.label.length, 1, 10, 60));
 		for (int i = 0; i < fields.length; i++) {
 			this.fields[i] = crearJText(letraPequena, tipoLetra);
 			this.panelLabel.add(crearLabel(this.label[i], letraPequena, tipoLetra));
