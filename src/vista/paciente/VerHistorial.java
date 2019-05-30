@@ -13,19 +13,25 @@ import javax.swing.SwingConstants;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.table.DefaultTableModel;
 
+import modelo.Especialidad;
+import modelo.Medicamento;
+import modelo.Medico;
 import modelo.Paciente;
+import modelo.historial.Cita;
+import modelo.historial.Tratamiento;
 
 import javax.swing.JTable;
 
 public class VerHistorial extends JPanel {
+	private Paciente pac = new Paciente(1, "98321321", "bartolo", "asdads", "calle pedrin", "21/5/1996");
 	private JTable tableCitas;
 	private JTable tableTratamiento;
 	private JScrollPane scrollTratamiento = new JScrollPane();
 	private JScrollPane scrollCitas = new JScrollPane();
-	private String columnaName[];
-	private String datosColumna[][];
-	private String columnaNameT[];
-	private String datosColumnaT[][];
+	private String columnaCita[] = { "Paciente	", "Tipo", "Fecha", "Medico" };
+	private String datosCita[][];
+	private String columnaTratamiento[] = { "Paciente", "Medicamento", "Posologia", "Fecha inicio", "Fecha Fin" };
+	private String datosTratamiento[][];
 
 	/**
 	 * Create the panel.
@@ -78,30 +84,61 @@ public class VerHistorial extends JPanel {
 		label.setVerticalAlignment(SwingConstants.BOTTOM);
 		panelTitulo.add(label);
 		setLayout(groupLayout);
-		crearTables();
+		rellenarCitas(pac);
 
 	}
 
-	public void crearTables() {
-		String columnaName[] = { "Paciente", "Medicamento", "Posologia", "Fecha inicio", "Fecha Fin" };
-		String datosColumna[][] = {
-				{ "Gonzalo Berceo, Jonathan", "Consulta primaria", "16/06/2019", "Jovellanos pursuy,Benito","12/19/24" } };
-		DefaultTableModel defaultTableModelC = new DefaultTableModel(datosColumna, columnaName);
+	public void rellenarCitas(Paciente paciente) {
+		this.pac.asignarCita(
+				new Cita(new Medico(1, "12321", "bartolo", "adsa", "asdsada", "Asda", Especialidad.Cabecera),
+						"21-6-1996", true, "Adsa"));
+		this.pac.asignarCita(
+				new Cita(new Medico(1, "12321", "bartolo", "adsa", "asdsada", "Asda", Especialidad.Cabecera),
+						"21-6-1996", true, "Adsa"));
+		this.pac.asignarCita(
+				new Cita(new Medico(1, "12321", "bartolo", "adsa", "asdsada", "Asda", Especialidad.Cabecera),
+						"21-6-1996", true, "Adsa"));
+		this.pac.asignarCita(
+				new Cita(new Medico(1, "12321", "bartolo", "adsa", "asdsada", "Asda", Especialidad.Cabecera),
+						"21-6-1996", true, "Adsa"));
+		int index = 0;
+		this.datosCita = new String[paciente.getCitas().size()][columnaCita.length];
+		for (Cita cita : paciente.getCitas()) {
+			rellenarCitaFila(paciente.getFullName(), cita, index);
+			index++;
+		}
+		DefaultTableModel defaultTableModelC = new DefaultTableModel(datosCita, columnaCita);
 		tableCitas = new JTable(defaultTableModelC);
 		tableCitas.setFont(new Font("Tahoma", Font.CENTER_BASELINE, 12));
 		scrollCitas.setViewportView(tableCitas);
-		String columnaNameT[] = { "Paciente	", "Tipo", "Fecha", "Medico"};
-		String datosColumnaT[][] = {
-				{ "Gonzalo Berceo, Jonathan", "Consulta primaria", "16/06/2019", "Jovellanos pursuy,Benito","10-0-10"} };
-		DefaultTableModel defaultTableModelT = new DefaultTableModel(datosColumnaT, columnaNameT);
+	}
+
+	private void rellenarCitaFila(String fullName, Cita cita, int index) {
+		this.datosCita[index][0] = fullName;
+		this.datosCita[index][1] = cita.getMedico().getEspecialidad().toString();
+		this.datosCita[index][2] = cita.getFecha();
+		this.datosCita[index][3] = cita.getNombreMedico();
+	}
+
+	private void rellenarTratamientoFila(String fullName, Tratamiento tratamiento, int index) {
+		this.datosTratamiento[index][0] = fullName;
+		this.datosTratamiento[index][1] = tratamiento.getMedicamento().toString();
+		this.datosTratamiento[index][2] = tratamiento.getDosis();
+		this.datosTratamiento[index][3] = tratamiento.getInicio();
+		this.datosTratamiento[index][4] = tratamiento.getFin();
+	}
+
+	public void rellenarTratamiento(Paciente paciente) {
+		this.pac.asigarTratamiento(new Tratamiento(new Medicamento(), "2", "21/1/1", "123"));
+		int index = 0;
+		for (Tratamiento tratamiento : paciente.getTratamientos()) {
+			this.datosTratamiento = new String[paciente.getTratamientos().size()][columnaTratamiento.length];
+			rellenarTratamientoFila(paciente.getFullName(), tratamiento, index);
+			index++;
+		}
+		DefaultTableModel defaultTableModelT = new DefaultTableModel(datosTratamiento, columnaTratamiento);
 		tableTratamiento = new JTable(defaultTableModelT);
 		tableTratamiento.setFont(new Font("Tahoma", Font.CENTER_BASELINE, 12));
 		scrollTratamiento.setViewportView(tableTratamiento);
 	}
-	public void mostrarPaciente(Paciente paciente) {
-		for (int i = 0; i < 5; i++) {
-			
-		}
-	}
-
 }

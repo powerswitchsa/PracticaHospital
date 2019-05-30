@@ -6,7 +6,7 @@ import modelo.historial.Cita;
 import modelo.historial.Intervencion;
 import modelo.historial.Tratamiento;
 
-public abstract class Paciente extends Persona {
+public class Paciente extends Persona {
 
 	private ArrayList<Cita> citas;
 	private ArrayList<Cita> citasPendientes;
@@ -36,5 +36,15 @@ public abstract class Paciente extends Persona {
 	public ArrayList<Intervencion> getIntervenciones() {
 		return intervenciones;
 	}
+public String getFullName() {
+	return getApellidos()+", "+getNombre();
+	
+}
+public void asignarCita(Cita cita) {
+	this.citas.add(cita);
+}
+public void asigarTratamiento(Tratamiento tratamiento) {
+	this.tratamientos.add(tratamiento);
+}
 
 }

@@ -33,5 +33,8 @@ public class Cita {
 	public String getObservaciones() {
 		return observaciones;
 	}
-
+public String getNombreMedico() {
+	return medico.getNombre()+", "+medico.getApellidos();
+	
+}
 }
