@@ -2,10 +2,10 @@ package control;
 
 import java.util.ArrayList;
 
+import modelo.Cita;
 import modelo.Medico;
 import modelo.Paciente;
 import modelo.Validador;
-import modelo.historial.Cita;
 import vista.paciente.CitaOperacion;
 
 public class Control {

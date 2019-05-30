@@ -2,10 +2,6 @@ package modelo;
 
 import java.util.ArrayList;
 
-import modelo.historial.Cita;
-import modelo.historial.Intervencion;
-import modelo.historial.Tratamiento;
-
 public class Paciente extends Persona {
 
 	private ArrayList<Cita> citas;

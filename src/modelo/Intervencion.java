@@ -1,6 +1,4 @@
-package modelo.historial;
-
-import modelo.Medico;
+package modelo;
 
 public class Intervencion {
 

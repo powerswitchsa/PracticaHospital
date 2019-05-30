@@ -15,12 +15,12 @@ import javax.swing.SwingConstants;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.table.DefaultTableModel;
 
+import modelo.Cita;
 import modelo.Especialidad;
 import modelo.Medicamento;
 import modelo.Medico;
 import modelo.Paciente;
-import modelo.historial.Cita;
-import modelo.historial.Tratamiento;
+import modelo.Tratamiento;
 
 import javax.swing.JTable;
 

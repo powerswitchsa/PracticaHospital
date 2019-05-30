@@ -1,6 +1,4 @@
-package modelo.historial;
-
-import modelo.Medicamento;
+package modelo;
 
 public class Tratamiento {
 
