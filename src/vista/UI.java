@@ -14,6 +14,7 @@ import modelo.Medico;
 import vista.medico.AltaMedico;
 import vista.medico.ConsultaMedico;
 import vista.paciente.AltaPaciente;
+import vista.paciente.BajaPaciente;
 import vista.paciente.CitaOperacion;
 
 public class UI extends JFrame {
@@ -27,12 +28,13 @@ public class UI extends JFrame {
 
 	private AltaPaciente altaPaciente = new AltaPaciente(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private CitaOperacion citaOperacion = new CitaOperacion(colorFondo, letraPequena, letraGrande, tipoLetra);
+	private BajaPaciente bajaPaciente = new BajaPaciente(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private ConsultaMedico consultaMedico = new ConsultaMedico(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private AltaMedico altaMedico = new AltaMedico(colorFondo, letraPequena, letraGrande, tipoLetra);
 
 	public UI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 800);
+		setBounds(100, 100, 800, 650);
 		contentPane = new JPanel();
 		contentPane.setBackground(colorFondo);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -41,8 +43,9 @@ public class UI extends JFrame {
 		setLocationRelativeTo(null);
 //		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setResizable(true);
+		contentPane.add(this.bajaPaciente, BorderLayout.CENTER);
 //		contentPane.add(this.citaOperacion, BorderLayout.CENTER);
-		contentPane.add(this.altaPaciente, BorderLayout.CENTER);
+//		contentPane.add(this.altaPaciente, BorderLayout.CENTER);
 //		contentPane.add(this.consultaMedico, BorderLayout.CENTER);
 //		contentPane.add(this.altaMedico, BorderLayout.CENTER);
 	}
