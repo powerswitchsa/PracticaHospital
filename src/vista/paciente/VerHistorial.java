@@ -83,14 +83,14 @@ public class VerHistorial extends JPanel {
 	}
 
 	public void crearTables() {
-		String columnaName[] = { "Paciente", "medicamento", "posologia", "fecha inicio", "fecha fin" };
+		String columnaName[] = { "Paciente", "Medicamento", "Posologia", "Fecha inicio", "Fecha Fin" };
 		String datosColumna[][] = {
 				{ "Gonzalo Berceo, Jonathan", "Consulta primaria", "16/06/2019", "Jovellanos pursuy,Benito","12/19/24" } };
 		DefaultTableModel defaultTableModelC = new DefaultTableModel(datosColumna, columnaName);
 		tableCitas = new JTable(defaultTableModelC);
 		tableCitas.setFont(new Font("Tahoma", Font.CENTER_BASELINE, 12));
 		scrollCitas.setViewportView(tableCitas);
-		String columnaNameT[] = { "Paciente	", "tipo", "fecha", "medico" };
+		String columnaNameT[] = { "Paciente	", "Tipo", "Fecha", "Medico" };
 		String datosColumnaT[][] = {
 				{ "Gonzalo Berceo, Jonathan", "Consulta primaria", "16/06/2019", "Jovellanos pursuy,Benito","10-0-10"} };
 		DefaultTableModel defaultTableModelT = new DefaultTableModel(datosColumnaT, columnaNameT);
