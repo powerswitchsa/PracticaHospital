@@ -2,23 +2,21 @@ package control;
 
 import java.util.ArrayList;
 
-import control.gestores.GestorConsulta;
 import modelo.Medico;
 import modelo.Paciente;
 import modelo.Validador;
 import modelo.historial.Cita;
-import vista.paciente.CitaEspecialista;
 import vista.paciente.CitaOperacion;
 
 public class Control {
 
 	private Validador validador;
-	private GestorConsulta gestorConsulta;
+	private Logica logica;
 
 	public Control() {
 		super();
 		this.validador = new Validador();
-		this.gestorConsulta = new GestorConsulta(4);
+		this.logica = new Logica();
 	}
 
 	/**

@@ -42,8 +42,8 @@ public class UI extends JFrame {
 //		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setResizable(true);
 //		contentPane.add(this.citaOperacion, BorderLayout.CENTER);
-//		contentPane.add(this.altaPaciente, BorderLayout.CENTER);
-		contentPane.add(this.consultaMedico, BorderLayout.CENTER);
+		contentPane.add(this.altaPaciente, BorderLayout.CENTER);
+//		contentPane.add(this.consultaMedico, BorderLayout.CENTER);
 //		contentPane.add(this.altaMedico, BorderLayout.CENTER);
 	}
 
