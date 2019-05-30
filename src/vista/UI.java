@@ -14,6 +14,7 @@ import javax.swing.border.MatteBorder;
 import vista.medico.AltaMedico;
 import vista.medico.ConsultaMedico;
 import vista.paciente.AltaPaciente;
+import vista.paciente.BajaPaciente;
 import vista.paciente.CitaOperacion;
 
 import java.awt.CardLayout;
@@ -36,6 +37,7 @@ public class UI extends JFrame {
 
 	private AltaPaciente altaPaciente = new AltaPaciente(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private CitaOperacion citaOperacion = new CitaOperacion(colorFondo, letraPequena, letraGrande, tipoLetra);
+	private BajaPaciente bajaPaciente = new BajaPaciente(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private ConsultaMedico consultaMedico = new ConsultaMedico(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private AltaMedico altaMedico = new AltaMedico(colorFondo, letraPequena, letraGrande, tipoLetra);
 
