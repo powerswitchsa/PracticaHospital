@@ -29,9 +29,19 @@ public class AlmacenMedico {
 		this.DAO.getLeer(rutaDestino);
 	}
 
+	private int getUltimaId() {
+		int retorno = 0;
+		for (Medico medico : this.medicos) {
+			if (medico.getId() > retorno)
+				retorno = medico.getId();
+		}
+		return retorno + 1;
+	}
+
 	public boolean getAltaMedico(Medico medico) {
 		boolean retorno = false;
 		if (!this.medicos.contains(medico)) {
+			medico.setId(getUltimaId());
 			this.medicos.add(medico);
 			grabar();
 			retorno = true;
