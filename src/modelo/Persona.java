@@ -11,7 +11,6 @@ public abstract class Persona {
 
 	public Persona(Medico medico) {
 		super();
-		this.id = medico.getId();
 		this.telefono = medico.getTelefono();
 		this.nombre = medico.getNombre();
 		this.apellidos = medico.getApellidos();
@@ -19,9 +18,8 @@ public abstract class Persona {
 		this.nacimiento = medico.getNacimiento();
 	}
 
-	public Persona(int id, String telefono, String nombre, String apellidos, String direccion, String nacimiento) {
+	public Persona(String telefono, String nombre, String apellidos, String direccion, String nacimiento) {
 		super();
-		this.id = id;
 		this.telefono = telefono;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -59,6 +57,10 @@ public abstract class Persona {
 
 	public String getNacimiento() {
 		return nacimiento;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

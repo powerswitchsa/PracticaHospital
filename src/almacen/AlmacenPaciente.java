@@ -33,6 +33,7 @@ public class AlmacenPaciente {
 	}
 
 	public void getAltaPaciente(Paciente paciente) {
+		paciente.setId(getUltimaId());
 		this.pacientes.add(paciente);
 		this.indicePaciente.put(paciente.getId(), paciente.getNombre());
 		grabarIndicePaciente();
@@ -87,6 +88,15 @@ public class AlmacenPaciente {
 		for (int i = 0; i < archivos.length; i++) {
 			this.pacientes.add(this.DAOPaciente.getLeer(rutaPacientes + i + this.extension));
 		}
+	}
+
+	private int getUltimaId() {
+		int retorno = 0;
+		for (Paciente paciente : this.pacientes) {
+			if (paciente.getId() > retorno)
+				retorno = paciente.getId();
+		}
+		return retorno + 1;
 	}
 
 }

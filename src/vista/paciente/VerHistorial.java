@@ -25,7 +25,6 @@ import modelo.Tratamiento;
 import javax.swing.JTable;
 
 public class VerHistorial extends JPanel {
-	private Paciente pac = new Paciente(1, "98321321", "bartolo", "asdads", "calle pedrin", "21/5/1996");
 
 	private JTable tableCitas;
 	private JTable tableTratamiento;
