@@ -36,7 +36,7 @@ public class UI extends JFrame {
 	private BajaPaciente bajaPaciente = new BajaPaciente(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private ConsultaMedico consultaMedico = new ConsultaMedico(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private AltaMedico altaMedico = new AltaMedico(colorFondo, letraPequena, letraGrande, tipoLetra);
-	private VerHistorial verHistorial = new VerHistorial(colorFondo, letraPequena , letraGrande , tipoLetra);
+	private VerHistorial verHistorial = new VerHistorial(colorFondo, letraPequena, letraGrande, tipoLetra);
 
 	public UI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -92,6 +92,30 @@ public class UI extends JFrame {
 
 	private void asociarPanel(String string) {
 		((CardLayout) contentPane.getLayout()).show(contentPane, string);
+	}
+
+	public AltaPaciente getAltaPaciente() {
+		return altaPaciente;
+	}
+
+	public CitaOperacion getCitaOperacion() {
+		return citaOperacion;
+	}
+
+	public BajaPaciente getBajaPaciente() {
+		return bajaPaciente;
+	}
+
+	public ConsultaMedico getConsultaMedico() {
+		return consultaMedico;
+	}
+
+	public AltaMedico getAltaMedico() {
+		return altaMedico;
+	}
+
+	public VerHistorial getVerHistorial() {
+		return verHistorial;
 	}
 
 }
