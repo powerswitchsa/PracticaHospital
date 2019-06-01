@@ -17,6 +17,15 @@ public class Logica {
 	public Logica() {
 		super();
 		this.consulta = new ArrayList<Consulta>();
+		this.almacenPaciente = new AlmacenPaciente();
+		this.almacenMedico = new AlmacenMedico();
+	}
+
+	public boolean altaPaciente(ArrayList<String> paciente) {
+		System.out.println("hola");
+		this.almacenPaciente.altaPaciente(
+				new Paciente(paciente.get(0), paciente.get(1), paciente.get(2), paciente.get(3), paciente.get(4)));
+		return false;
 	}
 
 	public Paciente getPaciente(int id) {
