@@ -6,11 +6,11 @@ public class Consulta {
 
 	private int id;
 	private boolean[][] horarios;
-	private ArrayList<Integer> idMedicos;
+	private ArrayList<String> idMedicos;
 
 	public Consulta(int id) {
 		super();
-		this.idMedicos = new ArrayList<Integer>();
+		this.idMedicos = new ArrayList<String>();
 		this.horarios = new boolean[8][5];
 		this.id = id;
 	}
@@ -42,9 +42,20 @@ public class Consulta {
 	 * 
 	 * @param medico que queremos asignar
 	 */
-	public void asignarMedico(Medico medico) {
+	public void asignarMedico(String id) {
 		// TODO Auto-generated method stub
 
 	}
 
+	public boolean getVacantes() {
+		return this.idMedicos.size() < 5;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public boolean[][] getHorarios() {
+		return horarios;
+	}
 }

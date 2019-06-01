@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import almacen.AlmacenMedico;
 import almacen.AlmacenPaciente;
+import modelo.Consulta;
 import modelo.Medico;
 import modelo.Paciente;
 
@@ -11,6 +12,12 @@ public class Logica {
 
 	private AlmacenPaciente almacenPaciente;
 	private AlmacenMedico almacenMedico;
+	private ArrayList<Consulta> consulta;
+
+	public Logica() {
+		super();
+		this.consulta = new ArrayList<Consulta>();
+	}
 
 	public Paciente getPaciente(int id) {
 		return null;
@@ -34,5 +41,15 @@ public class Logica {
 
 	public ArrayList<Medico> getListMedico() {
 		return null;
+	}
+
+	public ArrayList<Integer> getConsultaVacante() {
+		ArrayList<Integer> idConsulta = new ArrayList<Integer>();
+		for (Consulta consulta : consulta) {
+			if (consulta.getVacantes()) {
+				idConsulta.add(consulta.getId());
+			}
+		}
+		return idConsulta;
 	}
 }

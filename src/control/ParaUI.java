@@ -1,8 +1,11 @@
 package control;
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
+import modelo.Especialidad;
 import vista.VentanaUI;
 
 public class ParaUI extends VentanaUI {
@@ -11,6 +14,7 @@ public class ParaUI extends VentanaUI {
 
 	public ParaUI() {
 		super();
+		this.control = new Control();
 		listener();
 	}
 
@@ -55,11 +59,22 @@ public class ParaUI extends VentanaUI {
 		});
 
 		getItem5().addActionListener(new ActionListener() {
+			@SuppressWarnings("unchecked")
 			public void actionPerformed(ActionEvent e) {
 				asociarPanel("consultaMedico");
+				getAltaMedico().getComboConsulta().removeAllItems();
+				getAltaMedico().getComboEspecilidad().removeAllItems();
+				ArrayList<Integer>idConsulta = control.getVacanteConsulta();
+				for (Integer id : idConsulta) {
+					getAltaMedico().getComboConsulta().addItem(id);
+				}
+				for (Especialidad especial : Especialidad.values()) {
+					getAltaMedico().getComboEspecilidad().addItem(especial);
+			}
+				//				hacer horario
 			}
 		});
-
+		
 		getItem6().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				asociarPanel("verHistorial");
@@ -71,5 +86,4 @@ public class ParaUI extends VentanaUI {
 			}
 		});
 	}
-
 }

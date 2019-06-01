@@ -134,5 +134,9 @@ public class Control {
 	public boolean getModificarPaciente(String id, String nombrePaciente, String direccion, String telefono) {
 		return false;
 	}
+	public ArrayList<Integer> getVacanteConsulta(){
+		return this.logica.getConsultaVacante();
+		
+	}
 
 }
