@@ -6,10 +6,10 @@ public class Intervencion {
 	private Medico cirujano;
 	private String tipoIntervencion;
 	private boolean realizado;
-	private boolean curado;
+	private String curado;
 
 	public Intervencion(Medico medicoSolicitante, Medico cirujano, String tipoIntervencion, boolean realizado,
-			boolean curado) {
+			String curado) {
 		super();
 		this.medicoSolicitante = medicoSolicitante;
 		this.cirujano = cirujano;
@@ -34,8 +34,11 @@ public class Intervencion {
 		return realizado;
 	}
 
-	public boolean isCurado() {
+	public String isCurado() {
 		return curado;
 	}
-
+	public String getFullName() {
+		return cirujano.getApellidos()+cirujano.getNombre();
+		
+	}
 }
