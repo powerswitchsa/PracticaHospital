@@ -2,7 +2,7 @@ package modelo;
 
 public abstract class Persona {
 
-	private int id;
+	private String id;
 	private String telefono;
 	private String nombre;
 	private String apellidos;
@@ -35,7 +35,7 @@ public abstract class Persona {
 		this.direccion = direccion;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -59,7 +59,7 @@ public abstract class Persona {
 		return nacimiento;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

@@ -11,6 +11,7 @@ import java.awt.Color;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 
 import javax.swing.border.MatteBorder;
 
@@ -40,36 +41,29 @@ public class AltaPaciente extends JPanel {
 		btnAceptar.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(30)
-					.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.TRAILING).addGroup(groupLayout
+				.createSequentialGroup().addGap(30)
+				.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE).addGap(18)
+				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
 						.addComponent(lblNewLabel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
-						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-							.addComponent(mensajeSistema, GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(btnAceptar, GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE)))
-					.addGap(30))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(20)
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-					.addGap(30)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addGroup(Alignment.TRAILING,
+								groupLayout.createSequentialGroup()
+										.addComponent(mensajeSistema, GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
+										.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(btnAceptar,
+												GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE)))
+				.addGap(30)));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
+				.createSequentialGroup().addGap(20)
+				.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE).addGap(30)
+				.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addComponent(panelLabel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
 						.addComponent(panelText, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+				.addGap(18)
+				.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnAceptar, GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
 						.addComponent(mensajeSistema, GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
-					.addContainerGap())
-		);
+				.addContainerGap()));
 		panelLabel.setBackground(Color.WHITE);
 		panelText.setBackground(Color.WHITE);
 		panelText.setLayout(new GridLayout(1, 0, 0, 0));
@@ -77,6 +71,14 @@ public class AltaPaciente extends JPanel {
 		setLayout(groupLayout);
 		creandoVista(letraPequena, tipoLetra);
 		setVisible(true);
+	}
+
+	public ArrayList<String> getInfoPaciente() {
+		ArrayList<String> list = new ArrayList<String>();
+		for (int i = 0; i < fields.length; i++) {
+			list.add(this.fields[i].getText());
+		}
+		return list;
 	}
 
 	private void creandoVista(int letraPequena, String tipoLetra) {

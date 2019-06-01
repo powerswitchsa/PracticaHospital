@@ -9,7 +9,7 @@ public class Paciente extends Persona {
 	private ArrayList<Tratamiento> tratamientos;
 	private ArrayList<Intervencion> intervenciones;
 
-	public Paciente(String telefono, String nombre, String apellidos, String direccion, String nacimiento) {
+	public Paciente(String nombre, String apellidos, String direccion, String nacimiento, String telefono) {
 		super(telefono, nombre, apellidos, direccion, nacimiento);
 		this.citas = new ArrayList<Cita>();
 		this.citasPendientes = new ArrayList<Cita>();

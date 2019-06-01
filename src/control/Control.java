@@ -25,7 +25,8 @@ public class Control {
 	 * @param paciente
 	 * @return true si se ha podido crear
 	 */
-	public boolean getAltaPaciente(Paciente paciente) {
+	public boolean getAltaPaciente(ArrayList<String> paciente) {
+		this.logica.altaPaciente(paciente);
 		return false;
 	}
 

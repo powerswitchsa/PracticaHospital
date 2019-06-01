@@ -11,14 +11,15 @@ public class ParaUI extends VentanaUI {
 
 	public ParaUI() {
 		super();
+		this.control = new Control();
 		listener();
 	}
 
 	private void listener() {
 
-		getAltaMedico().getBtnAceptar().addActionListener(new ActionListener() {
+		getAltaPaciente().getBtnAceptar().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				control.getAltaPaciente(getAltaPaciente().getInfoPaciente());
 			}
 		});
 
