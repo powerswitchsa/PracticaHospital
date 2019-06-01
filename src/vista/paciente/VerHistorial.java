@@ -23,6 +23,7 @@ import modelo.Paciente;
 import modelo.Tratamiento;
 
 import javax.swing.JTable;
+import javax.swing.JComboBox;
 
 public class VerHistorial extends JPanel {
 
@@ -43,31 +44,41 @@ public class VerHistorial extends JPanel {
 		setBackground(colorFondo);
 		JPanel panelTituloTratamiento = new JPanel();
 		panelTituloTratamiento.setBackground(colorFondo);
+
+		JLabel lblHistorialPaciente = new JLabel("HISTORIAL PACIENTE");
+		lblHistorialPaciente.setFont(new Font("Tahoma", Font.PLAIN, 34));
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.TRAILING).addGroup(Alignment.LEADING,
-				groupLayout.createSequentialGroup().addGap(39).addGroup(groupLayout
-						.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(panelTituloTratamiento, GroupLayout.PREFERRED_SIZE, 103,
-										GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(454, Short.MAX_VALUE))
-						.addGroup(groupLayout.createSequentialGroup()
-								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(scrollCitas, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 629,
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
+				.createSequentialGroup().addGap(39).addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(
+								groupLayout.createSequentialGroup()
+										.addComponent(lblHistorialPaciente, GroupLayout.DEFAULT_SIZE, 359,
 												Short.MAX_VALUE)
-										.addComponent(scrollTratamiento, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE,
-												629, Short.MAX_VALUE)
-										.addComponent(panelTitulo, GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE))
-								.addGap(31)))));
+										.addGap(31))
+						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addGroup(groupLayout.createSequentialGroup()
+										.addComponent(panelTituloTratamiento, GroupLayout.PREFERRED_SIZE, 103,
+												GroupLayout.PREFERRED_SIZE)
+										.addContainerGap(308, Short.MAX_VALUE))
+								.addGroup(groupLayout.createSequentialGroup()
+										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+												.addComponent(scrollCitas, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE,
+														380, Short.MAX_VALUE)
+												.addComponent(scrollTratamiento, Alignment.TRAILING,
+														GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+												.addComponent(panelTitulo, GroupLayout.PREFERRED_SIZE, 192,
+														GroupLayout.PREFERRED_SIZE))
+										.addGap(31))))));
 		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup().addGap(88)
-						.addComponent(panelTitulo, GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+				.addGroup(groupLayout.createSequentialGroup().addGap(36).addComponent(lblHistorialPaciente)
+						.addPreferredGap(ComponentPlacement.UNRELATED)
+						.addComponent(panelTitulo, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(scrollCitas, GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+						.addComponent(scrollCitas, GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
 						.addPreferredGap(ComponentPlacement.RELATED)
 						.addComponent(panelTituloTratamiento, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 								GroupLayout.PREFERRED_SIZE)
-						.addGap(12).addComponent(scrollTratamiento, GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+						.addGap(12).addComponent(scrollTratamiento, GroupLayout.PREFERRED_SIZE, 22, Short.MAX_VALUE)
 						.addGap(25)));
 		panelTituloTratamiento.setLayout(new GridLayout(0, 1, 0, 0));
 
@@ -81,9 +92,8 @@ public class VerHistorial extends JPanel {
 		scrollCitas.setColumnHeaderView(tableCitas);
 		panelTitulo.setLayout(new GridLayout(0, 1, 0, 0));
 
-		JLabel lblHistorialPaciente = new JLabel("HISTORIAL PACIENTE");
-		panelTitulo.add(lblHistorialPaciente);
-		lblHistorialPaciente.setFont(new Font("Tahoma", Font.PLAIN, 34));
+		JComboBox comboBox = new JComboBox();
+		panelTitulo.add(comboBox);
 
 		JLabel label = new JLabel("Citas/Operaciones");
 		label.setVerticalAlignment(SwingConstants.BOTTOM);
@@ -136,5 +146,4 @@ public class VerHistorial extends JPanel {
 		this.datosTratamiento[index][3] = tratamiento.getInicio();
 		this.datosTratamiento[index][4] = tratamiento.getFin();
 	}
-
 }
