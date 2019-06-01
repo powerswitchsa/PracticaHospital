@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 import vista.medico.AltaMedico;
 import vista.medico.ConsultaMedico;
+import vista.operacion.CerrarOperacion;
 import vista.paciente.AltaPaciente;
 import vista.paciente.BajaPaciente;
 import vista.paciente.CitaOperacion;
@@ -37,6 +38,7 @@ public class VentanaUI extends JFrame {
 	private ConsultaMedico consultaMedico = new ConsultaMedico(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private AltaMedico altaMedico = new AltaMedico(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private VerHistorial verHistorial = new VerHistorial(colorFondo, letraPequena, letraGrande, tipoLetra);
+	private CerrarOperacion cerrarOperacion = new CerrarOperacion(colorFondo, letraPequena, letraGrande, tipoLetra);
 
 	private JMenu jmenuPaciente;
 	private JMenu jmenuMedico;
@@ -48,6 +50,7 @@ public class VentanaUI extends JFrame {
 	private JMenuItem item4 = new JMenuItem("Consulta Medico");
 	private JMenuItem item5 = new JMenuItem("Alta Medico");
 	private JMenuItem item6 = new JMenuItem("Ver Historial");
+	private JMenuItem item7 = new JMenuItem("Cerrar Operacion");
 
 	public VentanaUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -86,6 +89,7 @@ public class VentanaUI extends JFrame {
 		this.contentPane.add(this.consultaMedico, "altaMedico");
 		this.contentPane.add(this.altaMedico, "consultaMedico");
 		this.contentPane.add(this.verHistorial, "verHistorial");
+		this.contentPane.add(this.cerrarOperacion, "cerrarOperacion");
 
 		incluirItem(jmenuPaciente, item1);
 		incluirItem(jmenuPaciente, item2);
@@ -93,6 +97,7 @@ public class VentanaUI extends JFrame {
 		incluirItem(jmenuMedico, item4);
 		incluirItem(jmenuMedico, item5);
 		incluirItem(jmenuPaciente, item6);
+		incluirItem(jmenuOperacion, item7);
 
 	}
 
@@ -167,4 +172,7 @@ public class VentanaUI extends JFrame {
 		return item6;
 	}
 
+	public JMenuItem getItem7() {
+		return item7;
+	}
 }

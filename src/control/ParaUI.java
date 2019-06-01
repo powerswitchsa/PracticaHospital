@@ -32,6 +32,7 @@ public class ParaUI extends VentanaUI {
 		getItem1().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				asociarPanel("altaPaciente");
+				getAltaPaciente().getMensajeSistema().setText("caca");
 			}
 		});
 
@@ -64,7 +65,11 @@ public class ParaUI extends VentanaUI {
 				asociarPanel("verHistorial");
 			}
 		});
-
+		getItem7().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				asociarPanel("cerrarOperacion");
+			}
+		});
 	}
 
 }
