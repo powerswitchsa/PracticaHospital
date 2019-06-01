@@ -18,16 +18,22 @@ public class AlmacenPaciente {
 		super();
 		this.DAOIndice = new DAO<HashMap<String, Paciente>>();
 		this.DAOPaciente = new DAO<Paciente>();
-		this.mapPaciente = new HashMap<String, Paciente>();
 
-		if (!new File(rutaIndice).exists())
+		if (!new File(rutaIndice).exists()) {
 			this.mapPaciente = leerMapPaciente();
+		} else {
+			this.mapPaciente = new HashMap<String, Paciente>();
+		}
+
+		String asd = "./resource/pacientes/null.dat";
+		Paciente paciente = DAOPaciente.getLeer(asd);
+		System.out.println(paciente.getFullName());
 
 	}
 
 	public void altaPaciente(Paciente paciente) {
-		paciente.setId(getUltimaId());
-		this.mapPaciente.put(paciente.getId(), paciente);
+//		paciente.setId(getUltimaId());
+//		this.mapPaciente.put(paciente.getId(), paciente);
 		grabarMapPaciente();
 		grabarPaciente(paciente);
 	}
