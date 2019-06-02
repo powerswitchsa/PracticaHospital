@@ -61,4 +61,19 @@ public class Logica {
 		}
 		return idConsulta;
 	}
+
+	public ArrayList<Boolean> getPosHoraVacante() {
+		ArrayList<Boolean> horaVacante = new ArrayList<Boolean>();
+		for (Consulta consulta : consulta) {
+			for (int i = 0; i < consulta.getHorarios().length; i++) {
+				for (int j = 0; j < consulta.getHorarios()[0].length; j++) {
+					if (consulta.getHorarios()[i][j] == false) {
+						horaVacante.add(consulta.getHorarios()[i][j]);
+					}
+				}
+			}
+		}
+		return horaVacante;
+
+	}
 }

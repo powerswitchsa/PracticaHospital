@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import modelo.Especialidad;
+import modelo.Paciente;
 import vista.VentanaUI;
 
 public class ParaUI extends VentanaUI {
@@ -64,14 +65,18 @@ public class ParaUI extends VentanaUI {
 				asociarPanel("consultaMedico");
 				getAltaMedico().getComboConsulta().removeAllItems();
 				getAltaMedico().getComboEspecilidad().removeAllItems();
+				getAltaMedico().getComboHorario().removeAllItems();
 				ArrayList<Integer>idConsulta = control.getVacanteConsulta();
+				ArrayList<Boolean>horaLibre = control.getHoraLibre();
 				for (Integer id : idConsulta) {
 					getAltaMedico().getComboConsulta().addItem(id);
 				}
 				for (Especialidad especial : Especialidad.values()) {
 					getAltaMedico().getComboEspecilidad().addItem(especial);
 			}
-				//				hacer horario
+				for (Boolean hora : horaLibre ) {
+					getAltaMedico().getComboHorario().addItem(hora);
+				}
 			}
 		});
 		

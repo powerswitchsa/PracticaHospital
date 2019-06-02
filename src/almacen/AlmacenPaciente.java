@@ -25,9 +25,9 @@ public class AlmacenPaciente {
 			this.mapPaciente = new HashMap<String, Paciente>();
 		}
 
-		String asd = "./resource/pacientes/null.dat";
-		Paciente paciente = DAOPaciente.getLeer(asd);
-		System.out.println(paciente.getFullName());
+//		String asd = "./resource/pacientes/null.dat";
+//		Paciente paciente = DAOPaciente.getLeer(asd);
+//		System.out.println(paciente.getFullName());
 
 	}
 

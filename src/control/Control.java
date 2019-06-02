@@ -139,5 +139,8 @@ public class Control {
 		return this.logica.getConsultaVacante();
 		
 	}
+	public ArrayList<Boolean> getHoraLibre(){
+		return this.logica.getPosHoraVacante();
+	}
 
 }
