@@ -12,38 +12,29 @@ import modelo.Paciente;
 public class PruebaGrabador {
 	public static void main(String[] args) {
 
-		String carpPacientes = "resource/pacientes";
-		File file = new File(carpPacientes);
-		System.out.println(file.getAbsolutePath());
-		System.out.println(file.exists());
-		file.mkdir();
+		String carpPacientes = "resource/pacientes/1.dat";
+		DAO<Paciente> dao = new DAO<Paciente>();
+		dao.grabar(carpPacientes, new Paciente("hola", "hola", "hola", "hola", "hola"));
 
-		Paciente paciente = new Paciente("fran", "delgado", "puebla", "4/10/96", "23423223230");
+		Paciente paciente = leer(carpPacientes);
+		System.out.println(paciente != null);
 
-		Paciente aux = null;
-		ArrayList<Paciente> list = new ArrayList<Paciente>();
-		list.add(paciente);
+		System.out.println(paciente.getFullName());
+	}
 
-		try {
-			FileOutputStream flujoW = new FileOutputStream(carpPacientes + "/Nº1.dat");
-			ObjectOutputStream adaptador = new ObjectOutputStream(flujoW);
-			adaptador.writeObject(list);
-			flujoW.close();
-		} catch (Exception e) {
-			System.out.println("No lo puede grabar");
+	public static Paciente leer(String ruta) {
+		assert ruta != null;
+		Paciente t = null;
+		if (new File(ruta).exists()) {
+			try {
+				FileInputStream flujoR = new FileInputStream(ruta);
+				ObjectInputStream lector = new ObjectInputStream(flujoR);
+				t = (Paciente) lector.readObject();
+				flujoR.close();
+			} catch (Exception e) {
+				System.out.println("No se puede leer");
+			}
 		}
-
-		try {
-			FileInputStream flujoR = new FileInputStream(carpPacientes + "/Nº1.dat");
-			ObjectInputStream lector = new ObjectInputStream(flujoR);
-			list = (ArrayList<Paciente>) lector.readObject();
-			flujoR.close();
-		} catch (Exception e) {
-			System.out.println("No lo puede leer");
-		}
-
-		for (Paciente paciente2 : list) {
-			System.out.println(paciente2.getFullName());
-		}
+		return t;
 	}
 }

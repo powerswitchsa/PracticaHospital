@@ -35,7 +35,7 @@ public class ModificarPaciente extends JPanel {
 	private JPanel panelInfo;
 	private JPanel panelLabel;
 	private JComboBox comboBoxNombre;
-	private JComboBox comboBoxID;
+	private JComboBox<String> comboBoxID;
 	private JButton btnModificar;
 
 	public ModificarPaciente(Color colorFondo, int letraPequena, int letraGrande, String tipoLetra) {
@@ -178,11 +178,11 @@ public class ModificarPaciente extends JPanel {
 		return btnModificar;
 	}
 
-	public JComboBox getComboBoxNombre() {
+	public JComboBox<String> getComboBoxNombre() {
 		return comboBoxNombre;
 	}
 
-	public JComboBox getComboBoxID() {
+	public JComboBox<String> getComboBoxID() {
 		return comboBoxID;
 	}
 

@@ -7,9 +7,9 @@ import java.util.HashMap;
 import javax.swing.plaf.ComboBoxUI;
 
 import modelo.Paciente;
-import vista.VentanaUI;
+import vista.UI;
 
-public class ParaUI extends VentanaUI {
+public class ParaUI extends UI {
 
 	private Control control;
 
@@ -46,9 +46,10 @@ public class ParaUI extends VentanaUI {
 
 		getModificarPaciente().getComboBoxID().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				getModificarPaciente().rellenarCampos(
-						control.getPaciente(getModificarPaciente().getComboBoxID().getSelectedItem().toString()));
-
+				if (getModificarPaciente().getComboBoxID().getSelectedItem().toString() != null) {
+					String id = getModificarPaciente().getComboBoxID().getSelectedItem().toString();
+					getModificarPaciente().rellenarCampos(control.getPaciente(id));
+				}
 			}
 		});
 		// Para actualizar jcombo

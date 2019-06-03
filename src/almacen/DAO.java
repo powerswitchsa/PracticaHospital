@@ -1,5 +1,7 @@
+
 package almacen;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -26,13 +28,15 @@ public class DAO<T> {
 	public T leer(String ruta) {
 		assert ruta != null;
 		T t = null;
-		try {
-			FileInputStream flujoR = new FileInputStream(ruta);
-			ObjectInputStream lector = new ObjectInputStream(flujoR);
-			t = (T) lector.readObject();
-			flujoR.close();
-		} catch (Exception e) {
-			System.out.println("No se puede leer");
+		if (new File(ruta).exists()) {
+			try {
+				FileInputStream flujoR = new FileInputStream(ruta);
+				ObjectInputStream lector = new ObjectInputStream(flujoR);
+				t = (T) lector.readObject();
+				flujoR.close();
+			} catch (Exception e) {
+				System.out.println("No se puede leer");
+			}
 		}
 		return t;
 	}
