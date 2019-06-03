@@ -24,7 +24,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-public class VentanaUI extends JFrame {
+public class UI extends JFrame {
 
 	private JPanel contentPane;
 
@@ -56,7 +56,7 @@ public class VentanaUI extends JFrame {
 	private JMenuItem item7 = new JMenuItem("Cerrar Operacion");
 	private JMenuItem item8 = new JMenuItem("Modificar Paciente");
 
-	public VentanaUI() {
+	public UI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 800);
 		setLocationRelativeTo(null);

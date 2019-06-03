@@ -1,49 +1,42 @@
 package almacen;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.FileNotFoundException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 
 import modelo.Paciente;
 
 public class PruebaGrabador {
 	public static void main(String[] args) {
 
-		String carpPacientes = "resource/pacientes";
-		File file = new File(carpPacientes);
-		System.out.println(file.getAbsolutePath());
-		System.out.println(file.exists());
-		file.mkdir();
+		String carpPacientes = "resource/pacientes/1.dat";
+		DAO<Paciente> dao = new DAO<Paciente>();
+		dao.grabar(carpPacientes, new Paciente("hola", "hola", "hola", "hola", "hola"));
 
-		Paciente paciente = new Paciente("fran", "delgado", "puebla", "4/10/96", "23423223230");
+		Paciente paciente = leer(carpPacientes);
+		System.out.println(paciente != null);
 
-		Paciente aux = null;
-		ArrayList<Paciente> list = new ArrayList<Paciente>();
-		list.add(paciente);
+		System.out.println(paciente.getFullName());
+	}
 
+	public static Paciente leer(String ruta) {
+		assert ruta != null;
+		Paciente t = null;
+		FileInputStream flujoR = null;
 		try {
-			FileOutputStream flujoW = new FileOutputStream(carpPacientes + "/Nº1.dat");
-			ObjectOutputStream adaptador = new ObjectOutputStream(flujoW);
-			adaptador.writeObject(list);
-			flujoW.close();
-		} catch (Exception e) {
-			System.out.println("No lo puede grabar");
+			flujoR = new FileInputStream(ruta);
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
 		}
-
-		try {
-			FileInputStream flujoR = new FileInputStream(carpPacientes + "/Nº1.dat");
-			ObjectInputStream lector = new ObjectInputStream(flujoR);
-			list = (ArrayList<Paciente>) lector.readObject();
-			flujoR.close();
-		} catch (Exception e) {
-			System.out.println("No lo puede leer");
+		if (flujoR != null) {
+			try {
+				ObjectInputStream lector = new ObjectInputStream(flujoR);
+				t = (Paciente) lector.readObject();
+				flujoR.close();
+			} catch (Exception e) {
+				System.out.println("No se puede leer");
+			}
 		}
-
-		for (Paciente paciente2 : list) {
-			System.out.println(paciente2.getFullName());
-		}
+		return t;
 	}
 }
