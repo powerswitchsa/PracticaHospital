@@ -5,17 +5,15 @@ import java.util.ArrayList;
 import modelo.Cita;
 import modelo.Medico;
 import modelo.Paciente;
-import modelo.Validador;
+import modelo.Respuesta;
 import vista.paciente.CitaOperacion;
 
 public class Control {
 
-	private Validador validador;
 	private Logica logica;
 
 	public Control() {
 		super();
-		this.validador = new Validador();
 		this.logica = new Logica();
 	}
 
