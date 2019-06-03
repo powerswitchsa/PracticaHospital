@@ -1,6 +1,7 @@
 package control;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import modelo.Cita;
 import modelo.Medico;
@@ -131,7 +132,16 @@ public class Control {
 	 * @return true si se ha modificado con exito
 	 */
 	public boolean getModificarPaciente(String id, String nombrePaciente, String direccion, String telefono) {
+
 		return false;
+	}
+
+	public HashMap<String, Paciente> getMapPaciente() {
+		return this.logica.getMapPaciente();
+	}
+
+	public Paciente getPaciente(String id) {
+		return this.logica.getPaciente(id);
 	}
 
 }

@@ -30,6 +30,14 @@ public class AlmacenPaciente {
 		}
 	}
 
+	public boolean bajaPaciente(String id) {
+		this.mapPaciente.remove(id);
+		File file = new File(rutaPacientes(id));
+		file.delete();
+		grabarMapPaciente();
+		return file.exists() ? false : true;
+	}
+
 	public void altaPaciente(Paciente paciente) {
 		paciente.setId(getUltimaId());
 		this.mapPaciente.put(paciente.getId(), paciente);
@@ -37,10 +45,10 @@ public class AlmacenPaciente {
 		grabarPaciente(paciente);
 	}
 
-	public void modificarPaciente(Paciente paciente) {
+	public boolean modificarPaciente(Paciente paciente) {
 		this.mapPaciente.remove(paciente.getId());
 		this.mapPaciente.put(paciente.getId(), paciente);
-		grabarMapPaciente();
+		return grabarMapPaciente() && grabarPaciente(paciente);
 	}
 
 	public void darBajaPaciente(String id) {
@@ -74,6 +82,10 @@ public class AlmacenPaciente {
 			contador = contador < num ? num : contador;
 		}
 		return String.valueOf(contador + 1);
+	}
+
+	public HashMap<String, Paciente> getMapPaciente() {
+		return mapPaciente;
 	}
 
 }
