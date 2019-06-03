@@ -1,8 +1,9 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Paciente extends Persona {
+public class Paciente extends Persona implements Serializable {
 
 	private ArrayList<Cita> citas;
 	private ArrayList<Cita> citasPendientes;

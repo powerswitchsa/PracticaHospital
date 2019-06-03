@@ -13,6 +13,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.border.MatteBorder;
+
+import modelo.Especialidad;
+
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class AltaMedico extends JPanel {
@@ -21,7 +24,7 @@ public class AltaMedico extends JPanel {
 			"Horario :" };
 
 	private JTextField[] fields = new JTextField[this.label.length];
-	private JComboBox comboEspecilidad = crearCombo();
+	private JComboBox<Especialidad> comboEspecilidad = crearCombo();
 	private JComboBox comboConsulta = crearCombo();
 	private JComboBox comboHorario = crearCombo();
 	private JPanel panelLabel = new JPanel();
@@ -91,11 +94,11 @@ public class AltaMedico extends JPanel {
 		panelText.setLayout(new GridLayout(this.label.length, 1, 0, 40));
 		panelLabel.setLayout(new GridLayout(this.label.length, 1, 0, 40));
 		for (int i = 0; i < fields.length; i++) {
-			if (i == 5) {
+			if (i == 4) {
 				this.panelText.add(this.comboEspecilidad);
-			} else if (i == 6) {
+			} else if (i == 5) {
 				this.panelText.add(this.comboConsulta);
-			} else if (i == 7) {
+			} else if (i == 6) {
 				this.panelText.add(comboHorario);
 			} else {
 				this.fields[i] = crearJText(letraPequena, tipoLetra);
@@ -124,8 +127,8 @@ public class AltaMedico extends JPanel {
 		return jLabel;
 	}
 
-	private JComboBox crearCombo() {
-		JComboBox combo = new JComboBox();
+	private JComboBox<Especialidad> crearCombo() {
+		JComboBox<Especialidad> combo = new JComboBox<Especialidad>();
 		return combo;
 
 	}
@@ -142,7 +145,7 @@ public class AltaMedico extends JPanel {
 		return mensajeSistema;
 	}
 
-	public JComboBox getComboEspecilidad() {
+	public JComboBox<Especialidad> getComboEspecilidad() {
 		return comboEspecilidad;
 	}
 

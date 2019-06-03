@@ -2,75 +2,63 @@ package control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.HashMap;
 
-import vista.VentanaUI;
+import listener.btn.ActionAltaPaciente;
+import listener.btn.ActionModificarPaciente;
+import listener.combobox.ModificarPacienteID;
+import listener.item.ActionItem01;
+import listener.item.ActionItem02;
+import listener.item.ActionItem03;
+import listener.item.ActionItem04;
+import listener.item.ActionItem05;
+import listener.item.ActionItem06;
+import listener.item.ActionItem07;
+import listener.item.ActionItem08;
+import modelo.Especialidad;
+import modelo.Paciente;
+import vista.UI;
 
-public class ParaUI extends VentanaUI {
+public class ParaUI extends UI {
 
 	private Control control;
+
+	private ActionItem01 actionItem01 = new ActionItem01(this);
+	private ActionItem02 actionItem02 = new ActionItem02(this);
+	private ActionItem03 actionItem03 = new ActionItem03(this);
+	private ActionItem04 actionItem04 = new ActionItem04(this);
+	private ActionItem05 actionItem05 = new ActionItem05(this);
+	private ActionItem06 actionItem06 = new ActionItem06(this);
+	private ActionItem07 actionItem07 = new ActionItem07(this);
+	private ActionItem08 actionItem08 = new ActionItem08(this);
+
+	private ActionAltaPaciente actionAltaPaciente = new ActionAltaPaciente(this);
+	private ActionModificarPaciente actionModificarPaciente = new ActionModificarPaciente(this);
+
+	private ModificarPacienteID cbidModificarPaciente = new ModificarPacienteID(this);
 
 	public ParaUI() {
 		super();
 		this.control = new Control();
-		listener();
+
+		getItem1().addActionListener(this.actionItem01);
+		getItem2().addActionListener(this.actionItem02);
+		getItem3().addActionListener(this.actionItem03);
+		getItem4().addActionListener(this.actionItem04);
+		getItem5().addActionListener(this.actionItem05);
+		getItem6().addActionListener(this.actionItem06);
+		getItem7().addActionListener(this.actionItem07);
+		getItem8().addActionListener(this.actionItem08);
+
+		getAltaPaciente().getBtnAceptar().addActionListener(this.actionAltaPaciente);
+		getModificarPaciente().getBtnModificar().addActionListener(this.actionModificarPaciente);
+
+		getModificarPaciente().getComboBoxID().addActionListener(this.cbidModificarPaciente);
 	}
 
-	private void listener() {
-
-		getAltaPaciente().getBtnAceptar().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.getAltaPaciente(getAltaPaciente().getInfoPaciente());
-			}
-		});
-
-		getAltaMedico().getBtnAceptar().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-
-		// Para actualizar jcombo
-		getItem1().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				asociarPanel("altaPaciente");
-				getAltaPaciente().getMensajeSistema().setText("caca");
-			}
-		});
-
-		getItem2().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				asociarPanel("citaOperacion");
-			}
-		});
-
-		getItem3().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				asociarPanel("bajaPaciente");
-			}
-		});
-
-		getItem4().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				asociarPanel("altaMedico");
-			}
-		});
-
-		getItem5().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				asociarPanel("consultaMedico");
-			}
-		});
-
-		getItem6().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				asociarPanel("verHistorial");
-			}
-		});
-		getItem7().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				asociarPanel("cerrarOperacion");
-			}
-		});
+	public Control getControl() {
+		return control;
 	}
 
 }
