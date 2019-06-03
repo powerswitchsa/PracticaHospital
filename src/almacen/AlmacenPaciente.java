@@ -19,6 +19,10 @@ public class AlmacenPaciente {
 		this.DAOIndice = new DAO<HashMap<String, Paciente>>();
 		this.DAOPaciente = new DAO<Paciente>();
 
+		File file = new File("resource/pacientes");
+		if (!file.exists())
+			file.mkdir();
+
 		if (!new File(rutaIndice).exists()) {
 			this.mapPaciente = leerMapPaciente();
 		} else {
@@ -27,8 +31,8 @@ public class AlmacenPaciente {
 	}
 
 	public void altaPaciente(Paciente paciente) {
-//		paciente.setId(getUltimaId());
-//		this.mapPaciente.put(paciente.getId(), paciente);
+		paciente.setId(getUltimaId());
+		this.mapPaciente.put(paciente.getId(), paciente);
 		grabarMapPaciente();
 		grabarPaciente(paciente);
 	}
@@ -48,15 +52,15 @@ public class AlmacenPaciente {
 	}
 
 	private HashMap<String, Paciente> leerMapPaciente() {
-		return this.DAOIndice.getLeer(rutaIndice);
+		return this.DAOIndice.leer(rutaIndice);
 	}
 
 	private boolean grabarMapPaciente() {
-		return this.DAOIndice.getGrabar(rutaIndice, this.mapPaciente, false);
+		return this.DAOIndice.grabar(rutaIndice, this.mapPaciente);
 	}
 
 	private boolean grabarPaciente(Paciente paciente) {
-		return this.DAOPaciente.getGrabar(rutaPacientes(paciente.getId()), paciente, false);
+		return this.DAOPaciente.grabar(rutaPacientes(paciente.getId()), paciente);
 	}
 
 	private String rutaPacientes(String id) {
@@ -65,11 +69,11 @@ public class AlmacenPaciente {
 
 	private String getUltimaId() {
 		int contador = 0;
-		for (java.util.Map.Entry<String, Paciente> paciente : this.mapPaciente.entrySet()) {
-			if (contador < Integer.valueOf(paciente.getValue().getId()))
-				contador = Integer.valueOf(paciente.getValue().getId());
+		for (String id : this.mapPaciente.keySet()) {
+			int num = Integer.valueOf(id);
+			contador = contador < num ? num : contador;
 		}
-		return String.valueOf(contador);
+		return String.valueOf(contador + 1);
 	}
 
 }

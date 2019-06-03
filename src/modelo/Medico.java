@@ -1,6 +1,8 @@
 package modelo;
 
-public class Medico extends Persona {
+import java.io.Serializable;
+
+public class Medico extends Persona implements Serializable {
 
 	private Especialidad especialidad;
 	private boolean[][] horario;
