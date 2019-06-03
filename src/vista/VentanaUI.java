@@ -12,6 +12,7 @@ import vista.operacion.CerrarOperacion;
 import vista.paciente.AltaPaciente;
 import vista.paciente.BajaPaciente;
 import vista.paciente.CitaOperacion;
+import vista.paciente.ModificarPaciente;
 import vista.paciente.VerHistorial;
 
 import java.awt.CardLayout;
@@ -39,6 +40,8 @@ public class VentanaUI extends JFrame {
 	private AltaMedico altaMedico = new AltaMedico(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private VerHistorial verHistorial = new VerHistorial(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private CerrarOperacion cerrarOperacion = new CerrarOperacion(colorFondo, letraPequena, letraGrande, tipoLetra);
+	private ModificarPaciente modificarPaciente = new ModificarPaciente(colorFondo, letraPequena, letraGrande,
+			tipoLetra);
 
 	private JMenu jmenuPaciente;
 	private JMenu jmenuMedico;
@@ -51,6 +54,7 @@ public class VentanaUI extends JFrame {
 	private JMenuItem item5 = new JMenuItem("Alta Medico");
 	private JMenuItem item6 = new JMenuItem("Ver Historial");
 	private JMenuItem item7 = new JMenuItem("Cerrar Operacion");
+	private JMenuItem item8 = new JMenuItem("Modificar Paciente");
 
 	public VentanaUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -90,6 +94,7 @@ public class VentanaUI extends JFrame {
 		this.contentPane.add(this.altaMedico, "consultaMedico");
 		this.contentPane.add(this.verHistorial, "verHistorial");
 		this.contentPane.add(this.cerrarOperacion, "cerrarOperacion");
+		this.contentPane.add(this.modificarPaciente, "modificarPaciente");
 
 		incluirItem(jmenuPaciente, item1);
 		incluirItem(jmenuPaciente, item2);
@@ -98,6 +103,7 @@ public class VentanaUI extends JFrame {
 		incluirItem(jmenuMedico, item5);
 		incluirItem(jmenuPaciente, item6);
 		incluirItem(jmenuOperacion, item7);
+		incluirItem(jmenuPaciente, item8);
 
 	}
 
@@ -140,6 +146,10 @@ public class VentanaUI extends JFrame {
 		return consultaMedico;
 	}
 
+	public ModificarPaciente getModificarPaciente() {
+		return modificarPaciente;
+	}
+
 	public AltaMedico getAltaMedico() {
 		return altaMedico;
 	}
@@ -175,4 +185,9 @@ public class VentanaUI extends JFrame {
 	public JMenuItem getItem7() {
 		return item7;
 	}
+
+	public JMenuItem getItem8() {
+		return item8;
+	}
+
 }

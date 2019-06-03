@@ -1,6 +1,8 @@
 package modelo;
 
-public class Medico extends Persona {
+import java.io.Serializable;
+
+public class Medico extends Persona implements Serializable {
 
 	private Especialidad especialidad;
 	private boolean[][] horario;
@@ -12,12 +14,6 @@ public class Medico extends Persona {
 		this.horario = new boolean[2][2];
 		if (this.especialidad == Especialidad.Cabecera)
 			this.horario = new boolean[8][5];
-	}
-
-	public Medico(Medico medico) {
-		super(medico);
-		this.especialidad = medico.getEspecialidad();
-		this.horario = medico.getHorario();
 	}
 
 	public Especialidad getEspecialidad() {

@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.regex.Pattern;
+
 public abstract class Persona {
 
 	private String id;
@@ -9,24 +11,16 @@ public abstract class Persona {
 	private String direccion;
 	private String nacimiento;
 
-	public Persona(Medico medico) {
-		super();
-		this.telefono = medico.getTelefono();
-		this.nombre = medico.getNombre();
-		this.apellidos = medico.getApellidos();
-		this.direccion = medico.getDireccion();
-		this.nacimiento = medico.getNacimiento();
-	}
-
 	public Persona(String telefono, String nombre, String apellidos, String direccion, String nacimiento) {
 		super();
-		this.telefono = telefono;
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.direccion = direccion;
-		this.nacimiento = nacimiento;
+		this.setNombre(nombre);
+		this.setApellidos(apellidos);
+		this.setDireccion(direccion);
+		this.setNacimiento(nacimiento);
+		this.setTelefono(telefono);
 	}
 
+<<<<<<< HEAD
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
@@ -35,32 +29,91 @@ public abstract class Persona {
 		this.direccion = direccion;
 	}
 
+=======
+>>>>>>> refs/remotes/practica/master
 	public String getId() {
 		return id;
+	}
+
+	public void setId(String id) {
+		assert id != null && validarId(id).isResultado();
+		this.id = id;
 	}
 
 	public String getTelefono() {
 		return telefono;
 	}
 
+	public void setTelefono(String telefono) {
+		assert telefono != null && validarTelefono(telefono).isResultado();
+		this.telefono = telefono;
+	}
+
 	public String getNombre() {
 		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		assert nombre != null && validarNombre(nombre).isResultado();
+		this.nombre = nombre;
 	}
 
 	public String getApellidos() {
 		return apellidos;
 	}
 
+	public void setApellidos(String apellidos) {
+		assert apellidos != null && validarApellido(apellidos).isResultado();
+		this.apellidos = apellidos;
+	}
+
 	public String getDireccion() {
 		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		assert direccion != null && validarDireccion(direccion).isResultado();
+		this.direccion = direccion;
 	}
 
 	public String getNacimiento() {
 		return nacimiento;
 	}
 
+<<<<<<< HEAD
 	public void setId(String id) {
 		this.id = id;
+=======
+	public void setNacimiento(String nacimiento) {
+		assert nacimiento != null && validarNacimiento(nacimiento).isResultado();
+		this.nacimiento = nacimiento;
+	}
+
+	// validadores
+
+	public static Respuesta validarNombre(String nombre) {
+		return new Respuesta(Pattern.matches("", nombre), "");
+	}
+
+	public static Respuesta validarApellido(String apellido) {
+		return new Respuesta(Pattern.matches("", apellido), "");
+	}
+
+	public static Respuesta validarDireccion(String direccion) {
+		return new Respuesta(Pattern.matches("", direccion), "");
+	}
+
+	public static Respuesta validarTelefono(String telefono) {
+		return new Respuesta(Pattern.matches("", telefono), "");
+	}
+
+	public static Respuesta validarNacimiento(String nacimiento) {
+		return new Respuesta(Pattern.matches("", nacimiento), "");
+	}
+
+	public static Respuesta validarId(String id) {
+		return new Respuesta(Pattern.matches("", id), "");
+>>>>>>> refs/remotes/practica/master
 	}
 
 }
