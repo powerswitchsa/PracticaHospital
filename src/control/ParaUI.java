@@ -1,20 +1,10 @@
 package control;
 
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
 import java.util.HashMap;
->>>>>>> refs/remotes/practica/master
-
-<<<<<<< HEAD
 import modelo.Especialidad;
-=======
-import javax.swing.plaf.ComboBoxUI;
-
->>>>>>> refs/remotes/practica/master
 import modelo.Paciente;
 import vista.VentanaUI;
 

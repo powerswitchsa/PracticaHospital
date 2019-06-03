@@ -20,17 +20,7 @@ public abstract class Persona {
 		this.setTelefono(telefono);
 	}
 
-<<<<<<< HEAD
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-
-=======
->>>>>>> refs/remotes/practica/master
 	public String getId() {
 		return id;
 	}
@@ -80,10 +70,6 @@ public abstract class Persona {
 		return nacimiento;
 	}
 
-<<<<<<< HEAD
-	public void setId(String id) {
-		this.id = id;
-=======
 	public void setNacimiento(String nacimiento) {
 		assert nacimiento != null && validarNacimiento(nacimiento).isResultado();
 		this.nacimiento = nacimiento;
@@ -113,7 +99,7 @@ public abstract class Persona {
 
 	public static Respuesta validarId(String id) {
 		return new Respuesta(Pattern.matches("", id), "");
->>>>>>> refs/remotes/practica/master
+
 	}
 
 }
