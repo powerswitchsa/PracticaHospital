@@ -14,12 +14,6 @@ public class Medico extends Persona {
 			this.horario = new boolean[8][5];
 	}
 
-	public Medico(Medico medico) {
-		super(medico);
-		this.especialidad = medico.getEspecialidad();
-		this.horario = medico.getHorario();
-	}
-
 	public Especialidad getEspecialidad() {
 		return especialidad;
 	}
