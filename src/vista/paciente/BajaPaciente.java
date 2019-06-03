@@ -54,7 +54,7 @@ public class BajaPaciente extends JPanel {
 
 		panelText = new JPanel();
 
-		mensajeSistema = new JLabel("Mensaje del Sistema");
+		mensajeSistema = new JLabel("Mensaje Sistema");
 		mensajeSistema.setForeground(Color.RED);
 		mensajeSistema.setHorizontalAlignment(SwingConstants.CENTER);
 		mensajeSistema.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
