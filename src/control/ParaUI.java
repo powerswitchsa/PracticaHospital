@@ -2,10 +2,9 @@ package control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.HashMap;
-
-import javax.swing.plaf.ComboBoxUI;
-
+import modelo.Especialidad;
 import modelo.Paciente;
 import vista.VentanaUI;
 
@@ -77,11 +76,26 @@ public class ParaUI extends VentanaUI {
 		});
 
 		getItem5().addActionListener(new ActionListener() {
+			@SuppressWarnings("unchecked")
 			public void actionPerformed(ActionEvent e) {
 				asociarPanel("consultaMedico");
+				getAltaMedico().getComboConsulta().removeAllItems();
+				getAltaMedico().getComboEspecilidad().removeAllItems();
+				getAltaMedico().getComboHorario().removeAllItems();
+				ArrayList<Integer>idConsulta = control.getVacanteConsulta();
+				ArrayList<Boolean>horaLibre = control.getHoraLibre();
+				for (Integer id : idConsulta) {
+					getAltaMedico().getComboConsulta().addItem(id);
+				}
+				for (Especialidad especial : Especialidad.values()) {
+					getAltaMedico().getComboEspecilidad().addItem(especial);
+			}
+				for (Boolean hora : horaLibre ) {
+					getAltaMedico().getComboHorario().addItem(hora);
+				}
 			}
 		});
-
+		
 		getItem6().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				asociarPanel("verHistorial");
@@ -106,5 +120,4 @@ public class ParaUI extends VentanaUI {
 		});
 
 	}
-
 }

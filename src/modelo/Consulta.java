@@ -42,9 +42,20 @@ public class Consulta {
 	 * 
 	 * @param medico que queremos asignar
 	 */
-	public void asignarMedico(Medico medico) {
+	public void asignarMedico(String id) {
 		// TODO Auto-generated method stub
 
 	}
 
+	public boolean getVacantes() {
+		return this.idMedicos.size() < 5;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public boolean[][] getHorarios() {
+		return horarios;
+	}
 }

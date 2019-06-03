@@ -60,15 +60,19 @@ public class AlmacenPaciente {
 	}
 
 	private HashMap<String, Paciente> leerMapPaciente() {
+
 		return this.DAOIndice.leer(rutaIndice);
 	}
 
 	private boolean grabarMapPaciente() {
 		return this.DAOIndice.grabar(rutaIndice, this.mapPaciente);
+
 	}
 
 	private boolean grabarPaciente(Paciente paciente) {
+
 		return this.DAOPaciente.grabar(rutaPacientes(paciente.getId()), paciente);
+
 	}
 
 	private String rutaPacientes(String id) {
@@ -77,15 +81,19 @@ public class AlmacenPaciente {
 
 	private String getUltimaId() {
 		int contador = 0;
+
 		for (String id : this.mapPaciente.keySet()) {
 			int num = Integer.valueOf(id);
 			contador = contador < num ? num : contador;
+
 		}
+
 		return String.valueOf(contador + 1);
 	}
 
 	public HashMap<String, Paciente> getMapPaciente() {
 		return mapPaciente;
+
 	}
 
 }
