@@ -20,6 +20,7 @@ public abstract class Persona {
 		this.setTelefono(telefono);
 	}
 
+
 	public String getId() {
 		return id;
 	}
@@ -98,6 +99,7 @@ public abstract class Persona {
 
 	public static Respuesta validarId(String id) {
 		return new Respuesta(Pattern.matches("", id), "");
+
 	}
 
 }
