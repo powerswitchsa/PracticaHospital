@@ -1,10 +1,10 @@
 package control;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import almacen.AlmacenMedico;
 import almacen.AlmacenPaciente;
-import modelo.Medico;
 import modelo.Paciente;
 
 public class Logica {
@@ -24,27 +24,19 @@ public class Logica {
 		return false;
 	}
 
-	public Paciente getPaciente(int id) {
-		return null;
+	public boolean modificarPaciente(String id, String telefono, String direccion) {
+		Paciente paciente = this.almacenPaciente.getPaciente(id);
+		paciente.setTelefono(telefono);
+		paciente.setDireccion(direccion);
+		return this.almacenPaciente.modificarPaciente(paciente);
 	}
 
-	public Paciente getPaciente(String nombre) {
-		return null;
+	public HashMap<String, Paciente> getMapPaciente() {
+		return this.almacenPaciente.getMapPaciente();
 	}
 
-	public ArrayList<Paciente> getListPaciente() {
-		return null;
+	public Paciente getPaciente(String id) {
+		return this.almacenPaciente.getPaciente(id);
 	}
 
-	public Medico getMedico(int id) {
-		return null;
-	}
-
-	public Medico getMedico(String nombre) {
-		return null;
-	}
-
-	public ArrayList<Medico> getListMedico() {
-		return null;
-	}
 }
