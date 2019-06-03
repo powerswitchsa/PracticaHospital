@@ -1,11 +1,8 @@
 package almacen;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.FileNotFoundException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 
 import modelo.Paciente;
 
@@ -25,9 +22,14 @@ public class PruebaGrabador {
 	public static Paciente leer(String ruta) {
 		assert ruta != null;
 		Paciente t = null;
-		if (new File(ruta).exists()) {
+		FileInputStream flujoR = null;
+		try {
+			flujoR = new FileInputStream(ruta);
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		}
+		if (flujoR != null) {
 			try {
-				FileInputStream flujoR = new FileInputStream(ruta);
 				ObjectInputStream lector = new ObjectInputStream(flujoR);
 				t = (Paciente) lector.readObject();
 				flujoR.close();
