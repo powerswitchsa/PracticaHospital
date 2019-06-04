@@ -55,14 +55,10 @@ public class ParaUI extends UI {
 		getBajaPaciente().getBtnAceptar().addActionListener(new ActionBajaPaciente(this));
 		// actionlistener combobox
 		getModificarPaciente().getComboBoxID().addActionListener(new ModificarPacientesID(this));
-<<<<<<< HEAD
-		getConsultaMedico().getComboId().addActionListener(new ConsultaMedicoID(this));
-
-=======
 		getConsultaMedico().getComboBoxID().addActionListener(new ConsultaMedicoID(this));
 		getBajaPaciente().getComboBoxID().addActionListener(new BajaPacienteID(this));
 		getConsultaPaciente().getComboBoxID().addActionListener(new ConsultarPacienteID(this));
->>>>>>> branch 'master' of https://github.com/powerswitchsa/PracticaHospital.git
+
 	}
 
 	public void rellenarComboBoxPaciente(JComboBox id, JComboBox nombre) {

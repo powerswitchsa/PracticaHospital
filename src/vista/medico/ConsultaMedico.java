@@ -147,11 +147,7 @@ public class ConsultaMedico extends JPanel {
 		return comboNombreMedico;
 	}
 
-<<<<<<< HEAD
-	public JComboBox<String> getComboId() {
-=======
 	public JComboBox getComboBoxID() {
->>>>>>> branch 'master' of https://github.com/powerswitchsa/PracticaHospital.git
 		return comboId;
 	}
 

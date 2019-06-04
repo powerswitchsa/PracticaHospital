@@ -140,17 +140,11 @@ public class ConsultaPaciente extends JPanel {
 	}
 
 	public void mostrarDatos(Paciente paciente) {
-<<<<<<< HEAD
-		this.fields[0].setText((paciente.getId()));
-		this.fields[1].setText(paciente.getNombre());
-		this.fields[2].setText(paciente.getApellidos());
-		this.fields[3].setText(paciente.getDireccion());
-=======
+
 		this.fields[0].setText(paciente.getNombre());
 		this.fields[1].setText(paciente.getApellidos());
 		this.fields[2].setText(paciente.getDireccion());
 		this.fields[3].setText(paciente.getNacimiento());
->>>>>>> branch 'master' of https://github.com/powerswitchsa/PracticaHospital.git
 		this.fields[4].setText(paciente.getTelefono());
 	}
 
