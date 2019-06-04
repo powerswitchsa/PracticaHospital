@@ -7,11 +7,11 @@ import java.util.HashMap;
 import control.ParaUI;
 import modelo.Paciente;
 
-public class ActionItem08 implements ActionListener {
+public class ActionItemModificarPaciente implements ActionListener {
 
 	ParaUI paraUI;
 
-	public ActionItem08(ParaUI paraUI) {
+	public ActionItemModificarPaciente(ParaUI paraUI) {
 		super();
 		this.paraUI = paraUI;
 	}

@@ -107,13 +107,11 @@ public class AltaMedico extends JPanel {
 			}
 			this.panelLabel.add(crearLabel(this.label[i], letraPequena, tipoLetra));
 		}
-
 		revalidate();
 	}
 
 	private JTextField crearJText(int letraPequena, String tipoLetra) {
 		JTextField field = new JTextField();
-		field.setText(" ");
 		field.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 		field.setHorizontalAlignment(SwingConstants.LEFT);
 		field.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
@@ -126,6 +124,16 @@ public class AltaMedico extends JPanel {
 		jLabel.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 		jLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		return jLabel;
+	}
+
+	public ArrayList<String> getFieldsMedico() {
+		ArrayList<String> campos = new ArrayList<String>();
+		for (JTextField jtext : this.fields) {
+			campos.add(jtext.getText());
+		}
+		campos.add(getComboConsulta().toString());
+		campos.add(getComboHorario().toString());
+		return campos;
 	}
 
 	private JComboBox<Especialidad> crearCombo() {
@@ -156,16 +164,6 @@ public class AltaMedico extends JPanel {
 
 	public JComboBox getComboHorario() {
 		return comboHorario;
-	}
-
-	public ArrayList<String> getFieldsMedico() {
-		ArrayList<String> campos = new ArrayList<String>();
-		for (JTextField jtext : fields) {
-			campos.add(jtext.getText());
-		}
-		campos.add(getComboConsulta().toString());
-		campos.add(getComboHorario().toString());
-		return campos;
 	}
 
 	public Especialidad getTipoEspecialidad() {

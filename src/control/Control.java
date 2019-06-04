@@ -7,7 +7,6 @@ import modelo.Cita;
 import modelo.Especialidad;
 import modelo.Medico;
 import modelo.Paciente;
-import modelo.Respuesta;
 import vista.paciente.CitaOperacion;
 
 public class Control {
@@ -19,35 +18,16 @@ public class Control {
 		this.logica = new Logica();
 	}
 
-	/**
-	 * añade un nuevo paciente , hay que validar sus datos
-	 * 
-	 * @param paciente
-	 * @return true si se ha podido crear
-	 */
 	public boolean getAltaPaciente(ArrayList<String> paciente) {
 		return this.logica.altaPaciente(paciente);
 	}
 
-	/**
-	 * añade un nuevo medico , hay que validar sus datos
-	 * 
-	 * @param medico
-	 * @return true si se ha podido crear
-	 */
-	public boolean getAltaMedico(ArrayList<String> medico,Especialidad tipo) {
-		this.logica.altaMedico(medico,tipo);
-		return false;
+	public boolean getAltaMedico(ArrayList<String> medico, Especialidad tipo) {
+		return this.logica.altaMedico(medico, tipo);
 	}
 
-	/**
-	 * elima todo lo relacionado con el paciente
-	 * 
-	 * @param paciente
-	 * @return true si se ha podido eliminar
-	 */
-	public boolean getBajaPaciente(Paciente paciente) {
-		return false;
+	public boolean getBajaPaciente(String id) {
+		return this.logica.bajaPaciente(id);
 	}
 
 	/**
@@ -153,14 +133,14 @@ public class Control {
 	public Paciente getPaciente(String id) {
 		return this.logica.getPaciente(id);
 	}
-	public HashMap<String, Medico> getMapMedico(){
+
+	public HashMap<String, Medico> getMapMedico() {
 		return this.logica.getMapMedico();
-		
+
 	}
-	
+
 	public Medico getMedico(String id) {
 		return this.logica.getMedico(id);
 	}
-	
 
 }

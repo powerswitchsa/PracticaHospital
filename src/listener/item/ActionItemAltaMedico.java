@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import control.ParaUI;
 import modelo.Especialidad;
 
-public class ActionItem05 implements ActionListener {
+public class ActionItemAltaMedico implements ActionListener {
 
 	private ParaUI paraUI;
 
-	public ActionItem05(ParaUI paraUI) {
+	public ActionItemAltaMedico(ParaUI paraUI) {
 		super();
 		this.paraUI = paraUI;
 	}

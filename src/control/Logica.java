@@ -29,21 +29,21 @@ public class Logica {
 				new Paciente(paciente.get(0), paciente.get(1), paciente.get(2), paciente.get(3), paciente.get(4)));
 	}
 
+	public boolean altaMedico(ArrayList<String> medico, Especialidad tipo) {
+		return this.almacenMedico
+				.altaMedico(new Medico(medico.get(0), medico.get(1), medico.get(2), medico.get(3), tipo));
+	}
+
+	public boolean bajaPaciente(String id) {
+		return this.almacenPaciente.bajaPaciente(id);
+	}
+
 	public boolean modificarPaciente(String id, String telefono, String direccion) {
 		Paciente paciente = this.almacenPaciente.getPaciente(id);
 		paciente.setTelefono(telefono);
 		paciente.setDireccion(direccion);
 		return this.almacenPaciente.modificarPaciente(paciente);
 	}
-
-	public HashMap<String, Paciente> getMapPaciente() {
-		return this.almacenPaciente.getMapPaciente();
-	}
-
-	public Paciente getPaciente(String id) {
-		return this.almacenPaciente.getPaciente(id);
-	}
-
 
 	public ArrayList<Integer> getConsultaVacante() {
 		ArrayList<Integer> idConsulta = new ArrayList<Integer>();
@@ -70,18 +70,21 @@ public class Logica {
 
 	}
 
-	public boolean altaMedico(ArrayList<String> medico, Especialidad tipo) {
-		this.almacenMedico.altaMedico(
-				new Medico(medico.get(0), medico.get(1), medico.get(2), medico.get(3), tipo));
-		return false;
-
+	public HashMap<String, Paciente> getMapPaciente() {
+		return this.almacenPaciente.getMapPaciente();
 	}
+
+	public Paciente getPaciente(String id) {
+		return this.almacenPaciente.getPaciente(id);
+	}
+
 	public HashMap<String, Medico> getMapMedico() {
 		return this.almacenMedico.getMapMedicos();
 	}
+
 	public Medico getMedico(String id) {
 		return this.almacenMedico.getMedico(id);
-		
+
 	}
 
 }
