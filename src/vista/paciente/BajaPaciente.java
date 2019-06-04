@@ -137,11 +137,10 @@ public class BajaPaciente extends JPanel {
 
 	private JTextField crearJText(int letraPequena, String tipoLetra) {
 		JTextField field = new JTextField();
-		field.setText("");
 		field.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 		field.setHorizontalAlignment(SwingConstants.CENTER);
-		field.setBorder(new MatteBorder(2, 2, 1, 1, (Color) new Color(0, 0, 0)));
-		field.setEnabled(false);
+		field.setBorder(new MatteBorder(2, 2, 1, 1, Color.BLACK));
+		field.setFocusable(false);
 		return field;
 	}
 
@@ -160,12 +159,12 @@ public class BajaPaciente extends JPanel {
 		}
 	}
 
-	public void mostrarDatos(Paciente paciente) {
+	public void rellenarCampos(Paciente paciente) {
 		this.fields[0].setText(paciente.getNombre());
 		this.fields[1].setText(paciente.getApellidos());
 		this.fields[2].setText(paciente.getDireccion());
 		this.fields[3].setText(paciente.getNacimiento());
-		this.fields[4].setText(String.valueOf(paciente.getTelefono()));
+		this.fields[4].setText(paciente.getTelefono());
 	}
 
 	public JButton getBtnAceptar() {
