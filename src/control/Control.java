@@ -25,8 +25,7 @@ public class Control {
 	 * @return true si se ha podido crear
 	 */
 	public boolean getAltaPaciente(ArrayList<String> paciente) {
-		this.logica.altaPaciente(paciente);
-		return false;
+		return this.logica.altaPaciente(paciente);
 	}
 
 	/**
@@ -135,11 +134,13 @@ public class Control {
 
 		return false;
 	}
-	public ArrayList<Integer> getVacanteConsulta(){
+
+	public ArrayList<Integer> getVacanteConsulta() {
 		return this.logica.getConsultaVacante();
-		
+
 	}
-	public ArrayList<Boolean> getHoraLibre(){
+
+	public ArrayList<Boolean> getHoraLibre() {
 		return this.logica.getPosHoraVacante();
 	}
 

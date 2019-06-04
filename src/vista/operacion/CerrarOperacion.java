@@ -28,7 +28,7 @@ public class CerrarOperacion extends JPanel {
 	JScrollPane scrollCerrar = new JScrollPane();
 
 	public CerrarOperacion(Color colorFondo, int letraPequena, int letraGrande, String tipoLetra) {
-		
+
 		JPanel panelTitulo = new JPanel();
 		JPanel panelDownInfo = new JPanel();
 		JPanel panelAplicar = new JPanel();
@@ -54,7 +54,6 @@ public class CerrarOperacion extends JPanel {
 						.addComponent(panelDownInfo, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
 						.addGap(46)));
 		panelDownInfo.setLayout(new GridLayout(1, 0, 0, 0));
-
 
 		JLabel lblAplicar = new JLabel("MENSAJE");
 		lblAplicar.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -91,12 +90,12 @@ public class CerrarOperacion extends JPanel {
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		panelTitulo.add(lblTitulo);
-		setLayout(groupLayout);		
+		setLayout(groupLayout);
 	}
 
 	private void rellenarCloseInt(Paciente paciente) {
 		int index = 0;
-		this.datosCloseInt = new String[paciente.getCitas().size()][columnaCloseInt.length];
+//		this.datosCloseInt = new String[paciente.getCitas().size()][columnaCloseInt.length];
 		for (Intervencion interven : paciente.getIntervenciones()) {
 			rellenarCloseIntFila(paciente.getFullName(), interven, index);
 			index++;
