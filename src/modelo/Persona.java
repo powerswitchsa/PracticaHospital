@@ -1,8 +1,9 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.regex.Pattern;
 
-public abstract class Persona {
+public abstract class Persona implements Serializable{
 
 	private String id;
 	private String telefono;

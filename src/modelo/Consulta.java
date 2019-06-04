@@ -1,8 +1,9 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Consulta {
+public class Consulta implements Serializable {
 
 	private int id;
 	private boolean[][] horarios;
