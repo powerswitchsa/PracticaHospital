@@ -25,8 +25,8 @@ public class PanelPresentacion extends JPanel {
 	
 		
 		JButton btnNewButton = new JButton("Entrar");
-		ImageIcon imagen= new ImageIcon(getClass().getResource("/imgVista/pepeMedico.jpg"));
-		ImageIcon icono= new ImageIcon(imagen.getImage().getScaledInstance(PanelPresentacion.WIDTH,PanelPresentacion.HEIGHT, Image.SCALE_DEFAULT));
+//		ImageIcon imagen= new ImageIcon(getClass().getResource("/imgVista/pepeMedico.jpg"));
+//		ImageIcon icono= new ImageIcon(imagen.getImage().getScaledInstance(PanelPresentacion.WIDTH,PanelPresentacion.HEIGHT, Image.SCALE_DEFAULT));
 		
 		JLabel lblNewLabel = new JLabel("HOSPITAL");
 		lblNewLabel.setFont(new Font("MV Boli", Font.BOLD, 27));
