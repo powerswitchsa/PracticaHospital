@@ -20,6 +20,13 @@ public abstract class Persona implements Serializable{
 		this.setNacimiento(nacimiento);
 		this.setTelefono(telefono);
 	}
+	public Persona(String telefono, String nombre, String apellidos, String direccion) {
+		super();
+		this.setNombre(nombre);
+		this.setApellidos(apellidos);
+		this.setDireccion(direccion);
+		this.setTelefono(telefono);
+	}
 
 
 	public String getId() {

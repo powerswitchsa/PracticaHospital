@@ -11,7 +11,7 @@ public class AlmacenMedico {
 
 	private DAO<HashMap<String, Medico>> DAO;
 	private HashMap<String, Medico> mapMedicos;
-	private String rutaDestino = "./resource/Medicos/medicos.dat";
+	private String rutaDestino = "./resource/medicos.dat";
 
 	public AlmacenMedico() {
 		super();

@@ -20,6 +20,7 @@ public class DAO<T> {
 		} catch (Exception e) {
 			System.out.println("No se puede grabar");
 			retorno = false;
+			e.printStackTrace();
 		}
 		return retorno;
 

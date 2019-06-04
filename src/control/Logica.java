@@ -7,6 +7,7 @@ import java.util.HashMap;
 import almacen.AlmacenMedico;
 import almacen.AlmacenPaciente;
 import modelo.Consulta;
+import modelo.Especialidad;
 import modelo.Medico;
 import modelo.Paciente;
 
@@ -44,7 +45,6 @@ public class Logica {
 		return this.almacenPaciente.getPaciente(id);
 	}
 
-
 	public ArrayList<Medico> getListMedico() {
 		return null;
 	}
@@ -71,6 +71,13 @@ public class Logica {
 			}
 		}
 		return horaVacante;
+
+	}
+
+	public boolean altaMedico(ArrayList<String> medico, Especialidad tipo) {
+		this.almacenMedico.altaMedico(
+				new Medico(medico.get(0), medico.get(1), medico.get(2), medico.get(3), tipo));
+		return false;
 
 	}
 }
