@@ -79,5 +79,4 @@ public class ParaUI extends UI {
 	public Control getControl() {
 		return control;
 	}
-
 }
