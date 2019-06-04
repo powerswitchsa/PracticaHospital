@@ -50,10 +50,6 @@ public class AlmacenPaciente {
 		return grabarMapPaciente() && grabarPaciente(paciente);
 	}
 
-	public void darBajaPaciente(String id) {
-		this.mapPaciente.remove(id);
-	}
-
 	public Paciente getPaciente(String id) {
 		return this.mapPaciente.get(id);
 	}

@@ -123,17 +123,19 @@ public class UI extends JFrame {
 		this.contentPane.add(this.citaPrimaria, "citaPrimaria");
 
 		incluirItem(jmenuPaciente, itemAltaPaciente);
-		incluirItem(jmenuPaciente, itemCitaOperacion);
 		incluirItem(jmenuPaciente, itemBajaPaciente);
-		incluirItem(jmenuMedico, itemAltaMedico);
-		incluirItem(jmenuMedico, itemConsultaMedico);
-		incluirItem(jmenuPaciente, itemVerHistorial);
-		incluirItem(jmenuOperacion, itemCerrarOperacion);
 		incluirItem(jmenuPaciente, itemModificarPaciente);
 		incluirItem(jmenuPaciente, itemConsultaPaciente);
-		incluirItem(jmenuPaciente, itemCitaEspecialista);
-		incluirItem(jmenuMedico, itemAtenderCita);
+		incluirItem(jmenuPaciente, itemCitaOperacion);
 		incluirItem(jmenuPaciente, itemCitaPrimaria);
+		incluirItem(jmenuPaciente, itemCitaEspecialista);
+		incluirItem(jmenuPaciente, itemVerHistorial);
+
+		incluirItem(jmenuMedico, itemAltaMedico);
+		incluirItem(jmenuMedico, itemConsultaMedico);
+		incluirItem(jmenuMedico, itemAtenderCita);
+
+		incluirItem(jmenuOperacion, itemCerrarOperacion);
 
 		menuBar.add(panel);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
