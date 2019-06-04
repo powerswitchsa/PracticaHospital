@@ -100,7 +100,6 @@ public class CitaEspecialista extends JPanel {
 		panel.setLayout(gl_panel);
 
 		panelLabel = new JPanel();
-		panelLabel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 
 		panelBotonera = new JPanel();
 		panelBotonera.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
@@ -140,8 +139,9 @@ public class CitaEspecialista extends JPanel {
 						.addGap(5).addComponent(panelBotonera, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
 						.addGap(50)));
 		panelBotonera.setLayout(new GridLayout(1, 0, 0, 0));
-		panelLabel.setLayout(new GridLayout(1, 0, 0, 0));
+		panelLabel.setLayout(new GridLayout(1, 0, 10, 10));
 		setLayout(groupLayout);
+		panelLabel.setBackground(colorFondo);
 
 		for (int i = 0; i < label.length; i++) {
 			this.panelLabel.add(crearLabel(label[i]));
@@ -150,6 +150,8 @@ public class CitaEspecialista extends JPanel {
 
 	private JLabel crearLabel(String cadena) {
 		JLabel jLabel = new JLabel();
+		jLabel.setOpaque(true);
+		jLabel.setBackground(Color.WHITE);
 		jLabel.setText(cadena);
 		jLabel.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 		jLabel.setHorizontalAlignment(SwingConstants.CENTER);

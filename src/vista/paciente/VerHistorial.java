@@ -106,18 +106,19 @@ public class VerHistorial extends JPanel {
 		rellenarTratamiento(paciente);
 	}
 
-//	private void rellenarCitas(Paciente paciente) {
-//		int index = 0;
+	private void rellenarCitas(Paciente paciente) {
+		int index = 0;
 //		this.datosCita = new String[paciente.getCitas().size()][columnaCita.length];
 //		for (Cita cita : paciente.getCitas()) {
 //			rellenarCitaFila(paciente.getFullName(), cita, index);
 //			index++;
 //		}
-//		DefaultTableModel defaultTableModelC = new DefaultTableModel(datosCita, columnaCita);
-//		tableCitas = new JTable(defaultTableModelC);
-//		tableCitas.setFont(new Font("Tahoma", Font.CENTER_BASELINE, 12));
-//		scrollCitas.setViewportView(tableCitas);
-//	}
+		DefaultTableModel defaultTableModelC = new DefaultTableModel(datosCita, columnaCita);
+		tableCitas = new JTable(defaultTableModelC);
+		tableCitas.setFont(new Font("Tahoma", Font.CENTER_BASELINE, 12));
+		scrollCitas.setViewportView(tableCitas);
+	}
+
 
 	private void rellenarTratamiento(Paciente paciente) {
 		int index = 0;

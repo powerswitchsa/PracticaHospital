@@ -1,6 +1,8 @@
 package modelo;
 
-public class Respuesta {
+import java.io.Serializable;
+
+public class Respuesta implements Serializable {
 
 	private boolean resultado;
 	private String comentario;

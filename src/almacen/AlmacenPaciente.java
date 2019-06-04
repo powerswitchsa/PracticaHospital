@@ -38,11 +38,10 @@ public class AlmacenPaciente {
 		return file.exists() ? false : true;
 	}
 
-	public void altaPaciente(Paciente paciente) {
+	public boolean altaPaciente(Paciente paciente) {
 		paciente.setId(getUltimaId());
 		this.mapPaciente.put(paciente.getId(), paciente);
-		grabarMapPaciente();
-		grabarPaciente(paciente);
+		return grabarMapPaciente() && grabarPaciente(paciente);
 	}
 
 	public boolean modificarPaciente(Paciente paciente) {

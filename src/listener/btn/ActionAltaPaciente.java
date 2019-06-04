@@ -16,7 +16,10 @@ public class ActionAltaPaciente implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.paraUI.getControl().getAltaPaciente(this.paraUI.getAltaPaciente().getInfoPaciente());
+		if (this.paraUI.getControl().getAltaPaciente(this.paraUI.getAltaPaciente().getInfoPaciente()))
+			this.paraUI.getAltaPaciente().getMensajeSistema().setText("Se ha dado de alta con exito");
+		else
+			this.paraUI.getAltaPaciente().getMensajeSistema().setText("Error al dar de alta");
 	}
 
 }
