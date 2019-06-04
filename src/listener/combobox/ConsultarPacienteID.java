@@ -16,10 +16,12 @@ public class ConsultarPacienteID implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String id = this.paraUI.getConsultaPaciente().getComboBoxID().getSelectedItem().toString();
-		if (id != null)
-			this.paraUI.getConsultaPaciente().mostrarDatos(this.paraUI.getControl().getPaciente(id));
-
+		String id = "";
+		if (this.paraUI.getConsultaPaciente().getComboBoxID().getSelectedItem() != null) {
+			id = this.paraUI.getConsultaPaciente().getComboBoxID().getSelectedItem().toString();
+			if (id != null)
+				this.paraUI.getConsultaPaciente().mostrarDatos(this.paraUI.getControl().getPaciente(id));
+		}
 	}
 
 }

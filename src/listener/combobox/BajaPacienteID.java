@@ -16,9 +16,12 @@ public class BajaPacienteID implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String id = this.paraUI.getBajaPaciente().getComboBoxID().getSelectedItem().toString();
-		if (id != null)
-			this.paraUI.getBajaPaciente().rellenarCampos(this.paraUI.getControl().getPaciente(id));
+		String id = "";
+		if (this.paraUI.getBajaPaciente().getComboBoxID().getSelectedItem() != null) {
+			id = this.paraUI.getBajaPaciente().getComboBoxID().getSelectedItem().toString();
+			if (id != null)
+				this.paraUI.getBajaPaciente().rellenarCampos(this.paraUI.getControl().getPaciente(id));
+		}
 	};
 
 }
