@@ -35,6 +35,7 @@ public class DAO<T> {
 				t = (T) lector.readObject();
 				flujoR.close();
 			} catch (Exception e) {
+				e.printStackTrace();
 				System.out.println("No se puede leer");
 			}
 		}

@@ -24,9 +24,9 @@ public class AlmacenPaciente {
 			file.mkdir();
 
 		if (!new File(rutaIndice).exists()) {
-			this.mapPaciente = leerMapPaciente();
-		} else {
 			this.mapPaciente = new HashMap<String, Paciente>();
+		} else {
+			this.mapPaciente = leerMapPaciente();
 		}
 	}
 

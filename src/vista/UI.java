@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import vista.medico.AltaMedico;
+import vista.medico.AtenderCita;
 import vista.medico.ConsultaMedico;
 import vista.operacion.CerrarOperacion;
 import vista.paciente.AltaPaciente;
@@ -25,6 +26,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.BoxLayout;
+import javax.swing.JSpinner;
 
 public class UI extends JFrame {
 
@@ -34,6 +37,8 @@ public class UI extends JFrame {
 	private String tipoLetra = "Monospaced";
 	private int letraPequena = 20;
 	private int letraGrande = 35;
+
+	private PanelPresentacion panelPresentacion = new PanelPresentacion();
 
 	private AltaPaciente altaPaciente = new AltaPaciente(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private CitaOperacion citaOperacion = new CitaOperacion(colorFondo, letraPequena, letraGrande, tipoLetra);
@@ -46,6 +51,7 @@ public class UI extends JFrame {
 	private ModificarPaciente modificarPaciente = new ModificarPaciente(colorFondo, letraPequena, letraGrande,
 			tipoLetra);
 	private CitaEspecialista citaEspecialista = new CitaEspecialista(colorFondo, letraPequena, letraGrande, tipoLetra);
+	private AtenderCita atenderCita = new AtenderCita(colorFondo, letraPequena, letraGrande, tipoLetra);
 
 	private JMenu jmenuPaciente;
 	private JMenu jmenuMedico;
@@ -61,6 +67,10 @@ public class UI extends JFrame {
 	private JMenuItem item8 = new JMenuItem("Modificar Paciente");
 	private JMenuItem item9 = new JMenuItem("Consulta Paciente");
 	private JMenuItem item10 = new JMenuItem("Cita Especialista");
+	private JMenuItem item11 = new JMenuItem("Atender Cita");
+
+	private final JPanel panel = new JPanel();
+	private final JSpinner spinner = new JSpinner();
 
 	public UI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -92,6 +102,8 @@ public class UI extends JFrame {
 		jmenuOperacion.setForeground(Color.BLACK);
 		jmenuOperacion.setFont(new Font(this.tipoLetra, Font.PLAIN, 20));
 		menuBar.add(jmenuOperacion);
+		this.contentPane.add(this.panelPresentacion, "panelPresentacion");
+
 		// ----------------------------------------------
 
 		this.contentPane.add(this.altaPaciente, "altaPaciente");
@@ -104,6 +116,7 @@ public class UI extends JFrame {
 		this.contentPane.add(this.modificarPaciente, "modificarPaciente");
 		this.contentPane.add(this.consultaPaciente, "consultaPaciente");
 		this.contentPane.add(this.citaEspecialista, "citaEspecialista");
+		this.contentPane.add(this.atenderCita, "atenderCita");
 
 		incluirItem(jmenuPaciente, item1);
 		incluirItem(jmenuPaciente, item2);
@@ -115,6 +128,12 @@ public class UI extends JFrame {
 		incluirItem(jmenuPaciente, item8);
 		incluirItem(jmenuPaciente, item9);
 		incluirItem(jmenuPaciente, item10);
+		incluirItem(jmenuMedico, item11);
+
+		menuBar.add(panel);
+		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+
+		panel.add(spinner);
 
 	}
 
@@ -124,8 +143,6 @@ public class UI extends JFrame {
 		item.setBackground(Color.WHITE);
 		menu.add(item);
 	}
-	
-	
 
 	public CitaEspecialista getCitaEspecialista() {
 		return citaEspecialista;
@@ -133,6 +150,14 @@ public class UI extends JFrame {
 
 	public JMenuItem getItem10() {
 		return item10;
+	}
+
+	public AtenderCita getAtenderCita() {
+		return atenderCita;
+	}
+
+	public JMenuItem getItem11() {
+		return item11;
 	}
 
 	public JMenu getJmenuPaciente() {

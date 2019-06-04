@@ -13,6 +13,7 @@ import listener.item.ActionItem07;
 import listener.item.ActionItem08;
 import listener.item.ActionItem09;
 import listener.item.ActionItem10;
+import listener.item.ActionItem11;
 import vista.UI;
 
 public class ParaUI extends UI {
@@ -30,6 +31,7 @@ public class ParaUI extends UI {
 	private ActionItem08 actionItem08 = new ActionItem08(this);
 	private ActionItem09 actionItem09 = new ActionItem09(this);
 	private ActionItem10 actionItem10 = new ActionItem10(this);
+	private ActionItem11 actionItem11 = new ActionItem11(this);
 	// actionlistener botones
 	private ActionAltaPaciente actionAltaPaciente = new ActionAltaPaciente(this);
 	private ActionModificarPaciente actionModificarPaciente = new ActionModificarPaciente(this);
@@ -50,6 +52,7 @@ public class ParaUI extends UI {
 		getItem8().addActionListener(this.actionItem08);
 		getItem9().addActionListener(this.actionItem09);
 		getItem10().addActionListener(this.actionItem10);
+		getItem11().addActionListener(this.actionItem11);
 
 		getAltaPaciente().getBtnAceptar().addActionListener(this.actionAltaPaciente);
 		getModificarPaciente().getBtnModificar().addActionListener(this.actionModificarPaciente);
