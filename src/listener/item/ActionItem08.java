@@ -18,14 +18,9 @@ public class ActionItem08 implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		HashMap<String, Paciente> list = paraUI.getControl().getMapPaciente();
-		paraUI.getModificarPaciente().getComboBoxID().removeAllItems();
-		paraUI.getModificarPaciente().getComboBoxNombre().removeAllItems();
-		for (Paciente paciente : list.values()) {
-			paraUI.getModificarPaciente().getComboBoxID().addItem(paciente.getId());
-			paraUI.getModificarPaciente().getComboBoxNombre().addItem(paciente.getNombre());
-		}
-		paraUI.asociarPanel("modificarPaciente");
+		this.paraUI.asociarPanel("modificarPaciente");
+		this.paraUI.getModificarPaciente().vaciarCampos();
+		this.paraUI.rellenarComboBox(this.paraUI.getModificarPaciente().getComboBoxID(),
+				this.paraUI.getModificarPaciente().getComboBoxNombre());
 	}
-
 }

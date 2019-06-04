@@ -1,8 +1,13 @@
 package control;
 
+import java.util.HashMap;
+
+import javax.swing.JComboBox;
+import javax.swing.plaf.ComboBoxUI;
+
 import listener.btn.ActionAltaPaciente;
 import listener.btn.ActionModificarPaciente;
-import listener.combobox.ModificarPacienteID;
+import listener.combobox.ModificarPacientesID;
 import listener.item.ActionItem01;
 import listener.item.ActionItem02;
 import listener.item.ActionItem03;
@@ -14,6 +19,7 @@ import listener.item.ActionItem08;
 import listener.item.ActionItem09;
 import listener.item.ActionItem10;
 import listener.item.ActionItem11;
+import modelo.Paciente;
 import vista.UI;
 
 public class ParaUI extends UI {
@@ -36,7 +42,7 @@ public class ParaUI extends UI {
 	private ActionAltaPaciente actionAltaPaciente = new ActionAltaPaciente(this);
 	private ActionModificarPaciente actionModificarPaciente = new ActionModificarPaciente(this);
 	// actionlistener combobox
-	private ModificarPacienteID cbidModificarPaciente = new ModificarPacienteID(this);
+	private ModificarPacientesID cbidModificarPaciente = new ModificarPacientesID(this);
 
 	public ParaUI() {
 		super();
@@ -58,6 +64,16 @@ public class ParaUI extends UI {
 		getModificarPaciente().getBtnModificar().addActionListener(this.actionModificarPaciente);
 
 		getModificarPaciente().getComboBoxID().addActionListener(this.cbidModificarPaciente);
+	}
+
+	public void rellenarComboBox(JComboBox id, JComboBox nombre) {
+		nombre.removeAllItems();
+		id.removeAll();
+		HashMap<String, Paciente> list = getControl().getMapPaciente();
+		for (Paciente paciente : list.values()) {
+			id.addItem(paciente.getId());
+			nombre.addItem(paciente.getNombre());
+		}
 	}
 
 	public Control getControl() {

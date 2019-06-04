@@ -24,9 +24,8 @@ public class Logica {
 	}
 
 	public boolean altaPaciente(ArrayList<String> paciente) {
-		this.almacenPaciente.altaPaciente(
+		return this.almacenPaciente.altaPaciente(
 				new Paciente(paciente.get(0), paciente.get(1), paciente.get(2), paciente.get(3), paciente.get(4)));
-		return false;
 	}
 
 	public boolean modificarPaciente(String id, String telefono, String direccion) {
@@ -43,7 +42,6 @@ public class Logica {
 	public Paciente getPaciente(String id) {
 		return this.almacenPaciente.getPaciente(id);
 	}
-
 
 	public ArrayList<Medico> getListMedico() {
 		return null;
