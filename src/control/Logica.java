@@ -44,9 +44,6 @@ public class Logica {
 		return this.almacenPaciente.getPaciente(id);
 	}
 
-	public ArrayList<Medico> getListMedico() {
-		return null;
-	}
 
 	public ArrayList<Integer> getConsultaVacante() {
 		ArrayList<Integer> idConsulta = new ArrayList<Integer>();
@@ -78,6 +75,13 @@ public class Logica {
 				new Medico(medico.get(0), medico.get(1), medico.get(2), medico.get(3), tipo));
 		return false;
 
+	}
+	public HashMap<String, Medico> getMapMedico() {
+		return this.almacenMedico.getMapMedicos();
+	}
+	public Medico getMedico(String id) {
+		return this.almacenMedico.getMedico(id);
+		
 	}
 
 }

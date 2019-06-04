@@ -18,7 +18,7 @@ public class ActionItem02 implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		this.paraUI.asociarPanel("citaOperacion");
 
-		this.paraUI.rellenarComboBox(this.paraUI.getCitaOperacion().getComboPaciente(),
+		this.paraUI.rellenarComboBoxPaciente(this.paraUI.getCitaOperacion().getComboPaciente(),
 				this.paraUI.getCitaOperacion().getComboID());
 	}
 

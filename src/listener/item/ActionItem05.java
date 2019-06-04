@@ -18,7 +18,7 @@ public class ActionItem05 implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.paraUI.asociarPanel("consultaMedico");
+		this.paraUI.asociarPanel("altaMedico");
 		this.paraUI.getAltaMedico().getComboConsulta().removeAllItems();
 		this.paraUI.getAltaMedico().getComboEspecilidad().removeAllItems();
 		this.paraUI.getAltaMedico().getComboHorario().removeAllItems();

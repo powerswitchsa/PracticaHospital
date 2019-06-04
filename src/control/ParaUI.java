@@ -8,6 +8,7 @@ import javax.swing.plaf.ComboBoxUI;
 import listener.btn.ActionAltaPaciente;
 
 import listener.btn.ActionModificarPaciente;
+import listener.combobox.ConsultaMedicoID;
 import listener.combobox.ModificarPacientesID;
 import listener.item.ActionItem01;
 import listener.item.ActionItem02;
@@ -21,7 +22,7 @@ import listener.item.ActionItem09;
 import listener.item.ActionItem10;
 import listener.item.ActionItem11;
 import listener.item.ActionItem12;
-
+import modelo.Medico;
 import modelo.Paciente;
 
 import vista.UI;
@@ -48,6 +49,7 @@ public class ParaUI extends UI {
 	private ActionModificarPaciente actionModificarPaciente = new ActionModificarPaciente(this);
 	// actionlistener combobox
 	private ModificarPacientesID cbidModificarPaciente = new ModificarPacientesID(this);
+	private ConsultaMedicoID consultaMedicoID = new ConsultaMedicoID(this);
 
 	public ParaUI() {
 		super();
@@ -70,15 +72,25 @@ public class ParaUI extends UI {
 		getModificarPaciente().getBtnModificar().addActionListener(this.actionModificarPaciente);
 
 		getModificarPaciente().getComboBoxID().addActionListener(this.cbidModificarPaciente);
+		getConsultaMedico().getComboId().addActionListener(this.consultaMedicoID);
 	}
 
-	public void rellenarComboBox(JComboBox id, JComboBox nombre) {
+	public void rellenarComboBoxPaciente(JComboBox id, JComboBox nombre) {
 		nombre.removeAllItems();
 		id.removeAll();
 		HashMap<String, Paciente> list = getControl().getMapPaciente();
 		for (Paciente paciente : list.values()) {
 			id.addItem(paciente.getId());
 			nombre.addItem(paciente.getNombre());
+		}
+	}
+	public void rellenarComboBoxMedico(JComboBox id, JComboBox nombre) {
+		nombre.removeAllItems();
+		id.removeAllItems();
+		HashMap<String, Medico> list = getControl().getMapMedico();
+		for (Medico medico : list.values()) {
+			id.addItem(medico.getId());
+			nombre.addItem(medico.getNombre());
 		}
 	}
 

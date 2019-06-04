@@ -153,5 +153,14 @@ public class Control {
 	public Paciente getPaciente(String id) {
 		return this.logica.getPaciente(id);
 	}
+	public HashMap<String, Medico> getMapMedico(){
+		return this.logica.getMapMedico();
+		
+	}
+	
+	public Medico getMedico(String id) {
+		return this.logica.getMedico(id);
+	}
+	
 
 }

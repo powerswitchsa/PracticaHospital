@@ -23,8 +23,8 @@ public class ConsultaMedico extends JPanel {
 	private JTextField[] fields = new JTextField[this.label.length];
 	private JPanel panelLabel = new JPanel();
 	private JPanel panelText = new JPanel();
-	private JComboBox comboBox;
-	private JComboBox comboBox_1;
+	private JComboBox comboNombreMedico;
+	private JComboBox comboId;
 
 	public ConsultaMedico(Color color, int letraPequena, int letraGrande, String tipoLetra) {
 
@@ -35,14 +35,14 @@ public class ConsultaMedico extends JPanel {
 		JLabel lblNombre = new JLabel("Nombre : ");
 		lblNombre.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
-		comboBox = new JComboBox();
-		comboBox.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
+		comboNombreMedico = new JComboBox();
+		comboNombreMedico.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
 		JLabel lblId = new JLabel("ID : ");
 		lblId.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
-		comboBox_1 = new JComboBox();
-		comboBox_1.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
+		comboId = new JComboBox();
+		comboId.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
 		panelLabel = new JPanel();
 
@@ -57,11 +57,11 @@ public class ConsultaMedico extends JPanel {
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(lblNombre)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 195, GroupLayout.PREFERRED_SIZE)
+							.addComponent(comboNombreMedico, GroupLayout.PREFERRED_SIZE, 195, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(lblId)
 							.addGap(18)
-							.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+							.addComponent(comboId, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
 							.addGap(40))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
@@ -79,9 +79,9 @@ public class ConsultaMedico extends JPanel {
 					.addComponent(lblConsultaMedico)
 					.addGap(38)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(comboId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblId)
-						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(comboNombreMedico, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNombre, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE))
 					.addGap(26)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
@@ -146,8 +146,17 @@ public class ConsultaMedico extends JPanel {
 
 	public void rellenarComboBox(ArrayList<Medico> medico) {
 		for (Medico medicoDos : medico) {
-			comboBox.addItem(medicoDos.getNombre());
-			comboBox_1.addItem(medicoDos.getId());
+			comboNombreMedico.addItem(medicoDos.getNombre());
+			comboId.addItem(medicoDos.getId());
 		}
 	}
+
+	public JComboBox getComboNombreMedico() {
+		return comboNombreMedico;
+	}
+
+	public JComboBox getComboId() {
+		return comboId;
+	}
+	
 }

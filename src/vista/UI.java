@@ -62,8 +62,8 @@ public class UI extends JFrame {
 	private JMenuItem item1 = new JMenuItem("Alta Paciente");
 	private JMenuItem item2 = new JMenuItem("Cita Operacion");
 	private JMenuItem item3 = new JMenuItem("Baja Paciente");
-	private JMenuItem item4 = new JMenuItem("Consulta Medico");
-	private JMenuItem item5 = new JMenuItem("Alta Medico");
+	private JMenuItem item4 = new JMenuItem("Alta Medico");
+	private JMenuItem item5 = new JMenuItem("Consulta Medico");
 	private JMenuItem item6 = new JMenuItem("Ver Historial");
 	private JMenuItem item7 = new JMenuItem("Cerrar Operacion");
 	private JMenuItem item8 = new JMenuItem("Modificar Paciente");
