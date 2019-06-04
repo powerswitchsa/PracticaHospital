@@ -3,12 +3,8 @@ package vista.paciente;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.util.ArrayList;
-import java.util.GregorianCalendar;
 
-import javax.swing.ComboBoxEditor;
 import javax.swing.GroupLayout;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -17,14 +13,12 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.MatteBorder;
 
-import modelo.Medico;
 import modelo.Paciente;
-import modelo.Persona;
 
 import javax.swing.JComboBox;
 
 public class ConsultaPaciente extends JPanel {
-	private String[] label = { "ID :", "Nombre :", "Apellidos :", "Direccion :", "Nacimiento :", "Telefono :" };
+	private String[] label = { "Nombre :", "Apellidos :", "Direccion :", "Nacimiento :", "Telefono :" };
 	private JTextField[] fields = new JTextField[this.label.length];
 	private JPanel panelLabel = new JPanel();
 	private JPanel panelText = new JPanel();
@@ -146,10 +140,10 @@ public class ConsultaPaciente extends JPanel {
 	}
 
 	public void mostrarDatos(Paciente paciente) {
-		this.fields[0].setText(String.valueOf(paciente.getId()));
-		this.fields[1].setText(paciente.getNombre());
-		this.fields[2].setText(paciente.getApellidos());
-		this.fields[3].setText(paciente.getDireccion());
+		this.fields[0].setText(paciente.getNombre());
+		this.fields[1].setText(paciente.getApellidos());
+		this.fields[2].setText(paciente.getDireccion());
+		this.fields[3].setText(paciente.getNacimiento());
 		this.fields[4].setText(paciente.getTelefono());
 	}
 
@@ -161,5 +155,4 @@ public class ConsultaPaciente extends JPanel {
 		return comboBoxID;
 	}
 
-	
 }

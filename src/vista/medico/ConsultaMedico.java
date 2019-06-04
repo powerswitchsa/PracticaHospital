@@ -155,7 +155,7 @@ public class ConsultaMedico extends JPanel {
 		return comboNombreMedico;
 	}
 
-	public JComboBox getComboId() {
+	public JComboBox getComboBoxID() {
 		return comboId;
 	}
 	
