@@ -160,11 +160,11 @@ public class AltaMedico extends JPanel {
 
 	public ArrayList<String> getFieldsMedico() {
 		ArrayList<String> campos = new ArrayList<String>();
-		for (JTextField jtext : fields) {
+		for (JTextField jtext : this.fields) {
 			campos.add(jtext.getText());
 		}
-		campos.add(getComboConsulta().toString());
-		campos.add(getComboHorario().toString());
+//		campos.add(getComboConsulta().toString());
+//		campos.add(getComboHorario().toString());
 		return campos;
 	}
 

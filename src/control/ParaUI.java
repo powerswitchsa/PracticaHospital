@@ -5,6 +5,7 @@ import java.util.HashMap;
 import javax.swing.JComboBox;
 import javax.swing.plaf.ComboBoxUI;
 
+import listener.btn.ActionAltaMedico;
 import listener.btn.ActionAltaPaciente;
 
 import listener.btn.ActionModificarPaciente;
@@ -46,6 +47,7 @@ public class ParaUI extends UI {
 	private ActionItem12 actionItem12 = new ActionItem12(this);
 	// actionlistener botones
 	private ActionAltaPaciente actionAltaPaciente = new ActionAltaPaciente(this);
+	private ActionAltaMedico actionAltaMedico = new ActionAltaMedico(this);
 	private ActionModificarPaciente actionModificarPaciente = new ActionModificarPaciente(this);
 	// actionlistener combobox
 	private ModificarPacientesID cbidModificarPaciente = new ModificarPacientesID(this);
@@ -72,8 +74,9 @@ public class ParaUI extends UI {
 		getAltaPaciente().getBtnAceptar().addActionListener(this.actionAltaPaciente);
 		getModificarPaciente().getBtnModificar().addActionListener(this.actionModificarPaciente);
 		getModificarPaciente().getComboBoxID().addActionListener(this.cbidModificarPaciente);
-		getConsultaMedico().getComboId().addActionListener(this.consultaMedicoID);
 		getModificarPaciente().getComboBoxID().addActionListener(this.boxModifcarPacienteID);
+		getConsultaMedico().getComboId().addActionListener(this.consultaMedicoID);
+		getAltaMedico().getBtnAceptar().addActionListener(this.actionAltaMedico);
 	}
 
 	public void rellenarComboBoxPaciente(JComboBox id, JComboBox nombre) {

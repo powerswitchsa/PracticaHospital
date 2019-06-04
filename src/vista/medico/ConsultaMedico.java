@@ -23,8 +23,8 @@ public class ConsultaMedico extends JPanel {
 	private JTextField[] fields = new JTextField[this.label.length];
 	private JPanel panelLabel = new JPanel();
 	private JPanel panelText = new JPanel();
-	private JComboBox comboNombreMedico;
-	private JComboBox comboId;
+	private JComboBox<String> comboNombreMedico;
+	private JComboBox<String> comboId;
 
 	public ConsultaMedico(Color color, int letraPequena, int letraGrande, String tipoLetra) {
 
@@ -35,13 +35,13 @@ public class ConsultaMedico extends JPanel {
 		JLabel lblNombre = new JLabel("Nombre : ");
 		lblNombre.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
-		comboNombreMedico = new JComboBox();
+		comboNombreMedico = new JComboBox<String>();
 		comboNombreMedico.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
 		JLabel lblId = new JLabel("ID : ");
 		lblId.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
-		comboId = new JComboBox();
+		comboId = new JComboBox<String>();
 		comboId.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
 		panelLabel = new JPanel();
@@ -90,7 +90,6 @@ public class ConsultaMedico extends JPanel {
 					.addGap(30))
 		);
 		setLayout(groupLayout);
-
 		creandoVista(letraPequena, tipoLetra);
 		setVisible(true);
 
@@ -139,9 +138,7 @@ public class ConsultaMedico extends JPanel {
 		this.fields[1].setText(medico.getNombre());
 		this.fields[2].setText(medico.getApellidos());
 		this.fields[3].setText(medico.getDireccion());
-		this.fields[4].setText(medico.getEspecialidad().name());
 		this.fields[5].setText(medico.getTelefono());
-//		this.fields[6].setText();
 	}
 
 	public void rellenarComboBox(ArrayList<Medico> medico) {
@@ -151,11 +148,11 @@ public class ConsultaMedico extends JPanel {
 		}
 	}
 
-	public JComboBox getComboNombreMedico() {
+	public JComboBox<String> getComboNombreMedico() {
 		return comboNombreMedico;
 	}
 
-	public JComboBox getComboId() {
+	public JComboBox<String> getComboId() {
 		return comboId;
 	}
 	
