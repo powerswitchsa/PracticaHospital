@@ -161,7 +161,7 @@ public class ModificarPaciente extends JPanel {
 		JTextField field = new JTextField();
 		field.setEditable(editable);
 		field.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
-		field.setHorizontalAlignment(SwingConstants.CENTER);
+		field.setHorizontalAlignment(SwingConstants.LEFT);
 		field.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		return field;
 	}

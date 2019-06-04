@@ -18,9 +18,9 @@ public class ActionItemModificarPaciente implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.paraUI.asociarPanel("modificarPaciente");
 		this.paraUI.getModificarPaciente().vaciarCampos();
 		this.paraUI.rellenarComboBoxPaciente(this.paraUI.getModificarPaciente().getComboBoxID(),
 				this.paraUI.getModificarPaciente().getComboBoxNombre());
+		this.paraUI.asociarPanel("modificarPaciente");
 	}
 }

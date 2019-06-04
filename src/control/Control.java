@@ -113,8 +113,7 @@ public class Control {
 	 * @return true si se ha modificado con exito
 	 */
 	public boolean getModificarPaciente(String id, String nombrePaciente, String direccion, String telefono) {
-
-		return false;
+		return this.logica.modificarPaciente(id, telefono, direccion);
 	}
 
 	public ArrayList<Integer> getVacanteConsulta() {
