@@ -73,6 +73,12 @@ public class AltaPaciente extends JPanel {
 		setVisible(true);
 	}
 
+	public void vaciarCampos() {
+		for (int i = 0; i < fields.length; i++) {
+			this.fields[i].setText(null);
+		}
+	}
+
 	public ArrayList<String> getInfoPaciente() {
 		ArrayList<String> list = new ArrayList<String>();
 		for (int i = 0; i < fields.length; i++) {

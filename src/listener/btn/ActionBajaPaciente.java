@@ -19,7 +19,9 @@ public class ActionBajaPaciente implements ActionListener {
 		String id = this.paraUI.getBajaPaciente().getComboBoxID().getSelectedItem().toString();
 		if (id != null)
 			this.paraUI.getControl().getBajaPaciente(id);
-
+		this.paraUI.getBajaPaciente().vaciarCampos();
+		this.paraUI.rellenarComboBoxPaciente(this.paraUI.getBajaPaciente().getComboBoxID(),
+				this.paraUI.getBajaPaciente().getComboBoxNombre());
 	}
 
 }

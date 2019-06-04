@@ -159,6 +159,12 @@ public class BajaPaciente extends JPanel {
 		}
 	}
 
+	public void vaciarCampos() {
+		for (int i = 0; i < fields.length; i++) {
+			this.fields[i].setText(null);
+		}
+	}
+
 	public void rellenarCampos(Paciente paciente) {
 		this.fields[0].setText(paciente.getNombre());
 		this.fields[1].setText(paciente.getApellidos());
