@@ -14,6 +14,7 @@ import vista.paciente.AltaPaciente;
 import vista.paciente.BajaPaciente;
 import vista.paciente.CitaEspecialista;
 import vista.paciente.CitaOperacion;
+import vista.paciente.CitaPrimaria;
 import vista.paciente.ConsultaPaciente;
 import vista.paciente.ModificarPaciente;
 import vista.paciente.VerHistorial;
@@ -52,6 +53,7 @@ public class UI extends JFrame {
 			tipoLetra);
 	private CitaEspecialista citaEspecialista = new CitaEspecialista(colorFondo, letraPequena, letraGrande, tipoLetra);
 	private AtenderCita atenderCita = new AtenderCita(colorFondo, letraPequena, letraGrande, tipoLetra);
+	private CitaPrimaria citaPrimaria = new CitaPrimaria(colorFondo, letraPequena, letraGrande, tipoLetra);
 
 	private JMenu jmenuPaciente;
 	private JMenu jmenuMedico;
@@ -68,6 +70,7 @@ public class UI extends JFrame {
 	private JMenuItem item9 = new JMenuItem("Consulta Paciente");
 	private JMenuItem item10 = new JMenuItem("Cita Especialista");
 	private JMenuItem item11 = new JMenuItem("Atender Cita");
+	private JMenuItem item12 = new JMenuItem("Cita Primaria");
 
 	private final JPanel panel = new JPanel();
 	private final JSpinner spinner = new JSpinner();
@@ -117,6 +120,7 @@ public class UI extends JFrame {
 		this.contentPane.add(this.consultaPaciente, "consultaPaciente");
 		this.contentPane.add(this.citaEspecialista, "citaEspecialista");
 		this.contentPane.add(this.atenderCita, "atenderCita");
+		this.contentPane.add(this.citaPrimaria,"citaPrimaria");
 
 		incluirItem(jmenuPaciente, item1);
 		incluirItem(jmenuPaciente, item2);
@@ -129,6 +133,7 @@ public class UI extends JFrame {
 		incluirItem(jmenuPaciente, item9);
 		incluirItem(jmenuPaciente, item10);
 		incluirItem(jmenuMedico, item11);
+		incluirItem(jmenuPaciente,item12);
 
 		menuBar.add(panel);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
@@ -242,6 +247,10 @@ public class UI extends JFrame {
 
 	public JMenuItem getItem8() {
 		return item8;
+	}
+
+	public JMenuItem getItem12() {
+		return item12;
 	}
 
 }

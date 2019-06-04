@@ -94,18 +94,18 @@ public class CerrarOperacion extends JPanel {
 		setLayout(groupLayout);		
 	}
 
-	private void rellenarCloseInt(Paciente paciente) {
-		int index = 0;
-		this.datosCloseInt = new String[paciente.getCitas().size()][columnaCloseInt.length];
-		for (Intervencion interven : paciente.getIntervenciones()) {
-			rellenarCloseIntFila(paciente.getFullName(), interven, index);
-			index++;
-		}
-		DefaultTableModel defaultTableModelC = new DefaultTableModel(datosCloseInt, columnaCloseInt);
-		tableCloseHistorial = new JTable(defaultTableModelC);
-		tableCloseHistorial.setFont(new Font("Tahoma", Font.CENTER_BASELINE, 12));
-		scrollCerrar.setViewportView(tableCloseHistorial);
-	}
+//	private void rellenarCloseInt(Paciente paciente) {
+//		int index = 0;
+//		this.datosCloseInt = new String[paciente.getCitas().size()][columnaCloseInt.length];
+//		for (Intervencion interven : paciente.getIntervenciones()) {
+//			rellenarCloseIntFila(paciente.getFullName(), interven, index);
+//			index++;
+//		}
+//		DefaultTableModel defaultTableModelC = new DefaultTableModel(datosCloseInt, columnaCloseInt);
+//		tableCloseHistorial = new JTable(defaultTableModelC);
+//		tableCloseHistorial.setFont(new Font("Tahoma", Font.CENTER_BASELINE, 12));
+//		scrollCerrar.setViewportView(tableCloseHistorial);
+//	}
 
 	private void rellenarCloseIntFila(String fullName, Intervencion operacion, int index) {
 		this.datosCloseInt[index][0] = fullName;
