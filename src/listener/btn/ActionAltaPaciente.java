@@ -20,6 +20,7 @@ public class ActionAltaPaciente implements ActionListener {
 			this.paraUI.getAltaPaciente().getMensajeSistema().setText("Se ha dado de alta con exito");
 		else
 			this.paraUI.getAltaPaciente().getMensajeSistema().setText("Error al dar de alta");
+		this.paraUI.getAltaPaciente().vaciarCampos();
 	}
 
 }
