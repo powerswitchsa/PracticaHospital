@@ -79,7 +79,6 @@ public class AlmacenPaciente {
 		for (String id : this.mapPaciente.keySet()) {
 			int num = Integer.valueOf(id);
 			contador = contador < num ? num : contador;
-
 		}
 		return String.valueOf(contador + 1);
 	}

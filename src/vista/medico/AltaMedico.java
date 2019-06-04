@@ -3,6 +3,7 @@ package vista.medico;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -155,6 +156,21 @@ public class AltaMedico extends JPanel {
 
 	public JComboBox getComboHorario() {
 		return comboHorario;
+	}
+
+	public ArrayList<String> getFieldsMedico() {
+		ArrayList<String> campos = new ArrayList<String>();
+		for (JTextField jtext : fields) {
+			campos.add(jtext.getText());
+		}
+		campos.add(getComboConsulta().toString());
+		campos.add(getComboHorario().toString());
+		return campos;
+	}
+
+	public Especialidad getTipoEspecialidad() {
+		return (Especialidad) getComboEspecilidad().getSelectedItem();
+
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import modelo.Cita;
+import modelo.Especialidad;
 import modelo.Medico;
 import modelo.Paciente;
 import modelo.Respuesta;
@@ -34,7 +35,8 @@ public class Control {
 	 * @param medico
 	 * @return true si se ha podido crear
 	 */
-	public boolean getAltaMedico(Medico medico) {
+	public boolean getAltaMedico(ArrayList<String> medico,Especialidad tipo) {
+		this.logica.altaMedico(medico,tipo);
 		return false;
 	}
 
@@ -151,5 +153,14 @@ public class Control {
 	public Paciente getPaciente(String id) {
 		return this.logica.getPaciente(id);
 	}
+	public HashMap<String, Medico> getMapMedico(){
+		return this.logica.getMapMedico();
+		
+	}
+	
+	public Medico getMedico(String id) {
+		return this.logica.getMedico(id);
+	}
+	
 
 }

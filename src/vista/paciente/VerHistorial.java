@@ -102,7 +102,7 @@ public class VerHistorial extends JPanel {
 	}
 
 	public void actualizarTablas(Paciente paciente) {
-		rellenarCitas(paciente);
+//		rellenarCitas(paciente);
 		rellenarTratamiento(paciente);
 	}
 
@@ -118,6 +118,7 @@ public class VerHistorial extends JPanel {
 		tableCitas.setFont(new Font("Tahoma", Font.CENTER_BASELINE, 12));
 		scrollCitas.setViewportView(tableCitas);
 	}
+
 
 	private void rellenarTratamiento(Paciente paciente) {
 		int index = 0;

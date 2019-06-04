@@ -20,6 +20,7 @@ public class ActionItem02 implements ActionListener {
 
 		this.paraUI.rellenarComboBoxPaciente(this.paraUI.getCitaOperacion().getComboID(),
 				this.paraUI.getCitaOperacion().getComboPaciente());
+
 	}
 
 }
