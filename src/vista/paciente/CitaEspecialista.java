@@ -26,6 +26,8 @@ public class CitaEspecialista extends JPanel {
 
 	private String[] label = { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes" };
 	private JButton[][] botonera = new JButton[4][5];
+	private JComboBox comboBoxNombre;
+	private JComboBox comboBoxID;
 
 	public CitaEspecialista(Color colorFondo, int letraPequena, int letraGrande, String tipoLetra) {
 		setVisible(true);
@@ -47,7 +49,7 @@ public class CitaEspecialista extends JPanel {
 		JLabel lblId = new JLabel("ID : ");
 		lblId.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
-		JComboBox comboBox_1 = new JComboBox();
+		comboBoxID = new JComboBox();
 
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(colorFondo);
@@ -72,12 +74,12 @@ public class CitaEspecialista extends JPanel {
 		gl_panel_1.setHorizontalGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_1.createSequentialGroup().addContainerGap()
 						.addComponent(lblId, GroupLayout.PREFERRED_SIZE, 79, GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(comboBox_1, 0, 155, Short.MAX_VALUE)
+						.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(comboBoxID, 0, 155, Short.MAX_VALUE)
 						.addContainerGap()));
 		gl_panel_1.setVerticalGroup(gl_panel_1.createParallelGroup(Alignment.LEADING).addGroup(Alignment.TRAILING,
 				gl_panel_1.createSequentialGroup().addGap(21)
 						.addGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING)
-								.addComponent(comboBox_1, Alignment.LEADING)
+								.addComponent(comboBoxID, Alignment.LEADING)
 								.addComponent(lblId, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
 						.addGap(20)));
 		panel_1.setLayout(gl_panel_1);
@@ -85,18 +87,20 @@ public class CitaEspecialista extends JPanel {
 		JLabel lblNewLabel_1 = new JLabel("Nombre : ");
 		lblNewLabel_1.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
-		JComboBox comboBox = new JComboBox();
+		comboBoxNombre = new JComboBox();
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup().addContainerGap()
 						.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
-						.addGap(20).addComponent(comboBox, 0, 505, Short.MAX_VALUE).addContainerGap()));
-		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING).addGroup(gl_panel
-				.createSequentialGroup().addGap(20)
-				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblNewLabel_1, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-						.addComponent(comboBox, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
-				.addGap(20)));
+						.addGap(20).addComponent(comboBoxNombre, 0, 505, Short.MAX_VALUE).addContainerGap()));
+		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup().addGap(20)
+						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblNewLabel_1, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 30,
+										Short.MAX_VALUE)
+								.addComponent(comboBoxNombre, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 44,
+										Short.MAX_VALUE))
+						.addGap(20)));
 		panel.setLayout(gl_panel);
 
 		panelLabel = new JPanel();
@@ -157,4 +161,13 @@ public class CitaEspecialista extends JPanel {
 		jLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		return jLabel;
 	}
+
+	public JComboBox getComboBoxNombre() {
+		return comboBoxNombre;
+	}
+
+	public JComboBox getComboBoxID() {
+		return comboBoxID;
+	}
+
 }

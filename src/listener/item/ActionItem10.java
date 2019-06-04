@@ -17,6 +17,8 @@ public class ActionItem10 implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.paraUI.asociarPanel("citaEspecialista");
+		this.paraUI.rellenarComboBoxPaciente(this.paraUI.getCitaEspecialista().getComboBoxID(),
+				this.paraUI.getCitaEspecialista().getComboBoxNombre());
 	}
 
 }

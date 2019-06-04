@@ -20,7 +20,7 @@ public class ActionItem08 implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		this.paraUI.asociarPanel("modificarPaciente");
 		this.paraUI.getModificarPaciente().vaciarCampos();
-		this.paraUI.rellenarComboBox(this.paraUI.getModificarPaciente().getComboBoxID(),
+		this.paraUI.rellenarComboBoxPaciente(this.paraUI.getModificarPaciente().getComboBoxID(),
 				this.paraUI.getModificarPaciente().getComboBoxNombre());
 	}
 }
