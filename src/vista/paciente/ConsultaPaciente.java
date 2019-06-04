@@ -146,7 +146,7 @@ public class ConsultaPaciente extends JPanel {
 	}
 
 	public void mostrarDatos(Paciente paciente) {
-		this.fields[0].setText(String.valueOf(paciente.getId()));
+		this.fields[0].setText((paciente.getId()));
 		this.fields[1].setText(paciente.getNombre());
 		this.fields[2].setText(paciente.getApellidos());
 		this.fields[3].setText(paciente.getDireccion());

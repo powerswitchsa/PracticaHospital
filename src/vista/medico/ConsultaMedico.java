@@ -19,7 +19,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JComboBox;
 
 public class ConsultaMedico extends JPanel {
-	private String[] label = { "ID :", "Nombre :", "Apellidos :", "Direccion :", "Nacimiento :", "Telefono :" };
+	private String[] label = { "Nombre :", "Apellidos :", "Direccion :", "Telefono :" };
 	private JTextField[] fields = new JTextField[this.label.length];
 	private JPanel panelLabel = new JPanel();
 	private JPanel panelText = new JPanel();
@@ -49,46 +49,43 @@ public class ConsultaMedico extends JPanel {
 		panelText = new JPanel();
 
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(30)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
+				.createSequentialGroup().addGap(30)
+				.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING).addGroup(groupLayout
+						.createSequentialGroup().addComponent(lblNombre).addPreferredGap(ComponentPlacement.UNRELATED)
+						.addComponent(comboNombreMedico, GroupLayout.PREFERRED_SIZE, 195, GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(lblId).addGap(18)
+						.addComponent(comboId, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE).addGap(40))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblNombre)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(comboNombreMedico, GroupLayout.PREFERRED_SIZE, 195, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(lblId)
-							.addGap(18)
-							.addComponent(comboId, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-							.addGap(40))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(lblConsultaMedico, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 163, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(panelText, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-							.addContainerGap())))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblConsultaMedico)
-					.addGap(38)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(comboId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblId)
-						.addComponent(comboNombreMedico, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNombre, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE))
-					.addGap(26)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(panelLabel, GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-						.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
-					.addGap(30))
-		);
+								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+										.addComponent(lblConsultaMedico, Alignment.LEADING, GroupLayout.DEFAULT_SIZE,
+												390, Short.MAX_VALUE)
+										.addGroup(groupLayout.createSequentialGroup()
+												.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 163,
+														GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(panelText,
+														GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+								.addContainerGap()))));
+		groupLayout
+				.setVerticalGroup(
+						groupLayout.createParallelGroup(Alignment.LEADING)
+								.addGroup(groupLayout.createSequentialGroup().addContainerGap()
+										.addComponent(lblConsultaMedico).addGap(38)
+										.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+												.addComponent(comboId, GroupLayout.PREFERRED_SIZE,
+														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+												.addComponent(lblId)
+												.addComponent(comboNombreMedico, GroupLayout.PREFERRED_SIZE,
+														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+												.addComponent(lblNombre, GroupLayout.PREFERRED_SIZE, 17,
+														GroupLayout.PREFERRED_SIZE))
+										.addGap(26)
+										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+												.addComponent(panelLabel, GroupLayout.DEFAULT_SIZE, 178,
+														Short.MAX_VALUE)
+												.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 178,
+														Short.MAX_VALUE))
+										.addGap(30)));
 		setLayout(groupLayout);
 		creandoVista(letraPequena, tipoLetra);
 		setVisible(true);
@@ -117,7 +114,7 @@ public class ConsultaMedico extends JPanel {
 		field.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 		field.setHorizontalAlignment(SwingConstants.CENTER);
 		field.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-		field.setEnabled(false);
+		field.setFocusable(false);
 		return field;
 	}
 
@@ -134,17 +131,15 @@ public class ConsultaMedico extends JPanel {
 	}
 
 	public void mostrarDatos(Medico medico) {
-		this.fields[0].setText(String.valueOf(medico.getId()));
-		this.fields[1].setText(medico.getNombre());
-		this.fields[2].setText(medico.getApellidos());
-		this.fields[3].setText(medico.getDireccion());
-		this.fields[5].setText(medico.getTelefono());
+		this.fields[0].setText(medico.getNombre());
+		this.fields[1].setText(medico.getApellidos());
+		this.fields[2].setText(medico.getDireccion());
+		this.fields[3].setText(medico.getTelefono());
 	}
 
-	public void rellenarComboBox(ArrayList<Medico> medico) {
-		for (Medico medicoDos : medico) {
-			comboNombreMedico.addItem(medicoDos.getNombre());
-			comboId.addItem(medicoDos.getId());
+	public void vaciarCampos() {
+		for (int i = 0; i < fields.length; i++) {
+			this.fields[i].setText(null);	
 		}
 	}
 
@@ -155,5 +150,5 @@ public class ConsultaMedico extends JPanel {
 	public JComboBox<String> getComboId() {
 		return comboId;
 	}
-	
+
 }
