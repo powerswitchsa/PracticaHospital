@@ -166,19 +166,6 @@ public class AltaMedico extends JPanel {
 		return comboHorario;
 	}
 
-<<<<<<< HEAD
-	public ArrayList<String> getFieldsMedico() {
-		ArrayList<String> campos = new ArrayList<String>();
-		for (JTextField jtext : this.fields) {
-			campos.add(jtext.getText());
-		}
-//		campos.add(getComboConsulta().toString());
-//		campos.add(getComboHorario().toString());
-		return campos;
-	}
-
-=======
->>>>>>> branch 'master' of https://github.com/powerswitchsa/PracticaHospital.git
 	public Especialidad getTipoEspecialidad() {
 		return (Especialidad) getComboEspecilidad().getSelectedItem();
 
