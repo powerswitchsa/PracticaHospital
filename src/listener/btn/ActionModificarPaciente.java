@@ -22,6 +22,8 @@ public class ActionModificarPaciente implements ActionListener {
 		String nuevaTelefono = this.paraUI.getModificarPaciente().getTelefono();
 		if (id != null)
 			this.paraUI.getControl().getModificarPaciente(id, "", nuevaDireccion, nuevaTelefono);
+		this.paraUI.rellenarComboBoxPaciente(this.paraUI.getModificarPaciente().getComboBoxID(),
+				this.paraUI.getModificarPaciente().getComboBoxNombre());
 	}
 
 }

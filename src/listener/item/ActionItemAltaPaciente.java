@@ -17,6 +17,7 @@ public class ActionItemAltaPaciente implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.paraUI.asociarPanel("altaPaciente");
+		this.paraUI.getAltaPaciente().vaciarCampos();
 	}
 
 }
