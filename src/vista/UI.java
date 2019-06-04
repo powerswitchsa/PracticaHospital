@@ -59,18 +59,18 @@ public class UI extends JFrame {
 	private JMenu jmenuMedico;
 	private JMenu jmenuOperacion;
 
-	private JMenuItem item1 = new JMenuItem("Alta Paciente");
-	private JMenuItem item2 = new JMenuItem("Cita Operacion");
-	private JMenuItem item3 = new JMenuItem("Baja Paciente");
-	private JMenuItem item4 = new JMenuItem("Alta Medico");
-	private JMenuItem item5 = new JMenuItem("Consulta Medico");
-	private JMenuItem item6 = new JMenuItem("Ver Historial");
-	private JMenuItem item7 = new JMenuItem("Cerrar Operacion");
-	private JMenuItem item8 = new JMenuItem("Modificar Paciente");
-	private JMenuItem item9 = new JMenuItem("Consulta Paciente");
-	private JMenuItem item10 = new JMenuItem("Cita Especialista");
-	private JMenuItem item11 = new JMenuItem("Atender Cita");
-	private JMenuItem item12 = new JMenuItem("Cita Primaria");
+	private JMenuItem itemAltaPaciente = new JMenuItem("Alta Paciente");
+	private JMenuItem itemCitaOperacion = new JMenuItem("Cita Operacion");
+	private JMenuItem itemBajaPaciente = new JMenuItem("Baja Paciente");
+	private JMenuItem itemAltaMedico = new JMenuItem("Alta Medico");
+	private JMenuItem itemConsultaMedico = new JMenuItem("Consulta Medico");
+	private JMenuItem itemVerHistorial = new JMenuItem("Ver Historial");
+	private JMenuItem itemCerrarOperacion = new JMenuItem("Cerrar Operacion");
+	private JMenuItem itemModificarPaciente = new JMenuItem("Modificar Paciente");
+	private JMenuItem itemConsultaPaciente = new JMenuItem("Consulta Paciente");
+	private JMenuItem itemCitaEspecialista = new JMenuItem("Cita Especialista");
+	private JMenuItem itemAtenderCita = new JMenuItem("Atender Cita");
+	private JMenuItem itemCitaPrimaria = new JMenuItem("Cita Primaria");
 
 	private final JPanel panel = new JPanel();
 	private final JSpinner spinner = new JSpinner();
@@ -112,28 +112,28 @@ public class UI extends JFrame {
 		this.contentPane.add(this.altaPaciente, "altaPaciente");
 		this.contentPane.add(this.citaOperacion, "citaOperacion");
 		this.contentPane.add(this.bajaPaciente, "bajaPaciente");
-		this.contentPane.add(this.consultaMedico, "altaMedico");
-		this.contentPane.add(this.altaMedico, "consultaMedico");
+		this.contentPane.add(this.consultaMedico, "consultaMedico");
+		this.contentPane.add(this.altaMedico, "altaMedico");
 		this.contentPane.add(this.verHistorial, "verHistorial");
 		this.contentPane.add(this.cerrarOperacion, "cerrarOperacion");
 		this.contentPane.add(this.modificarPaciente, "modificarPaciente");
 		this.contentPane.add(this.consultaPaciente, "consultaPaciente");
 		this.contentPane.add(this.citaEspecialista, "citaEspecialista");
 		this.contentPane.add(this.atenderCita, "atenderCita");
-		this.contentPane.add(this.citaPrimaria,"citaPrimaria");
+		this.contentPane.add(this.citaPrimaria, "citaPrimaria");
 
-		incluirItem(jmenuPaciente, item1);
-		incluirItem(jmenuPaciente, item2);
-		incluirItem(jmenuPaciente, item3);
-		incluirItem(jmenuMedico, item4);
-		incluirItem(jmenuMedico, item5);
-		incluirItem(jmenuPaciente, item6);
-		incluirItem(jmenuOperacion, item7);
-		incluirItem(jmenuPaciente, item8);
-		incluirItem(jmenuPaciente, item9);
-		incluirItem(jmenuPaciente, item10);
-		incluirItem(jmenuMedico, item11);
-		incluirItem(jmenuPaciente,item12);
+		incluirItem(jmenuPaciente, itemAltaPaciente);
+		incluirItem(jmenuPaciente, itemCitaOperacion);
+		incluirItem(jmenuPaciente, itemBajaPaciente);
+		incluirItem(jmenuMedico, itemAltaMedico);
+		incluirItem(jmenuMedico, itemConsultaMedico);
+		incluirItem(jmenuPaciente, itemVerHistorial);
+		incluirItem(jmenuOperacion, itemCerrarOperacion);
+		incluirItem(jmenuPaciente, itemModificarPaciente);
+		incluirItem(jmenuPaciente, itemConsultaPaciente);
+		incluirItem(jmenuPaciente, itemCitaEspecialista);
+		incluirItem(jmenuMedico, itemAtenderCita);
+		incluirItem(jmenuPaciente, itemCitaPrimaria);
 
 		menuBar.add(panel);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
@@ -153,16 +153,8 @@ public class UI extends JFrame {
 		return citaEspecialista;
 	}
 
-	public JMenuItem getItem10() {
-		return item10;
-	}
-
 	public AtenderCita getAtenderCita() {
 		return atenderCita;
-	}
-
-	public JMenuItem getItem11() {
-		return item11;
 	}
 
 	public JMenu getJmenuPaciente() {
@@ -171,10 +163,6 @@ public class UI extends JFrame {
 
 	public JMenu getJmenuMedico() {
 		return jmenuMedico;
-	}
-
-	public JMenuItem getItem9() {
-		return item9;
 	}
 
 	public JMenu getJmenuOperacion() {
@@ -217,40 +205,64 @@ public class UI extends JFrame {
 		return verHistorial;
 	}
 
-	public JMenuItem getItem1() {
-		return item1;
+	public JPanel getContentPane() {
+		return contentPane;
 	}
 
-	public JMenuItem getItem2() {
-		return item2;
+	public CerrarOperacion getCerrarOperacion() {
+		return cerrarOperacion;
 	}
 
-	public JMenuItem getItem3() {
-		return item3;
+	public CitaPrimaria getCitaPrimaria() {
+		return citaPrimaria;
 	}
 
-	public JMenuItem getItem4() {
-		return item4;
+	public JMenuItem getItemAltaPaciente() {
+		return itemAltaPaciente;
 	}
 
-	public JMenuItem getItem5() {
-		return item5;
+	public JMenuItem getItemCitaOperacion() {
+		return itemCitaOperacion;
 	}
 
-	public JMenuItem getItem6() {
-		return item6;
+	public JMenuItem getItemBajaPaciente() {
+		return itemBajaPaciente;
 	}
 
-	public JMenuItem getItem7() {
-		return item7;
+	public JMenuItem getItemAltaMedico() {
+		return itemAltaMedico;
 	}
 
-	public JMenuItem getItem8() {
-		return item8;
+	public JMenuItem getItemConsultaMedico() {
+		return itemConsultaMedico;
 	}
 
-	public JMenuItem getItem12() {
-		return item12;
+	public JMenuItem getItemVerHistorial() {
+		return itemVerHistorial;
+	}
+
+	public JMenuItem getItemCerrarOperacion() {
+		return itemCerrarOperacion;
+	}
+
+	public JMenuItem getItemModificarPaciente() {
+		return itemModificarPaciente;
+	}
+
+	public JMenuItem getItemConsultaPaciente() {
+		return itemConsultaPaciente;
+	}
+
+	public JMenuItem getItemCitaEspecialista() {
+		return itemCitaEspecialista;
+	}
+
+	public JMenuItem getItemAtenderCita() {
+		return itemAtenderCita;
+	}
+
+	public JMenuItem getItemCitaPrimaria() {
+		return itemCitaPrimaria;
 	}
 
 }

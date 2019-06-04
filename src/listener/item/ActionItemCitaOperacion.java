@@ -5,11 +5,11 @@ import java.awt.event.ActionListener;
 
 import control.ParaUI;
 
-public class ActionItem02 implements ActionListener {
+public class ActionItemCitaOperacion implements ActionListener {
 
 	private ParaUI paraUI;
 
-	public ActionItem02(ParaUI paraUI) {
+	public ActionItemCitaOperacion(ParaUI paraUI) {
 		super();
 		this.paraUI = paraUI;
 	}

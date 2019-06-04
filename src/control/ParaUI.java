@@ -10,18 +10,18 @@ import listener.btn.ActionAltaPaciente;
 import listener.btn.ActionModificarPaciente;
 import listener.combobox.ConsultaMedicoID;
 import listener.combobox.ModificarPacientesID;
-import listener.item.ActionItem01;
-import listener.item.ActionItem02;
-import listener.item.ActionItem03;
-import listener.item.ActionItem04;
-import listener.item.ActionItem05;
-import listener.item.ActionItem06;
-import listener.item.ActionItem07;
-import listener.item.ActionItem08;
-import listener.item.ActionItem09;
-import listener.item.ActionItem10;
-import listener.item.ActionItem11;
-import listener.item.ActionItem12;
+import listener.item.ActionItemAltaPaciente;
+import listener.item.ActionItemCitaOperacion;
+import listener.item.ActionItemBajaPaciente;
+import listener.item.ActionItemConsultaMedico;
+import listener.item.ActionItemAltaMedico;
+import listener.item.ActionItemVerHistorial;
+import listener.item.ActionItemCerrarOperacion;
+import listener.item.ActionItemModificarPaciente;
+import listener.item.ActionItemConsultaPaciente;
+import listener.item.ActionItemCitaEspecialista;
+import listener.item.ActionItemAtenderCita;
+import listener.item.ActionItemCitaPrimaria;
 import modelo.Medico;
 import modelo.Paciente;
 
@@ -32,18 +32,18 @@ public class ParaUI extends UI {
 	private Control control;
 
 	// actionlistener cambiar pestaña
-	private ActionItem01 actionItem01 = new ActionItem01(this);
-	private ActionItem02 actionItem02 = new ActionItem02(this);
-	private ActionItem03 actionItem03 = new ActionItem03(this);
-	private ActionItem04 actionItem04 = new ActionItem04(this);
-	private ActionItem05 actionItem05 = new ActionItem05(this);
-	private ActionItem06 actionItem06 = new ActionItem06(this);
-	private ActionItem07 actionItem07 = new ActionItem07(this);
-	private ActionItem08 actionItem08 = new ActionItem08(this);
-	private ActionItem09 actionItem09 = new ActionItem09(this);
-	private ActionItem10 actionItem10 = new ActionItem10(this);
-	private ActionItem11 actionItem11 = new ActionItem11(this);
-	private ActionItem12 actionItem12 = new ActionItem12(this);
+	private ActionItemAltaPaciente actionItemAltaPaciente = new ActionItemAltaPaciente(this);
+	private ActionItemCitaOperacion actionItemCitaOperacion = new ActionItemCitaOperacion(this);
+	private ActionItemBajaPaciente actionItemBajaPaciente = new ActionItemBajaPaciente(this);
+	private ActionItemConsultaMedico actionItemConsultaMedico = new ActionItemConsultaMedico(this);
+	private ActionItemAltaMedico actionItemAltaMedico = new ActionItemAltaMedico(this);
+	private ActionItemVerHistorial actionItemVerHistorial = new ActionItemVerHistorial(this);
+	private ActionItemCerrarOperacion actionItemCerrarOperacion = new ActionItemCerrarOperacion(this);
+	private ActionItemModificarPaciente actionItemModificarPaciente = new ActionItemModificarPaciente(this);
+	private ActionItemConsultaPaciente actionItemConsultaPaciente = new ActionItemConsultaPaciente(this);
+	private ActionItemCitaEspecialista actionItemCitaEspecialista = new ActionItemCitaEspecialista(this);
+	private ActionItemAtenderCita actionItemAtenderCita = new ActionItemAtenderCita(this);
+	private ActionItemCitaPrimaria actionItemCitaPrimaria = new ActionItemCitaPrimaria(this);
 	// actionlistener botones
 	private ActionAltaPaciente actionAltaPaciente = new ActionAltaPaciente(this);
 	private ActionModificarPaciente actionModificarPaciente = new ActionModificarPaciente(this);
@@ -56,18 +56,18 @@ public class ParaUI extends UI {
 		super();
 		this.control = new Control();
 
-		getItem1().addActionListener(this.actionItem01);
-		getItem2().addActionListener(this.actionItem02);
-		getItem3().addActionListener(this.actionItem03);
-		getItem4().addActionListener(this.actionItem04);
-		getItem5().addActionListener(this.actionItem05);
-		getItem6().addActionListener(this.actionItem06);
-		getItem7().addActionListener(this.actionItem07);
-		getItem8().addActionListener(this.actionItem08);
-		getItem9().addActionListener(this.actionItem09);
-		getItem10().addActionListener(this.actionItem10);
-		getItem11().addActionListener(this.actionItem11);
-		getItem12().addActionListener(this.actionItem12);
+		getItemAltaPaciente().addActionListener(this.actionItemAltaPaciente);
+		getItemCitaOperacion().addActionListener(this.actionItemCitaOperacion);
+		getItemBajaPaciente().addActionListener(this.actionItemBajaPaciente);
+		getItemConsultaMedico().addActionListener(this.actionItemConsultaMedico);
+		getItemAltaMedico().addActionListener(this.actionItemAltaMedico);
+		getItemVerHistorial().addActionListener(this.actionItemVerHistorial);
+		getItemCerrarOperacion().addActionListener(this.actionItemCerrarOperacion);
+		getItemModificarPaciente().addActionListener(this.actionItemModificarPaciente);
+		getItemConsultaPaciente().addActionListener(this.actionItemConsultaPaciente);
+		getItemCitaEspecialista().addActionListener(this.actionItemCitaEspecialista);
+		getItemAtenderCita().addActionListener(this.actionItemAtenderCita);
+		getItemCitaPrimaria().addActionListener(this.actionItemCitaPrimaria);
 
 		getAltaPaciente().getBtnAceptar().addActionListener(this.actionAltaPaciente);
 		getModificarPaciente().getBtnModificar().addActionListener(this.actionModificarPaciente);
@@ -85,6 +85,7 @@ public class ParaUI extends UI {
 			nombre.addItem(paciente.getFullName());
 		}
 	}
+
 	public void rellenarComboBoxMedico(JComboBox id, JComboBox nombre) {
 		nombre.removeAllItems();
 		id.removeAllItems();
