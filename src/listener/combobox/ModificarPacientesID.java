@@ -13,11 +13,12 @@ public class ModificarPacientesID implements ActionListener {
 		super();
 		this.paraUI = paraUI;
 	}
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String id = this.paraUI.getModificarPaciente().getComboBoxID().getSelectedItem().toString();
-		this.paraUI.getModificarPaciente().rellenarCampos(this.paraUI.getControl().getPaciente(id));
+		if (id != null)
+			this.paraUI.getModificarPaciente().rellenarCampos(this.paraUI.getControl().getPaciente(id));
 	}
 
 }
