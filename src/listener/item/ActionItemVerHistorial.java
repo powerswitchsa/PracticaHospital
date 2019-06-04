@@ -5,18 +5,18 @@ import java.awt.event.ActionListener;
 
 import control.ParaUI;
 
-public class ActionItem01 implements ActionListener {
+public class ActionItemVerHistorial implements ActionListener {
 
 	private ParaUI paraUI;
 
-	public ActionItem01(ParaUI paraUI) {
+	public ActionItemVerHistorial(ParaUI paraUI) {
 		super();
 		this.paraUI = paraUI;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.paraUI.asociarPanel("altaPaciente");
+		this.paraUI.asociarPanel("verHistorial");
 	}
 
 }

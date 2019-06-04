@@ -25,10 +25,10 @@ public class AlmacenMedico {
 		}
 	}
 
-	public void altaMedico(Medico medico) {
+	public boolean altaMedico(Medico medico) {
 		medico.setId(getUltimaId());
 		this.mapMedicos.put(medico.getId(), medico);
-		grabarMapMedico();
+		return grabarMapMedico();
 	}
 
 	public Medico getMedico(String id) {
@@ -56,5 +56,5 @@ public class AlmacenMedico {
 		return String.valueOf(contador + 1);
 
 	}
-	//falta por hacer metodo para actualizar el horario???? preguntar a jose
+	// falta por hacer metodo para actualizar el horario???? preguntar a jose
 }

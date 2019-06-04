@@ -3,7 +3,6 @@ package control;
 import java.util.HashMap;
 
 import javax.swing.JComboBox;
-import javax.swing.plaf.ComboBoxUI;
 
 import listener.btn.ActionAltaMedico;
 import listener.btn.ActionAltaPaciente;
@@ -11,18 +10,18 @@ import listener.btn.ActionAltaPaciente;
 import listener.btn.ActionModificarPaciente;
 import listener.combobox.ConsultaMedicoID;
 import listener.combobox.ModificarPacientesID;
-import listener.item.ActionItem01;
-import listener.item.ActionItem02;
-import listener.item.ActionItem03;
-import listener.item.ActionItem04;
-import listener.item.ActionItem05;
-import listener.item.ActionItem06;
-import listener.item.ActionItem07;
-import listener.item.ActionItem08;
-import listener.item.ActionItem09;
-import listener.item.ActionItem10;
-import listener.item.ActionItem11;
-import listener.item.ActionItem12;
+import listener.item.ActionItemAltaPaciente;
+import listener.item.ActionItemCitaOperacion;
+import listener.item.ActionItemBajaPaciente;
+import listener.item.ActionItemConsultaMedico;
+import listener.item.ActionItemAltaMedico;
+import listener.item.ActionItemVerHistorial;
+import listener.item.ActionItemCerrarOperacion;
+import listener.item.ActionItemModificarPaciente;
+import listener.item.ActionItemConsultaPaciente;
+import listener.item.ActionItemCitaEspecialista;
+import listener.item.ActionItemAtenderCita;
+import listener.item.ActionItemCitaPrimaria;
 import modelo.Medico;
 import modelo.Paciente;
 
@@ -32,6 +31,7 @@ public class ParaUI extends UI {
 
 	private Control control;
 
+<<<<<<< HEAD
 	// actionlistener cambiar pestaña
 	private ActionItem01 actionItem01 = new ActionItem01(this);
 	private ActionItem02 actionItem02 = new ActionItem02(this);
@@ -54,9 +54,12 @@ public class ParaUI extends UI {
 	private ConsultaMedicoID consultaMedicoID = new ConsultaMedicoID(this);
 	private ModificarPacientesID boxModifcarPacienteID = new ModificarPacientesID(this);
 
+=======
+>>>>>>> branch 'master' of https://github.com/powerswitchsa/PracticaHospital.git
 	public ParaUI() {
 		super();
 		this.control = new Control();
+<<<<<<< HEAD
 
 		getItem1().addActionListener(this.actionItem01);
 		getItem2().addActionListener(this.actionItem02);
@@ -77,6 +80,28 @@ public class ParaUI extends UI {
 		getModificarPaciente().getComboBoxID().addActionListener(this.boxModifcarPacienteID);
 		getConsultaMedico().getComboId().addActionListener(this.consultaMedicoID);
 		getAltaMedico().getBtnAceptar().addActionListener(this.actionAltaMedico);
+=======
+		// actionlistener cambiar pestaña
+		getItemAltaPaciente().addActionListener(new ActionItemAltaPaciente(this));
+		getItemCitaOperacion().addActionListener(new ActionItemCitaOperacion(this));
+		getItemBajaPaciente().addActionListener(new ActionItemBajaPaciente(this));
+		getItemConsultaMedico().addActionListener(new ActionItemConsultaMedico(this));
+		getItemAltaMedico().addActionListener(new ActionItemAltaMedico(this));
+		getItemVerHistorial().addActionListener(new ActionItemVerHistorial(this));
+		getItemCerrarOperacion().addActionListener(new ActionItemCerrarOperacion(this));
+		getItemModificarPaciente().addActionListener(new ActionItemModificarPaciente(this));
+		getItemConsultaPaciente().addActionListener(new ActionItemConsultaPaciente(this));
+		getItemCitaEspecialista().addActionListener(new ActionItemCitaEspecialista(this));
+		getItemAtenderCita().addActionListener(new ActionItemAtenderCita(this));
+		getItemCitaPrimaria().addActionListener(new ActionItemCitaPrimaria(this));
+		// actionlistener botones
+		getAltaPaciente().getBtnAceptar().addActionListener(new ActionAltaPaciente(this));
+		getModificarPaciente().getBtnModificar().addActionListener(new ActionModificarPaciente(this));
+		getAltaMedico().getBtnAceptar().addActionListener(new ActionAltaMedico(this));
+		// actionlistener combobox
+		getModificarPaciente().getComboBoxID().addActionListener(new ModificarPacientesID(this));
+		getConsultaMedico().getComboId().addActionListener(new ConsultaMedicoID(this));
+>>>>>>> branch 'master' of https://github.com/powerswitchsa/PracticaHospital.git
 	}
 
 	public void rellenarComboBoxPaciente(JComboBox id, JComboBox nombre) {
@@ -88,6 +113,7 @@ public class ParaUI extends UI {
 			nombre.addItem(paciente.getFullName());
 		}
 	}
+
 	public void rellenarComboBoxMedico(JComboBox id, JComboBox nombre) {
 		nombre.removeAllItems();
 		id.removeAllItems();
