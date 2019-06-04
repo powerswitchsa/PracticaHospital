@@ -32,7 +32,6 @@ import vista.UI;
 public class ParaUI extends UI {
 
 	private Control control;
-
 	public ParaUI() {
 		super();
 		this.control = new Control();
@@ -59,6 +58,7 @@ public class ParaUI extends UI {
 		getConsultaMedico().getComboBoxID().addActionListener(new ConsultaMedicoID(this));
 		getBajaPaciente().getComboBoxID().addActionListener(new BajaPacienteID(this));
 		getConsultaPaciente().getComboBoxID().addActionListener(new ConsultarPacienteID(this));
+
 	}
 
 	public void rellenarComboBoxPaciente(JComboBox id, JComboBox nombre) {
@@ -84,5 +84,4 @@ public class ParaUI extends UI {
 	public Control getControl() {
 		return control;
 	}
-
 }
