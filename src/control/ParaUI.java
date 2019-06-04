@@ -50,6 +50,7 @@ public class ParaUI extends UI {
 	// actionlistener combobox
 	private ModificarPacientesID cbidModificarPaciente = new ModificarPacientesID(this);
 	private ConsultaMedicoID consultaMedicoID = new ConsultaMedicoID(this);
+	private ModificarPacientesID boxModifcarPacienteID = new ModificarPacientesID(this);
 
 	public ParaUI() {
 		super();
@@ -70,18 +71,18 @@ public class ParaUI extends UI {
 
 		getAltaPaciente().getBtnAceptar().addActionListener(this.actionAltaPaciente);
 		getModificarPaciente().getBtnModificar().addActionListener(this.actionModificarPaciente);
-
 		getModificarPaciente().getComboBoxID().addActionListener(this.cbidModificarPaciente);
 		getConsultaMedico().getComboId().addActionListener(this.consultaMedicoID);
+		getModificarPaciente().getComboBoxID().addActionListener(this.boxModifcarPacienteID);
 	}
 
 	public void rellenarComboBoxPaciente(JComboBox id, JComboBox nombre) {
 		nombre.removeAllItems();
-		id.removeAll();
+		id.removeAllItems();
 		HashMap<String, Paciente> list = getControl().getMapPaciente();
 		for (Paciente paciente : list.values()) {
 			id.addItem(paciente.getId());
-			nombre.addItem(paciente.getNombre());
+			nombre.addItem(paciente.getFullName());
 		}
 	}
 	public void rellenarComboBoxMedico(JComboBox id, JComboBox nombre) {
