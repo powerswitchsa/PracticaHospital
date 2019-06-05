@@ -15,6 +15,7 @@ public class ConsultaMedicoID implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+
 		String id = "";
 		if (this.paraUI.getConsultaMedico().getComboBoxID().getSelectedItem() != null) {
 			id = this.paraUI.getConsultaMedico().getComboBoxID().getSelectedItem().toString();
@@ -22,5 +23,4 @@ public class ConsultaMedicoID implements ActionListener {
 				this.paraUI.getConsultaMedico().mostrarDatos(this.paraUI.getControl().getMedico(id));
 		}
 	}
-
 }
