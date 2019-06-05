@@ -78,4 +78,8 @@ public class Control {
 		return this.logica.getMedico(id);
 	}
 
+	public ArrayList<Medico> getEspecialidadMedico(Especialidad especialidad) {
+		return this.logica.getEspecialidadMedico(especialidad);
+	}
+
 }

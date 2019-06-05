@@ -1,5 +1,6 @@
 package control;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.JComboBox;
@@ -11,6 +12,7 @@ import listener.btn.ActionModificarPaciente;
 import listener.combobox.BajaPacienteID;
 import listener.combobox.BajaPacienteNombre;
 import listener.combobox.CitaEspecialistaID;
+import listener.combobox.CitaEspecialistaMedico;
 import listener.combobox.CitaEspecialistaNombre;
 import listener.combobox.CitaOperacionID;
 import listener.combobox.CitaOperacionNombre;
@@ -31,6 +33,7 @@ import listener.item.ActionItemConsultaPaciente;
 import listener.item.ActionItemCitaEspecialista;
 import listener.item.ActionItemAtenderCita;
 import listener.item.ActionItemCitaPrimaria;
+import modelo.Especialidad;
 import modelo.Medico;
 import modelo.Paciente;
 
@@ -73,6 +76,7 @@ public class ParaUI extends UI {
 		getCitaOperacion().getComboPaciente().addActionListener(new CitaOperacionNombre(this));
 		getCitaEspecialista().getComboBoxID().addActionListener(new CitaEspecialistaID(this));
 		getCitaEspecialista().getComboBoxNombre().addActionListener(new CitaEspecialistaNombre(this));
+		getCitaEspecialista().getComboBoxNombre().addActionListener(new CitaEspecialistaMedico(this));
 
 	}
 
@@ -93,6 +97,14 @@ public class ParaUI extends UI {
 		for (Medico medico : list.values()) {
 			id.addItem(medico.getId());
 			nombre.addItem(medico.getNombre());
+		}
+	}
+
+	public void rellenarEspecialidadMedico(JComboBox especial) {
+		especial.removeAllItems();
+		ArrayList<Medico> medicos = this.getControl().getEspecialidadMedico(Especialidad.Especialista);
+		for (Medico medico : medicos) {
+			especial.addItem(medico);
 		}
 	}
 

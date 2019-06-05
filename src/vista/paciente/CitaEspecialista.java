@@ -28,6 +28,7 @@ public class CitaEspecialista extends JPanel {
 	private JButton[][] botonera = new JButton[4][5];
 	private JComboBox comboBoxNombre;
 	private JComboBox comboBoxID;
+	private JComboBox comboNombreMedico;
 
 	public CitaEspecialista(Color colorFondo, int letraPequena, int letraGrande, String tipoLetra) {
 		setVisible(true);
@@ -58,18 +59,18 @@ public class CitaEspecialista extends JPanel {
 		JLabel lblMedico = new JLabel("Medico : ");
 		lblMedico.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
-		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setBackground(Color.WHITE);
+		comboNombreMedico = new JComboBox();
+		comboNombreMedico.setBackground(Color.WHITE);
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_2.createSequentialGroup().addContainerGap()
 						.addComponent(lblMedico, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE).addGap(20)
-						.addComponent(comboBox_2, 0, 505, Short.MAX_VALUE).addContainerGap()));
+						.addComponent(comboNombreMedico, 0, 505, Short.MAX_VALUE).addContainerGap()));
 		gl_panel_2.setVerticalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING).addGroup(gl_panel_2
 				.createSequentialGroup().addGap(20)
 				.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblMedico, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-						.addComponent(comboBox_2, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+						.addComponent(comboNombreMedico, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
 				.addGap(20)));
 		panel_2.setLayout(gl_panel_2);
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
@@ -172,5 +173,10 @@ public class CitaEspecialista extends JPanel {
 	public JComboBox getComboBoxID() {
 		return comboBoxID;
 	}
+
+	public JComboBox getComboNombreMedico() {
+		return comboNombreMedico;
+	}
+	
 
 }

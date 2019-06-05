@@ -83,8 +83,13 @@ public abstract class Persona implements Serializable {
 		this.nacimiento = nacimiento;
 	}
 
-	public String getFullName() {
+	public String setFullName() {
 		return this.apellidos + ", " + this.nombre;
+	}
+
+	@Override
+	public String toString() {
+		return setFullName();
 	}
 
 	// validadores
