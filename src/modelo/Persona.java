@@ -82,8 +82,15 @@ public abstract class Persona implements Serializable {
 		assert nacimiento != null && validarNacimiento(nacimiento).isResultado();
 		this.nacimiento = nacimiento;
 	}
-
-	// validadores
+	public String setFullName() {
+		return this.apellidos+", "+this.nombre;
+		
+	}
+	@Override
+	public String toString() {
+		return setFullName();
+	}
+	
 
 	public static Respuesta validarNombre(String nombre) {
 		return new Respuesta(Pattern.matches("", nombre), "");

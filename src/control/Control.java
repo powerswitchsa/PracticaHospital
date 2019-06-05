@@ -51,7 +51,7 @@ public class Control {
 	}
 
 
-	public ArrayList<String> getVacanteConsulta() { 
+	public ArrayList<String> getVacanteConsulta() {
 		return this.logica.getConsultaVacante();
 	}
 
@@ -78,5 +78,8 @@ public class Control {
 	public Medico getMedico(String id) {
 		return this.logica.getMedico(id);
 	}
-
+	public ArrayList<Medico> getEspecialidadMedico(Especialidad especialidad) {
+		return this.logica.getEspecialidadMedico(especialidad);
+	}
+	
 }

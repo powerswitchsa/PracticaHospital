@@ -19,6 +19,7 @@ public class ActionItemCitaEspecialista implements ActionListener {
 		this.paraUI.asociarPanel("citaEspecialista");
 		this.paraUI.rellenarComboBoxPaciente(this.paraUI.getCitaEspecialista().getComboBoxID(),
 				this.paraUI.getCitaEspecialista().getComboBoxNombre());
+		this.paraUI.rellenarEspecialidadMedico(this.paraUI.getCitaEspecialista().getComboNombreMedico());
 	}
 
 }

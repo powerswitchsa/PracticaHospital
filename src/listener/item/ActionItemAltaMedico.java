@@ -34,5 +34,6 @@ public class ActionItemAltaMedico implements ActionListener {
 			this.paraUI.getAltaMedico().getComboHorario().addItem(hora);
 		}
 	}
+	
 
 }
