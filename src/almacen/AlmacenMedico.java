@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import modelo.Especialidad;
 import modelo.Medico;
 import modelo.Paciente;
 
@@ -55,6 +56,17 @@ public class AlmacenMedico {
 		}
 		return String.valueOf(contador + 1);
 
+	}
+	
+	public ArrayList<Medico> getListaEspecialidad(Especialidad especialidad) {
+		ArrayList<Medico> seleccionados = new ArrayList<Medico>();
+		for (Medico medico : this.mapMedicos.values()) {
+			if (medico.getEspecialidad()==especialidad) {
+				seleccionados.add(medico);
+			}
+		}
+		return seleccionados;
+		
 	}
 	// falta por hacer metodo para actualizar el horario???? preguntar a jose
 }

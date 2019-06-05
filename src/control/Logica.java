@@ -1,5 +1,6 @@
 package control;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import java.util.HashMap;
@@ -67,6 +68,11 @@ public class Logica {
 			}
 		}
 		return horaVacante;
+
+	}
+
+	public ArrayList<Medico> getEspecialidadMedico(Especialidad especialidad) {
+		return this.almacenMedico.getListaEspecialidad(especialidad);
 
 	}
 

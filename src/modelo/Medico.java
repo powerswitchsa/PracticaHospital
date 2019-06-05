@@ -28,5 +28,9 @@ public class Medico extends Persona implements Serializable {
 	public void setHorario(boolean[][] horario) {
 		this.horario = horario;
 	}
+//	@Override
+//	public String toString() {
+//		return super.setFullName();
+//	}
 
 }

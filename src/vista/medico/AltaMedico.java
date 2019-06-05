@@ -41,7 +41,7 @@ public class AltaMedico extends JPanel {
 		lblNewLabel.setFont(new Font(tipoLetra, Font.BOLD, letraGrande));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
-		mensajeSistema = new JLabel("Mensaje del sistema");
+		mensajeSistema = new JLabel("");
 		mensajeSistema.setForeground(Color.RED);
 		mensajeSistema.setHorizontalAlignment(SwingConstants.CENTER);
 		mensajeSistema.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
