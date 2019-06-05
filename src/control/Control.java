@@ -50,12 +50,13 @@ public class Control {
 		return false;
 	}
 
-	public ArrayList<Integer> getVacanteConsulta() {
+
+	public ArrayList<String> getVacanteConsulta() { 
 		return this.logica.getConsultaVacante();
 	}
 
 	public ArrayList<Boolean> getHoraLibre() {
-		return this.logica.getPosHoraVacante();
+		return this.logica.getPosHoraVacante(); 
 	}
 
 	public HashMap<String, Paciente> getMapPaciente() {
