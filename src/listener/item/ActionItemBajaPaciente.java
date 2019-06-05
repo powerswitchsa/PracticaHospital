@@ -19,6 +19,7 @@ public class ActionItemBajaPaciente implements ActionListener {
 		this.paraUI.asociarPanel("bajaPaciente");
 		this.paraUI.rellenarComboBoxPaciente(this.paraUI.getBajaPaciente().getComboBoxID(),
 				this.paraUI.getBajaPaciente().getComboBoxNombre());
+		this.paraUI.getBajaPaciente().getMensajeSistema().setText(null);
 //		this.paraUI.getBajaPaciente().vaciarCampos();
 	}
 

@@ -33,9 +33,8 @@ public class AltaPaciente extends JPanel {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
 		mensajeSistema = new JLabel("Mensaje del sistema");
-		mensajeSistema.setForeground(Color.RED);
-		mensajeSistema.setHorizontalAlignment(SwingConstants.CENTER);
-		mensajeSistema.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
+		mensajeSistema.setHorizontalAlignment(SwingConstants.LEFT);
+		mensajeSistema.setFont(new Font("Consolas", Font.PLAIN, 15));
 
 		btnAceptar = new JButton("Aceptar");
 		btnAceptar.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));

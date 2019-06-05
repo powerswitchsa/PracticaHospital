@@ -18,6 +18,7 @@ public class ActionItemAltaPaciente implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		this.paraUI.asociarPanel("altaPaciente");
 		this.paraUI.getAltaPaciente().vaciarCampos();
+		this.paraUI.getAltaPaciente().getMensajeSistema().setText(null);
 	}
 
 }

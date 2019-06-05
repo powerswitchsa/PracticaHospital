@@ -20,7 +20,7 @@ import javax.swing.JComboBox;
 
 public class ConsultaMedico extends JPanel {
 	private String[] label = { "Nombre :", "Apellidos :", "Direccion :", "Telefono :" };
-	private JTextField[] fields = new JTextField[this.label.length];
+	private JTextField[] campos = new JTextField[this.label.length];
 	private JPanel panelLabel = new JPanel();
 	private JPanel panelText = new JPanel();
 	private JComboBox<String> comboNombreMedico;
@@ -45,7 +45,6 @@ public class ConsultaMedico extends JPanel {
 		comboId.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
 		panelLabel = new JPanel();
-
 		panelText = new JPanel();
 
 		GroupLayout groupLayout = new GroupLayout(this);
@@ -97,20 +96,19 @@ public class ConsultaMedico extends JPanel {
 		this.panelLabel.setBackground(color);
 		this.panelText.setBackground(color);
 		setBackground(color);
-		this.fields = new JTextField[this.label.length];
-		panelText.setLayout(new GridLayout(this.label.length, 1, 30, 60));
-		panelLabel.setLayout(new GridLayout(this.label.length, 1, 10, 60));
-		for (int i = 0; i < fields.length; i++) {
-			this.fields[i] = crearJText(letraPequena, tipoLetra);
+		this.campos = new JTextField[this.label.length];
+		panelText.setLayout(new GridLayout(this.label.length, 1, 30, 100));
+		panelLabel.setLayout(new GridLayout(this.label.length, 1, 30, 100));
+		for (int i = 0; i < campos.length; i++) {
+			this.campos[i] = crearJText(letraPequena, tipoLetra);
 			this.panelLabel.add(crearLabel(this.label[i], letraPequena, tipoLetra));
-			this.panelText.add(this.fields[i]);
+			this.panelText.add(this.campos[i]);
 		}
 		revalidate();
 	}
 
 	private JTextField crearJText(int letraPequena, String tipoLetra) {
 		JTextField field = new JTextField();
-		field.setText("");
 		field.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 		field.setHorizontalAlignment(SwingConstants.CENTER);
 		field.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
@@ -127,19 +125,19 @@ public class ConsultaMedico extends JPanel {
 	}
 
 	public JTextField[] getFields() {
-		return fields;
+		return campos;
 	}
 
 	public void mostrarDatos(Medico medico) {
-		this.fields[0].setText(medico.getNombre());
-		this.fields[1].setText(medico.getApellidos());
-		this.fields[2].setText(medico.getDireccion());
-		this.fields[3].setText(medico.getTelefono());
+		this.campos[0].setText(medico.getNombre());
+		this.campos[1].setText(medico.getApellidos());
+		this.campos[2].setText(medico.getDireccion());
+		this.campos[3].setText(medico.getTelefono());
 	}
 
 	public void vaciarCampos() {
-		for (int i = 0; i < fields.length; i++) {
-			this.fields[i].setText(null);
+		for (int i = 0; i < campos.length; i++) {
+			this.campos[i].setText(null);
 		}
 	}
 
