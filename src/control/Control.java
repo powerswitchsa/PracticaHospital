@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import modelo.Cita;
+import modelo.Controller;
 import modelo.Especialidad;
 import modelo.Medico;
 import modelo.Paciente;
@@ -12,10 +13,12 @@ import vista.paciente.CitaOperacion;
 public class Control {
 
 	private Logica logica;
+	private Controller controller;
 
 	public Control() {
 		super();
 		this.logica = new Logica();
+		this.controller = new Controller();
 	}
 
 	public boolean getAltaPaciente(ArrayList<String> paciente) {
@@ -34,19 +37,8 @@ public class Control {
 		return this.logica.modificarPaciente(id, telefono, direccion);
 	}
 
-	public Medico getConsultarMedico(String nombre, String id) {
-		return null;
-	}
-
-	public Paciente getConsultarPaciente(String nombre, String id) {
-		return null;
-	}
-
-	public ArrayList<Cita> getConsultarCitas(String nombre, String id) {
-		return null;
-	}
-
-	public boolean getCitaPrimaria(String id, String nombrePaciente, String nombreMedico) {
+	public boolean getCitaPrimaria(String id, String nombreMedico, String horario) {
+		// horarios = "i + " " + j" hace referencia a la posicion de la matriz horario
 		return false;
 	}
 
@@ -58,16 +50,13 @@ public class Control {
 		return false;
 	}
 
-	public void getVerHistorial() {
 
-	}
-
-	public ArrayList<String> getVacanteConsulta() {
+	public ArrayList<String> getVacanteConsulta() { 
 		return this.logica.getConsultaVacante();
 	}
 
 	public ArrayList<Boolean> getHoraLibre() {
-		return this.logica.getPosHoraVacante();
+		return this.logica.getPosHoraVacante(); 
 	}
 
 	public HashMap<String, Paciente> getMapPaciente() {
@@ -76,10 +65,6 @@ public class Control {
 
 	public Paciente getPaciente(String id) {
 		return this.logica.getPaciente(id);
-	}
-
-	public Paciente getPacienteNombre(String nombre) {
-		return this.logica.getPacienteNombre(nombre);
 	}
 
 	public Paciente getPacienteFullNombre(String fullNombre) {

@@ -78,10 +78,6 @@ public class Logica {
 		return this.almacenPaciente.getPaciente(id);
 	}
 
-	public Paciente getPacienteNombre(String nombre) {
-		return this.almacenPaciente.getPacienteNombre(nombre);
-	}
-
 	public Paciente getPacienteFullNombre(String fullNombre) {
 		return this.almacenPaciente.getPacienteFullNombre(fullNombre);
 	}
