@@ -9,7 +9,9 @@ import listener.btn.ActionAltaPaciente;
 import listener.btn.ActionBajaPaciente;
 import listener.btn.ActionModificarPaciente;
 import listener.combobox.BajaPacienteID;
+import listener.combobox.BajaPacienteNombre;
 import listener.combobox.ConsultaMedicoID;
+import listener.combobox.ConsultaPacienteNombre;
 import listener.combobox.ConsultarPacienteID;
 import listener.combobox.ModificarPacientesID;
 import listener.item.ActionItemAltaPaciente;
@@ -53,12 +55,14 @@ public class ParaUI extends UI {
 		getAltaPaciente().getBtnAceptar().addActionListener(new ActionAltaPaciente(this));
 		getModificarPaciente().getBtnModificar().addActionListener(new ActionModificarPaciente(this));
 		getAltaMedico().getBtnAceptar().addActionListener(new ActionAltaMedico(this));
-		getBajaPaciente().getBtnAceptar().addActionListener(new ActionBajaPaciente(this));
+		getBajaPaciente().getBtnDarBaja().addActionListener(new ActionBajaPaciente(this));
 		// actionlistener combobox
 		getModificarPaciente().getComboBoxID().addActionListener(new ModificarPacientesID(this));
 		getConsultaMedico().getComboBoxID().addActionListener(new ConsultaMedicoID(this));
 		getBajaPaciente().getComboBoxID().addActionListener(new BajaPacienteID(this));
 		getConsultaPaciente().getComboBoxID().addActionListener(new ConsultarPacienteID(this));
+		getConsultaPaciente().getComboBoxNombre().addActionListener(new ConsultaPacienteNombre(this));
+		getBajaPaciente().getComboBoxNombre().addActionListener(new BajaPacienteNombre(this));
 
 	}
 
