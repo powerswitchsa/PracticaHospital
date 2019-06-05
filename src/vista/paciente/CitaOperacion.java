@@ -101,10 +101,20 @@ public class CitaOperacion extends JPanel {
 		for (int i = 0; i < this.cadenas.length; i++) {
 			this.panelLabel.add(crearLabel(this.cadenas[i]));
 		}
+		comboPaciente.setBackground(Color.WHITE);
+		comboPaciente.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		this.panelCombo.add(this.comboPaciente);
+		comboID.setBackground(Color.WHITE);
+		comboID.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		this.panelCombo.add(this.comboID);
+		comboTipoOperacion.setBackground(Color.WHITE);
+		comboTipoOperacion.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		this.panelCombo.add(this.comboTipoOperacion);
+		comboCirujano.setBackground(Color.WHITE);
+		comboCirujano.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		this.panelCombo.add(this.comboCirujano);
+		comboFechasDisponibles.setBackground(Color.WHITE);
+		comboFechasDisponibles.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		this.panelCombo.add(this.comboFechasDisponibles);
 		revalidate();
 	}

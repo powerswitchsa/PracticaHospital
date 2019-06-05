@@ -80,6 +80,7 @@ public class CitaPrimaria extends JPanel {
 		lblID.setHorizontalAlignment(SwingConstants.LEFT);
 
 		comboID = new JComboBox();
+		comboID.setBackground(Color.WHITE);
 		comboID.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		GroupLayout gl_panelComboId = new GroupLayout(panelComboId);
 		gl_panelComboId
@@ -101,6 +102,7 @@ public class CitaPrimaria extends JPanel {
 		JLabel lblPaciente = new JLabel("PACIENTE");
 
 		comboPaciente = new JComboBox();
+		comboPaciente.setBackground(Color.WHITE);
 		GroupLayout gl_panelComboPaciente = new GroupLayout(panelComboPaciente);
 		gl_panelComboPaciente.setHorizontalGroup(gl_panelComboPaciente.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panelComboPaciente.createSequentialGroup()
@@ -120,6 +122,7 @@ public class CitaPrimaria extends JPanel {
 		JLabel lblMedico = new JLabel("MEDICO");
 
 		comboMedico = new JComboBox();
+		comboMedico.setBackground(Color.WHITE);
 		GroupLayout gl_panelComboMedico = new GroupLayout(panelComboMedico);
 		gl_panelComboMedico.setHorizontalGroup(gl_panelComboMedico.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panelComboMedico.createSequentialGroup()

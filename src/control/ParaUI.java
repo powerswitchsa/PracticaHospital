@@ -10,10 +10,15 @@ import listener.btn.ActionBajaPaciente;
 import listener.btn.ActionModificarPaciente;
 import listener.combobox.BajaPacienteID;
 import listener.combobox.BajaPacienteNombre;
+import listener.combobox.CitaEspecialistaID;
+import listener.combobox.CitaEspecialistaNombre;
+import listener.combobox.CitaOperacionID;
+import listener.combobox.CitaOperacionNombre;
 import listener.combobox.ConsultaMedicoID;
 import listener.combobox.ConsultaPacienteNombre;
 import listener.combobox.ConsultarPacienteID;
-import listener.combobox.ModificarPacientesID;
+import listener.combobox.ModificarPacienteID;
+import listener.combobox.ModificarPacienteNombre;
 import listener.item.ActionItemAltaPaciente;
 import listener.item.ActionItemCitaOperacion;
 import listener.item.ActionItemBajaPaciente;
@@ -57,12 +62,17 @@ public class ParaUI extends UI {
 		getAltaMedico().getBtnAceptar().addActionListener(new ActionAltaMedico(this));
 		getBajaPaciente().getBtnDarBaja().addActionListener(new ActionBajaPaciente(this));
 		// actionlistener combobox
-		getModificarPaciente().getComboBoxID().addActionListener(new ModificarPacientesID(this));
+		getModificarPaciente().getComboBoxID().addActionListener(new ModificarPacienteID(this));
 		getConsultaMedico().getComboBoxID().addActionListener(new ConsultaMedicoID(this));
 		getBajaPaciente().getComboBoxID().addActionListener(new BajaPacienteID(this));
 		getConsultaPaciente().getComboBoxID().addActionListener(new ConsultarPacienteID(this));
 		getConsultaPaciente().getComboBoxNombre().addActionListener(new ConsultaPacienteNombre(this));
 		getBajaPaciente().getComboBoxNombre().addActionListener(new BajaPacienteNombre(this));
+		getModificarPaciente().getComboBoxNombre().addActionListener(new ModificarPacienteNombre(this));
+		getCitaOperacion().getComboID().addActionListener(new CitaOperacionID(this));
+		getCitaOperacion().getComboPaciente().addActionListener(new CitaOperacionNombre(this));
+		getCitaEspecialista().getComboBoxID().addActionListener(new CitaEspecialistaID(this));
+		getCitaEspecialista().getComboBoxNombre().addActionListener(new CitaEspecialistaNombre(this));
 
 	}
 
