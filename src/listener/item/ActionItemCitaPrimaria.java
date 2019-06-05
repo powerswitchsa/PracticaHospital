@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import control.ParaUI;
 
 public class ActionItemCitaPrimaria implements ActionListener {
-	
+
 	private ParaUI paraUI;
 
 	public ActionItemCitaPrimaria(ParaUI paraUI) {
@@ -17,7 +17,8 @@ public class ActionItemCitaPrimaria implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		this.paraUI.asociarPanel("citaPrimaria");
-
+		this.paraUI.rellenarComboBoxPaciente(this.paraUI.getCitaPrimaria().getComboID(),
+				this.paraUI.getCitaPrimaria().getComboPaciente());
 	}
 
 }
