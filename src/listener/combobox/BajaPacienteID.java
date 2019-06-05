@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import control.ParaUI;
+import modelo.Paciente;
 
 public class BajaPacienteID implements ActionListener {
 
@@ -19,8 +20,11 @@ public class BajaPacienteID implements ActionListener {
 		String id = "";
 		if (this.paraUI.getBajaPaciente().getComboBoxID().getSelectedItem() != null) {
 			id = this.paraUI.getBajaPaciente().getComboBoxID().getSelectedItem().toString();
-			if (id != null)
-				this.paraUI.getBajaPaciente().rellenarCampos(this.paraUI.getControl().getPaciente(id));
+			if (id != null) {
+				Paciente paciente = this.paraUI.getControl().getPaciente(id);
+				this.paraUI.getBajaPaciente().rellenarCampos(paciente);
+				this.paraUI.getBajaPaciente().getComboBoxNombre().setSelectedItem(paciente.getFullName());
+			}
 		}
 	};
 

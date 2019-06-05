@@ -23,6 +23,7 @@ public class BajaPacienteNombre implements ActionListener {
 			if (fullNombre != null) {
 				Paciente paciente = this.paraUI.getControl().getPacienteFullNombre(fullNombre);
 				this.paraUI.getBajaPaciente().rellenarCampos(paciente);
+				this.paraUI.getBajaPaciente().getComboBoxID().setSelectedItem(paciente.getId());
 			}
 		}
 	}
