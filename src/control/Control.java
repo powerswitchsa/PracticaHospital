@@ -62,7 +62,7 @@ public class Control {
 
 	}
 
-	public ArrayList<Integer> getVacanteConsulta() {
+	public ArrayList<String> getVacanteConsulta() {
 		return this.logica.getConsultaVacante();
 	}
 
