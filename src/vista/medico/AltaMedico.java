@@ -129,7 +129,7 @@ public class AltaMedico extends JPanel {
 	public ArrayList<String> getFieldsMedico() {
 		ArrayList<String> campos = new ArrayList<String>();
 		for (int i = 0; i < 4; i++) {
-			campos.add(i, this.fields.toString());
+			campos.add(i, this.fields[i].getText().toString());
 		}
 		return campos;
 	}
@@ -137,7 +137,6 @@ public class AltaMedico extends JPanel {
 	private JComboBox<Especialidad> crearCombo() {
 		JComboBox<Especialidad> combo = new JComboBox<Especialidad>();
 		return combo;
-
 	}
 
 	public JTextField[] getFields() {
