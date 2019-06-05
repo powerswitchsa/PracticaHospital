@@ -83,6 +83,10 @@ public abstract class Persona implements Serializable {
 		this.nacimiento = nacimiento;
 	}
 
+	public String getFullName() {
+		return this.apellidos + ", " + this.nombre;
+	}
+
 	// validadores
 
 	public static Respuesta validarNombre(String nombre) {
