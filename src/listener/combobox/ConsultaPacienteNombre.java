@@ -23,6 +23,7 @@ public class ConsultaPacienteNombre implements ActionListener {
 			if (fullNombre != null) {
 				Paciente paciente = this.paraUI.getControl().getPacienteFullNombre(fullNombre);
 				this.paraUI.getConsultaPaciente().mostrarDatos(paciente);
+				this.paraUI.getConsultaPaciente().getComboBoxID().setSelectedItem(paciente.getId());
 			}
 		}
 	}

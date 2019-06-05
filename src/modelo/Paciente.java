@@ -5,11 +5,13 @@ import java.util.ArrayList;
 
 public class Paciente extends Persona implements Serializable {
 
+	private ArrayList<Cita> citas;
 	private ArrayList<Tratamiento> tratamientos;
 	private ArrayList<Intervencion> intervenciones;
 
 	public Paciente(String nombre, String apellidos, String direccion, String nacimiento, String telefono) {
 		super(telefono, nombre, apellidos, direccion, nacimiento);
+		this.citas = new ArrayList<Cita>();
 		this.tratamientos = new ArrayList<Tratamiento>();
 		this.intervenciones = new ArrayList<Intervencion>();
 	}

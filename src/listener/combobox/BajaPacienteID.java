@@ -26,6 +26,6 @@ public class BajaPacienteID implements ActionListener {
 				this.paraUI.getBajaPaciente().getComboBoxNombre().setSelectedItem(paciente.getFullName());
 			}
 		}
-	};
+	}
 
 }
