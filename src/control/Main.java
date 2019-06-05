@@ -1,6 +1,6 @@
 package control;
 
-public class Launcher {
+public class Main {
 	public static void main(String[] args) {
 		ParaUI hospital = new ParaUI();
 	}
