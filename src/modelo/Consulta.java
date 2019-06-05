@@ -5,11 +5,11 @@ import java.util.ArrayList;
 
 public class Consulta implements Serializable {
 
-	private int id;
+	private String id;
 	private boolean[][] horarios;
 	private ArrayList<String> idMedicos;
 
-	public Consulta(int id) {
+	public Consulta(String id) {
 		super();
 		this.idMedicos = new ArrayList<String>();
 		this.horarios = new boolean[8][5];
@@ -52,11 +52,16 @@ public class Consulta implements Serializable {
 		return this.idMedicos.size() < 5;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
 	public boolean[][] getHorarios() {
 		return horarios;
 	}
+
+	public void setId(String string) {
+		this.id = string;
+	}
+	
 }

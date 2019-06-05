@@ -54,14 +54,6 @@ public class AlmacenPaciente {
 		return this.mapPaciente.get(id);
 	}
 
-	public Paciente getPacienteNombre(String nombre) {
-		for (Paciente paciente : this.mapPaciente.values()) {
-			if (paciente.getNombre().equals(nombre))
-				return paciente;
-		}
-		return null;
-	}
-
 	public Paciente getPacienteFullNombre(String fullNombre) {
 		for (Paciente paciente : this.mapPaciente.values()) {
 			if (paciente.getFullName().equals(fullNombre))

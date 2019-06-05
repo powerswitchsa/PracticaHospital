@@ -45,8 +45,8 @@ public class Logica {
 		return this.almacenPaciente.modificarPaciente(paciente);
 	}
 
-	public ArrayList<Integer> getConsultaVacante() {
-		ArrayList<Integer> idConsulta = new ArrayList<Integer>();
+	public ArrayList<String> getConsultaVacante() {
+		ArrayList<String> idConsulta = new ArrayList<String>();
 		for (Consulta consulta : consulta) {
 			if (consulta.getVacantes()) {
 				idConsulta.add(consulta.getId());
@@ -76,10 +76,6 @@ public class Logica {
 
 	public Paciente getPaciente(String id) {
 		return this.almacenPaciente.getPaciente(id);
-	}
-
-	public Paciente getPacienteNombre(String nombre) {
-		return this.almacenPaciente.getPacienteNombre(nombre);
 	}
 
 	public Paciente getPacienteFullNombre(String fullNombre) {
