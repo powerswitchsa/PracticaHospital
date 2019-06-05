@@ -92,9 +92,11 @@ public class ModificarPaciente extends JPanel {
 		lblId.setFont(new Font(tipoLetra, Font.BOLD, 16));
 
 		comboBoxNombre = new JComboBox();
+		comboBoxNombre.setBackground(Color.WHITE);
 		comboBoxNombre.setFont(new Font(tipoLetra, Font.BOLD, 16));
 
 		comboBoxID = new JComboBox();
+		comboBoxID.setBackground(Color.WHITE);
 		comboBoxID.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		GroupLayout gl_panelcombo = new GroupLayout(panelcombo);
 		gl_panelcombo.setHorizontalGroup(gl_panelcombo.createParallelGroup(Alignment.LEADING)

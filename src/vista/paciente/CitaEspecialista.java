@@ -50,6 +50,7 @@ public class CitaEspecialista extends JPanel {
 		lblId.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
 		comboBoxID = new JComboBox();
+		comboBoxID.setBackground(Color.WHITE);
 
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(colorFondo);
@@ -58,6 +59,7 @@ public class CitaEspecialista extends JPanel {
 		lblMedico.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
 		JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.setBackground(Color.WHITE);
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_2.createSequentialGroup().addContainerGap()
@@ -88,6 +90,7 @@ public class CitaEspecialista extends JPanel {
 		lblNewLabel_1.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
 		comboBoxNombre = new JComboBox();
+		comboBoxNombre.setBackground(Color.WHITE);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup().addContainerGap()

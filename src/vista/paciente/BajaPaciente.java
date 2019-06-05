@@ -50,6 +50,7 @@ public class BajaPaciente extends JPanel {
 		label_1.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
 		comboBoxNombre = new JComboBox();
+		comboBoxNombre.setBackground(Color.WHITE);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup().addContainerGap()
@@ -72,6 +73,7 @@ public class BajaPaciente extends JPanel {
 		lblId.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
 		comboBoxID = new JComboBox();
+		comboBoxID.setBackground(Color.WHITE);
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_1.createSequentialGroup().addContainerGap()
