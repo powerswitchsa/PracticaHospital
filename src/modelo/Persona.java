@@ -78,28 +78,36 @@ public abstract class Persona {
 	// validadores
 
 	public static Respuesta validarNombre(String nombre) {
-		return new Respuesta(Pattern.matches("", nombre), "");
+		boolean resultado = Pattern.matches("^([A-Z]{1}[a-z]+[ ]?){1,2}$*", nombre);
+		return new Respuesta(resultado, (resultado? "nombre valido" : "nombre invalido"));
 	}
 
 	public static Respuesta validarApellido(String apellido) {
-		return new Respuesta(Pattern.matches("", apellido), "");
+		return new Respuesta(Pattern.matches("^([A-Z]{1}[a-z]+[ ]?){1,2}$*", apellido), "");
 	}
 
+	// que no tenga numero el nombre de la calle, que empieze por C/, al final ponga un numero
 	public static Respuesta validarDireccion(String direccion) {
-		return new Respuesta(Pattern.matches("", direccion), "");
+		boolean resultado = Pattern.matches("C/[ ]([A-Z]{1}[a-z]+[ ]?){1,}$*[0-9]{1,}", direccion);
+		return new Respuesta(resultado, (resultado? "direccion correcta" : "direccion incorrecta"));
 	}
 
 	public static Respuesta validarTelefono(String telefono) {
-		return new Respuesta(Pattern.matches("", telefono), "");
+		return new Respuesta(Pattern.matches("[6-7-9]\\d{8}", telefono), "Es valido el telefono de contacto");
 	}
 
 	public static Respuesta validarNacimiento(String nacimiento) {
-		return new Respuesta(Pattern.matches("", nacimiento), "");
+		boolean resultado = Pattern.matches("[0-9]{1,2}(/|-)[0-9]{1,2}(/|-)[0-9]{4}", nacimiento);
+		return new Respuesta(resultado, (resultado? "fecha correcta" : "fecha incorrecta")) ;
 	}
 
 	public static Respuesta validarId(String id) {
-		return new Respuesta(Pattern.matches("", id), "");
+		boolean resultado = Pattern.matches("[0-9]{1,}", id);
+		return new Respuesta(resultado, (resultado? "ID correcta" : "ID incorrecta"));
 
 	}
+	
+	
+	
 
 }
