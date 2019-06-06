@@ -6,16 +6,16 @@ public class Intervencion implements Serializable{
 
 	private Medico medicoSolicitante;
 	private Medico cirujano;
-	private String tipoIntervencion;
+	private TipoOperacion tipoOperacion;
 	private boolean realizado;
 	private String curado;
 
-	public Intervencion(Medico medicoSolicitante, Medico cirujano, String tipoIntervencion, boolean realizado,
+	public Intervencion(Medico medicoSolicitante, Medico cirujano, TipoOperacion tipoIntervencion, boolean realizado,
 			String curado) {
 		super();
 		this.medicoSolicitante = medicoSolicitante;
 		this.cirujano = cirujano;
-		this.tipoIntervencion = tipoIntervencion;
+		this.tipoOperacion = tipoIntervencion;
 		this.realizado = realizado;
 		this.curado = curado;
 	}
@@ -28,8 +28,8 @@ public class Intervencion implements Serializable{
 		return cirujano;
 	}
 
-	public String getTipoIntervencion() {
-		return tipoIntervencion;
+	public TipoOperacion getTipoIntervencion() {
+		return tipoOperacion;
 	}
 
 	public boolean isRealizado() {

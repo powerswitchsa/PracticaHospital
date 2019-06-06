@@ -7,11 +7,11 @@ public class Consulta implements Serializable {
 
 	private String id;
 	private boolean[][] horarios;
-	private ArrayList<String> idMedicos;
+	private ArrayList<Medico> medicos;
 
 	public Consulta(String id) {
 		super();
-		this.idMedicos = new ArrayList<String>();
+		this.medicos = new ArrayList<Medico>();
 		this.horarios = new boolean[8][5];
 		this.id = id;
 	}
@@ -49,7 +49,7 @@ public class Consulta implements Serializable {
 	}
 
 	public boolean getVacantes() {
-		return this.idMedicos.size() < 5;
+		return this.medicos.size() < 5;
 	}
 
 	public String getId() {
@@ -63,5 +63,7 @@ public class Consulta implements Serializable {
 	public void setId(String string) {
 		this.id = string;
 	}
-	
+	public boolean isTrabajando(Medico medico) {
+		return this.medicos.contains(medico);
+	}
 }

@@ -29,6 +29,7 @@ public class CitaEspecialista extends JPanel {
 	private JComboBox comboBoxNombre;
 	private JComboBox comboBoxID;
 	private JComboBox comboNombreMedico;
+	private String coordenada;
 
 	public CitaEspecialista(Color colorFondo, int letraPequena, int letraGrande, String tipoLetra) {
 		setVisible(true);
@@ -176,6 +177,10 @@ public class CitaEspecialista extends JPanel {
 
 	public JComboBox getComboNombreMedico() {
 		return comboNombreMedico;
+	}
+
+	public String getCoordenada() {
+		return coordenada;
 	}
 	
 

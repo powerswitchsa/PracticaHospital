@@ -31,6 +31,13 @@ public class AlmacenMedico {
 		this.mapMedicos.put(medico.getId(), medico);
 		return grabarMapMedico();
 	}
+	public Medico getFullNameMedico(String fullName) {
+		for (Medico medico : this.mapMedicos.values()) {
+			if (medico.getFullName().equals(fullName))
+				return medico;
+		}
+		return null;
+	}
 
 	public Medico getMedico(String id) {
 		return this.mapMedicos.get(id);

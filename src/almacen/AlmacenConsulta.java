@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.HashMap;
 
 import modelo.Consulta;
+import modelo.Medico;
 
 public class AlmacenConsulta {
 	private DAO<HashMap<String, Consulta>> dao;
@@ -41,5 +42,14 @@ public class AlmacenConsulta {
 			contador = contador < num ? num : contador;
 		}
 		return String.valueOf(contador + 1);
+	}
+	public boolean[][] getHorario(Medico medico){
+		for (Consulta consulta : this.mapConsulta.values()) {
+				if (consulta.isTrabajando(medico)) {
+					return consulta.getHorarios();
+				}
+		}
+		return null;
+		
 	}
 }
