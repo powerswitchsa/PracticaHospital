@@ -17,7 +17,7 @@ public class AlmacenConsulta {
 		File file = new File(rutaDestino);
 		if (!file.exists()) {
 			this.mapConsulta = new HashMap<String, Consulta>();
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < 4; i++) {
 				altaConsulta(new Consulta(getUltimaIdConsulta())); 
 			}
 		} else {
