@@ -2,16 +2,24 @@ package vista.paciente;
 
 import javax.swing.JPanel;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import modelo.Turno;
+
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
 
 import java.awt.Color;
 import java.awt.ComponentOrientation;
+import javax.swing.border.MatteBorder;
 
 public class CitaPrimaria extends JPanel {
 
@@ -19,21 +27,31 @@ public class CitaPrimaria extends JPanel {
 	private JComboBox comboID;
 	private JComboBox comboMedico;
 
+	private int horas;
+	private int dias;
+
+	private JButton[][] botonera;
+
+	private boolean[][] horario;
+
+	private String coordenadas;
+	private JPanel panelBotonera;
+
 	public CitaPrimaria(Color colorFondo, int letraPequena, int letraGrande, String tipoLetra) {
+		this.coordenadas = "10;10";
+		this.horas = 8;
+		this.dias = 5;
+		this.botonera = new JButton[horas][dias];
 		setBackground(colorFondo);
 		JLabel lblTitulo = new JLabel("CITA PRIMARIA");
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 30));
 
 		JPanel panelComboPaciente = new JPanel();
-
 		JPanel panelComboMedico = new JPanel();
-
 		JPanel panelComboId = new JPanel();
-
 		JPanel panelDias = new JPanel();
-
-		JPanel panelBotonera = new JPanel();
+		panelBotonera = new JPanel();
 
 		panelBotonera.setBackground(colorFondo);
 		panelComboId.setBackground(colorFondo);
@@ -74,7 +92,7 @@ public class CitaPrimaria extends JPanel {
 				.addComponent(panelDias, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
 				.addPreferredGap(ComponentPlacement.RELATED)
 				.addComponent(panelBotonera, GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE).addGap(36)));
-		panelBotonera.setLayout(new GridLayout(1, 0, 0, 0));
+		panelBotonera.setLayout(new GridLayout(horas, dias, 5, 10));
 
 		JLabel lblID = new JLabel("ID");
 		lblID.setHorizontalAlignment(SwingConstants.LEFT);
@@ -142,24 +160,28 @@ public class CitaPrimaria extends JPanel {
 		panelDias.add(lblLunes);
 		lblLunes.setBackground(Color.WHITE);
 		lblLunes.setOpaque(true);
+		lblLunes.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
 
 		JLabel lblMartes = new JLabel("MARTES");
 		lblMartes.setHorizontalAlignment(SwingConstants.CENTER);
 		panelDias.add(lblMartes);
 		lblMartes.setBackground(Color.WHITE);
 		lblMartes.setOpaque(true);
+		lblMartes.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
 
 		JLabel lblMiercoles = new JLabel("MIERCOLES");
 		lblMiercoles.setHorizontalAlignment(SwingConstants.CENTER);
 		panelDias.add(lblMiercoles);
 		lblMiercoles.setBackground(Color.WHITE);
 		lblMiercoles.setOpaque(true);
+		lblMiercoles.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
 
 		JLabel lblJueves = new JLabel("JUEVES");
 		lblJueves.setHorizontalAlignment(SwingConstants.CENTER);
 		panelDias.add(lblJueves);
 		lblJueves.setBackground(Color.WHITE);
 		lblJueves.setOpaque(true);
+		lblJueves.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
 
 		JLabel lblViernes = new JLabel("VIERNES");
 		lblViernes.setHorizontalAlignment(SwingConstants.CENTER);
@@ -167,6 +189,96 @@ public class CitaPrimaria extends JPanel {
 		setLayout(groupLayout);
 		lblViernes.setBackground(Color.WHITE);
 		lblViernes.setOpaque(true);
+		lblViernes.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
+
+		for (int i = 0; i < botonera.length; i++) {
+			for (int j = 0; j < botonera[i].length; j++) {
+				this.botonera[i][j] = new JButton();
+				this.botonera[i][j].setBackground(Color.WHITE);
+				this.botonera[i][j].setName(i + ";" + j);
+				this.botonera[i][j].addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						JButton boton = (JButton) e.getSource();
+						String[] anterior = coordenadas.split(";");
+						int anteriorX = Integer.valueOf(anterior[0]);
+						int anteriorY = Integer.valueOf(anterior[1]);
+
+						String[] actual = boton.getName().split(";");
+						int actualX = Integer.valueOf(actual[0]);
+						int actualY = Integer.valueOf(actual[1]);
+
+						if (anteriorX != 10 && anteriorY != 10) {
+							botonera[anteriorX][anteriorY].setBackground(Color.WHITE);
+						}
+						botonera[actualX][actualY].setBackground(Color.GREEN);
+						coordenadas = boton.getName();
+						System.out.println(coordenadas);
+					}
+				});
+				this.panelBotonera.add(this.botonera[i][j]);
+			}
+		}
+
+		boolean[][] asd = new boolean[8][5];
+		asd[0][0] = true;
+		asd[1][3] = true;
+		asd[3][4] = true;
+		asd[7][0] = true;
+		asd[2][0] = true;
+		crearBotonera(asd, Turno.tarde);
+
+	}
+
+	public void crearBotonera(boolean[][] horario, Turno turno) {
+		this.horario = horario;
+		for (int i = 0; i < horario.length; i++) {
+			for (int j = 0; j < horario[i].length; j++) {
+				if (i > 3 && Turno.mañana == turno || i < 4 && Turno.tarde == turno) {
+					this.botonera[i][j].setEnabled(false);
+					this.botonera[i][j].setBorder(new MatteBorder(5, 5, 5, 5, Color.ORANGE));
+				} else {
+					this.botonera[i][j]
+							.setBorder(new MatteBorder(5, 5, 5, 5, this.horario[i][j] ? Color.RED : Color.BLUE));
+					if (this.horario[i][j])
+						this.botonera[i][j].setEnabled(false);
+				}
+			}
+		}
+		revalidate();
+	}
+
+	public String getHora() {
+		String[] cadena = this.coordenadas.split(";");
+		int i = Integer.valueOf(cadena[0]);
+		int j = Integer.valueOf(cadena[1]);
+		return this.botonera[i][j].getText();
+	}
+
+	public String getDia() {
+		String[] cadena = this.coordenadas.split(";");
+		int i = Integer.valueOf(cadena[1]);
+		String dia = "";
+		switch (i) {
+		case 0:
+			dia = "lunes";
+
+		case 1:
+			dia = "martes";
+			break;
+		case 2:
+			dia = "miercoles";
+		case 3:
+			dia = "jueves";
+		case 4:
+			dia = "viernes";
+		case 5:
+			dia = "sabado";
+		case 6:
+			dia = "domingo";
+		default:
+			break;
+		}
+		return dia;
 
 	}
 
@@ -180,6 +292,10 @@ public class CitaPrimaria extends JPanel {
 
 	public JComboBox getComboMedico() {
 		return comboMedico;
+	}
+
+	public String getCoordenadas() {
+		return coordenadas;
 	}
 
 }

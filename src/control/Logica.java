@@ -1,10 +1,8 @@
 package control;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-
 import java.util.HashMap;
-
+import almacen.AlmacenCita;
 import almacen.AlmacenConsulta;
 import almacen.AlmacenMedico;
 import almacen.AlmacenPaciente;
@@ -18,13 +16,14 @@ public class Logica {
 	private AlmacenPaciente almacenPaciente;
 	private AlmacenMedico almacenMedico;
 	private AlmacenConsulta almacenConsulta;
-	private ArrayList<Consulta> consulta;
+	private AlmacenCita almacenCita;
 
 	public Logica() {
 		super();
-		this.consulta = new ArrayList<Consulta>();
 		this.almacenPaciente = new AlmacenPaciente();
 		this.almacenMedico = new AlmacenMedico();
+		this.almacenConsulta = new AlmacenConsulta();
+		this.almacenCita = new AlmacenCita();
 	}
 
 	public boolean altaPaciente(ArrayList<String> paciente) {
@@ -50,21 +49,20 @@ public class Logica {
 
 	public ArrayList<String> getConsultaVacante() {
 		ArrayList<String> idConsulta = new ArrayList<String>();
-		for (Consulta consulta : consulta) {
+		for (Consulta consulta : this.almacenConsulta.getMapaConsulta().values()) {
 			if (consulta.getVacantes()) {
 				idConsulta.add(consulta.getId());
 			}
 		}
 		return idConsulta;
 	}
+
 	public Medico getFullNameMedico(String fullName) {
 		return this.almacenMedico.getFullNameMedico(fullName);
 	}
 
-	
 	public ArrayList<Medico> getEspecialidadMedico(Especialidad especialidad) {
 		return this.almacenMedico.getListaEspecialidad(especialidad);
-
 	}
 
 	public HashMap<String, Paciente> getMapPaciente() {
