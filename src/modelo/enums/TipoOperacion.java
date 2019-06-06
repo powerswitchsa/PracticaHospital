@@ -1,8 +1,9 @@
-package modelo;
+package modelo.enums;
 
 public enum TipoOperacion {
+
 	extirpacion("cambio de corazon"), rinoplastia("cambio de tocha"), hernia("fixeo de barriga");
-	
+
 	private String operacion;
 
 	private TipoOperacion(String operacion) {
@@ -12,5 +13,5 @@ public enum TipoOperacion {
 	public String getOperacion() {
 		return operacion;
 	}
-	
+
 }

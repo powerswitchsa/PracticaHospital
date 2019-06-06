@@ -36,10 +36,10 @@ import listener.item.ActionItemCitaEspecialista;
 import listener.item.ActionItemAtenderCita;
 import listener.item.ActionItemCitaPrimaria;
 import modelo.Cita;
-import modelo.Especialidad;
 import modelo.Medico;
 import modelo.Paciente;
-import modelo.TipoOperacion;
+import modelo.enums.Especialidad;
+import modelo.enums.TipoOperacion;
 import vista.UI;
 
 public class ParaUI extends UI {
@@ -82,7 +82,7 @@ public class ParaUI extends UI {
 		getCitaEspecialista().getComboBoxNombre().addActionListener(new CitaEspecialistaMedico(this));
 		getConsultaMedico().getComboBoxID().addActionListener(new ConsultaMedicoID(this));
 		getConsultaMedico().getComboNombreMedico().addActionListener(new ConsultaMedicoNombre(this));
-		getCitaPrimaria().getComboID().addActionListener(new CitaPrimariaID(this));
+		getCitaPrimaria().getComboBoxID().addActionListener(new CitaPrimariaID(this));
 
 	}
 
@@ -106,14 +106,13 @@ public class ParaUI extends UI {
 		}
 	}
 
-	public void rellenarEspecialidadMedico(JComboBox especial,Especialidad especialidad) {
+	public void rellenarEspecialidadMedico(JComboBox especial, Especialidad especialidad) {
 		especial.removeAllItems();
 		ArrayList<Medico> medicos = this.getControl().getEspecialidadMedico(especialidad);
 		for (Medico medico : medicos) {
 			especial.addItem(medico);
 		}
 	}
-
 
 	public Control getControl() {
 		return control;

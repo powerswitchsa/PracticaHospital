@@ -5,9 +5,9 @@ import java.util.HashMap;
 
 import modelo.Cita;
 import modelo.Controller;
-import modelo.Especialidad;
 import modelo.Medico;
 import modelo.Paciente;
+import modelo.enums.Especialidad;
 import vista.paciente.CitaOperacion;
 
 public class Control {
@@ -22,15 +22,15 @@ public class Control {
 	}
 
 	public boolean getAltaPaciente(ArrayList<String> paciente) {
-		return this.logica.altaPaciente(paciente);
+		return this.logica.getAltaPaciente(paciente);
 	}
 
 	public boolean getAltaMedico(ArrayList<String> medico, Especialidad tipo) {
-		return this.logica.altaMedico(medico, tipo);
+		return this.logica.getAltaMedico(medico, tipo);
 	}
 
 	public boolean getBajaPaciente(String id) {
-		return this.logica.bajaPaciente(id);
+		return this.logica.getBajaPaciente(id);
 	}
 
 	public boolean getModificarPaciente(String id, String nombrePaciente, String direccion, String telefono) {

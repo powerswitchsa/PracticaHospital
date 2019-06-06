@@ -2,6 +2,8 @@ package modelo;
 
 import java.io.Serializable;
 
+import modelo.enums.TipoOperacion;
+
 public class Intervencion implements Serializable{
 
 	private Medico medicoSolicitante;
