@@ -1,10 +1,7 @@
 package control;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-
 import java.util.HashMap;
-
 import almacen.AlmacenCita;
 import almacen.AlmacenConsulta;
 import almacen.AlmacenMedico;
@@ -60,23 +57,12 @@ public class Logica {
 		return idConsulta;
 	}
 
-	public ArrayList<Boolean> getPosHoraVacante() {
-		ArrayList<Boolean> horaVacante = new ArrayList<Boolean>();
-		for (Consulta consulta : this.almacenConsulta.getMapaConsulta().values()) {
-			for (int i = 0; i < consulta.getHorarios().length; i++) {
-				for (int j = 0; j < consulta.getHorarios()[0].length; j++) {
-					if (consulta.getHorarios()[i][j] == false) {
-						horaVacante.add(consulta.getHorarios()[i][j]);
-					}
-				}
-			}
-		}
-		return horaVacante;
+	public Medico getFullNameMedico(String fullName) {
+		return this.almacenMedico.getFullNameMedico(fullName);
 	}
 
 	public ArrayList<Medico> getEspecialidadMedico(Especialidad especialidad) {
 		return this.almacenMedico.getListaEspecialidad(especialidad);
-
 	}
 
 	public HashMap<String, Paciente> getMapPaciente() {
@@ -97,6 +83,11 @@ public class Logica {
 
 	public Medico getMedico(String id) {
 		return this.almacenMedico.getMedico(id);
+	}
+
+	public HashMap<String, Consulta> getMapConsulta() {
+		return this.almacenConsulta.getMapaConsulta();
+
 	}
 
 }

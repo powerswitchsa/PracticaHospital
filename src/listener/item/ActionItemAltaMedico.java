@@ -23,16 +23,15 @@ public class ActionItemAltaMedico implements ActionListener {
 		this.paraUI.getAltaMedico().getComboEspecilidad().removeAllItems();
 		this.paraUI.getAltaMedico().getComboHorario().removeAllItems();
 		ArrayList<String> idConsulta = paraUI.getControl().getVacanteConsulta();
-		ArrayList<Boolean> horaLibre = paraUI.getControl().getHoraLibre();
 		for (String id : idConsulta) {
 			this.paraUI.getAltaMedico().getComboConsulta().addItem(id);
 		}
 		for (Especialidad especial : Especialidad.values()) {
 			this.paraUI.getAltaMedico().getComboEspecilidad().addItem(especial);
 		}
-		for (Boolean hora : horaLibre) {
-			this.paraUI.getAltaMedico().getComboHorario().addItem(hora);
-		}
+		
+//			this.paraUI.getAltaMedico().getComboHorario().addItem(hora);
+		
 	}
 	
 
