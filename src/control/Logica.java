@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import java.util.HashMap;
 
+import almacen.AlmacenCita;
+import almacen.AlmacenConsulta;
 import almacen.AlmacenMedico;
 import almacen.AlmacenPaciente;
 import modelo.Consulta;
@@ -16,13 +18,15 @@ public class Logica {
 
 	private AlmacenPaciente almacenPaciente;
 	private AlmacenMedico almacenMedico;
-	private ArrayList<Consulta> consulta;
+	private AlmacenConsulta almacenConsulta;
+	private AlmacenCita almacenCita;
 
 	public Logica() {
 		super();
-		this.consulta = new ArrayList<Consulta>();
 		this.almacenPaciente = new AlmacenPaciente();
 		this.almacenMedico = new AlmacenMedico();
+		this.almacenConsulta = new AlmacenConsulta();
+		this.almacenCita = new AlmacenCita();
 	}
 
 	public boolean altaPaciente(ArrayList<String> paciente) {
@@ -48,7 +52,7 @@ public class Logica {
 
 	public ArrayList<String> getConsultaVacante() {
 		ArrayList<String> idConsulta = new ArrayList<String>();
-		for (Consulta consulta : consulta) {
+		for (Consulta consulta : this.almacenConsulta.getMapaConsulta().values()) {
 			if (consulta.getVacantes()) {
 				idConsulta.add(consulta.getId());
 			}
@@ -58,7 +62,7 @@ public class Logica {
 
 	public ArrayList<Boolean> getPosHoraVacante() {
 		ArrayList<Boolean> horaVacante = new ArrayList<Boolean>();
-		for (Consulta consulta : consulta) {
+		for (Consulta consulta : this.almacenConsulta.getMapaConsulta().values()) {
 			for (int i = 0; i < consulta.getHorarios().length; i++) {
 				for (int j = 0; j < consulta.getHorarios()[0].length; j++) {
 					if (consulta.getHorarios()[i][j] == false) {
@@ -68,7 +72,6 @@ public class Logica {
 			}
 		}
 		return horaVacante;
-
 	}
 
 	public ArrayList<Medico> getEspecialidadMedico(Especialidad especialidad) {

@@ -12,7 +12,6 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-import modelo.Especialidad;
 import modelo.Turno;
 
 import javax.swing.JComboBox;
@@ -28,17 +27,21 @@ public class CitaPrimaria extends JPanel {
 	private JComboBox comboID;
 	private JComboBox comboMedico;
 
-	public String getCoordenadas() {
-		return coordenadas;
-	}
+	private int horas;
+	private int dias;
 
-	private JButton[][] botonera = new JButton[8][5];
+	private JButton[][] botonera;
+
 	private boolean[][] horario;
 
-	private String coordenadas = "10 10";
+	private String coordenadas;
 	private JPanel panelBotonera;
 
 	public CitaPrimaria(Color colorFondo, int letraPequena, int letraGrande, String tipoLetra) {
+		this.coordenadas = "10;10";
+		this.horas = 8;
+		this.dias = 5;
+		this.botonera = new JButton[horas][dias];
 		setBackground(colorFondo);
 		JLabel lblTitulo = new JLabel("CITA PRIMARIA");
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -89,7 +92,7 @@ public class CitaPrimaria extends JPanel {
 				.addComponent(panelDias, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
 				.addPreferredGap(ComponentPlacement.RELATED)
 				.addComponent(panelBotonera, GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE).addGap(36)));
-		panelBotonera.setLayout(new GridLayout(8, 5, 5, 10));
+		panelBotonera.setLayout(new GridLayout(horas, dias, 5, 10));
 
 		JLabel lblID = new JLabel("ID");
 		lblID.setHorizontalAlignment(SwingConstants.LEFT);
@@ -188,28 +191,28 @@ public class CitaPrimaria extends JPanel {
 		lblViernes.setOpaque(true);
 		lblViernes.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
 
-		coordenadas = "10 10";
 		for (int i = 0; i < botonera.length; i++) {
 			for (int j = 0; j < botonera[i].length; j++) {
 				this.botonera[i][j] = new JButton();
-				this.botonera[i][j].setName(i + " " + j);
+				this.botonera[i][j].setBackground(Color.WHITE);
+				this.botonera[i][j].setName(i + ";" + j);
 				this.botonera[i][j].addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						JButton boton = (JButton) e.getSource();
+						String[] anterior = coordenadas.split(";");
+						int anteriorX = Integer.valueOf(anterior[0]);
+						int anteriorY = Integer.valueOf(anterior[1]);
 
-//						String[] anterior = coordenadas.split(" ");
-//						int anteriorX = Integer.valueOf(anterior[0]);
-//						int anteriorY = Integer.valueOf(anterior[1]);
-//
-//						String[] actual = boton.getName().split(" ");
-//						int actualX = Integer.valueOf(actual[0]);
-//						int actualY = Integer.valueOf(actual[1]);
-//
-//						if (anteriorX != 10 && anteriorY != 10) {
-//							botonera[anteriorX][anteriorY].setBackground(Color.LIGHT_GRAY);
-//						}
-//						coordenadas = boton.getName();
-//						botonera[actualX][actualY].setBackground(Color.GREEN);
+						String[] actual = boton.getName().split(";");
+						int actualX = Integer.valueOf(actual[0]);
+						int actualY = Integer.valueOf(actual[1]);
+
+						if (anteriorX != 10 && anteriorY != 10) {
+							botonera[anteriorX][anteriorY].setBackground(Color.WHITE);
+						}
+						botonera[actualX][actualY].setBackground(Color.GREEN);
+						coordenadas = boton.getName();
+						System.out.println(coordenadas);
 					}
 				});
 				this.panelBotonera.add(this.botonera[i][j]);
@@ -222,12 +225,11 @@ public class CitaPrimaria extends JPanel {
 		asd[3][4] = true;
 		asd[7][0] = true;
 		asd[2][0] = true;
-		crearBotonera(asd, Turno.mañana);
+		crearBotonera(asd, Turno.tarde);
 
 	}
 
 	public void crearBotonera(boolean[][] horario, Turno turno) {
-		this.coordenadas = "";
 		this.horario = horario;
 		for (int i = 0; i < horario.length; i++) {
 			for (int j = 0; j < horario[i].length; j++) {
@@ -255,7 +257,7 @@ public class CitaPrimaria extends JPanel {
 	public String getDia() {
 		String[] cadena = this.coordenadas.split(";");
 		int i = Integer.valueOf(cadena[1]);
-		String dia="";
+		String dia = "";
 		switch (i) {
 		case 0:
 			dia = "lunes";
@@ -290,6 +292,10 @@ public class CitaPrimaria extends JPanel {
 
 	public JComboBox getComboMedico() {
 		return comboMedico;
+	}
+
+	public String getCoordenadas() {
+		return coordenadas;
 	}
 
 }
