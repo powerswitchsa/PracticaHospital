@@ -1,22 +1,19 @@
-package listener.item;
+package listener.combobox;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import control.ParaUI;
+import modelo.Medico;
 
-public class ActionItem03 implements ActionListener {
-
+public class CitaEspecialistaMedico implements ActionListener {
 	private ParaUI paraUI;
 
-	public ActionItem03(ParaUI paraUI) {
+	public CitaEspecialistaMedico(ParaUI paraUI) {
 		super();
 		this.paraUI = paraUI;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.paraUI.asociarPanel("bajaPaciente");
 	}
-
 }

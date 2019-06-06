@@ -1,9 +1,10 @@
 package modelo;
 
-public class Medicamento {
+import java.io.Serializable;
+
+public class Medicamento implements Serializable {
 
 	private int id;
 	private String nombre;
-	
-	
+
 }

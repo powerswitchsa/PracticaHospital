@@ -24,9 +24,9 @@ public class AlmacenPaciente {
 			file.mkdir();
 
 		if (!new File(rutaIndice).exists()) {
-			this.mapPaciente = leerMapPaciente();
-		} else {
 			this.mapPaciente = new HashMap<String, Paciente>();
+		} else {
+			this.mapPaciente = leerMapPaciente();
 		}
 	}
 
@@ -38,11 +38,10 @@ public class AlmacenPaciente {
 		return file.exists() ? false : true;
 	}
 
-	public void altaPaciente(Paciente paciente) {
+	public boolean altaPaciente(Paciente paciente) {
 		paciente.setId(getUltimaId());
 		this.mapPaciente.put(paciente.getId(), paciente);
-		grabarMapPaciente();
-		grabarPaciente(paciente);
+		return grabarMapPaciente() && grabarPaciente(paciente);
 	}
 
 	public boolean modificarPaciente(Paciente paciente) {
@@ -51,12 +50,16 @@ public class AlmacenPaciente {
 		return grabarMapPaciente() && grabarPaciente(paciente);
 	}
 
-	public void darBajaPaciente(String id) {
-		this.mapPaciente.remove(id);
-	}
-
 	public Paciente getPaciente(String id) {
 		return this.mapPaciente.get(id);
+	}
+
+	public Paciente getPacienteFullNombre(String fullNombre) {
+		for (Paciente paciente : this.mapPaciente.values()) {
+			if (paciente.getFullName().equals(fullNombre))
+				return paciente;
+		}
+		return null;
 	}
 
 	private HashMap<String, Paciente> leerMapPaciente() {
@@ -80,7 +83,6 @@ public class AlmacenPaciente {
 		for (String id : this.mapPaciente.keySet()) {
 			int num = Integer.valueOf(id);
 			contador = contador < num ? num : contador;
-
 		}
 		return String.valueOf(contador + 1);
 	}

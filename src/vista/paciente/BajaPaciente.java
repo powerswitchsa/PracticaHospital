@@ -3,7 +3,6 @@ package vista.paciente;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.util.ArrayList;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -15,132 +14,146 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.MatteBorder;
 
-import modelo.Medico;
 import modelo.Paciente;
 
 import javax.swing.JComboBox;
 
 public class BajaPaciente extends JPanel {
+
 	private String[] label = { "Nombre :", "Apellidos :", "Direccion :", "Nacimiento :", "Telefono :" };
-	private JTextField[] fields = new JTextField[this.label.length];
-	private JPanel panelLabel = new JPanel();
-	private JPanel panelText = new JPanel();
+	private JTextField[] campos = new JTextField[this.label.length];
+	private JComboBox comboBoxNombre;
+	private JComboBox comboBoxID;
+	private JPanel panelLabel;
+	private JPanel panelCampos;
+	private JButton btnDarBaja;
 	private JLabel mensajeSistema;
-	private final JLabel lblNombre = new JLabel("Nombre");
-	private JComboBox comboBox = new JComboBox();
-	private final JLabel lblId = new JLabel("ID");
-	private JComboBox comboBox_1 = new JComboBox();
-	private JButton btnAceptar;
 
 	public BajaPaciente(Color color, int letraPequena, int letraGrande, String tipoLetra) {
-
-		JLabel lblConsultaMedico = new JLabel("BAJA PACIENTE");
-		lblConsultaMedico.setHorizontalAlignment(SwingConstants.CENTER);
-		lblConsultaMedico.setFont(new Font(tipoLetra, Font.BOLD, letraGrande));
-
-		JLabel lblNombre = new JLabel("Nombre : ");
-		lblNombre.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
-
-		comboBox = new JComboBox();
-		comboBox.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
-
-		JLabel lblId = new JLabel("ID : ");
-		lblId.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
-
-		comboBox_1 = new JComboBox();
-		comboBox_1.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
-
-		panelLabel = new JPanel();
-
-		panelText = new JPanel();
-
-		mensajeSistema = new JLabel("Mensaje Sistema");
-		mensajeSistema.setForeground(Color.RED);
-		mensajeSistema.setHorizontalAlignment(SwingConstants.CENTER);
-		mensajeSistema.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
-		
-		 btnAceptar = new JButton("Aceptar");
-		btnAceptar.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
-
-		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(30)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(mensajeSistema, GroupLayout.PREFERRED_SIZE, 293, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnAceptar, GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE)
-							.addContainerGap())
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblNombre)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 195, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(lblId)
-							.addGap(18)
-							.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-							.addGap(40))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(lblConsultaMedico, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
-								.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-									.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 163, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(panelText, GroupLayout.PREFERRED_SIZE, 288, Short.MAX_VALUE)))
-							.addContainerGap())))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblConsultaMedico)
-					.addGap(38)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblId)
-						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNombre, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE))
-					.addGap(19)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(panelText, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(panelLabel, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
-					.addPreferredGap(ComponentPlacement.UNRELATED, 37, Short.MAX_VALUE)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnAceptar, GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-						.addComponent(mensajeSistema, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap())
-		);
-		setLayout(groupLayout);
-
-		creandoVista(letraPequena, tipoLetra);
+		creandoVista(letraPequena, tipoLetra, letraGrande);
 		setVisible(true);
 	}
 
-	private void creandoVista(int letraPequena, String tipoLetra) {
+	private void creandoVista(int letraPequena, String tipoLetra, int letraGrande) {
 		Color color = new Color(133, 200, 255);
-		this.panelLabel.setBackground(color);
-		this.panelText.setBackground(color);
 		setBackground(color);
-		this.fields = new JTextField[this.label.length];
-		panelText.setLayout(new GridLayout(this.label.length, 1, 30, 80));
-		panelLabel.setLayout(new GridLayout(this.label.length, 1, 10, 80));
-		for (int i = 0; i < fields.length; i++) {
-			this.fields[i] = crearJText(letraPequena, tipoLetra);
+		this.campos = new JTextField[this.label.length];
+
+		JLabel lblNewLabel = new JLabel("Baja Paciente");
+		lblNewLabel.setFont(new Font("Monospaced", Font.BOLD, letraGrande));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+		JPanel panel = new JPanel();
+		panel.setBackground((Color) null);
+
+		JLabel label_1 = new JLabel("Nombre : ");
+		label_1.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
+
+		comboBoxNombre = new JComboBox();
+		comboBoxNombre.setBackground(Color.WHITE);
+		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup().addContainerGap()
+						.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE).addGap(5)
+						.addComponent(comboBoxNombre, 0, 274, Short.MAX_VALUE).addGap(1)));
+		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup().addGap(20)
+						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(label_1, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 30,
+										Short.MAX_VALUE)
+								.addComponent(comboBoxNombre, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 30,
+										Short.MAX_VALUE))
+						.addGap(20)));
+		panel.setLayout(gl_panel);
+
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground((Color) null);
+
+		JLabel lblId = new JLabel("ID :");
+		lblId.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
+
+		comboBoxID = new JComboBox();
+		comboBoxID.setBackground(Color.WHITE);
+		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
+		gl_panel_1.setHorizontalGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_1.createSequentialGroup().addContainerGap()
+						.addComponent(lblId, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(comboBoxID, 0, 155, Short.MAX_VALUE)
+						.addContainerGap()));
+		gl_panel_1.setVerticalGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING).addGroup(gl_panel_1
+				.createSequentialGroup().addGap(20)
+				.addGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING)
+						.addComponent(comboBoxID, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+						.addComponent(lblId, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
+				.addGap(20)));
+		panel_1.setLayout(gl_panel_1);
+
+		panelCampos = new JPanel();
+
+		panelLabel = new JPanel();
+
+		btnDarBaja = new JButton("Dar de baja");
+
+		mensajeSistema = new JLabel("");
+		mensajeSistema.setFont(new Font("Consolas", Font.PLAIN, 15));
+		GroupLayout groupLayout = new GroupLayout(this);
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup().addGap(10)
+						.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 922, Short.MAX_VALUE).addGap(10))
+				.addGroup(groupLayout.createSequentialGroup().addGroup(groupLayout
+						.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup().addGap(213)
+								.addComponent(panel, GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE).addGap(10)
+								.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup().addGap(25)
+								.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.UNRELATED)
+								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+										.addGroup(groupLayout.createSequentialGroup()
+												.addComponent(mensajeSistema, GroupLayout.DEFAULT_SIZE, 548,
+														Short.MAX_VALUE)
+												.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(btnDarBaja,
+														GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE))
+										.addComponent(panelCampos, GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE))))
+						.addGap(30)));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup().addGap(10)
+						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+						.addGap(26)
+						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(panel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE))
+						.addGap(10)
+						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(panelLabel, GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
+								.addComponent(panelCampos, GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE))
+						.addPreferredGap(ComponentPlacement.UNRELATED)
+						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(btnDarBaja, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+								.addComponent(mensajeSistema, GroupLayout.PREFERRED_SIZE, 33,
+										GroupLayout.PREFERRED_SIZE))
+						.addGap(19)));
+		panelCampos.setLayout(new GridLayout(0, 1, 0, 50));
+		panelLabel.setLayout(new GridLayout(0, 1, 0, 50));
+		setLayout(groupLayout);
+		this.panelCampos.setBackground(color);
+		this.panelLabel.setBackground(color);
+		for (int i = 0; i < campos.length; i++) {
+			this.campos[i] = crearJText(letraPequena, tipoLetra);
 			this.panelLabel.add(crearLabel(this.label[i], letraPequena, tipoLetra));
-			this.panelText.add(this.fields[i]);
+			this.panelCampos.add(this.campos[i]);
 		}
 		revalidate();
 	}
 
 	private JTextField crearJText(int letraPequena, String tipoLetra) {
 		JTextField field = new JTextField();
-		field.setText("");
 		field.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 		field.setHorizontalAlignment(SwingConstants.CENTER);
-		field.setBorder(new MatteBorder(2, 2, 1, 1, (Color) new Color(0, 0, 0)));
-		field.setEnabled(false);
+		field.setBorder(new MatteBorder(2, 2, 1, 1, Color.BLACK));
+		field.setFocusable(false);
 		return field;
 	}
 
@@ -152,40 +165,34 @@ public class BajaPaciente extends JPanel {
 		return jLabel;
 	}
 
-	public JTextField[] getFields() {
-		return fields;
+	public void vaciarCampos() {
+		for (int i = 0; i < campos.length; i++) {
+			this.campos[i].setText(null);
+		}
 	}
-	
-	public JButton getBtnAceptar() {
-		return btnAceptar;
+
+	public void rellenarCampos(Paciente paciente) {
+		this.campos[0].setText(paciente.getNombre());
+		this.campos[1].setText(paciente.getApellidos());
+		this.campos[2].setText(paciente.getDireccion());
+		this.campos[3].setText(paciente.getNacimiento());
+		this.campos[4].setText(paciente.getTelefono());
+	}
+
+	public JComboBox getComboBoxNombre() {
+		return comboBoxNombre;
+	}
+
+	public JComboBox getComboBoxID() {
+		return comboBoxID;
+	}
+
+	public JButton getBtnDarBaja() {
+		return btnDarBaja;
 	}
 
 	public JLabel getMensajeSistema() {
 		return mensajeSistema;
 	}
 
-	public void rellenarComboBox(ArrayList<Paciente> paciente) {
-		for (Paciente pacienteDos : paciente) {
-			comboBox.addItem(pacienteDos.getNombre());
-			comboBox_1.addItem(pacienteDos.getId());
-		}
-	}
-
-	public void mostrarDatos(Paciente paciente) {
-		this.fields[0].setText(paciente.getNombre());
-		this.fields[1].setText(paciente.getApellidos());
-		this.fields[2].setText(paciente.getDireccion());
-		this.fields[3].setText(paciente.getNacimiento());
-		this.fields[4].setText(String.valueOf(paciente.getTelefono()));
-	}
-
-	public int getID() {
-		int id = Integer.parseInt((String) comboBox_1.getSelectedItem());
-		return id;
-	}
-
-	public String getNombre() {
-		String nombre = comboBox.getName();
-		return nombre;
-	}
 }

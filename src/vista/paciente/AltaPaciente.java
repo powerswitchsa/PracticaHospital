@@ -33,9 +33,8 @@ public class AltaPaciente extends JPanel {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
 		mensajeSistema = new JLabel("Mensaje del sistema");
-		mensajeSistema.setForeground(Color.RED);
-		mensajeSistema.setHorizontalAlignment(SwingConstants.CENTER);
-		mensajeSistema.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
+		mensajeSistema.setHorizontalAlignment(SwingConstants.LEFT);
+		mensajeSistema.setFont(new Font("Consolas", Font.PLAIN, 15));
 
 		btnAceptar = new JButton("Aceptar");
 		btnAceptar.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
@@ -73,6 +72,12 @@ public class AltaPaciente extends JPanel {
 		setVisible(true);
 	}
 
+	public void vaciarCampos() {
+		for (int i = 0; i < fields.length; i++) {
+			this.fields[i].setText(null);
+		}
+	}
+
 	public ArrayList<String> getInfoPaciente() {
 		ArrayList<String> list = new ArrayList<String>();
 		for (int i = 0; i < fields.length; i++) {
@@ -101,7 +106,7 @@ public class AltaPaciente extends JPanel {
 		JTextField field = new JTextField();
 		field.setText("");
 		field.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
-		field.setHorizontalAlignment(SwingConstants.CENTER);
+		field.setHorizontalAlignment(SwingConstants.LEFT);
 		field.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		return field;
 	}

@@ -1,5 +1,6 @@
 package control;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import java.util.HashMap;
@@ -7,6 +8,7 @@ import java.util.HashMap;
 import almacen.AlmacenMedico;
 import almacen.AlmacenPaciente;
 import modelo.Consulta;
+import modelo.Especialidad;
 import modelo.Medico;
 import modelo.Paciente;
 
@@ -24,9 +26,17 @@ public class Logica {
 	}
 
 	public boolean altaPaciente(ArrayList<String> paciente) {
-		this.almacenPaciente.altaPaciente(
+		return this.almacenPaciente.altaPaciente(
 				new Paciente(paciente.get(0), paciente.get(1), paciente.get(2), paciente.get(3), paciente.get(4)));
-		return false;
+	}
+
+	public boolean altaMedico(ArrayList<String> medico, Especialidad tipo) {
+		return this.almacenMedico
+				.altaMedico(new Medico(medico.get(0), medico.get(1), medico.get(2), medico.get(3), tipo));
+	}
+
+	public boolean bajaPaciente(String id) {
+		return this.almacenPaciente.bajaPaciente(id);
 	}
 
 	public boolean modificarPaciente(String id, String telefono, String direccion) {
@@ -36,21 +46,8 @@ public class Logica {
 		return this.almacenPaciente.modificarPaciente(paciente);
 	}
 
-	public HashMap<String, Paciente> getMapPaciente() {
-		return this.almacenPaciente.getMapPaciente();
-	}
-
-	public Paciente getPaciente(String id) {
-		return this.almacenPaciente.getPaciente(id);
-	}
-
-
-	public ArrayList<Medico> getListMedico() {
-		return null;
-	}
-
-	public ArrayList<Integer> getConsultaVacante() {
-		ArrayList<Integer> idConsulta = new ArrayList<Integer>();
+	public ArrayList<String> getConsultaVacante() {
+		ArrayList<String> idConsulta = new ArrayList<String>();
 		for (Consulta consulta : consulta) {
 			if (consulta.getVacantes()) {
 				idConsulta.add(consulta.getId());
@@ -73,4 +70,30 @@ public class Logica {
 		return horaVacante;
 
 	}
+
+	public ArrayList<Medico> getEspecialidadMedico(Especialidad especialidad) {
+		return this.almacenMedico.getListaEspecialidad(especialidad);
+
+	}
+
+	public HashMap<String, Paciente> getMapPaciente() {
+		return this.almacenPaciente.getMapPaciente();
+	}
+
+	public Paciente getPaciente(String id) {
+		return this.almacenPaciente.getPaciente(id);
+	}
+
+	public Paciente getPacienteFullNombre(String fullNombre) {
+		return this.almacenPaciente.getPacienteFullNombre(fullNombre);
+	}
+
+	public HashMap<String, Medico> getMapMedico() {
+		return this.almacenMedico.getMapMedicos();
+	}
+
+	public Medico getMedico(String id) {
+		return this.almacenMedico.getMedico(id);
+	}
+
 }

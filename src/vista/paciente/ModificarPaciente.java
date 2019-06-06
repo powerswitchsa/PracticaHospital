@@ -92,9 +92,11 @@ public class ModificarPaciente extends JPanel {
 		lblId.setFont(new Font(tipoLetra, Font.BOLD, 16));
 
 		comboBoxNombre = new JComboBox();
+		comboBoxNombre.setBackground(Color.WHITE);
 		comboBoxNombre.setFont(new Font(tipoLetra, Font.BOLD, 16));
 
 		comboBoxID = new JComboBox();
+		comboBoxID.setBackground(Color.WHITE);
 		comboBoxID.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		GroupLayout gl_panelcombo = new GroupLayout(panelcombo);
 		gl_panelcombo.setHorizontalGroup(gl_panelcombo.createParallelGroup(Alignment.LEADING)
@@ -161,7 +163,7 @@ public class ModificarPaciente extends JPanel {
 		JTextField field = new JTextField();
 		field.setEditable(editable);
 		field.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
-		field.setHorizontalAlignment(SwingConstants.CENTER);
+		field.setHorizontalAlignment(SwingConstants.LEFT);
 		field.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		return field;
 	}

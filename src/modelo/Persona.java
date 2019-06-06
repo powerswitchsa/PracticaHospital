@@ -1,8 +1,9 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.regex.Pattern;
 
-public abstract class Persona {
+public abstract class Persona implements Serializable {
 
 	private String id;
 	private String telefono;
@@ -20,9 +21,36 @@ public abstract class Persona {
 		this.setTelefono(telefono);
 	}
 
+	public Persona(String telefono, String nombre, String apellidos, String direccion) {
+		super();
+		this.setNombre(nombre);
+		this.setApellidos(apellidos);
+		this.setDireccion(direccion);
+		this.setTelefono(telefono);
+	}
 
 	public String getId() {
 		return id;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public String getNacimiento() {
+		return nacimiento;
 	}
 
 	public void setId(String id) {
@@ -30,17 +58,9 @@ public abstract class Persona {
 		this.id = id;
 	}
 
-	public String getTelefono() {
-		return telefono;
-	}
-
 	public void setTelefono(String telefono) {
 		assert telefono != null && validarTelefono(telefono).isResultado();
 		this.telefono = telefono;
-	}
-
-	public String getNombre() {
-		return nombre;
 	}
 
 	public void setNombre(String nombre) {
@@ -48,17 +68,9 @@ public abstract class Persona {
 		this.nombre = nombre;
 	}
 
-	public String getApellidos() {
-		return apellidos;
-	}
-
 	public void setApellidos(String apellidos) {
 		assert apellidos != null && validarApellido(apellidos).isResultado();
 		this.apellidos = apellidos;
-	}
-
-	public String getDireccion() {
-		return direccion;
 	}
 
 	public void setDireccion(String direccion) {
@@ -66,13 +78,18 @@ public abstract class Persona {
 		this.direccion = direccion;
 	}
 
-	public String getNacimiento() {
-		return nacimiento;
-	}
-
 	public void setNacimiento(String nacimiento) {
 		assert nacimiento != null && validarNacimiento(nacimiento).isResultado();
 		this.nacimiento = nacimiento;
+	}
+
+	public String setFullName() {
+		return this.apellidos + ", " + this.nombre;
+	}
+
+	@Override
+	public String toString() {
+		return setFullName();
 	}
 
 	// validadores

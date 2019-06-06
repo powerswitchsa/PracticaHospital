@@ -1,15 +1,16 @@
 package modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Medico extends Persona implements Serializable {
 
 	private Especialidad especialidad;
 	private boolean[][] horario;
 
-	public Medico(String telefono, String nombre, String apellidos, String direccion, String nacimiento,
+	public Medico(String nombre, String apellidos, String direccion, String telefono,
 			Especialidad especialidad) {
-		super(telefono, nombre, apellidos, direccion, nacimiento);
+		super(nombre, apellidos, direccion, telefono, null);
 		this.especialidad = especialidad;
 		this.horario = new boolean[2][2];
 		if (this.especialidad == Especialidad.Cabecera)
@@ -27,5 +28,9 @@ public class Medico extends Persona implements Serializable {
 	public void setHorario(boolean[][] horario) {
 		this.horario = horario;
 	}
+//	@Override
+//	public String toString() {
+//		return super.setFullName();
+//	}
 
 }

@@ -3,12 +3,8 @@ package vista.paciente;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.util.ArrayList;
-import java.util.GregorianCalendar;
 
-import javax.swing.ComboBoxEditor;
 import javax.swing.GroupLayout;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -17,19 +13,17 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.MatteBorder;
 
-import modelo.Medico;
 import modelo.Paciente;
-import modelo.Persona;
 
 import javax.swing.JComboBox;
 
 public class ConsultaPaciente extends JPanel {
-	private String[] label = { "ID :", "Nombre :", "Apellidos :", "Direccion :", "Nacimiento :", "Telefono :" };
+	private String[] label = { "Nombre :", "Apellidos :", "Direccion :", "Nacimiento :", "Telefono :" };
 	private JTextField[] fields = new JTextField[this.label.length];
 	private JPanel panelLabel = new JPanel();
 	private JPanel panelText = new JPanel();
-	private JComboBox comboBox;
-	private JComboBox comboBox_1;
+	private JComboBox comboBoxNombre;
+	private JComboBox comboBoxID;
 
 	public ConsultaPaciente(Color color, int letraPequena, int letraGrande, String tipoLetra) {
 		setVisible(true);
@@ -47,35 +41,36 @@ public class ConsultaPaciente extends JPanel {
 		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNombre.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
-		JComboBox comboBox = new JComboBox();
+		comboBoxNombre = new JComboBox();
 
 		JLabel lblId = new JLabel("ID");
 		lblId.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblId.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 
-		JComboBox comboBox_1 = new JComboBox();
+		comboBoxID = new JComboBox();
 
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.TRAILING).addGroup(groupLayout
 				.createSequentialGroup().addGap(23)
 				.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
 								.addComponent(lblNombre, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 169, GroupLayout.PREFERRED_SIZE))
+								.addPreferredGap(ComponentPlacement.RELATED).addComponent(comboBoxNombre,
+										GroupLayout.PREFERRED_SIZE, 169, GroupLayout.PREFERRED_SIZE))
 						.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE))
-				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup().addGap(35)
 								.addComponent(lblId, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
 								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addComponent(comboBox_1, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addComponent(comboBoxID, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 						.addGroup(groupLayout.createSequentialGroup().addGap(6).addComponent(panelText,
-								GroupLayout.PREFERRED_SIZE, 326, GroupLayout.PREFERRED_SIZE)))
+								GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)))
 				.addGap(25))
 				.addGroup(groupLayout.createSequentialGroup().addGap(223)
 						.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE).addGap(226))
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup().addGap(234)
-						.addComponent(lblMensajeDelSistema, GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE).addGap(117)));
+				.addGroup(groupLayout.createSequentialGroup().addGap(234)
+						.addComponent(lblMensajeDelSistema, GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
+						.addGap(117)));
 		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.TRAILING).addGroup(groupLayout
 				.createSequentialGroup().addGap(19)
 				.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
@@ -85,12 +80,12 @@ public class ConsultaPaciente extends JPanel {
 						.addComponent(lblNombre, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
 						.addGroup(groupLayout.createSequentialGroup()
 								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, 28,
+										.addComponent(comboBoxID, GroupLayout.PREFERRED_SIZE, 28,
 												GroupLayout.PREFERRED_SIZE)
 										.addComponent(lblId, GroupLayout.PREFERRED_SIZE, 33,
 												GroupLayout.PREFERRED_SIZE))
 								.addGap(3)))
-						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
+						.addComponent(comboBoxNombre, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
 				.addPreferredGap(ComponentPlacement.RELATED)
 				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(panelText, GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
@@ -145,18 +140,20 @@ public class ConsultaPaciente extends JPanel {
 	}
 
 	public void mostrarDatos(Paciente paciente) {
-		this.fields[0].setText(String.valueOf(paciente.getId()));
-		this.fields[1].setText(paciente.getNombre());
-		this.fields[2].setText(paciente.getApellidos());
-		this.fields[3].setText(paciente.getDireccion());
+
+		this.fields[0].setText(paciente.getNombre());
+		this.fields[1].setText(paciente.getApellidos());
+		this.fields[2].setText(paciente.getDireccion());
+		this.fields[3].setText(paciente.getNacimiento());
 		this.fields[4].setText(paciente.getTelefono());
 	}
 
-	public void rellenarComboBox(ArrayList<Paciente> paciente) {
-		for (Paciente pacientedos : paciente) {
-			comboBox.addItem(pacientedos.getNombre());
-			comboBox_1.addItem(pacientedos.getId());
-		
-		}
+	public JComboBox getComboBoxNombre() {
+		return comboBoxNombre;
 	}
+
+	public JComboBox getComboBoxID() {
+		return comboBoxID;
+	}
+
 }

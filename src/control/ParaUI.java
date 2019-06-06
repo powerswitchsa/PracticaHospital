@@ -1,64 +1,114 @@
 package control;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.swing.JComboBox;
+
+import listener.btn.ActionAltaMedico;
 import listener.btn.ActionAltaPaciente;
+import listener.btn.ActionBajaPaciente;
 import listener.btn.ActionModificarPaciente;
+import listener.combobox.BajaPacienteID;
+import listener.combobox.BajaPacienteNombre;
+import listener.combobox.CitaEspecialistaID;
+import listener.combobox.CitaEspecialistaMedico;
+import listener.combobox.CitaEspecialistaNombre;
+import listener.combobox.CitaOperacionID;
+import listener.combobox.CitaOperacionNombre;
+import listener.combobox.ConsultaMedicoID;
+import listener.combobox.ConsultaPacienteNombre;
+import listener.combobox.ConsultarPacienteID;
 import listener.combobox.ModificarPacienteID;
-import listener.item.ActionItem01;
-import listener.item.ActionItem02;
-import listener.item.ActionItem03;
-import listener.item.ActionItem04;
-import listener.item.ActionItem05;
-import listener.item.ActionItem06;
-import listener.item.ActionItem07;
-import listener.item.ActionItem08;
+import listener.combobox.ModificarPacienteNombre;
+import listener.item.ActionItemAltaPaciente;
+import listener.item.ActionItemCitaOperacion;
+import listener.item.ActionItemBajaPaciente;
+import listener.item.ActionItemConsultaMedico;
+import listener.item.ActionItemAltaMedico;
+import listener.item.ActionItemVerHistorial;
+import listener.item.ActionItemCerrarOperacion;
+import listener.item.ActionItemModificarPaciente;
+import listener.item.ActionItemConsultaPaciente;
+import listener.item.ActionItemCitaEspecialista;
+import listener.item.ActionItemAtenderCita;
+import listener.item.ActionItemCitaPrimaria;
 import modelo.Especialidad;
+import modelo.Medico;
 import modelo.Paciente;
+
 import vista.UI;
 
 public class ParaUI extends UI {
 
 	private Control control;
 
-	private ActionItem01 actionItem01 = new ActionItem01(this);
-	private ActionItem02 actionItem02 = new ActionItem02(this);
-	private ActionItem03 actionItem03 = new ActionItem03(this);
-	private ActionItem04 actionItem04 = new ActionItem04(this);
-	private ActionItem05 actionItem05 = new ActionItem05(this);
-	private ActionItem06 actionItem06 = new ActionItem06(this);
-	private ActionItem07 actionItem07 = new ActionItem07(this);
-	private ActionItem08 actionItem08 = new ActionItem08(this);
-
-	private ActionAltaPaciente actionAltaPaciente = new ActionAltaPaciente(this);
-	private ActionModificarPaciente actionModificarPaciente = new ActionModificarPaciente(this);
-
-	private ModificarPacienteID cbidModificarPaciente = new ModificarPacienteID(this);
-
 	public ParaUI() {
 		super();
 		this.control = new Control();
+		// actionlistener cambiar pestaña
+		getItemAltaPaciente().addActionListener(new ActionItemAltaPaciente(this));
+		getItemCitaOperacion().addActionListener(new ActionItemCitaOperacion(this));
+		getItemBajaPaciente().addActionListener(new ActionItemBajaPaciente(this));
+		getItemConsultaMedico().addActionListener(new ActionItemConsultaMedico(this));
+		getItemAltaMedico().addActionListener(new ActionItemAltaMedico(this));
+		getItemVerHistorial().addActionListener(new ActionItemVerHistorial(this));
+		getItemCerrarOperacion().addActionListener(new ActionItemCerrarOperacion(this));
+		getItemModificarPaciente().addActionListener(new ActionItemModificarPaciente(this));
+		getItemConsultaPaciente().addActionListener(new ActionItemConsultaPaciente(this));
+		getItemCitaEspecialista().addActionListener(new ActionItemCitaEspecialista(this));
+		getItemAtenderCita().addActionListener(new ActionItemAtenderCita(this));
+		getItemCitaPrimaria().addActionListener(new ActionItemCitaPrimaria(this));
+		// actionlistener botones
+		getAltaPaciente().getBtnAceptar().addActionListener(new ActionAltaPaciente(this));
+		getModificarPaciente().getBtnModificar().addActionListener(new ActionModificarPaciente(this));
+		getAltaMedico().getBtnAceptar().addActionListener(new ActionAltaMedico(this));
+		getBajaPaciente().getBtnDarBaja().addActionListener(new ActionBajaPaciente(this));
+		// actionlistener combobox
+		getModificarPaciente().getComboBoxID().addActionListener(new ModificarPacienteID(this));
+		getConsultaMedico().getComboBoxID().addActionListener(new ConsultaMedicoID(this));
+		getBajaPaciente().getComboBoxID().addActionListener(new BajaPacienteID(this));
+		getConsultaPaciente().getComboBoxID().addActionListener(new ConsultarPacienteID(this));
+		getConsultaPaciente().getComboBoxNombre().addActionListener(new ConsultaPacienteNombre(this));
+		getBajaPaciente().getComboBoxNombre().addActionListener(new BajaPacienteNombre(this));
+		getModificarPaciente().getComboBoxNombre().addActionListener(new ModificarPacienteNombre(this));
+		getCitaOperacion().getComboID().addActionListener(new CitaOperacionID(this));
+		getCitaOperacion().getComboPaciente().addActionListener(new CitaOperacionNombre(this));
+		getCitaEspecialista().getComboBoxID().addActionListener(new CitaEspecialistaID(this));
+		getCitaEspecialista().getComboBoxNombre().addActionListener(new CitaEspecialistaNombre(this));
+		getCitaEspecialista().getComboBoxNombre().addActionListener(new CitaEspecialistaMedico(this));
 
-		getItem1().addActionListener(this.actionItem01);
-		getItem2().addActionListener(this.actionItem02);
-		getItem3().addActionListener(this.actionItem03);
-		getItem4().addActionListener(this.actionItem04);
-		getItem5().addActionListener(this.actionItem05);
-		getItem6().addActionListener(this.actionItem06);
-		getItem7().addActionListener(this.actionItem07);
-		getItem8().addActionListener(this.actionItem08);
+	}
 
-		getAltaPaciente().getBtnAceptar().addActionListener(this.actionAltaPaciente);
-		getModificarPaciente().getBtnModificar().addActionListener(this.actionModificarPaciente);
+	public void rellenarComboBoxPaciente(JComboBox id, JComboBox nombre) {
+		nombre.removeAllItems();
+		id.removeAllItems();
+		HashMap<String, Paciente> list = getControl().getMapPaciente();
+		for (Paciente paciente : list.values()) {
+			id.addItem(paciente.getId());
+			nombre.addItem(paciente.getFullName());
+		}
+	}
 
-		getModificarPaciente().getComboBoxID().addActionListener(this.cbidModificarPaciente);
+	public void rellenarComboBoxMedico(JComboBox id, JComboBox nombre) {
+		nombre.removeAllItems();
+		id.removeAllItems();
+		HashMap<String, Medico> list = getControl().getMapMedico();
+		for (Medico medico : list.values()) {
+			id.addItem(medico.getId());
+			nombre.addItem(medico.getNombre());
+		}
+	}
+
+	public void rellenarEspecialidadMedico(JComboBox especial) {
+		especial.removeAllItems();
+		ArrayList<Medico> medicos = this.getControl().getEspecialidadMedico(Especialidad.Especialista);
+		for (Medico medico : medicos) {
+			especial.addItem(medico);
+		}
 	}
 
 	public Control getControl() {
 		return control;
 	}
-
 }

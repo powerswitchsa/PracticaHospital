@@ -1,6 +1,8 @@
 package modelo;
 
-public class Intervencion {
+import java.io.Serializable;
+
+public class Intervencion implements Serializable{
 
 	private Medico medicoSolicitante;
 	private Medico cirujano;

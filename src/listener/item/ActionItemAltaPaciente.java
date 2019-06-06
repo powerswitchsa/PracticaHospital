@@ -5,11 +5,11 @@ import java.awt.event.ActionListener;
 
 import control.ParaUI;
 
-public class ActionItem01 implements ActionListener {
+public class ActionItemAltaPaciente implements ActionListener {
 
 	private ParaUI paraUI;
 
-	public ActionItem01(ParaUI paraUI) {
+	public ActionItemAltaPaciente(ParaUI paraUI) {
 		super();
 		this.paraUI = paraUI;
 	}
@@ -17,6 +17,8 @@ public class ActionItem01 implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.paraUI.asociarPanel("altaPaciente");
+		this.paraUI.getAltaPaciente().vaciarCampos();
+		this.paraUI.getAltaPaciente().getMensajeSistema().setText(null);
 	}
 
 }

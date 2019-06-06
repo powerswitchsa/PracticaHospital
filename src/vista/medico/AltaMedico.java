@@ -3,6 +3,7 @@ package vista.medico;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -40,7 +41,7 @@ public class AltaMedico extends JPanel {
 		lblNewLabel.setFont(new Font(tipoLetra, Font.BOLD, letraGrande));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
-		mensajeSistema = new JLabel("Mensaje del sistema");
+		mensajeSistema = new JLabel("");
 		mensajeSistema.setForeground(Color.RED);
 		mensajeSistema.setHorizontalAlignment(SwingConstants.CENTER);
 		mensajeSistema.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
@@ -106,13 +107,11 @@ public class AltaMedico extends JPanel {
 			}
 			this.panelLabel.add(crearLabel(this.label[i], letraPequena, tipoLetra));
 		}
-
 		revalidate();
 	}
 
 	private JTextField crearJText(int letraPequena, String tipoLetra) {
 		JTextField field = new JTextField();
-		field.setText(" ");
 		field.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 		field.setHorizontalAlignment(SwingConstants.LEFT);
 		field.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
@@ -127,10 +126,17 @@ public class AltaMedico extends JPanel {
 		return jLabel;
 	}
 
+	public ArrayList<String> getFieldsMedico() {
+		ArrayList<String> campos = new ArrayList<String>();
+		for (int i = 0; i < 4; i++) {
+			campos.add(i, this.fields[i].getText().toString());
+		}
+		return campos;
+	}
+
 	private JComboBox<Especialidad> crearCombo() {
 		JComboBox<Especialidad> combo = new JComboBox<Especialidad>();
 		return combo;
-
 	}
 
 	public JTextField[] getFields() {
@@ -155,6 +161,11 @@ public class AltaMedico extends JPanel {
 
 	public JComboBox getComboHorario() {
 		return comboHorario;
+	}
+
+	public Especialidad getTipoEspecialidad() {
+		return (Especialidad) getComboEspecilidad().getSelectedItem();
+
 	}
 
 }

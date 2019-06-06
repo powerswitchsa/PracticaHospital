@@ -7,24 +7,24 @@ import java.util.ArrayList;
 import control.ParaUI;
 import modelo.Especialidad;
 
-public class ActionItem05 implements ActionListener {
+public class ActionItemAltaMedico implements ActionListener {
 
 	private ParaUI paraUI;
 
-	public ActionItem05(ParaUI paraUI) {
+	public ActionItemAltaMedico(ParaUI paraUI) {
 		super();
 		this.paraUI = paraUI;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.paraUI.asociarPanel("consultaMedico");
+		this.paraUI.asociarPanel("altaMedico");
 		this.paraUI.getAltaMedico().getComboConsulta().removeAllItems();
 		this.paraUI.getAltaMedico().getComboEspecilidad().removeAllItems();
 		this.paraUI.getAltaMedico().getComboHorario().removeAllItems();
-		ArrayList<Integer> idConsulta = paraUI.getControl().getVacanteConsulta();
+		ArrayList<String> idConsulta = paraUI.getControl().getVacanteConsulta();
 		ArrayList<Boolean> horaLibre = paraUI.getControl().getHoraLibre();
-		for (Integer id : idConsulta) {
+		for (String id : idConsulta) {
 			this.paraUI.getAltaMedico().getComboConsulta().addItem(id);
 		}
 		for (Especialidad especial : Especialidad.values()) {
@@ -34,5 +34,6 @@ public class ActionItem05 implements ActionListener {
 			this.paraUI.getAltaMedico().getComboHorario().addItem(hora);
 		}
 	}
+	
 
 }
