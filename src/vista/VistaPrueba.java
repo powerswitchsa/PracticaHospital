@@ -31,13 +31,11 @@ public class VistaPrueba extends JPanel {
 		JLabel lblNewLabel = new JLabel("Paciente");
 		lblNewLabel.setFont(new Font("Consolas", Font.BOLD, 30));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		lblNewLabel.setBounds(11, 11, 884, 92);
 		add(lblNewLabel);
 
 		JPanel panel = new JPanel();
-		panel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-		panel.setBounds(11, 114, 416, 46);
+		panel.setBounds(11, 114, 509, 46);
 		add(panel);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
 
@@ -49,8 +47,7 @@ public class VistaPrueba extends JPanel {
 		panel.add(comboBox);
 
 		JPanel panel_2 = new JPanel();
-		panel_2.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-		panel_2.setBounds(437, 114, 156, 46);
+		panel_2.setBounds(530, 114, 156, 46);
 		add(panel_2);
 		panel_2.setLayout(new BoxLayout(panel_2, BoxLayout.X_AXIS));
 
@@ -62,7 +59,6 @@ public class VistaPrueba extends JPanel {
 		panel_2.add(comboBox_1);
 
 		JPanel panel_3 = new JPanel();
-		panel_3.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		panel_3.setBounds(10, 186, 583, 46);
 		add(panel_3);
 		panel_3.setLayout(new GridLayout(1, 0, 20, 0));
@@ -80,7 +76,6 @@ public class VistaPrueba extends JPanel {
 		panel_3.add(btnNewButton_2);
 
 		JPanel panel_4 = new JPanel();
-		panel_4.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		panel_4.setBounds(10, 258, 283, 480);
 		add(panel_4);
 		panel_4.setLayout(new GridLayout(0, 1, 0, 20));
@@ -99,6 +94,7 @@ public class VistaPrueba extends JPanel {
 		textFieldNombre.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_4.add(textFieldNombre);
 		textFieldNombre.setColumns(10);
+		textFieldNombre.setFocusable(false);
 
 		JLabel lblNewLabel_4 = new JLabel("Apellidos");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -109,6 +105,7 @@ public class VistaPrueba extends JPanel {
 		textFieldApellidos.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_4.add(textFieldApellidos);
 		textFieldApellidos.setColumns(10);
+		textFieldApellidos.setFocusable(false);
 
 		JLabel lblNewLabel_5 = new JLabel("Direccion");
 		lblNewLabel_5.setFont(new Font("Consolas", Font.PLAIN, 15));
@@ -119,6 +116,7 @@ public class VistaPrueba extends JPanel {
 		textFieldDireccion.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_4.add(textFieldDireccion);
 		textFieldDireccion.setColumns(10);
+		textFieldDireccion.setFocusable(false);
 
 		JLabel lblFechaNacimiento = new JLabel("Fecha Nacimiento");
 		lblFechaNacimiento.setFont(new Font("Consolas", Font.PLAIN, 15));
@@ -129,6 +127,7 @@ public class VistaPrueba extends JPanel {
 		textFieldNacimiento.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldNacimiento.setColumns(10);
 		panel_4.add(textFieldNacimiento);
+		textFieldNacimiento.setFocusable(false);
 
 		JLabel lblTelefono = new JLabel("Telefono");
 		lblTelefono.setFont(new Font("Consolas", Font.PLAIN, 15));
@@ -139,6 +138,7 @@ public class VistaPrueba extends JPanel {
 		textFieldTelefono.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldTelefono.setColumns(10);
 		panel_4.add(textFieldTelefono);
+		textFieldTelefono.setFocusable(false);
 		
 		JLabel lblCitasoperaciones = new JLabel("Citas/Operaciones");
 		lblCitasoperaciones.setFont(new Font("Consolas", Font.PLAIN, 20));
