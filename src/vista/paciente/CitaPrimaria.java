@@ -12,7 +12,6 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-import modelo.Especialidad;
 import modelo.Turno;
 
 import javax.swing.JComboBox;
@@ -32,6 +31,7 @@ public class CitaPrimaria extends JPanel {
 	private int dias;
 
 	private JButton[][] botonera;
+
 	private boolean[][] horario;
 
 	private String coordenadas;
@@ -247,6 +247,41 @@ public class CitaPrimaria extends JPanel {
 		revalidate();
 	}
 
+	public String getHora() {
+		String[] cadena = this.coordenadas.split(";");
+		int i = Integer.valueOf(cadena[0]);
+		int j = Integer.valueOf(cadena[1]);
+		return this.botonera[i][j].getText();
+	}
+
+	public String getDia() {
+		String[] cadena = this.coordenadas.split(";");
+		int i = Integer.valueOf(cadena[1]);
+		String dia = "";
+		switch (i) {
+		case 0:
+			dia = "lunes";
+
+		case 1:
+			dia = "martes";
+			break;
+		case 2:
+			dia = "miercoles";
+		case 3:
+			dia = "jueves";
+		case 4:
+			dia = "viernes";
+		case 5:
+			dia = "sabado";
+		case 6:
+			dia = "domingo";
+		default:
+			break;
+		}
+		return dia;
+
+	}
+
 	public JComboBox getComboPaciente() {
 		return comboPaciente;
 	}
@@ -257,6 +292,10 @@ public class CitaPrimaria extends JPanel {
 
 	public JComboBox getComboMedico() {
 		return comboMedico;
+	}
+
+	public String getCoordenadas() {
+		return coordenadas;
 	}
 
 }
