@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import control.ParaUI;
-import modelo.Especialidad;
+import modelo.enums.Especialidad;
 
 public class ActionItemAltaMedico implements ActionListener {
 

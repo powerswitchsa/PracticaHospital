@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import control.ParaUI;
-import modelo.Especialidad;
+import modelo.enums.Especialidad;
 
 public class ActionItemCitaEspecialista implements ActionListener {
 

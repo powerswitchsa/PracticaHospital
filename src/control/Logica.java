@@ -2,54 +2,74 @@ package control;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import almacen.AlmacenCita;
-import almacen.AlmacenConsulta;
-import almacen.AlmacenMedico;
-import almacen.AlmacenPaciente;
+import almacen.GestorDTO;
+import modelo.Cita;
 import modelo.Consulta;
-import modelo.Especialidad;
 import modelo.Medico;
 import modelo.Paciente;
+import modelo.enums.Especialidad;
 
 public class Logica {
 
-	private AlmacenPaciente almacenPaciente;
-	private AlmacenMedico almacenMedico;
-	private AlmacenConsulta almacenConsulta;
-	private AlmacenCita almacenCita;
+	private GestorDTO gestorDTO;
+	private HashMap<String, Paciente> mapPaciente;
+	private HashMap<String, Medico> mapMedico;
+	private HashMap<String, Consulta> mapConsulta;
+	private ArrayList<Cita> citas;
 
 	public Logica() {
 		super();
-		this.almacenPaciente = new AlmacenPaciente();
-		this.almacenMedico = new AlmacenMedico();
-		this.almacenConsulta = new AlmacenConsulta();
-		this.almacenCita = new AlmacenCita();
+		this.gestorDTO = new GestorDTO();
+
+		this.mapPaciente = this.gestorDTO.getLeerMapPaciente();
+		if (this.mapPaciente == null)
+			this.mapPaciente = new HashMap<String, Paciente>();
+
+		this.mapMedico = this.gestorDTO.getLeerMapMedico();
+		if (this.mapMedico == null)
+			this.mapMedico = new HashMap<String, Medico>();
+
+		this.mapConsulta = this.gestorDTO.getLeerMapConsulta();
+		if (this.getMapConsulta() == null)
+			this.mapConsulta = new HashMap<String, Consulta>();
+
+		this.citas = this.gestorDTO.getLeerListCitas();
+		if (this.citas == null)
+			this.citas = new ArrayList<Cita>();
 	}
 
-	public boolean altaPaciente(ArrayList<String> paciente) {
-		return this.almacenPaciente.altaPaciente(
-				new Paciente(paciente.get(0), paciente.get(1), paciente.get(2), paciente.get(3), paciente.get(4)));
+	public boolean getAltaPaciente(ArrayList<String> infoPaciente) {
+		Paciente paciente = new Paciente(infoPaciente.get(0), infoPaciente.get(1), infoPaciente.get(2),
+				infoPaciente.get(3), infoPaciente.get(4));
+		paciente.setId(getUltimaIdPaciente());
+		this.mapPaciente.put(paciente.getId(), paciente);
+		return this.gestorDTO.getGrabarPaciente(paciente) && this.gestorDTO.getGrabarMapPaciente(this.mapPaciente);
 	}
 
-	public boolean altaMedico(ArrayList<String> medico, Especialidad tipo) {
-		return this.almacenMedico
-				.altaMedico(new Medico(medico.get(0), medico.get(1), medico.get(2), medico.get(3), tipo));
+	public boolean getAltaMedico(ArrayList<String> infoMedico, Especialidad tipo) {
+		Medico medico = new Medico(infoMedico.get(0), infoMedico.get(1), infoMedico.get(2), infoMedico.get(3), tipo);
+		medico.setId(getUltimaIdMedico());
+		this.mapMedico.put(medico.getId(), medico);
+		return this.gestorDTO.getGrabarMapMedico(this.mapMedico);
 	}
 
-	public boolean bajaPaciente(String id) {
-		return this.almacenPaciente.bajaPaciente(id);
+	public boolean getBajaPaciente(String id) {
+		this.mapPaciente.remove(id);
+		return this.gestorDTO.getEliminarPaciente(id);
 	}
 
 	public boolean modificarPaciente(String id, String telefono, String direccion) {
-		Paciente paciente = this.almacenPaciente.getPaciente(id);
+		Paciente paciente = this.mapPaciente.get(id);
 		paciente.setTelefono(telefono);
 		paciente.setDireccion(direccion);
-		return this.almacenPaciente.modificarPaciente(paciente);
+		this.mapPaciente.remove(id);
+		this.mapPaciente.put(paciente.getId(), paciente);
+		return this.gestorDTO.getGrabarPaciente(paciente) && this.gestorDTO.getGrabarMapPaciente(this.mapPaciente);
 	}
 
 	public ArrayList<String> getConsultaVacante() {
 		ArrayList<String> idConsulta = new ArrayList<String>();
-		for (Consulta consulta : this.almacenConsulta.getMapaConsulta().values()) {
+		for (Consulta consulta : this.mapConsulta.values()) {
 			if (consulta.getVacantes()) {
 				idConsulta.add(consulta.getId());
 			}
@@ -57,37 +77,68 @@ public class Logica {
 		return idConsulta;
 	}
 
+	private String getUltimaIdPaciente() {
+		int contador = 0;
+		for (String id : this.mapPaciente.keySet()) {
+			int num = Integer.valueOf(id);
+			contador = contador < num ? num : contador;
+		}
+		return String.valueOf(contador + 1);
+	}
+
+	private String getUltimaIdMedico() {
+		int contador = 0;
+		for (String id : this.mapMedico.keySet()) {
+			int num = Integer.valueOf(id);
+			contador = contador < num ? num : contador;
+		}
+		return String.valueOf(contador + 1);
+	}
+
 	public Medico getFullNameMedico(String fullName) {
-		return this.almacenMedico.getFullNameMedico(fullName);
+		for (Medico medico : this.mapMedico.values()) {
+			if (medico.getFullName().equals(fullName))
+				return medico;
+		}
+		return null;
+	}
+
+	public Paciente getPacienteFullNombre(String fullName) {
+		for (Paciente paciente : this.mapPaciente.values()) {
+			if (paciente.getFullName().equals(fullName))
+				return paciente;
+		}
+		return null;
 	}
 
 	public ArrayList<Medico> getEspecialidadMedico(Especialidad especialidad) {
-		return this.almacenMedico.getListaEspecialidad(especialidad);
+		ArrayList<Medico> seleccionados = new ArrayList<Medico>();
+		for (Medico medico : this.mapMedico.values()) {
+			if (medico.getEspecialidad() == especialidad) {
+				seleccionados.add(medico);
+			}
+		}
+		return seleccionados;
 	}
 
 	public HashMap<String, Paciente> getMapPaciente() {
-		return this.almacenPaciente.getMapPaciente();
+		return this.mapPaciente;
 	}
 
 	public Paciente getPaciente(String id) {
-		return this.almacenPaciente.getPaciente(id);
-	}
-
-	public Paciente getPacienteFullNombre(String fullNombre) {
-		return this.almacenPaciente.getPacienteFullNombre(fullNombre);
+		return this.mapPaciente.get(id);
 	}
 
 	public HashMap<String, Medico> getMapMedico() {
-		return this.almacenMedico.getMapMedicos();
+		return this.mapMedico;
 	}
 
 	public Medico getMedico(String id) {
-		return this.almacenMedico.getMedico(id);
+		return this.mapMedico.get(id);
 	}
 
 	public HashMap<String, Consulta> getMapConsulta() {
-		return this.almacenConsulta.getMapaConsulta();
-
+		return this.mapConsulta;
 	}
 
 }

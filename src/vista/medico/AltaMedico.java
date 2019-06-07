@@ -15,7 +15,7 @@ import javax.swing.SwingConstants;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.border.MatteBorder;
 
-import modelo.Especialidad;
+import modelo.enums.Especialidad;
 
 import javax.swing.LayoutStyle.ComponentPlacement;
 

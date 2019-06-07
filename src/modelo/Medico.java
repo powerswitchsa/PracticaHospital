@@ -3,6 +3,8 @@ package modelo;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import modelo.enums.Especialidad;
+
 public class Medico extends Persona implements Serializable {
 
 	private Especialidad especialidad;
