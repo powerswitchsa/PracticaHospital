@@ -1,10 +1,12 @@
 package listener.item;
 
 import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import control.ParaUI;
+import modelo.enums.*;
 import modelo.enums.Especialidad;
 
 public class ActionItemAltaMedico implements ActionListener {
@@ -29,8 +31,9 @@ public class ActionItemAltaMedico implements ActionListener {
 		for (Especialidad especial : Especialidad.values()) {
 			this.paraUI.getAltaMedico().getComboEspecilidad().addItem(especial);
 		}
-		
-//			this.paraUI.getAltaMedico().getComboHorario().addItem(hora);
+		for (Turno elementos : Turno.values()) {
+			this.paraUI.getAltaMedico().getComboHorario().addItem(elementos.name());
+		}
 		
 	}
 	

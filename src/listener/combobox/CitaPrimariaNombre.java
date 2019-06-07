@@ -22,7 +22,8 @@ public class CitaPrimariaNombre implements ActionListener {
 			fullNombre = this.paraUI.getCitaOperacion().getComboPaciente().getSelectedItem().toString();
 			if (fullNombre != null) {
 				Paciente paciente = this.paraUI.getControl().getPacienteFullNombre(fullNombre);
-				this.paraUI.getCitaOperacion().getComboID().setSelectedItem(paciente.getId());
+				this.paraUI.getCitaPrimaria().getComboBoxID().setSelectedItem(paciente.getId());
+				
 			}
 		}
 	}

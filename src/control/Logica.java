@@ -1,13 +1,14 @@
 package control;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
 import almacen.GestorDTO;
 import modelo.Cita;
 import modelo.Consulta;
 import modelo.Medico;
 import modelo.Paciente;
-import modelo.enums.Especialidad;
+import modelo.enums.*;
 
 public class Logica {
 
@@ -46,8 +47,8 @@ public class Logica {
 		return this.gestorDTO.getGrabarPaciente(paciente) && this.gestorDTO.getGrabarMapPaciente(this.mapPaciente);
 	}
 
-	public boolean getAltaMedico(ArrayList<String> infoMedico, Especialidad tipo) {
-		Medico medico = new Medico(infoMedico.get(0), infoMedico.get(1), infoMedico.get(2), infoMedico.get(3), tipo);
+	public boolean getAltaMedico(ArrayList<String> infoMedico, Especialidad tipo,Turno turno) {
+		Medico medico = new Medico(infoMedico.get(0), infoMedico.get(1), infoMedico.get(2), infoMedico.get(3), tipo, turno);
 		medico.setId(getUltimaIdMedico());
 		this.mapMedico.put(medico.getId(), medico);
 		return this.gestorDTO.getGrabarMapMedico(this.mapMedico);

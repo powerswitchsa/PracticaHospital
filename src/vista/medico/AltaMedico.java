@@ -1,6 +1,7 @@
 package vista.medico;
 
 import java.awt.Color;
+
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -16,13 +17,14 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.border.MatteBorder;
 
 import modelo.enums.Especialidad;
+import modelo.enums.Turno;
 
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class AltaMedico extends JPanel {
 
 	private String[] label = { "Nombre :", "Apellidos :", "Direccion :", "Telefono :", "Especialidad :", "Consulta :",
-			"Horario :" };
+			"Turno :" };
 
 	private JTextField[] fields = new JTextField[this.label.length];
 	private JComboBox<Especialidad> comboEspecilidad = crearCombo();
@@ -165,7 +167,16 @@ public class AltaMedico extends JPanel {
 
 	public Especialidad getTipoEspecialidad() {
 		return (Especialidad) getComboEspecilidad().getSelectedItem();
-
 	}
 
+	public Turno getTurno() {
+		switch (getComboHorario().getSelectedItem().toString()) {
+		case "mañana":
+			return Turno.mañana;
+		case "tarde":
+			return Turno.tarde;
+		default:
+			return null;
+		}
+	}
 }

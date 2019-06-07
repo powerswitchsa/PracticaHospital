@@ -17,6 +17,7 @@ import listener.combobox.CitaEspecialistaNombre;
 import listener.combobox.CitaOperacionID;
 import listener.combobox.CitaOperacionNombre;
 import listener.combobox.CitaPrimariaID;
+import listener.combobox.CitaPrimariaNombre;
 import listener.combobox.ConsultaMedicoID;
 import listener.combobox.ConsultaMedicoNombre;
 import listener.combobox.ConsultaPacienteNombre;
@@ -81,6 +82,9 @@ public class ParaUI extends UI {
 		getCitaEspecialista().getComboBoxNombre().addActionListener(new CitaEspecialistaNombre(this));
 		getCitaEspecialista().getComboBoxNombre().addActionListener(new CitaEspecialistaMedico(this));
 		getConsultaMedico().getComboBoxID().addActionListener(new ConsultaMedicoID(this));
+		getConsultaMedico().getComboNombreMedico().addActionListener(new ConsultaMedicoNombre(this));
+		getCitaPrimaria().getComboBoxID().addActionListener(new CitaPrimariaID(this));
+		getCitaPrimaria().getComboBoxNombre().addActionListener(new CitaPrimariaNombre(this));
 		getConsultaMedico().getComboNombreMedico().addActionListener(new ConsultaMedicoNombre(this));
 		getCitaPrimaria().getComboBoxID().addActionListener(new CitaPrimariaID(this));
 
