@@ -18,10 +18,10 @@ public class AlmacenConsulta {
 		if (!file.exists()) {
 			this.mapConsulta = new HashMap<String, Consulta>();
 			for (int i = 0; i < 4; i++) {
-				altaConsulta(new Consulta(getUltimaIdConsulta())); 
+				altaConsulta(new Consulta(getUltimaIdConsulta()));
 			}
 		} else {
-			this.dao.leer(rutaDestino);
+			this.mapConsulta=this.dao.leer(rutaDestino);
 		}
 	}
 
@@ -30,7 +30,6 @@ public class AlmacenConsulta {
 	}
 
 	public boolean altaConsulta(Consulta consulta) {
-		consulta.setId(getUltimaIdConsulta());
 		this.mapConsulta.put(consulta.getId(), consulta);
 		return dao.grabar(rutaDestino, this.mapConsulta);
 	}

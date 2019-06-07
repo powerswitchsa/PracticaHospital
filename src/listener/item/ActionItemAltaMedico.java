@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import control.ParaUI;
 import modelo.Especialidad;
+import modelo.Turno;
 
 public class ActionItemAltaMedico implements ActionListener {
 
@@ -29,8 +30,9 @@ public class ActionItemAltaMedico implements ActionListener {
 		for (Especialidad especial : Especialidad.values()) {
 			this.paraUI.getAltaMedico().getComboEspecilidad().addItem(especial);
 		}
-		
-//			this.paraUI.getAltaMedico().getComboHorario().addItem(hora);
+		for (Turno elementos : Turno.values()) {
+			this.paraUI.getAltaMedico().getComboHorario().addItem(elementos.name());
+		}
 		
 	}
 	

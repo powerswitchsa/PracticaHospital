@@ -8,6 +8,7 @@ import modelo.Cita;
 import modelo.Especialidad;
 import modelo.Medico;
 import modelo.Paciente;
+import modelo.Turno;
 
 public class AlmacenCita {
 	private DAO<ArrayList<Cita>> DAOindice;
@@ -18,7 +19,7 @@ public class AlmacenCita {
 	public AlmacenCita() {
 		super();
 //		valores para probar a pelo
-		Medico medico= new Medico("Señor Don Gato", "Conejo", "a", "81274982", Especialidad.Cabecera);
+		Medico medico= new Medico("Señor Don Gato", "Conejo", "a", "81274982", Especialidad.Cabecera, Turno.mañana);
 		Paciente paciente= new Paciente("Susanita", "gato", "jiasjfi", "157812", "129582");
 		Cita citaPrueba= new Cita(medico, paciente, "129", false, "bien");
 		this.DAOindice = new DAO<ArrayList<Cita>>();

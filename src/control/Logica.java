@@ -10,6 +10,7 @@ import modelo.Consulta;
 import modelo.Especialidad;
 import modelo.Medico;
 import modelo.Paciente;
+import modelo.Turno;
 
 public class Logica {
 
@@ -20,9 +21,9 @@ public class Logica {
 
 	public Logica() {
 		super();
+		this.almacenConsulta = new AlmacenConsulta();
 		this.almacenPaciente = new AlmacenPaciente();
 		this.almacenMedico = new AlmacenMedico();
-		this.almacenConsulta = new AlmacenConsulta();
 		this.almacenCita = new AlmacenCita();
 	}
 
@@ -31,9 +32,9 @@ public class Logica {
 				new Paciente(paciente.get(0), paciente.get(1), paciente.get(2), paciente.get(3), paciente.get(4)));
 	}
 
-	public boolean altaMedico(ArrayList<String> medico, Especialidad tipo) {
+	public boolean altaMedico(ArrayList<String> medico, Turno turno,Especialidad tipo) {
 		return this.almacenMedico
-				.altaMedico(new Medico(medico.get(0), medico.get(1), medico.get(2), medico.get(3), tipo));
+				.altaMedico(new Medico(medico.get(0), medico.get(1), medico.get(2), medico.get(3), tipo , turno));
 	}
 
 	public boolean bajaPaciente(String id) {

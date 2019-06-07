@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import modelo.Cita;
+import modelo.Consulta;
 import modelo.Controller;
 import modelo.Especialidad;
 import modelo.Medico;
 import modelo.Paciente;
+import modelo.Turno;
 import vista.paciente.CitaOperacion;
 
 public class Control {
@@ -25,8 +27,8 @@ public class Control {
 		return this.logica.altaPaciente(paciente);
 	}
 
-	public boolean getAltaMedico(ArrayList<String> medico, Especialidad tipo) {
-		return this.logica.altaMedico(medico, tipo);
+	public boolean getAltaMedico(ArrayList<String> medico, Especialidad tipo,Turno turno) {
+		return this.logica.altaMedico(medico, turno, tipo);
 	}
 
 	public boolean getBajaPaciente(String id) {
@@ -78,8 +80,20 @@ public class Control {
 	public Medico getMedico(String id) {
 		return this.logica.getMedico(id);
 	}
+	public HashMap <String,Consulta> getMapaConsulta()	{
+		return this.logica.getMapConsulta();
+		
+	}
 
 	public ArrayList<Medico> getEspecialidadMedico(Especialidad especialidad) {
 		return this.logica.getEspecialidadMedico(especialidad);
+	}
+	public boolean[][] getHorario(Medico medico){
+		for (Consulta consulta : getMapaConsulta().values()) {
+			if (consulta.isTrabajando(medico)) {
+				return consulta.getHorarios();
+			}
+	}
+	return null;		
 	}
 }
