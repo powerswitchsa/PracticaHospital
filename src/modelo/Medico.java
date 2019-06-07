@@ -3,14 +3,18 @@ package modelo;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import modelo.enums.Especialidad;
+import modelo.enums.Turno;
+
 public class Medico extends Persona implements Serializable {
 
 	private Especialidad especialidad;
 	private boolean[][] horario;
+	private Turno turno;
 
 	public Medico(String nombre, String apellidos, String direccion, String telefono,
-			Especialidad especialidad) {
-		super(nombre, apellidos, direccion, telefono, null);
+			Especialidad especialidad,Turno turno) {
+		super(telefono, nombre, apellidos, direccion, null);
 		this.especialidad = especialidad;
 		this.horario = new boolean[2][2];
 		if (this.especialidad == Especialidad.Cabecera)
@@ -28,9 +32,11 @@ public class Medico extends Persona implements Serializable {
 	public void setHorario(boolean[][] horario) {
 		this.horario = horario;
 	}
-//	@Override
-//	public String toString() {
-//		return super.setFullName();
-//	}
+	public  String getFullName() {
+		return this.getApellidos()+" "+this.getNombre();
+	}
 
+	public Turno getTurno() {
+		return turno;
+	}
 }

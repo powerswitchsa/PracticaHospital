@@ -12,7 +12,12 @@ import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.MatteBorder;
+
+import modelo.enums.Turno;
+
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CitaEspecialista extends JPanel {
 
@@ -24,13 +29,23 @@ public class CitaEspecialista extends JPanel {
 	private JPanel panelBotonera;
 	private JPanel panelLabel;
 
+	private String[] textHoras = { "8:00-9:00", "9:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00",
+			"13:00-14:00", "14:00-15:00", "15:00-16:00" };
 	private String[] label = { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes" };
-	private JButton[][] botonera = new JButton[4][5];
+	private int horas = 8;
+	private int dias = 5;
+	private JButton[][] botonera;
+	private String coordenadas;
+	private boolean[][] horario;
+
 	private JComboBox comboBoxNombre;
 	private JComboBox comboBoxID;
 	private JComboBox comboNombreMedico;
 
 	public CitaEspecialista(Color colorFondo, int letraPequena, int letraGrande, String tipoLetra) {
+		this.botonera = new JButton[horas][dias];
+		this.horario = new boolean[horas][dias];
+		this.coordenadas = "10;10";
 		setVisible(true);
 		setBackground(colorFondo);
 		this.colorFondo = colorFondo;
@@ -66,12 +81,14 @@ public class CitaEspecialista extends JPanel {
 				.addGroup(gl_panel_2.createSequentialGroup().addContainerGap()
 						.addComponent(lblMedico, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE).addGap(20)
 						.addComponent(comboNombreMedico, 0, 505, Short.MAX_VALUE).addContainerGap()));
-		gl_panel_2.setVerticalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING).addGroup(gl_panel_2
-				.createSequentialGroup().addGap(20)
-				.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblMedico, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-						.addComponent(comboNombreMedico, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
-				.addGap(20)));
+		gl_panel_2.setVerticalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_2.createSequentialGroup().addGap(20)
+						.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblMedico, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 30,
+										Short.MAX_VALUE)
+								.addComponent(comboNombreMedico, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 30,
+										Short.MAX_VALUE))
+						.addGap(20)));
 		panel_2.setLayout(gl_panel_2);
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
@@ -110,28 +127,21 @@ public class CitaEspecialista extends JPanel {
 		panelLabel = new JPanel();
 
 		panelBotonera = new JPanel();
-		panelBotonera.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
-				.createSequentialGroup().addGap(30)
-				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(panelBotonera, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE).addGap(30))
-						.addGroup(groupLayout.createSequentialGroup().addGroup(groupLayout
-								.createParallelGroup(Alignment.TRAILING)
-								.addComponent(panelLabel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 926,
-										Short.MAX_VALUE)
-								.addComponent(lblNewLabel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 926,
-										Short.MAX_VALUE)
-								.addGroup(groupLayout.createSequentialGroup()
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup().addGap(30)
+						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(panelBotonera, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+								.addComponent(panelLabel, GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE)
+								.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE)
+								.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
 										.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-												.addComponent(panel_2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 656,
+												.addComponent(panel_2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 648,
 														Short.MAX_VALUE)
-												.addComponent(panel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-														Short.MAX_VALUE))
-										.addGap(6).addComponent(panel_1, GroupLayout.PREFERRED_SIZE,
-												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-								.addGap(30)))));
+												.addComponent(panel, GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE))
+										.addGap(6).addComponent(panel_1, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+						.addGap(30)));
 		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup().addGap(30)
 						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
@@ -146,13 +156,94 @@ public class CitaEspecialista extends JPanel {
 						.addGap(18).addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
 						.addGap(5).addComponent(panelBotonera, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
 						.addGap(50)));
-		panelBotonera.setLayout(new GridLayout(1, 0, 0, 0));
+		panelBotonera.setLayout(new GridLayout(horas, dias, 10, 10));
 		panelLabel.setLayout(new GridLayout(1, 0, 10, 10));
 		setLayout(groupLayout);
 		panelLabel.setBackground(colorFondo);
-
+		this.panelBotonera.setBackground(colorFondo);
 		for (int i = 0; i < label.length; i++) {
 			this.panelLabel.add(crearLabel(label[i]));
+		}
+		int indice = 0;
+		for (int i = 0; i < botonera.length; i++) {
+
+			for (int j = 0; j < botonera[i].length; j++) {
+				this.botonera[i][j] = new JButton();
+				this.botonera[i][j].setBackground(Color.WHITE);
+				this.botonera[i][j].setName(i + ";" + j);
+				this.botonera[i][j].setText(this.textHoras[indice]);
+				this.botonera[i][j].addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						JButton boton = (JButton) e.getSource();
+						String[] anterior = coordenadas.split(";");
+						int anteriorX = Integer.valueOf(anterior[0]);
+						int anteriorY = Integer.valueOf(anterior[1]);
+
+						String[] actual = boton.getName().split(";");
+						int actualX = Integer.valueOf(actual[0]);
+						int actualY = Integer.valueOf(actual[1]);
+
+						if (anteriorX != 10 && anteriorY != 10) {
+							botonera[anteriorX][anteriorY].setBackground(Color.WHITE);
+						}
+						botonera[actualX][actualY].setBackground(Color.GREEN);
+						coordenadas = boton.getName();
+					}
+				});
+				this.panelBotonera.add(this.botonera[i][j]);
+			}
+			indice++;
+		}
+
+		boolean[][] a = new boolean[horas][dias];
+		a[0][0] = true;
+		a[3][3] = true;
+		a[2][4] = true;
+		a[1][1] = true;
+		crearBotonera(a, Turno.mañana);
+	}
+
+	public void crearBotonera(boolean[][] horario, Turno turno) {
+		this.horario = horario;
+		for (int i = 0; i < horario.length; i++) {
+			for (int j = 0; j < horario[i].length; j++) {
+				if (i > 3 && Turno.mañana == turno || i < 4 && Turno.tarde == turno) {
+					this.botonera[i][j].setEnabled(false);
+					this.botonera[i][j].setBorder(new MatteBorder(5, 5, 5, 5, Color.ORANGE));
+				} else {
+					this.botonera[i][j]
+							.setBorder(new MatteBorder(5, 5, 5, 5, this.horario[i][j] ? Color.RED : Color.BLUE));
+					if (this.horario[i][j])
+						this.botonera[i][j].setEnabled(false);
+				}
+			}
+		}
+		revalidate();
+	}
+
+	public String getHora() {
+		String[] cadena = this.coordenadas.split(";");
+		int i = Integer.valueOf(cadena[0]);
+		int j = Integer.valueOf(cadena[1]);
+		return this.botonera[i][j].getText();
+	}
+
+	public String getDia() {
+		String[] cadena = this.coordenadas.split(";");
+		int i = Integer.valueOf(cadena[1]);
+		switch (i) {
+		case 0:
+			return "lunes";
+		case 1:
+			return "martes";
+		case 2:
+			return "miercoles";
+		case 3:
+			return "jueves";
+		case 4:
+			return "viernes";
+		default:
+			return "";
 		}
 	}
 
@@ -163,6 +254,7 @@ public class CitaEspecialista extends JPanel {
 		jLabel.setText(cadena);
 		jLabel.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
 		jLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		jLabel.setBorder(new MatteBorder(1, 1, 1, 1, Color.BLACK));
 		return jLabel;
 	}
 
@@ -177,6 +269,9 @@ public class CitaEspecialista extends JPanel {
 	public JComboBox getComboNombreMedico() {
 		return comboNombreMedico;
 	}
-	
+
+	public String getCoordenada() {
+		return coordenadas;
+	}
 
 }

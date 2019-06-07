@@ -1,229 +1,209 @@
 package vista.paciente;
 
+import java.awt.Color;
+
 import javax.swing.JPanel;
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import javax.swing.JComboBox;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.MatteBorder;
+
+import modelo.enums.Turno;
+
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.LayoutStyle.ComponentPlacement;
-
-import modelo.Especialidad;
-import modelo.Turno;
-
-import javax.swing.JComboBox;
-import javax.swing.SwingConstants;
-
-import java.awt.Color;
-import java.awt.ComponentOrientation;
-import javax.swing.border.MatteBorder;
-
 public class CitaPrimaria extends JPanel {
 
-	private JComboBox comboPaciente;
-	private JComboBox comboID;
-	private JComboBox comboMedico;
+	private int letraPequena;
+	private int letraGrande;
+	private Color colorFondo;
+	private String tipoLetra;
 
-	private JButton[][] botonera = new JButton[8][5];
+	private JPanel panelBotonera;
+	private JPanel panelLabel;
+
+	private String[] textHoras = { "8:00-9:00", "9:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00",
+			"13:00-14:00", "14:00-15:00", "15:00-16:00" };
+	private String[] label = { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes" };
+	private int horas = 8;
+	private int dias = 5;
+	private JButton[][] botonera;
+	private String coordenadas;
 	private boolean[][] horario;
 
-	private String coordenadas = "10 10";
-	private JPanel panelBotonera;
+	private JComboBox comboBoxNombre;
+	private JComboBox comboBoxID;
+	private JComboBox comboNombreMedico;
 
 	public CitaPrimaria(Color colorFondo, int letraPequena, int letraGrande, String tipoLetra) {
+		this.botonera = new JButton[horas][dias];
+		this.horario = new boolean[horas][dias];
+		this.coordenadas = "10;10";
+		setVisible(true);
 		setBackground(colorFondo);
-		JLabel lblTitulo = new JLabel("CITA PRIMARIA");
-		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		this.colorFondo = colorFondo;
+		this.letraPequena = letraPequena;
+		this.letraGrande = letraGrande;
+		this.tipoLetra = tipoLetra;
 
-		JPanel panelComboPaciente = new JPanel();
-		JPanel panelComboMedico = new JPanel();
-		JPanel panelComboId = new JPanel();
-		JPanel panelDias = new JPanel();
+		JLabel lblNewLabel = new JLabel("Cita Especialista");
+		lblNewLabel.setFont(new Font(tipoLetra, Font.BOLD, letraGrande));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+		JPanel panel = new JPanel();
+		panel.setBackground(colorFondo);
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(colorFondo);
+
+		JLabel lblId = new JLabel("ID : ");
+		lblId.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
+
+		comboBoxID = new JComboBox();
+		comboBoxID.setBackground(Color.WHITE);
+
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(colorFondo);
+
+		JLabel lblMedico = new JLabel("Medico : ");
+		lblMedico.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
+
+		comboNombreMedico = new JComboBox();
+		comboNombreMedico.setBackground(Color.WHITE);
+		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
+		gl_panel_2.setHorizontalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_2.createSequentialGroup().addContainerGap()
+						.addComponent(lblMedico, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE).addGap(20)
+						.addComponent(comboNombreMedico, 0, 505, Short.MAX_VALUE).addContainerGap()));
+		gl_panel_2.setVerticalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_2.createSequentialGroup().addGap(20)
+						.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblMedico, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 30,
+										Short.MAX_VALUE)
+								.addComponent(comboNombreMedico, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 30,
+										Short.MAX_VALUE))
+						.addGap(20)));
+		panel_2.setLayout(gl_panel_2);
+		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
+		gl_panel_1.setHorizontalGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_1.createSequentialGroup().addContainerGap()
+						.addComponent(lblId, GroupLayout.PREFERRED_SIZE, 79, GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(comboBoxID, 0, 155, Short.MAX_VALUE)
+						.addContainerGap()));
+		gl_panel_1.setVerticalGroup(gl_panel_1.createParallelGroup(Alignment.LEADING).addGroup(Alignment.TRAILING,
+				gl_panel_1.createSequentialGroup().addGap(21)
+						.addGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING)
+								.addComponent(comboBoxID, Alignment.LEADING)
+								.addComponent(lblId, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
+						.addGap(20)));
+		panel_1.setLayout(gl_panel_1);
+
+		JLabel lblNewLabel_1 = new JLabel("Nombre : ");
+		lblNewLabel_1.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
+
+		comboBoxNombre = new JComboBox();
+		comboBoxNombre.setBackground(Color.WHITE);
+		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup().addContainerGap()
+						.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
+						.addGap(20).addComponent(comboBoxNombre, 0, 505, Short.MAX_VALUE).addContainerGap()));
+		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup().addGap(20)
+						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblNewLabel_1, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 30,
+										Short.MAX_VALUE)
+								.addComponent(comboBoxNombre, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 44,
+										Short.MAX_VALUE))
+						.addGap(20)));
+		panel.setLayout(gl_panel);
+
+		panelLabel = new JPanel();
+
 		panelBotonera = new JPanel();
-
-		panelBotonera.setBackground(colorFondo);
-		panelComboId.setBackground(colorFondo);
-		panelComboMedico.setBackground(colorFondo);
-		panelComboPaciente.setBackground(colorFondo);
-		panelDias.setBackground(colorFondo);
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(groupLayout.createSequentialGroup().addGap(43)
-						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addGroup(groupLayout.createSequentialGroup()
-										.addComponent(lblTitulo, GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
-										.addContainerGap())
-								.addGroup(
-										groupLayout.createSequentialGroup()
-												.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-														.addComponent(panelComboMedico, Alignment.LEADING,
-																GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
-														.addComponent(panelComboPaciente, GroupLayout.DEFAULT_SIZE, 506,
-																Short.MAX_VALUE))
-												.addPreferredGap(ComponentPlacement.UNRELATED)
-												.addComponent(panelComboId, GroupLayout.PREFERRED_SIZE, 153,
-														GroupLayout.PREFERRED_SIZE)
-												.addGap(61))))
-				.addGroup(groupLayout.createSequentialGroup().addContainerGap()
-						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(panelDias, GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
-								.addComponent(panelBotonera, GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE))
-						.addGap(25)));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
-				.createSequentialGroup().addGap(26)
-				.addComponent(lblTitulo, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE).addGap(26)
-				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(panelComboPaciente, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
-						.addComponent(panelComboId, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addComponent(panelComboMedico, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE).addGap(54)
-				.addComponent(panelDias, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addComponent(panelBotonera, GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE).addGap(36)));
-		panelBotonera.setLayout(new GridLayout(8, 5, 5, 10));
-
-		JLabel lblID = new JLabel("ID");
-		lblID.setHorizontalAlignment(SwingConstants.LEFT);
-
-		comboID = new JComboBox();
-		comboID.setBackground(Color.WHITE);
-		comboID.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		GroupLayout gl_panelComboId = new GroupLayout(panelComboId);
-		gl_panelComboId
-				.setHorizontalGroup(
-						gl_panelComboId.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panelComboId.createSequentialGroup()
-										.addComponent(lblID, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED).addComponent(comboID,
-												GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE)
-										.addContainerGap(30, Short.MAX_VALUE)));
-		gl_panelComboId.setVerticalGroup(gl_panelComboId.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panelComboId.createSequentialGroup()
-						.addGroup(gl_panelComboId.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblID, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
-								.addComponent(comboID, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		panelComboId.setLayout(gl_panelComboId);
-
-		JLabel lblPaciente = new JLabel("PACIENTE");
-
-		comboPaciente = new JComboBox();
-		comboPaciente.setBackground(Color.WHITE);
-		GroupLayout gl_panelComboPaciente = new GroupLayout(panelComboPaciente);
-		gl_panelComboPaciente.setHorizontalGroup(gl_panelComboPaciente.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panelComboPaciente.createSequentialGroup()
-						.addComponent(lblPaciente, GroupLayout.PREFERRED_SIZE, 69, GroupLayout.PREFERRED_SIZE)
-						.addGap(43).addComponent(comboPaciente, 0, 382, Short.MAX_VALUE).addContainerGap()));
-		gl_panelComboPaciente
-				.setVerticalGroup(gl_panelComboPaciente.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panelComboPaciente.createSequentialGroup()
-								.addGroup(gl_panelComboPaciente.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblPaciente, GroupLayout.PREFERRED_SIZE, 38,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(comboPaciente, GroupLayout.PREFERRED_SIZE, 38,
-												GroupLayout.PREFERRED_SIZE))
-								.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		panelComboPaciente.setLayout(gl_panelComboPaciente);
-
-		JLabel lblMedico = new JLabel("MEDICO");
-
-		comboMedico = new JComboBox();
-		comboMedico.setBackground(Color.WHITE);
-		GroupLayout gl_panelComboMedico = new GroupLayout(panelComboMedico);
-		gl_panelComboMedico.setHorizontalGroup(gl_panelComboMedico.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panelComboMedico.createSequentialGroup()
-						.addComponent(lblMedico, GroupLayout.PREFERRED_SIZE, 69, GroupLayout.PREFERRED_SIZE).addGap(44)
-						.addComponent(comboMedico, 0, 381, Short.MAX_VALUE).addContainerGap()));
-		gl_panelComboMedico.setVerticalGroup(gl_panelComboMedico.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panelComboMedico.createSequentialGroup()
-						.addGroup(gl_panelComboMedico.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblMedico, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
-								.addComponent(comboMedico, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		panelComboMedico.setLayout(gl_panelComboMedico);
-		panelDias.setLayout(new GridLayout(1, 0, 10, 10));
-
-		JLabel lblLunes = new JLabel("LUNES");
-		lblLunes.setHorizontalAlignment(SwingConstants.CENTER);
-		panelDias.add(lblLunes);
-		lblLunes.setBackground(Color.WHITE);
-		lblLunes.setOpaque(true);
-		lblLunes.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
-
-		JLabel lblMartes = new JLabel("MARTES");
-		lblMartes.setHorizontalAlignment(SwingConstants.CENTER);
-		panelDias.add(lblMartes);
-		lblMartes.setBackground(Color.WHITE);
-		lblMartes.setOpaque(true);
-		lblMartes.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
-
-		JLabel lblMiercoles = new JLabel("MIERCOLES");
-		lblMiercoles.setHorizontalAlignment(SwingConstants.CENTER);
-		panelDias.add(lblMiercoles);
-		lblMiercoles.setBackground(Color.WHITE);
-		lblMiercoles.setOpaque(true);
-		lblMiercoles.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
-
-		JLabel lblJueves = new JLabel("JUEVES");
-		lblJueves.setHorizontalAlignment(SwingConstants.CENTER);
-		panelDias.add(lblJueves);
-		lblJueves.setBackground(Color.WHITE);
-		lblJueves.setOpaque(true);
-		lblJueves.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
-
-		JLabel lblViernes = new JLabel("VIERNES");
-		lblViernes.setHorizontalAlignment(SwingConstants.CENTER);
-		panelDias.add(lblViernes);
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup().addGap(30)
+						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(panelBotonera, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+								.addComponent(panelLabel, GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE)
+								.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE)
+								.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+										.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+												.addComponent(panel_2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 648,
+														Short.MAX_VALUE)
+												.addComponent(panel, GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE))
+										.addGap(6).addComponent(panel_1, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+						.addGap(30)));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup().addGap(30)
+						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+						.addGap(10)
+						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(panel, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
+								.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE))
+						.addGap(10)
+						.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addGap(18).addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+						.addGap(5).addComponent(panelBotonera, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+						.addGap(50)));
+		panelBotonera.setLayout(new GridLayout(horas, dias, 10, 10));
+		panelLabel.setLayout(new GridLayout(1, 0, 10, 10));
 		setLayout(groupLayout);
-		lblViernes.setBackground(Color.WHITE);
-		lblViernes.setOpaque(true);
-		lblViernes.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
-
-		coordenadas = "10 10";
+		panelLabel.setBackground(colorFondo);
+		this.panelBotonera.setBackground(colorFondo);
+		for (int i = 0; i < label.length; i++) {
+			this.panelLabel.add(crearLabel(label[i]));
+		}
+		int indice = 0;
 		for (int i = 0; i < botonera.length; i++) {
+
 			for (int j = 0; j < botonera[i].length; j++) {
 				this.botonera[i][j] = new JButton();
-				this.botonera[i][j].setName(i + " " + j);
+				this.botonera[i][j].setBackground(Color.WHITE);
+				this.botonera[i][j].setName(i + ";" + j);
+				this.botonera[i][j].setText(this.textHoras[indice]);
 				this.botonera[i][j].addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						JButton boton = (JButton) e.getSource();
+						String[] anterior = coordenadas.split(";");
+						int anteriorX = Integer.valueOf(anterior[0]);
+						int anteriorY = Integer.valueOf(anterior[1]);
 
-//						String[] anterior = coordenadas.split(" ");
-//						int anteriorX = Integer.valueOf(anterior[0]);
-//						int anteriorY = Integer.valueOf(anterior[1]);
-//
-//						String[] actual = boton.getName().split(" ");
-//						int actualX = Integer.valueOf(actual[0]);
-//						int actualY = Integer.valueOf(actual[1]);
-//
-//						if (anteriorX != 10 && anteriorY != 10) {
-//							botonera[anteriorX][anteriorY].setBackground(Color.LIGHT_GRAY);
-//						}
-//						coordenadas = boton.getName();
-//						botonera[actualX][actualY].setBackground(Color.GREEN);
+						String[] actual = boton.getName().split(";");
+						int actualX = Integer.valueOf(actual[0]);
+						int actualY = Integer.valueOf(actual[1]);
+
+						if (anteriorX != 10 && anteriorY != 10) {
+							botonera[anteriorX][anteriorY].setBackground(Color.WHITE);
+						}
+						botonera[actualX][actualY].setBackground(Color.GREEN);
+						coordenadas = boton.getName();
 					}
 				});
 				this.panelBotonera.add(this.botonera[i][j]);
 			}
+			indice++;
 		}
 
-		boolean[][] asd = new boolean[8][5];
-		asd[0][0] = true;
-		asd[1][3] = true;
-		asd[3][4] = true;
-		asd[7][0] = true;
-		asd[2][0] = true;
-		crearBotonera(asd, Turno.mañana);
-
+		boolean[][] a = new boolean[horas][dias];
+		a[0][0] = true;
+		a[3][3] = true;
+		a[2][4] = true;
+		a[1][1] = true;
+		crearBotonera(a, Turno.mañana);
 	}
 
 	public void crearBotonera(boolean[][] horario, Turno turno) {
-		this.coordenadas = "";
 		this.horario = horario;
 		for (int i = 0; i < horario.length; i++) {
 			for (int j = 0; j < horario[i].length; j++) {
@@ -241,16 +221,57 @@ public class CitaPrimaria extends JPanel {
 		revalidate();
 	}
 
-	public JComboBox getComboPaciente() {
-		return comboPaciente;
+	public String getHora() {
+		String[] cadena = this.coordenadas.split(";");
+		int i = Integer.valueOf(cadena[0]);
+		int j = Integer.valueOf(cadena[1]);
+		return this.botonera[i][j].getText();
 	}
 
-	public JComboBox getComboID() {
-		return comboID;
+	public String getDia() {
+		String[] cadena = this.coordenadas.split(";");
+		int i = Integer.valueOf(cadena[1]);
+		switch (i) {
+		case 0:
+			return "lunes";
+		case 1:
+			return "martes";
+		case 2:
+			return "miercoles";
+		case 3:
+			return "jueves";
+		case 4:
+			return "viernes";
+		default:
+			return "";
+		}
 	}
 
-	public JComboBox getComboMedico() {
-		return comboMedico;
+	private JLabel crearLabel(String cadena) {
+		JLabel jLabel = new JLabel();
+		jLabel.setOpaque(true);
+		jLabel.setBackground(Color.WHITE);
+		jLabel.setText(cadena);
+		jLabel.setFont(new Font(tipoLetra, Font.BOLD, letraPequena));
+		jLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		jLabel.setBorder(new MatteBorder(1, 1, 1, 1, Color.BLACK));
+		return jLabel;
+	}
+
+	public JComboBox getComboBoxNombre() {
+		return comboBoxNombre;
+	}
+
+	public JComboBox getComboBoxID() {
+		return comboBoxID;
+	}
+
+	public JComboBox getComboNombreMedico() {
+		return comboNombreMedico;
+	}
+
+	public String getCoordenada() {
+		return coordenadas;
 	}
 
 }

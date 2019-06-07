@@ -15,5 +15,6 @@ public class CitaEspecialistaMedico implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 	}
 }

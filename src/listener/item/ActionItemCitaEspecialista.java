@@ -1,9 +1,12 @@
+
 package listener.item;
 
 import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
 
 import control.ParaUI;
+import modelo.enums.Especialidad;
 
 public class ActionItemCitaEspecialista implements ActionListener {
 
@@ -19,7 +22,7 @@ public class ActionItemCitaEspecialista implements ActionListener {
 		this.paraUI.asociarPanel("citaEspecialista");
 		this.paraUI.rellenarComboBoxPaciente(this.paraUI.getCitaEspecialista().getComboBoxID(),
 				this.paraUI.getCitaEspecialista().getComboBoxNombre());
-		this.paraUI.rellenarEspecialidadMedico(this.paraUI.getCitaEspecialista().getComboNombreMedico());
+		this.paraUI.rellenarEspecialidadMedico(this.paraUI.getCitaEspecialista().getComboNombreMedico(),
+				Especialidad.Especialista);
 	}
-
 }

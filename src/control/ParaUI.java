@@ -16,7 +16,10 @@ import listener.combobox.CitaEspecialistaMedico;
 import listener.combobox.CitaEspecialistaNombre;
 import listener.combobox.CitaOperacionID;
 import listener.combobox.CitaOperacionNombre;
+import listener.combobox.CitaPrimariaID;
+import listener.combobox.CitaPrimariaNombre;
 import listener.combobox.ConsultaMedicoID;
+import listener.combobox.ConsultaMedicoNombre;
 import listener.combobox.ConsultaPacienteNombre;
 import listener.combobox.ConsultarPacienteID;
 import listener.combobox.ModificarPacienteID;
@@ -33,10 +36,11 @@ import listener.item.ActionItemConsultaPaciente;
 import listener.item.ActionItemCitaEspecialista;
 import listener.item.ActionItemAtenderCita;
 import listener.item.ActionItemCitaPrimaria;
-import modelo.Especialidad;
+import modelo.Cita;
 import modelo.Medico;
 import modelo.Paciente;
-
+import modelo.enums.Especialidad;
+import modelo.enums.TipoOperacion;
 import vista.UI;
 
 public class ParaUI extends UI {
@@ -77,6 +81,12 @@ public class ParaUI extends UI {
 		getCitaEspecialista().getComboBoxID().addActionListener(new CitaEspecialistaID(this));
 		getCitaEspecialista().getComboBoxNombre().addActionListener(new CitaEspecialistaNombre(this));
 		getCitaEspecialista().getComboBoxNombre().addActionListener(new CitaEspecialistaMedico(this));
+		getConsultaMedico().getComboBoxID().addActionListener(new ConsultaMedicoID(this));
+		getConsultaMedico().getComboNombreMedico().addActionListener(new ConsultaMedicoNombre(this));
+		getCitaPrimaria().getComboBoxID().addActionListener(new CitaPrimariaID(this));
+		getCitaPrimaria().getComboBoxNombre().addActionListener(new CitaPrimariaNombre(this));
+		getConsultaMedico().getComboNombreMedico().addActionListener(new ConsultaMedicoNombre(this));
+		getCitaPrimaria().getComboBoxID().addActionListener(new CitaPrimariaID(this));
 
 	}
 
@@ -96,13 +106,13 @@ public class ParaUI extends UI {
 		HashMap<String, Medico> list = getControl().getMapMedico();
 		for (Medico medico : list.values()) {
 			id.addItem(medico.getId());
-			nombre.addItem(medico.getNombre());
+			nombre.addItem(medico.getFullName());
 		}
 	}
 
-	public void rellenarEspecialidadMedico(JComboBox especial) {
+	public void rellenarEspecialidadMedico(JComboBox especial, Especialidad especialidad) {
 		especial.removeAllItems();
-		ArrayList<Medico> medicos = this.getControl().getEspecialidadMedico(Especialidad.Especialista);
+		ArrayList<Medico> medicos = this.getControl().getEspecialidadMedico(especialidad);
 		for (Medico medico : medicos) {
 			especial.addItem(medico);
 		}
