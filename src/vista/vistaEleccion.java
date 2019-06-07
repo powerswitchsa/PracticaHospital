@@ -60,8 +60,8 @@ public class vistaEleccion extends JFrame {
 	 */
 	JButton btnMedico;
 	JButton btnPaciente;
-	ImageIcon paciente = new ImageIcon("Clients-icon.png");
-	ImageIcon medico = new ImageIcon("Doctor.png");
+	ImageIcon paciente = new ImageIcon("paciente.jpg");
+	ImageIcon medico = new ImageIcon("medico.jpg");
 	JLabel lblPaciente; 
 	JLabel lblMedico;
 	public vistaEleccion() {
@@ -99,7 +99,7 @@ public class vistaEleccion extends JFrame {
 		lblMedico = new JLabel("MEDICO");
 		lblMedico.setBounds(490, 162, 46, 14);
 		contentPane.add(lblMedico);
-		contentPane.setBackground(Color.white);
+		contentPane.setBackground(Color.WHITE);
 		btnPaciente.setBackground(Color.WHITE);
 		btnMedico.setBackground(Color.WHITE);
 		btnPaciente.setFocusPainted(false);

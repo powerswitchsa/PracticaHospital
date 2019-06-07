@@ -16,11 +16,11 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.table.DefaultTableModel;
 
 import modelo.Cita;
-import modelo.Especialidad;
 import modelo.Medicamento;
 import modelo.Medico;
 import modelo.Paciente;
 import modelo.Tratamiento;
+import modelo.enums.Especialidad;
 
 import javax.swing.JTable;
 import javax.swing.JComboBox;

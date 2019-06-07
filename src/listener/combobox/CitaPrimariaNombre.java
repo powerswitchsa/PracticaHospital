@@ -18,11 +18,11 @@ public class CitaPrimariaNombre implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String fullNombre = "";
-		if (this.paraUI.getCitaPrimaria().getComboPaciente().getSelectedItem() != null) {
-			fullNombre = this.paraUI.getCitaPrimaria().getComboPaciente().getSelectedItem().toString();
+		if (this.paraUI.getCitaPrimaria().getComboBoxNombre().getSelectedItem() != null) {
+			fullNombre = this.paraUI.getCitaOperacion().getComboPaciente().getSelectedItem().toString();
 			if (fullNombre != null) {
 				Paciente paciente = this.paraUI.getControl().getPacienteFullNombre(fullNombre);
-				this.paraUI.getCitaPrimaria().getComboID().setSelectedItem(paciente.getId());
+				this.paraUI.getCitaPrimaria().getComboBoxID().setSelectedItem(paciente.getId());
 				
 			}
 		}

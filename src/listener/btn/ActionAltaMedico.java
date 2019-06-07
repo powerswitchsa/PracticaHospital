@@ -1,10 +1,10 @@
 package listener.btn;
 
 import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
 
 import control.ParaUI;
-import modelo.Turno;
 
 public class ActionAltaMedico implements ActionListener {
 	private ParaUI paraUI;

@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import control.ParaUI;
-import modelo.Especialidad;
+import modelo.enums.Especialidad;
 
 public class ActionItemCitaPrimaria implements ActionListener {
 
@@ -18,9 +18,10 @@ public class ActionItemCitaPrimaria implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		this.paraUI.asociarPanel("citaPrimaria");
-		this.paraUI.rellenarComboBoxPaciente(this.paraUI.getCitaPrimaria().getComboID(),
-				this.paraUI.getCitaPrimaria().getComboPaciente());
-		this.paraUI.rellenarEspecialidadMedico(this.paraUI.getCitaPrimaria().getComboMedico(),Especialidad.Cabecera);
+		this.paraUI.rellenarComboBoxPaciente(this.paraUI.getCitaPrimaria().getComboBoxID(),
+				this.paraUI.getCitaPrimaria().getComboBoxNombre());
+		this.paraUI.rellenarEspecialidadMedico(this.paraUI.getCitaPrimaria().getComboNombreMedico(),
+				Especialidad.Cabecera);
 	}
 
 }

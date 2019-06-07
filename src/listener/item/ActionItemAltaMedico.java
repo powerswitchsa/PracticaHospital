@@ -5,8 +5,12 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import control.ParaUI;
+<<<<<<< HEAD
 import modelo.Especialidad;
 import modelo.Turno;
+=======
+import modelo.enums.Especialidad;
+>>>>>>> branch 'master' of https://github.com/powerswitchsa/PracticaHospital.git
 
 public class ActionItemAltaMedico implements ActionListener {
 

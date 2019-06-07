@@ -3,13 +3,12 @@ package control;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import modelo.Cita;
 import modelo.Consulta;
 import modelo.Controller;
-import modelo.Especialidad;
 import modelo.Medico;
 import modelo.Paciente;
-import modelo.Turno;
+import modelo.enums.Especialidad;
+import modelo.enums.Turno;
 import vista.paciente.CitaOperacion;
 
 public class Control {
@@ -24,18 +23,18 @@ public class Control {
 	}
 
 	public boolean getAltaPaciente(ArrayList<String> paciente) {
-		return this.logica.altaPaciente(paciente);
+		return this.logica.getAltaPaciente(paciente);
 	}
 
-	public boolean getAltaMedico(ArrayList<String> medico, Especialidad tipo,Turno turno) {
-		return this.logica.altaMedico(medico, turno, tipo);
+	public boolean getAltaMedico(ArrayList<String> medico, Especialidad tipo, Turno turno) {
+		return this.logica.getAltaMedico(medico, tipo, turno);
 	}
 
 	public boolean getBajaPaciente(String id) {
-		return this.logica.bajaPaciente(id);
+		return this.logica.getBajaPaciente(id);
 	}
 
-	public boolean getModificarPaciente(String id, String nombrePaciente, String direccion, String telefono) {
+	public boolean getModificarPaciente(String id, String direccion, String telefono) {
 		return this.logica.modificarPaciente(id, telefono, direccion);
 	}
 
@@ -80,20 +79,22 @@ public class Control {
 	public Medico getMedico(String id) {
 		return this.logica.getMedico(id);
 	}
-	public HashMap <String,Consulta> getMapaConsulta()	{
+
+	public HashMap<String, Consulta> getMapaConsulta() {
 		return this.logica.getMapConsulta();
-		
+
 	}
 
 	public ArrayList<Medico> getEspecialidadMedico(Especialidad especialidad) {
 		return this.logica.getEspecialidadMedico(especialidad);
 	}
-	public boolean[][] getHorario(Medico medico){
+
+	public boolean[][] getHorario(Medico medico) {
 		for (Consulta consulta : getMapaConsulta().values()) {
 			if (consulta.isTrabajando(medico)) {
 				return consulta.getHorarios();
 			}
-	}
-	return null;		
+		}
+		return null;
 	}
 }
