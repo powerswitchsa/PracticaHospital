@@ -19,7 +19,7 @@ public class CitaPrimariaNombre implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String fullNombre = "";
 		if (this.paraUI.getCitaPrimaria().getComboBoxNombre().getSelectedItem() != null) {
-			fullNombre = this.paraUI.getCitaOperacion().getComboPaciente().getSelectedItem().toString();
+			fullNombre = this.paraUI.getCitaPrimaria().getComboBoxNombre().getSelectedItem().toString();
 			if (fullNombre != null) {
 				Paciente paciente = this.paraUI.getControl().getPacienteFullNombre(fullNombre);
 				this.paraUI.getCitaPrimaria().getComboBoxID().setSelectedItem(paciente.getId());
