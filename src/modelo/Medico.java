@@ -16,9 +16,8 @@ public class Medico extends Persona implements Serializable {
 			Especialidad especialidad,Turno turno) {
 		super(telefono, nombre, apellidos, direccion, null);
 		this.especialidad = especialidad;
-		this.horario = new boolean[2][2];
-		if (this.especialidad == Especialidad.Cabecera)
-			this.horario = new boolean[8][5];
+		this.turno = turno;
+		this.horario = new boolean[8][5];
 	}
 
 	public Especialidad getEspecialidad() {

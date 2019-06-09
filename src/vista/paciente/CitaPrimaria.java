@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -53,7 +55,7 @@ public class CitaPrimaria extends JPanel {
 		this.letraGrande = letraGrande;
 		this.tipoLetra = tipoLetra;
 
-		JLabel lblNewLabel = new JLabel("Cita Especialista");
+		JLabel lblNewLabel = new JLabel("Cita Primaria");
 		lblNewLabel.setFont(new Font(tipoLetra, Font.BOLD, letraGrande));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
@@ -194,31 +196,32 @@ public class CitaPrimaria extends JPanel {
 			}
 			indice++;
 		}
-
-		boolean[][] a = new boolean[horas][dias];
-		a[0][0] = true;
-		a[3][3] = true;
-		a[2][4] = true;
-		a[1][1] = true;
-		crearBotonera(a, Turno.mañana);
 	}
 
 	public void crearBotonera(boolean[][] horario, Turno turno) {
 		this.horario = horario;
-		for (int i = 0; i < horario.length; i++) {
-			for (int j = 0; j < horario[i].length; j++) {
-				if (i > 3 && Turno.mañana == turno || i < 4 && Turno.tarde == turno) {
-					this.botonera[i][j].setEnabled(false);
-					this.botonera[i][j].setBorder(new MatteBorder(5, 5, 5, 5, Color.ORANGE));
-				} else {
-					this.botonera[i][j]
-							.setBorder(new MatteBorder(5, 5, 5, 5, this.horario[i][j] ? Color.RED : Color.BLUE));
-					if (this.horario[i][j])
+		if (turno!=null) {
+			for (int i = 0; i < horario.length; i++) {
+				for (int j = 0; j < horario[i].length; j++) {
+					if (i > 3 && Turno.mañana == turno || i < 4 && Turno.tarde == turno) {
 						this.botonera[i][j].setEnabled(false);
+						this.botonera[i][j].setBorder(new MatteBorder(5, 5, 5, 5, Color.ORANGE));
+					} else {
+						this.botonera[i][j]
+								.setBorder(new MatteBorder(5, 5, 5, 5, this.horario[i][j] ? Color.RED : Color.BLUE));
+						if (this.horario[i][j])
+							this.botonera[i][j].setEnabled(false);
+					}
 				}
 			}
 		}
 		revalidate();
+		actualizarPantalla();
+	}
+
+	public void actualizarPantalla() {
+		JPanel temp = (JPanel) this;
+		SwingUtilities.updateComponentTreeUI(temp);
 	}
 
 	public String getHora() {

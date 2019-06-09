@@ -44,7 +44,7 @@ public class Control {
 	}
 
 	public Medico getFullNameMedico(String fullName) {
-		return this.logica.getFullNameMedico(fullName);
+		return this.logica.getMedicoFromName(fullName);
 
 	}
 

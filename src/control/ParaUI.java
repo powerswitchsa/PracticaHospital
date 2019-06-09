@@ -17,6 +17,7 @@ import listener.combobox.CitaEspecialistaNombre;
 import listener.combobox.CitaOperacionID;
 import listener.combobox.CitaOperacionNombre;
 import listener.combobox.CitaPrimariaID;
+import listener.combobox.CitaPrimariaMedico;
 import listener.combobox.CitaPrimariaNombre;
 import listener.combobox.ConsultaMedicoID;
 import listener.combobox.ConsultaMedicoNombre;
@@ -24,23 +25,21 @@ import listener.combobox.ConsultaPacienteNombre;
 import listener.combobox.ConsultarPacienteID;
 import listener.combobox.ModificarPacienteID;
 import listener.combobox.ModificarPacienteNombre;
-import listener.item.ActionItemAltaPaciente;
-import listener.item.ActionItemCitaOperacion;
-import listener.item.ActionItemBajaPaciente;
-import listener.item.ActionItemConsultaMedico;
 import listener.item.ActionItemAltaMedico;
-import listener.item.ActionItemVerHistorial;
-import listener.item.ActionItemCerrarOperacion;
-import listener.item.ActionItemModificarPaciente;
-import listener.item.ActionItemConsultaPaciente;
-import listener.item.ActionItemCitaEspecialista;
+import listener.item.ActionItemAltaPaciente;
 import listener.item.ActionItemAtenderCita;
+import listener.item.ActionItemBajaPaciente;
+import listener.item.ActionItemCerrarOperacion;
+import listener.item.ActionItemCitaEspecialista;
+import listener.item.ActionItemCitaOperacion;
 import listener.item.ActionItemCitaPrimaria;
-import modelo.Cita;
+import listener.item.ActionItemConsultaMedico;
+import listener.item.ActionItemConsultaPaciente;
+import listener.item.ActionItemModificarPaciente;
+import listener.item.ActionItemVerHistorial;
 import modelo.Medico;
 import modelo.Paciente;
 import modelo.enums.Especialidad;
-import modelo.enums.TipoOperacion;
 import vista.UI;
 
 public class ParaUI extends UI {
@@ -87,6 +86,7 @@ public class ParaUI extends UI {
 		getCitaPrimaria().getComboBoxNombre().addActionListener(new CitaPrimariaNombre(this));
 		getConsultaMedico().getComboNombreMedico().addActionListener(new ConsultaMedicoNombre(this));
 		getCitaPrimaria().getComboBoxID().addActionListener(new CitaPrimariaID(this));
+		getCitaPrimaria().getComboNombreMedico().addActionListener(new CitaPrimariaMedico(this));
 
 	}
 
@@ -113,8 +113,10 @@ public class ParaUI extends UI {
 	public void rellenarEspecialidadMedico(JComboBox especial, Especialidad especialidad) {
 		especial.removeAllItems();
 		ArrayList<Medico> medicos = this.getControl().getEspecialidadMedico(especialidad);
-		for (Medico medico : medicos) {
-			especial.addItem(medico);
+		if (medicos!=null) {
+			for (Medico medico : medicos) {
+				especial.addItem(medico);
+			}
 		}
 	}
 

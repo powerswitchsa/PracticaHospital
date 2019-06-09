@@ -96,7 +96,7 @@ public class Logica {
 		return String.valueOf(contador + 1);
 	}
 
-	public Medico getFullNameMedico(String fullName) {
+	public Medico getMedicoFromName(String fullName) {
 		for (Medico medico : this.mapMedico.values()) {
 			if (medico.getFullName().equals(fullName))
 				return medico;

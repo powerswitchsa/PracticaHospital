@@ -195,12 +195,12 @@ public class CitaEspecialista extends JPanel {
 			indice++;
 		}
 
-		boolean[][] a = new boolean[horas][dias];
-		a[0][0] = true;
-		a[3][3] = true;
-		a[2][4] = true;
-		a[1][1] = true;
-		crearBotonera(a, Turno.mañana);
+//		boolean[][] a = new boolean[horas][dias];
+//		a[0][0] = true;
+//		a[3][3] = true;
+//		a[2][4] = true;
+//		a[1][1] = true;
+//		crearBotonera(a, Turno.mañana);
 	}
 
 	public void crearBotonera(boolean[][] horario, Turno turno) {

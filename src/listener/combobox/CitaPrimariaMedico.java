@@ -5,8 +5,11 @@ import java.awt.event.ActionListener;
 
 import control.ParaUI;
 import modelo.Medico;
+import modelo.Paciente;
+import modelo.enums.Especialidad;
+import modelo.enums.Turno;
 
-public class CitaPrimariaMedico implements ActionListener{
+public class CitaPrimariaMedico implements ActionListener {
 	private ParaUI paraUI;
 
 	public CitaPrimariaMedico(ParaUI paraUI) {
@@ -16,12 +19,14 @@ public class CitaPrimariaMedico implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//coger el horario de la consulta en la que trabaja y meterlo, + el turno del medico;
-		String id = this.paraUI.getCitaPrimaria().getComboBoxID().getSelectedItem().toString();
-		Medico medico = this.paraUI.getControl().getMedico(id);
-		this.paraUI.getCitaPrimaria().crearBotonera(medico.getHorario(), medico.getTurno());
-		this.paraUI.getControl().getHorario(medico);
-		
+		String fullNombre;
+		if (this.paraUI.getCitaPrimaria().getComboNombreMedico().getSelectedItem().toString()!=null) {
+			fullNombre = this.paraUI.getCitaPrimaria().getComboNombreMedico().getSelectedItem().toString();
+			if (fullNombre!=null) {
+				Medico medico = this.paraUI.getControl().getFullNameMedico(fullNombre);
+				System.out.println(medico==null);
+				this.paraUI.getCitaPrimaria().crearBotonera(medico.getHorario(), medico.getTurno());
+			}
+		}
 	}
-	
 }
