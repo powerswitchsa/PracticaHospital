@@ -1,7 +1,6 @@
 package listener.combobox;
 
 import java.awt.event.ActionEvent;
-import java.util.ArrayList;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -21,25 +20,24 @@ public class MostarCamposPaciente extends SincronizarComboBox {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		super.actionPerformed(e);
 		Paciente paciente = null;
 		String cadena = "";
 		if (isSincrPorId()) {
 			if (this.getComboID().getSelectedItem() != null) {
 				cadena = this.getComboID().getSelectedItem().toString();
-				if (cadena != null) {
+				if (cadena != null)
 					paciente = this.getControl().getPaciente(cadena);
-				}
 			}
 		} else {
 			if (this.getComboNombre().getSelectedItem() != null) {
 				cadena = this.getComboNombre().getSelectedItem().toString();
-				if (cadena != null) {
+				if (cadena != null)
 					paciente = this.getControl().getPacienteFullNombre(cadena);
-				}
 			}
 		}
-		rellenarCampos(paciente);
-		super.actionPerformed(e);
+		if (paciente != null)
+			rellenarCampos(paciente);
 	}
 
 	private void rellenarCampos(Paciente paciente) {

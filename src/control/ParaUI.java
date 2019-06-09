@@ -12,6 +12,7 @@ import listener.btn.ActionModificarPaciente;
 import listener.combobox.CitaEspecialistaMedico;
 import listener.combobox.CitaPrimariaMedico;
 import listener.combobox.MostarCamposPaciente;
+import listener.combobox.MostrarCamposMedico;
 import listener.combobox.SincronizarComboBox;
 import listener.item.ActionItemAltaPaciente;
 import listener.item.ActionItemCitaOperacion;
@@ -37,6 +38,7 @@ public class ParaUI extends UI {
 	public ParaUI() {
 		super();
 		this.control = new Control();
+
 		// actionlistener cambiar pestaña
 		getItemAltaPaciente().addActionListener(new ActionItemAltaPaciente(this));
 		getItemCitaOperacion().addActionListener(new ActionItemCitaOperacion(this));
@@ -50,52 +52,59 @@ public class ParaUI extends UI {
 		getItemCitaEspecialista().addActionListener(new ActionItemCitaEspecialista(this));
 		getItemAtenderCita().addActionListener(new ActionItemAtenderCita(this));
 		getItemCitaPrimaria().addActionListener(new ActionItemCitaPrimaria(this));
+
 		// actionlistener botones
 		getAltaPaciente().getBtnAceptar().addActionListener(new ActionAltaPaciente(this));
 		getModificarPaciente().getBtnModificar().addActionListener(new ActionModificarPaciente(this));
 		getAltaMedico().getBtnAceptar().addActionListener(new ActionAltaMedico(this));
 		getBajaPaciente().getBtnDarBaja().addActionListener(new ActionBajaPaciente(this));
-		// actionlistener combobox
 
-		getConsultaPaciente().getComboBoxNombre()
-				.addActionListener(new MostarCamposPaciente(getConsultaPaciente().getComboBoxID(),
-						getConsultaPaciente().getComboBoxNombre(), control, false, getConsultaPaciente().getFields()));
+		// Cita Operacion
+		getCitaOperacion().getComboPaciente().addActionListener(new SincronizarComboBox(getCitaOperacion().getComboID(),
+				getCitaOperacion().getComboPaciente(), control, false));
+		getCitaOperacion().getComboID().addActionListener(new SincronizarComboBox(getCitaOperacion().getComboID(),
+				getCitaOperacion().getComboPaciente(), control, true));
+		// Baja Paciente
+		getBajaPaciente().getComboBoxID().addActionListener(new SincronizarComboBox(getBajaPaciente().getComboBoxID(),
+				getBajaPaciente().getComboBoxNombre(), control, true));
 		getBajaPaciente().getComboBoxNombre()
 				.addActionListener(new MostarCamposPaciente(getBajaPaciente().getComboBoxID(),
 						getBajaPaciente().getComboBoxNombre(), control, false, getBajaPaciente().getCampos()));
+		// Cita Especialista
+		getCitaEspecialista().getComboBoxNombre().addActionListener(new SincronizarComboBox(
+				getCitaEspecialista().getComboBoxID(), getCitaEspecialista().getComboBoxNombre(), control, false));
+		getCitaEspecialista().getComboBoxID().addActionListener(new SincronizarComboBox(
+				getCitaEspecialista().getComboBoxID(), getCitaEspecialista().getComboBoxNombre(), control, true));
+		// Consulta Paciente
+		getConsultaPaciente().getComboBoxNombre()
+				.addActionListener(new MostarCamposPaciente(getConsultaPaciente().getComboBoxID(),
+						getConsultaPaciente().getComboBoxNombre(), control, false, getConsultaPaciente().getFields()));
+		getConsultaPaciente().getComboBoxID().addActionListener(new SincronizarComboBox(
+				getConsultaPaciente().getComboBoxID(), getConsultaPaciente().getComboBoxNombre(), control, true));
+		// Modificar Paciente
 		getModificarPaciente().getComboBoxNombre()
 				.addActionListener(new MostarCamposPaciente(getModificarPaciente().getComboBoxID(),
 						getModificarPaciente().getComboBoxNombre(), control, false,
 						getModificarPaciente().getCampos()));
-		getCitaOperacion().getComboPaciente().addActionListener(new SincronizarComboBox(getCitaOperacion().getComboID(),
-				getCitaOperacion().getComboPaciente(), control, false));
-		getCitaEspecialista().getComboBoxNombre().addActionListener(new SincronizarComboBox(
-				getCitaEspecialista().getComboBoxID(), getCitaEspecialista().getComboBoxNombre(), control, false));
-		getCitaPrimaria().getComboBoxNombre().addActionListener(new SincronizarComboBox(
-				getCitaPrimaria().getComboBoxID(), getCitaPrimaria().getComboBoxNombre(), control, false));
-		getConsultaMedico().getComboNombreMedico().addActionListener(new SincronizarComboBox(
-				getConsultaMedico().getComboBoxID(), getConsultaMedico().getComboNombreMedico(), control, false));
-		getCitaPrimaria().getComboBoxNombre().addActionListener(new SincronizarComboBox(
-				getCitaPrimaria().getComboBoxID(), getCitaPrimaria().getComboBoxNombre(), control, false));
-
-		getBajaPaciente().getComboBoxID().addActionListener(new SincronizarComboBox(getBajaPaciente().getComboBoxID(),
-				getBajaPaciente().getComboBoxNombre(), control, true));
-		getCitaOperacion().getComboID().addActionListener(new SincronizarComboBox(getCitaOperacion().getComboID(),
-				getCitaOperacion().getComboPaciente(), control, true));
-		getCitaEspecialista().getComboBoxID().addActionListener(new SincronizarComboBox(
-				getCitaEspecialista().getComboBoxID(), getCitaEspecialista().getComboBoxNombre(), control, true));
-		getConsultaPaciente().getComboBoxID().addActionListener(new SincronizarComboBox(
-				getConsultaPaciente().getComboBoxID(), getConsultaPaciente().getComboBoxNombre(), control, true));
 		getModificarPaciente().getComboBoxID().addActionListener(new SincronizarComboBox(
 				getModificarPaciente().getComboBoxID(), getModificarPaciente().getComboBoxNombre(), control, true));
-		getConsultaMedico().getComboBoxID().addActionListener(new SincronizarComboBox(
-				getConsultaMedico().getComboBoxID(), getConsultaMedico().getComboNombreMedico(), control, true));
+		// Cita Primaria
+		getCitaPrimaria().getComboBoxNombre().addActionListener(new SincronizarComboBox(
+				getCitaPrimaria().getComboBoxID(), getCitaPrimaria().getComboBoxNombre(), control, false));
 		getCitaPrimaria().getComboBoxID().addActionListener(new SincronizarComboBox(getCitaPrimaria().getComboBoxID(),
 				getCitaPrimaria().getComboBoxNombre(), control, true));
-		getCitaPrimaria().getComboBoxID().addActionListener(new SincronizarComboBox(getCitaPrimaria().getComboBoxID(),
-				getCitaPrimaria().getComboBoxNombre(), control, true));
-
+		// Consulta Medico
+		getConsultaMedico().getComboBoxID()
+				.addActionListener(new MostrarCamposMedico(getConsultaMedico().getComboBoxID(),
+						getConsultaMedico().getComboNombreMedico(), control, true, getConsultaMedico().getFields()));
+		getConsultaMedico().getComboNombreMedico()
+				.addActionListener(new MostrarCamposMedico(getConsultaMedico().getComboBoxID(),
+						getConsultaMedico().getComboNombreMedico(), control, false, getConsultaMedico().getFields()));
+		// Cita Primaria
 		getCitaPrimaria().getComboNombreMedico().addActionListener(new CitaPrimariaMedico(this));
+		getCitaPrimaria().getComboBoxNombre().addActionListener(new SincronizarComboBox(
+				getCitaPrimaria().getComboBoxID(), getCitaPrimaria().getComboBoxNombre(), control, false));
+		// Cita Especialista
 		getCitaEspecialista().getComboNombreMedico().addActionListener(new CitaEspecialistaMedico(this));
 	}
 

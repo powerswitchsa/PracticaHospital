@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
 
 import control.Control;
-import modelo.Paciente;
 import modelo.Persona;
 
 public class SincronizarComboBox implements ActionListener {
@@ -27,22 +26,27 @@ public class SincronizarComboBox implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (sincrPorId) {
-			String id = "";
-			if (this.comboID.getSelectedItem() != null) {
-				id = this.comboID.getSelectedItem().toString();
-				if (id != null) {
-					Persona persona = this.control.getPaciente(id);
-					this.comboNombre.setSelectedItem(persona.getFullName());
+		Persona persona = null;
+		String cadena = "";
+		if (this.comboNombre != null && this.comboID != null) {
+			if (sincrPorId) {
+				if (this.comboID.getSelectedItem() != null) {
+					cadena = this.comboID.getSelectedItem().toString();
+					if (cadena != null) {
+						persona = this.control.getPaciente(cadena);
+						if (persona != null)
+							this.comboNombre.setSelectedItem(persona.getFullName());
+					}
 				}
-			}
-		} else {
-			String fullName = "";
-			if (this.comboNombre.getSelectedItem() != null) {
-				fullName = this.comboNombre.getSelectedItem().toString();
-				if (fullName != null) {
-					Persona persona = this.control.getPacienteFullNombre(fullName);
-					this.comboID.setSelectedItem(persona.getId());
+			} else {
+				cadena = "";
+				if (this.comboNombre.getSelectedItem() != null) {
+					cadena = this.comboNombre.getSelectedItem().toString();
+					if (cadena != null) {
+						persona = this.control.getPacienteFullNombre(cadena);
+						if (persona != null)
+							this.comboID.setSelectedItem(persona.getId());
+					}
 				}
 			}
 		}
