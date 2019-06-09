@@ -48,7 +48,6 @@ public class Logica {
 	public boolean getAltaMedico(Medico medico, Especialidad tipo, Turno turno) {
 		medico.setId(getUltimaIdMedico());
 		this.mapMedico.put(medico.getId(), medico);
-		System.out.println(this.mapMedico.size());
 		return this.gestorDTO.getGrabarMapMedico(this.mapMedico);
 	}
 

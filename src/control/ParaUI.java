@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 import listener.btn.ActionAltaMedico;
 import listener.btn.ActionAltaPaciente;
@@ -13,6 +14,7 @@ import listener.combobox.CitaEspecialistaMedico;
 import listener.combobox.CitaPrimariaMedico;
 import listener.combobox.MostarCamposPaciente;
 import listener.combobox.MostrarCamposMedico;
+import listener.combobox.MostrarCitasTratamientos;
 import listener.combobox.SincronizarComboBox;
 import listener.item.ActionItemAltaPaciente;
 import listener.item.ActionItemCitaOperacion;
@@ -106,6 +108,14 @@ public class ParaUI extends UI {
 				getCitaPrimaria().getComboBoxID(), getCitaPrimaria().getComboBoxNombre(), control, false));
 		// Cita Especialista
 		getCitaEspecialista().getComboNombreMedico().addActionListener(new CitaEspecialistaMedico(this));
+
+		// Ver Historial
+		getVerHistorial().getComboBoxID()
+				.addActionListener(new MostrarCitasTratamientos(getVerHistorial().getComboBoxID(),
+						getVerHistorial().getComboBoxNombre(), control, true, getVerHistorial()));
+		getVerHistorial().getComboBoxNombre()
+				.addActionListener(new MostrarCitasTratamientos(getVerHistorial().getComboBoxID(),
+						getVerHistorial().getComboBoxNombre(), control, false, getVerHistorial()));
 	}
 
 	public void rellenarComboBoxPaciente(JComboBox<String> id, JComboBox<String> nombre) {
