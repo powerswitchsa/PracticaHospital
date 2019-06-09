@@ -195,4 +195,8 @@ public class BajaPaciente extends JPanel {
 		return mensajeSistema;
 	}
 
+	public JTextField[] getCampos() {
+		return campos;
+	}
+
 }

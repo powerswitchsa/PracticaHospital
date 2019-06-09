@@ -22,13 +22,12 @@ import vista.paciente.VerHistorial;
 import java.awt.CardLayout;
 import javax.swing.JMenu;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.BoxLayout;
 import javax.swing.JSpinner;
+import javax.swing.SwingUtilities;
 
 public class UI extends JFrame {
 
@@ -149,6 +148,11 @@ public class UI extends JFrame {
 		item.setForeground(new Color(22, 85, 148));
 		item.setBackground(Color.WHITE);
 		menu.add(item);
+	}
+
+	public void actualizarPantalla() {
+		JPanel temp = (JPanel) this.getContentPane();
+		SwingUtilities.updateComponentTreeUI(temp);
 	}
 
 	public CitaEspecialista getCitaEspecialista() {
