@@ -48,9 +48,8 @@ public class Control {
 		return this.logica.getBajaPaciente(id);
 	}
 
-	public boolean getCitaPrimaria(String id, String nombreMedico, String horario) {
-		// horarios = "i + " " + j" hace referencia a la posicion de la matriz horario
-		return false;
+	public boolean getCitaPrimaria(String id, String nombreMedico, String coordenada, String fechaDia) {
+		return this.logica.getCitaPrimaria(id, nombreMedico, coordenada,fechaDia);
 	}
 
 	public Medico getFullNameMedico(String fullName) {

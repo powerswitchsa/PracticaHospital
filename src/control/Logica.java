@@ -31,9 +31,12 @@ public class Logica {
 			this.mapMedico = new HashMap<String, Medico>();
 
 		this.mapConsulta = this.gestorDTO.getLeerMapConsulta();
-		if (this.getMapConsulta() == null)
+		if (this.getMapConsulta() == null) {
 			this.mapConsulta = new HashMap<String, Consulta>();
-
+			for (int i = 0; i < 4; i++) {
+				this.mapConsulta.put(String.valueOf(i), new Consulta(String.valueOf(i)));
+			}
+		}
 		this.citas = this.gestorDTO.getLeerListCitas();
 		if (this.citas == null)
 			this.citas = new ArrayList<Cita>();
@@ -118,6 +121,22 @@ public class Logica {
 			}
 		}
 		return seleccionados;
+	}
+
+	public boolean getCitaPrimaria(String id, String nombreMedico, String coordenada, String fechaDia) {
+		//
+		Medico medico = getMedicoFromName(nombreMedico);
+		this.citas.add(new Cita(medico, getPaciente(id), fechaDia, false, ""));
+		String[] posicion = coordenada.split(";");
+		int i = Integer.valueOf(posicion[0]);
+		int j = Integer.valueOf(posicion[1]);
+		medico.asignarHora(i, j);
+		for (Consulta consultas : this.mapConsulta.values()) {
+			if (consultas.getMedicos().contains(medico)) {
+				consultas.asignarHora(i, j);
+			}
+		}
+		return false;
 	}
 
 	public HashMap<String, Paciente> getMapPaciente() {

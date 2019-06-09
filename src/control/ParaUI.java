@@ -9,6 +9,7 @@ import javax.swing.JComboBox;
 import listener.btn.ActionAltaMedico;
 import listener.btn.ActionAltaPaciente;
 import listener.btn.ActionBajaPaciente;
+import listener.btn.ActionCitaPrimaria;
 import listener.btn.ActionModificarPaciente;
 import listener.combobox.CitaEspecialistaMedico;
 import listener.combobox.CitaPrimariaMedico;
@@ -59,6 +60,10 @@ public class ParaUI extends UI {
 		getModificarPaciente().getBtnModificar().addActionListener(new ActionModificarPaciente(this));
 		getAltaMedico().getBtnAceptar().addActionListener(new ActionAltaMedico(this));
 		getBajaPaciente().getBtnDarBaja().addActionListener(new ActionBajaPaciente(this));
+		getCitaPrimaria().getBtnPedirCita()
+				.addActionListener(new ActionCitaPrimaria(getCitaPrimaria().getNombreMedico(),
+						getCitaPrimaria().getCoordenada(), getCitaPrimaria().getIDPaciente(), control,
+						getCitaPrimaria().getDia(), getCitaPrimaria().getHora()));
 		// actionlistener combobox
 		getConsultaPaciente().getComboBoxNombre()
 				.addActionListener(new MostarCamposPaciente(getConsultaPaciente().getComboBoxID(),
