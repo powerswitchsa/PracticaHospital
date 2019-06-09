@@ -39,18 +39,16 @@ public class Logica {
 			this.citas = new ArrayList<Cita>();
 	}
 
-	public boolean getAltaPaciente(ArrayList<String> infoPaciente) {
-		Paciente paciente = new Paciente(infoPaciente.get(0), infoPaciente.get(1), infoPaciente.get(2),
-				infoPaciente.get(3), infoPaciente.get(4));
+	public boolean getAltaPaciente(Paciente paciente) {
 		paciente.setId(getUltimaIdPaciente());
 		this.mapPaciente.put(paciente.getId(), paciente);
 		return this.gestorDTO.getGrabarPaciente(paciente) && this.gestorDTO.getGrabarMapPaciente(this.mapPaciente);
 	}
 
-	public boolean getAltaMedico(ArrayList<String> infoMedico, Especialidad tipo,Turno turno) {
-		Medico medico = new Medico(infoMedico.get(0), infoMedico.get(1), infoMedico.get(2), infoMedico.get(3), tipo, turno);
+	public boolean getAltaMedico(Medico medico, Especialidad tipo, Turno turno) {
 		medico.setId(getUltimaIdMedico());
 		this.mapMedico.put(medico.getId(), medico);
+		System.out.println(this.mapMedico.size());
 		return this.gestorDTO.getGrabarMapMedico(this.mapMedico);
 	}
 

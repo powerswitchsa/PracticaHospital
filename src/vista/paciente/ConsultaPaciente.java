@@ -178,4 +178,6 @@ public class ConsultaPaciente extends JPanel {
 	public JComboBox getComboBoxID() {
 		return comboBoxID;
 	}
+	
+	
 }

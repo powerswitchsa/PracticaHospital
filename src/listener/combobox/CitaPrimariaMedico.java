@@ -19,13 +19,12 @@ public class CitaPrimariaMedico implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String fullNombre;
-		if (this.paraUI.getCitaPrimaria().getComboNombreMedico().getSelectedItem().toString()!=null) {
-			fullNombre = this.paraUI.getCitaPrimaria().getComboNombreMedico().getSelectedItem().toString();
-			if (fullNombre!=null) {
-				Medico medico = this.paraUI.getControl().getFullNameMedico(fullNombre);
-				System.out.println(medico==null);
+		if (this.paraUI.getCitaPrimaria().getComboNombreMedico().getSelectedItem() != null) {
+			String fullName = this.paraUI.getCitaPrimaria().getComboNombreMedico().getSelectedItem().toString();
+			if (fullName != null) {
+				Medico medico = this.paraUI.getControl().getFullNameMedico(fullName);
 				this.paraUI.getCitaPrimaria().crearBotonera(medico.getHorario(), medico.getTurno());
+				this.paraUI.actualizarPantalla();
 			}
 		}
 	}

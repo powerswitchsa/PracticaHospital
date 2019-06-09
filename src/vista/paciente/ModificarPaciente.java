@@ -176,6 +176,16 @@ public class ModificarPaciente extends JPanel {
 		return jLabel;
 	}
 
+	public JTextField[] getCampos() {
+		JTextField[] vector = new JTextField[5];
+		vector[0] = this.nombre;
+		vector[1] = this.apellidos;
+		vector[2] = this.direccion;
+		vector[3] = this.nacimiento;
+		vector[4] = this.telefono;
+		return vector;
+	}
+
 	public JButton getBtnModificar() {
 		return btnModificar;
 	}
