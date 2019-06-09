@@ -22,20 +22,29 @@ public class Control {
 		this.controller = new Controller();
 	}
 
-	public boolean getAltaPaciente(ArrayList<String> paciente) {
+	public boolean getAltaPaciente(ArrayList<String> infoPaciente) {
+		Paciente paciente = new Paciente(infoPaciente.get(0), infoPaciente.get(1), infoPaciente.get(2),
+				infoPaciente.get(3), infoPaciente.get(4));
+//		return this.controller.validarPaciente(paciente) ? this.logica.getAltaPaciente(paciente) : false;
 		return this.logica.getAltaPaciente(paciente);
 	}
 
-	public boolean getAltaMedico(ArrayList<String> medico, Especialidad tipo, Turno turno) {
+	public boolean getAltaMedico(ArrayList<String> infoMedico, Especialidad tipo, Turno turno) {
+		System.out.println(infoMedico.get(0));
+		Medico medico = new Medico(infoMedico.get(0), infoMedico.get(1), infoMedico.get(2), infoMedico.get(3), tipo,
+				turno);
+//		return this.controller.validarMedico(medico) ? this.logica.getAltaMedico(medico, tipo, turno) : false;
 		return this.logica.getAltaMedico(medico, tipo, turno);
+	}
+
+	public boolean getModificarPaciente(String id, String direccion, String telefono) {
+		return this.controller.validarDireccion(direccion) && this.controller.validarTelefono(telefono)
+				? this.logica.modificarPaciente(id, telefono, direccion)
+				: false;
 	}
 
 	public boolean getBajaPaciente(String id) {
 		return this.logica.getBajaPaciente(id);
-	}
-
-	public boolean getModificarPaciente(String id, String direccion, String telefono) {
-		return this.logica.modificarPaciente(id, telefono, direccion);
 	}
 
 	public boolean getCitaPrimaria(String id, String nombreMedico, String horario) {
@@ -45,7 +54,6 @@ public class Control {
 
 	public Medico getFullNameMedico(String fullName) {
 		return this.logica.getFullNameMedico(fullName);
-
 	}
 
 	public boolean getCitaOperacion(CitaOperacion citaOperacion) {

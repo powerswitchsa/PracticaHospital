@@ -85,49 +85,46 @@ public abstract class Persona implements Serializable {
 		this.nacimiento = nacimiento;
 	}
 
-	public String setFullName() {
+	public String getFullName() {
 		return this.apellidos + ", " + this.nombre;
 	}
 
 	@Override
 	public String toString() {
-		return setFullName();
+		return getFullName();
 	}
 
 	// validadores
 
 	public static Respuesta validarNombre(String nombre) {
 		boolean resultado = Pattern.matches(Regularizador.Nombre.getCadena(), nombre);
-		return new Respuesta(resultado, (resultado? "nombre valido" : "nombre invalido"));
+		return new Respuesta(resultado, (resultado ? "nombre valido" : "nombre invalido"));
 	}
 
 	public static Respuesta validarApellido(String apellido) {
 		boolean resultado = Pattern.matches(Regularizador.Apellido.getCadena(), apellido);
-		return new Respuesta(resultado, (resultado? "apellido valido" : "apellido invalido"));
+		return new Respuesta(resultado, (resultado ? "apellido valido" : "apellido invalido"));
 	}
 
 	public static Respuesta validarDireccion(String direccion) {
 		boolean resultado = Pattern.matches(Regularizador.Direccion.getCadena(), direccion);
-		return new Respuesta(resultado, (resultado? "direccion correcta" : "direccion incorrecta"));
+		return new Respuesta(resultado, (resultado ? "direccion correcta" : "direccion incorrecta"));
 	}
 
 	public static Respuesta validarTelefono(String telefono) {
 		boolean resultado = Pattern.matches(Regularizador.Telefono.getCadena(), telefono);
-		return new Respuesta(resultado, (resultado? "telefono correcto" : "telefono incorrecto"));
+		return new Respuesta(resultado, (resultado ? "telefono correcto" : "telefono incorrecto"));
 	}
 
 	public static Respuesta validarNacimiento(String nacimiento) {
 		boolean resultado = Pattern.matches(Regularizador.Nacimiento.getCadena(), nacimiento);
-		return new Respuesta(resultado, (resultado? "fecha correcta" : "fecha incorrecta")) ;
+		return new Respuesta(resultado, (resultado ? "fecha correcta" : "fecha incorrecta"));
 	}
 
 	public static Respuesta validarId(String id) {
 		boolean resultado = Pattern.matches(Regularizador.Id.getCadena(), id);
-		return new Respuesta(resultado, (resultado? "ID correcto" : "ID incorrecto"));
+		return new Respuesta(resultado, (resultado ? "ID correcto" : "ID incorrecto"));
 
 	}
-	
-	
-	
 
 }
