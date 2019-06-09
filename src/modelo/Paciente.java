@@ -26,11 +26,14 @@ public class Paciente extends Persona implements Serializable {
 
 	public String getFullName() {
 		return getApellidos() + ", " + getNombre();
-
 	}
 
 	public void asigarTratamiento(Tratamiento tratamiento) {
 		this.tratamientos.add(tratamiento);
+	}
+
+	public ArrayList<Cita> getCitas() {
+		return citas;
 	}
 
 }
