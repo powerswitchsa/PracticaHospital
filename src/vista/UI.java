@@ -3,6 +3,7 @@ package vista;
 import java.awt.Color;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -26,8 +27,11 @@ import java.awt.Font;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JSpinner;
 import javax.swing.SwingUtilities;
+import java.awt.BorderLayout;
+import javax.swing.SwingConstants;
 
 public class UI extends JFrame {
 
@@ -73,6 +77,8 @@ public class UI extends JFrame {
 
 	private final JPanel panel = new JPanel();
 	private final JSpinner spinner = new JSpinner();
+	private JLabel labelFecha;
+	private final JButton btnPasarHora = new JButton("Pasar Hora");
 
 	public UI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -100,10 +106,6 @@ public class UI extends JFrame {
 		jmenuMedico.setForeground(Color.BLACK);
 		jmenuMedico.setFont(new Font(this.tipoLetra, Font.PLAIN, 20));
 		menuBar.add(jmenuMedico);
-		jmenuOperacion = new JMenu("Operacion");
-		jmenuOperacion.setForeground(Color.BLACK);
-		jmenuOperacion.setFont(new Font(this.tipoLetra, Font.PLAIN, 20));
-		menuBar.add(jmenuOperacion);
 		this.contentPane.add(this.panelPresentacion, "panelPresentacion");
 
 		// ----------------------------------------------
@@ -133,13 +135,24 @@ public class UI extends JFrame {
 		incluirItem(jmenuMedico, itemAltaMedico);
 		incluirItem(jmenuMedico, itemConsultaMedico);
 		incluirItem(jmenuMedico, itemAtenderCita);
+		jmenuOperacion = new JMenu("Operacion");
+		jmenuOperacion.setForeground(Color.BLACK);
+		jmenuOperacion.setFont(new Font(this.tipoLetra, Font.PLAIN, 20));
+		menuBar.add(jmenuOperacion);
 
 		incluirItem(jmenuOperacion, itemCerrarOperacion);
 
 		menuBar.add(panel);
-		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+		panel.setLayout(new BorderLayout(0, 0));
+		panel.add(new JButton("hey"));
 
-		panel.add(spinner);
+		labelFecha = new JLabel("hola          ");
+		labelFecha.setFont(new Font("Tahoma", Font.BOLD, 15));
+		labelFecha.setHorizontalAlignment(SwingConstants.RIGHT);
+		panel.add(labelFecha);
+		btnPasarHora.setFont(new Font("Tahoma", Font.PLAIN, 15));
+
+		panel.add(btnPasarHora, BorderLayout.EAST);
 
 	}
 
@@ -269,6 +282,14 @@ public class UI extends JFrame {
 
 	public JMenuItem getItemCitaPrimaria() {
 		return itemCitaPrimaria;
+	}
+
+	public JButton getBtnPasarHora() {
+		return btnPasarHora;
+	}
+
+	public void getLabelFecha(String fecha) {
+		labelFecha.setText(fecha + "    ");
 	}
 
 }

@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import modelo.Calendario;
 import modelo.Cita;
 import modelo.Consulta;
 import modelo.Medico;
@@ -12,6 +13,7 @@ import modelo.Paciente;
 public class GestorDTO {
 
 	private DTO<Paciente> dtoPaciente = new DTO<Paciente>();
+	private DTO<Calendario> dtoCalendario = new DTO<Calendario>();
 
 	private DTO<ArrayList<Cita>> dtoCitas = new DTO<ArrayList<Cita>>();
 
@@ -23,7 +25,7 @@ public class GestorDTO {
 	private final String rutaMapMedico = "./resource/MapMedicos.dat";
 	private final String rutaListCitas = "./resource/ListCitas.dat";
 	private final String rutaMapConsulta = "./resource/MapConsultas.dat";
-
+	private final String rutaCalendario = "./resource/Calendario.dat";
 	private final String rutaDirectorioPacientes = "resource/pacientes";
 
 	public GestorDTO() {
@@ -71,6 +73,14 @@ public class GestorDTO {
 
 	public HashMap<String, Consulta> getLeerMapConsulta() {
 		return this.dtoConsulta.leer(this.rutaMapConsulta);
+	}
+
+	public Calendario getLeerCalendario() {
+		return this.dtoCalendario.leer(this.rutaCalendario);
+	}
+
+	public boolean getGrabarCalendario(Calendario calendario) {
+		return this.dtoCalendario.grabar(calendario, this.rutaCalendario);
 	}
 
 	public boolean getEliminarPaciente(String id) {

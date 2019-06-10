@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import java.util.HashMap;
 import almacen.GestorDTO;
+import modelo.Calendario;
 import modelo.Cita;
 import modelo.Consulta;
 import modelo.Intervencion;
@@ -18,10 +19,15 @@ public class Logica {
 	private HashMap<String, Medico> mapMedico;
 	private HashMap<String, Consulta> mapConsulta;
 	private ArrayList<Cita> citas;
+	private Calendario calendario;
 
 	public Logica() {
 		super();
 		this.gestorDTO = new GestorDTO();
+
+		this.calendario = this.gestorDTO.getLeerCalendario();
+		if (this.calendario == null)
+			this.calendario = new Calendario();
 
 		this.mapPaciente = this.gestorDTO.getLeerMapPaciente();
 		if (this.mapPaciente == null)
@@ -152,6 +158,10 @@ public class Logica {
 		return this.gestorDTO.getGrabarCitas(this.citas);
 	}
 
+	public String getFecha() {
+		return this.calendario.getFecha();
+	}
+
 	public HashMap<String, Paciente> getMapPaciente() {
 		return this.mapPaciente;
 	}
@@ -170,6 +180,11 @@ public class Logica {
 
 	public HashMap<String, Consulta> getMapConsulta() {
 		return this.mapConsulta;
+	}
+
+	public void getPasarHora() {
+		this.calendario.sumarHora();
+		this.gestorDTO.getGrabarCalendario(this.calendario);
 	}
 
 }

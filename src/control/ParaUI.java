@@ -1,5 +1,7 @@
 package control;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import java.util.HashMap;
@@ -42,6 +44,7 @@ public class ParaUI extends UI {
 	public ParaUI() {
 		super();
 		this.control = new Control();
+		getLabelFecha(this.control.getFecha());
 
 		// actionlistener cambiar pestaña
 		getItemAltaPaciente().addActionListener(new ActionItemAltaPaciente(this));
@@ -106,7 +109,7 @@ public class ParaUI extends UI {
 //				.addActionListener(new ActionCitaPrimaria(getCitaPrimaria().getComboNombreMedico(),
 //						getCitaPrimaria(), getCitaPrimaria().getComboBoxID(), control,
 //						getCitaPrimaria().getDia(), getCitaPrimaria().getHora()));
-		
+
 		// Consulta Medico
 		getConsultaMedico().getComboBoxID()
 				.addActionListener(new MostrarCamposMedico(getConsultaMedico().getComboBoxID(),
@@ -125,6 +128,13 @@ public class ParaUI extends UI {
 		getVerHistorial().getComboBoxNombre()
 				.addActionListener(new MostrarCitasTratamientos(getVerHistorial().getComboBoxID(),
 						getVerHistorial().getComboBoxNombre(), control, false, getVerHistorial()));
+
+		getBtnPasarHora().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.getPasarHora();
+				getLabelFecha(control.getFecha());
+			}
+		});
 	}
 
 	public void rellenarComboBoxPaciente(JComboBox<String> id, JComboBox<String> nombre) {
