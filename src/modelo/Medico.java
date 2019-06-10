@@ -46,7 +46,7 @@ public class Medico extends Persona implements Serializable {
 	}
 
 	public String getFullName() {
-		return this.getApellidos() + " " + this.getNombre();
+		return this.getApellidos() + ", " + this.getNombre();
 	}
 
 	public Turno getTurno() {

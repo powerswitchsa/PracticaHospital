@@ -5,33 +5,37 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JComboBox;
+import javax.swing.JPanel;
 
 import control.Control;
 import control.ParaUI;
 import listener.combobox.SincronizarComboBox;
+import vista.paciente.CitaPrimaria;
 
 public class ActionCitaPrimaria implements ActionListener {
-	private String nombreMedico;
-	private String coordenada;
-	private String idPaciente;
+	private CitaPrimaria citaPrimaria;
 	private Control control;
-	private String dia;
-	private String hora;
 
-	public ActionCitaPrimaria(String nombreMedico, String coordenada, String idPaciente, Control control, String dia,
-			String hora) {
+	public ActionCitaPrimaria(CitaPrimaria citaPrimaria, Control control) {
 		super();
-		this.nombreMedico = nombreMedico;
-		this.coordenada = coordenada;
-		this.idPaciente = idPaciente;
+		this.citaPrimaria = citaPrimaria;
 		this.control = control;
-		this.dia = dia;
-		this.hora = hora;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		String cadena = this.dia + ";" + this.hora;
-		this.control.getCitaPrimaria(this.idPaciente, this.nombreMedico, this.coordenada, cadena);
+		try {
+			if (this.citaPrimaria.getComboNombreMedico().getSelectedItem() != null
+					&& this.citaPrimaria.getComboBoxID().getSelectedItem() != null) {
+				String nombreMedico = this.citaPrimaria.getComboNombreMedico().getSelectedItem().toString();
+				String idPaciente = this.citaPrimaria.getComboBoxID().getSelectedItem().toString();
+				String coordenada = this.citaPrimaria.getCoordenada();
+				if (nombreMedico != null && idPaciente != null) {
+					this.control.getCita(idPaciente, nombreMedico, coordenada, this.citaPrimaria.getHora());
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

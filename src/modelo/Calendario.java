@@ -44,4 +44,8 @@ public class Calendario implements Serializable {
 		return hora;
 	}
 
+	public String[] getDiaSemana() {
+		return diaSemana;
+	}
+
 }

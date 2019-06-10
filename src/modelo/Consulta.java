@@ -45,7 +45,6 @@ public class Consulta implements Serializable {
 	 */
 	public void asignarMedico(String id) {
 		// TODO Auto-generated method stub
-
 	}
 
 	public boolean getVacantes() {

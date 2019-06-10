@@ -25,6 +25,7 @@ public class ActionItemCitaEspecialista implements ActionListener {
 		if (this.paraUI.getCitaEspecialista().getComboNombreMedico() != null) {
 			this.paraUI.rellenarEspecialidadMedico(this.paraUI.getCitaEspecialista().getComboNombreMedico(),
 					Especialidad.Especialista);
+			this.paraUI.getCitaPrimaria().setCoordenadas("10;10");
 		}
 	}
 }
