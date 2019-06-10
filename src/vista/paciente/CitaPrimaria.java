@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -41,6 +43,8 @@ public class CitaPrimaria extends JPanel {
 	private JComboBox comboBoxNombre;
 	private JComboBox comboBoxID;
 	private JComboBox comboNombreMedico;
+	private JButton btnPedirCita;
+	private JLabel lblMensaje;
 
 	public CitaPrimaria(Color colorFondo, int letraPequena, int letraGrande, String tipoLetra) {
 		this.botonera = new JButton[horas][dias];
@@ -127,20 +131,24 @@ public class CitaPrimaria extends JPanel {
 		panelLabel = new JPanel();
 
 		panelBotonera = new JPanel();
+
+		JPanel panelPecirCita = new JPanel();
+		panelPecirCita.setBackground(colorFondo);
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup().addGap(30)
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(Alignment.TRAILING,
+				groupLayout.createSequentialGroup().addGap(30)
+						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(panelPecirCita, GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
 								.addComponent(panelBotonera, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-								.addComponent(panelLabel, GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE)
-								.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE)
-								.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+								.addComponent(panelLabel, GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+								.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+								.addGroup(groupLayout.createSequentialGroup()
 										.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-												.addComponent(panel_2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 648,
+												.addComponent(panel_2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 375,
 														Short.MAX_VALUE)
-												.addComponent(panel, GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE))
-										.addGap(6).addComponent(panel_1, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+												.addComponent(panel, GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE))
+										.addGap(6)
+										.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)))
 						.addGap(30)));
 		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup().addGap(30)
@@ -155,7 +163,23 @@ public class CitaPrimaria extends JPanel {
 								GroupLayout.PREFERRED_SIZE)
 						.addGap(18).addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
 						.addGap(5).addComponent(panelBotonera, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-						.addGap(50)));
+						.addPreferredGap(ComponentPlacement.UNRELATED)
+						.addComponent(panelPecirCita, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+						.addGap(12)));
+
+		lblMensaje = new JLabel("");
+		lblMensaje.setHorizontalAlignment(SwingConstants.CENTER);
+
+		btnPedirCita = new JButton("Pedir Cita");
+		GroupLayout gl_panelPecirCita = new GroupLayout(panelPecirCita);
+		gl_panelPecirCita.setHorizontalGroup(gl_panelPecirCita.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panelPecirCita.createSequentialGroup()
+						.addComponent(lblMensaje, GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+						.addComponent(btnPedirCita, GroupLayout.PREFERRED_SIZE, 245, GroupLayout.PREFERRED_SIZE)));
+		gl_panelPecirCita.setVerticalGroup(gl_panelPecirCita.createParallelGroup(Alignment.LEADING)
+				.addComponent(lblMensaje, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+				.addComponent(btnPedirCita, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE));
+		panelPecirCita.setLayout(gl_panelPecirCita);
 		panelBotonera.setLayout(new GridLayout(horas, dias, 10, 10));
 		panelLabel.setLayout(new GridLayout(1, 0, 10, 10));
 		setLayout(groupLayout);
@@ -258,6 +282,13 @@ public class CitaPrimaria extends JPanel {
 		jLabel.setBorder(new MatteBorder(1, 1, 1, 1, Color.BLACK));
 		return jLabel;
 	}
+	public String getIDPaciente() {
+		return this.comboBoxID.getSelectedItem().toString();
+	}
+
+	public String getNombreMedico() {
+		return this.getComboNombreMedico().getSelectedItem().toString();
+	}
 
 	public JComboBox getComboBoxNombre() {
 		return comboBoxNombre;
@@ -275,4 +306,12 @@ public class CitaPrimaria extends JPanel {
 		return coordenadas;
 	}
 
+	public JButton getBtnPedirCita() {
+		return btnPedirCita;
+	}
+
+	public JLabel getLblMensaje() {
+		return lblMensaje;
+	}
+	
 }

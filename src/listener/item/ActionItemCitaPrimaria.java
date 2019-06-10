@@ -18,10 +18,14 @@ public class ActionItemCitaPrimaria implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		this.paraUI.asociarPanel("citaPrimaria");
-		this.paraUI.rellenarComboBoxPaciente(this.paraUI.getCitaPrimaria().getComboBoxID(),
-				this.paraUI.getCitaPrimaria().getComboBoxNombre());
-		this.paraUI.rellenarEspecialidadMedico(this.paraUI.getCitaPrimaria().getComboNombreMedico(),
-				Especialidad.Cabecera);
+		try {
+			this.paraUI.rellenarComboBoxPaciente(this.paraUI.getCitaPrimaria().getComboBoxID(),
+					this.paraUI.getCitaPrimaria().getComboBoxNombre());
+			this.paraUI.rellenarEspecialidadMedico(this.paraUI.getCitaPrimaria().getComboNombreMedico(),
+					Especialidad.Cabecera);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

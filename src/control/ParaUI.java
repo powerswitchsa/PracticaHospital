@@ -1,6 +1,7 @@
 package control;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
 
 import javax.swing.JComboBox;
@@ -8,6 +9,7 @@ import javax.swing.JComboBox;
 import listener.btn.ActionAltaMedico;
 import listener.btn.ActionAltaPaciente;
 import listener.btn.ActionBajaPaciente;
+import listener.btn.ActionCitaPrimaria;
 import listener.btn.ActionModificarPaciente;
 import listener.combobox.CitaEspecialistaMedico;
 import listener.combobox.CitaPrimariaMedico;
@@ -19,13 +21,16 @@ import listener.item.ActionItemAltaPaciente;
 import listener.item.ActionItemCitaOperacion;
 import listener.item.ActionItemBajaPaciente;
 import listener.item.ActionItemConsultaMedico;
-import listener.item.ActionItemAltaMedico;
-import listener.item.ActionItemVerHistorial;
-import listener.item.ActionItemCerrarOperacion;
-import listener.item.ActionItemModificarPaciente;
 import listener.item.ActionItemConsultaPaciente;
-import listener.item.ActionItemCitaEspecialista;
+import listener.item.ActionItemModificarPaciente;
+import listener.item.ActionItemVerHistorial;
+import listener.item.ActionItemAltaMedico;
+import listener.item.ActionItemAltaPaciente;
 import listener.item.ActionItemAtenderCita;
+import listener.item.ActionItemBajaPaciente;
+import listener.item.ActionItemCerrarOperacion;
+import listener.item.ActionItemCitaEspecialista;
+import listener.item.ActionItemCitaOperacion;
 import listener.item.ActionItemCitaPrimaria;
 import modelo.Medico;
 import modelo.Paciente;
@@ -58,6 +63,9 @@ public class ParaUI extends UI {
 		getModificarPaciente().getBtnModificar().addActionListener(new ActionModificarPaciente(this));
 		getAltaMedico().getBtnAceptar().addActionListener(new ActionAltaMedico(this));
 		getBajaPaciente().getBtnDarBaja().addActionListener(new ActionBajaPaciente(this));
+		getConsultaPaciente().getComboBoxNombre()
+				.addActionListener(new MostarCamposPaciente(getConsultaPaciente().getComboBoxID(),
+						getConsultaPaciente().getComboBoxNombre(), control, false, getConsultaPaciente().getFields()));
 		// Cita Operacion
 		getCitaOperacion().getComboPaciente().addActionListener(new SincronizarComboBox(getCitaOperacion().getComboID(),
 				getCitaOperacion().getComboPaciente(), control, false));
@@ -93,6 +101,12 @@ public class ParaUI extends UI {
 				getCitaPrimaria().getComboBoxID(), getCitaPrimaria().getComboBoxNombre(), control, false));
 		getCitaPrimaria().getComboBoxID().addActionListener(new SincronizarComboBox(getCitaPrimaria().getComboBoxID(),
 				getCitaPrimaria().getComboBoxNombre(), control, true));
+		//
+		getCitaPrimaria().getBtnPedirCita()
+		.addActionListener(new ActionCitaPrimaria(getCitaPrimaria().getNombreMedico(),
+				getCitaPrimaria().getCoordenada(), getCitaPrimaria().getIDPaciente(), control,
+				getCitaPrimaria().getDia(), getCitaPrimaria().getHora()));
+		// actionlistener combobox
 		// Consulta Medico
 		getConsultaMedico().getComboBoxID()
 				.addActionListener(new MostrarCamposMedico(getConsultaMedico().getComboBoxID(),
