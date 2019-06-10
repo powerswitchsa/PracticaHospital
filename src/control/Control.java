@@ -107,4 +107,12 @@ public class Control {
 		}
 		return null;
 	}
+
+	public String getFecha() {
+		return this.logica.getFecha();
+	}
+
+	public void getPasarHora() {
+		this.logica.getPasarHora();
+	}
 }

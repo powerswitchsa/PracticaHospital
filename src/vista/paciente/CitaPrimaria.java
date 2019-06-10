@@ -233,6 +233,7 @@ public class CitaPrimaria extends JPanel {
 		for (int i = 0; i < horario.length; i++) {
 			for (int j = 0; j < horario[i].length; j++) {
 				this.botonera[i][j].setEnabled(true);
+				this.botonera[i][j].setBackground(Color.WHITE);
 				if (i > 3 && Turno.mañana == turno || i < 4 && Turno.tarde == turno) {
 					this.botonera[i][j].setEnabled(false);
 					this.botonera[i][j].setBorder(new MatteBorder(5, 5, 5, 5, Color.RED));

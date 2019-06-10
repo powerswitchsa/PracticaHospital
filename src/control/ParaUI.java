@@ -1,5 +1,7 @@
 package control;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import java.util.HashMap;
@@ -42,6 +44,7 @@ public class ParaUI extends UI {
 	public ParaUI() {
 		super();
 		this.control = new Control();
+		getLabelFecha(this.control.getFecha());
 
 		// actionlistener cambiar pestaña
 		getItemAltaPaciente().addActionListener(new ActionItemAltaPaciente(this));
@@ -101,6 +104,7 @@ public class ParaUI extends UI {
 				getCitaPrimaria().getComboBoxID(), getCitaPrimaria().getComboBoxNombre(), control, false));
 		getCitaPrimaria().getComboBoxID().addActionListener(new SincronizarComboBox(getCitaPrimaria().getComboBoxID(),
 				getCitaPrimaria().getComboBoxNombre(), control, true));
+
 		getCitaPrimaria().getBtnPedirCita()
 				.addActionListener(new ActionCitaPrimaria(getCitaPrimaria().getNombreMedico(),
 						getCitaPrimaria().getCoordenada(), getCitaPrimaria().getIDPaciente(), control,
@@ -123,6 +127,13 @@ public class ParaUI extends UI {
 		getVerHistorial().getComboBoxNombre()
 				.addActionListener(new MostrarCitasTratamientos(getVerHistorial().getComboBoxID(),
 						getVerHistorial().getComboBoxNombre(), control, false, getVerHistorial()));
+
+		getBtnPasarHora().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.getPasarHora();
+				getLabelFecha(control.getFecha());
+			}
+		});
 	}
 
 	public void rellenarComboBoxPaciente(JComboBox<String> id, JComboBox<String> nombre) {

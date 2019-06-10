@@ -127,67 +127,57 @@ public class CitaEspecialista extends JPanel {
 		panelLabel = new JPanel();
 
 		panelBotonera = new JPanel();
-		
+
 		JPanel panelPedirCita = new JPanel();
-		
+
 		panelPedirCita.setBackground(colorFondo);
-		
+
 		JLabel lblMenasaje = new JLabel("");
 		lblMenasaje.setHorizontalAlignment(SwingConstants.CENTER);
-		
+
 		JButton btnPedirCita = new JButton("Pedir Cita");
 		GroupLayout gl_panelPedirCita = new GroupLayout(panelPedirCita);
-		gl_panelPedirCita.setHorizontalGroup(
-			gl_panelPedirCita.createParallelGroup(Alignment.LEADING)
+		gl_panelPedirCita.setHorizontalGroup(gl_panelPedirCita.createParallelGroup(Alignment.LEADING)
 				.addGap(0, 490, Short.MAX_VALUE)
 				.addGroup(gl_panelPedirCita.createSequentialGroup()
-					.addComponent(lblMenasaje, GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
-					.addComponent(btnPedirCita, GroupLayout.PREFERRED_SIZE, 245, GroupLayout.PREFERRED_SIZE))
-		);
+						.addComponent(lblMenasaje, GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+						.addComponent(btnPedirCita, GroupLayout.PREFERRED_SIZE, 245, GroupLayout.PREFERRED_SIZE)));
 		gl_panelPedirCita.setVerticalGroup(
-			gl_panelPedirCita.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 27, Short.MAX_VALUE)
-				.addComponent(lblMenasaje, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
-				.addComponent(btnPedirCita, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
-		);
+				gl_panelPedirCita.createParallelGroup(Alignment.LEADING).addGap(0, 27, Short.MAX_VALUE)
+						.addComponent(lblMenasaje, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnPedirCita, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE));
 		panelPedirCita.setLayout(gl_panelPedirCita);
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-					.addGap(30)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(Alignment.TRAILING,
+				groupLayout.createSequentialGroup().addGap(30).addGroup(groupLayout
+						.createParallelGroup(Alignment.TRAILING)
 						.addComponent(panelPedirCita, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
 						.addComponent(panelBotonera, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
 						.addComponent(panelLabel, GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
 						.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(panel_2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
-								.addComponent(panel, GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE))
-							.addGap(6)
-							.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)))
-					.addGap(30))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(30)
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-					.addGap(10)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
-						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(10)
-					.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-					.addGap(5)
-					.addComponent(panelBotonera, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(panelPedirCita, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
-					.addGap(17))
-		);
+								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+										.addComponent(panel_2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 399,
+												Short.MAX_VALUE)
+										.addComponent(panel, GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE))
+								.addGap(6).addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)))
+						.addGap(30)));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup().addGap(30)
+						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+						.addGap(10)
+						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(panel, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
+								.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE))
+						.addGap(10)
+						.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addGap(18).addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+						.addGap(5).addComponent(panelBotonera, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addComponent(panelPedirCita, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+						.addGap(17)));
 		panelBotonera.setLayout(new GridLayout(horas, dias, 10, 10));
 		panelLabel.setLayout(new GridLayout(1, 0, 10, 10));
 		setLayout(groupLayout);
@@ -198,7 +188,6 @@ public class CitaEspecialista extends JPanel {
 		}
 		int indice = 0;
 		for (int i = 0; i < botonera.length; i++) {
-
 			for (int j = 0; j < botonera[i].length; j++) {
 				this.botonera[i][j] = new JButton();
 				this.botonera[i][j].setBackground(Color.WHITE);
@@ -226,13 +215,6 @@ public class CitaEspecialista extends JPanel {
 			}
 			indice++;
 		}
-
-//		boolean[][] a = new boolean[horas][dias];
-//		a[0][0] = true;
-//		a[3][3] = true;
-//		a[2][4] = true;
-//		a[1][1] = true;
-//		crearBotonera(a, Turno.mañana);
 	}
 
 	public void crearBotonera(boolean[][] horario, Turno turno) {
@@ -240,6 +222,7 @@ public class CitaEspecialista extends JPanel {
 		for (int i = 0; i < horario.length; i++) {
 			for (int j = 0; j < horario[i].length; j++) {
 				this.botonera[i][j].setEnabled(true);
+				this.botonera[i][j].setBackground(Color.WHITE);
 				if (i > 3 && Turno.mañana == turno || i < 4 && Turno.tarde == turno) {
 					this.botonera[i][j].setEnabled(false);
 					this.botonera[i][j].setBorder(new MatteBorder(5, 5, 5, 5, Color.RED));
