@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="almacen.DTO" project="Hospital" file="/Hospital/src/almacen/DTO.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="911" y="279"/>    
+    <position height="-1" width="-1" x="997" y="270"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="almacen.DAO" project="Hospital" file="/Hospital/src/almacen/DAO.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1080" y="406"/>    
+    <position height="-1" width="-1" x="1007" y="422"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="modelo.Paciente" project="Hospital" file="/Hospital/src/modelo/Paciente.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="363" y="371"/>    
+    <position height="-1" width="-1" x="310" y="381"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="modelo.Persona" project="Hospital" file="/Hospital/src/modelo/Persona.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="467" y="552"/>    
+    <position height="-1" width="-1" x="485" y="503"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="modelo.Tratamiento" project="Hospital" 
     file="/Hospital/src/modelo/Tratamiento.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="146" y="361"/>    
+    <position height="-1" width="-1" x="132" y="558"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -102,7 +102,7 @@
   </class>  
   <class id="12" language="java" name="modelo.Medico" project="Hospital" file="/Hospital/src/modelo/Medico.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="689" y="643"/>    
+    <position height="-1" width="-1" x="668" y="376"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -111,7 +111,7 @@
   </class>  
   <class id="13" language="java" name="modelo.Medicamento" project="Hospital" 
     file="/Hospital/src/modelo/Medicamento.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="137" y="482"/>    
+    <position height="-1" width="-1" x="129" y="747"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -120,7 +120,7 @@
   </class>  
   <class id="14" language="java" name="modelo.Intervencion" project="Hospital" 
     file="/Hospital/src/modelo/Intervencion.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="313" y="705"/>    
+    <position height="-1" width="-1" x="491" y="737"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -129,7 +129,7 @@
   </class>  
   <class id="15" language="java" name="modelo.Consulta" project="Hospital" file="/Hospital/src/modelo/Consulta.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="833" y="488"/>    
+    <position height="-1" width="-1" x="834" y="364"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -138,7 +138,7 @@
   </class>  
   <class id="16" language="java" name="modelo.Cita" project="Hospital" file="/Hospital/src/modelo/Cita.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="568" y="358"/>    
+    <position height="-1" width="-1" x="497" y="377"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
