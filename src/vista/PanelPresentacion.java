@@ -24,7 +24,6 @@ public class PanelPresentacion extends JPanel {
 	public PanelPresentacion() {
 	
 		
-		JButton btnNewButton = new JButton("Entrar");
 //		ImageIcon imagen= new ImageIcon(getClass().getResource("/imgVista/pepeMedico.jpg"));
 //		ImageIcon icono= new ImageIcon(imagen.getImage().getScaledInstance(PanelPresentacion.WIDTH,PanelPresentacion.HEIGHT, Image.SCALE_DEFAULT));
 		
@@ -57,9 +56,7 @@ public class PanelPresentacion extends JPanel {
 							.addGap(133)))
 					.addGap(37))
 				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-					.addContainerGap(293, Short.MAX_VALUE)
-					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 189, GroupLayout.PREFERRED_SIZE)
-					.addGap(167))
+					.addContainerGap(293, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -71,7 +68,6 @@ public class PanelPresentacion extends JPanel {
 					.addGap(30)
 					.addComponent(lblAhoraConTests, GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnNewButton)
 					.addGap(39))
 		);
 		setLayout(groupLayout);

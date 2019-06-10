@@ -125,8 +125,11 @@ public class Logica {
 
 	public boolean getCitaPrimaria(String id, String nombreMedico, String coordenada, String fechaDia) {
 		//
+		Paciente paciente = getPaciente(id);
 		Medico medico = getMedicoFromName(nombreMedico);
-		this.citas.add(new Cita(medico, getPaciente(id), fechaDia, false, ""));
+		Cita cita = new Cita(medico, getPaciente(id), fechaDia, false, "");
+		paciente.addCita(cita);
+		this.citas.add(cita);
 		String[] posicion = coordenada.split(";");
 		int i = Integer.valueOf(posicion[0]);
 		int j = Integer.valueOf(posicion[1]);
