@@ -43,7 +43,11 @@ public class Logica {
 		if (this.getMapConsulta() == null) {
 			this.mapConsulta = new HashMap<String, Consulta>();
 			for (int i = 0; i < 4; i++) {
-				this.mapConsulta.put(String.valueOf(i), new Consulta(String.valueOf(i)));
+				if (i < 3) {
+					this.mapConsulta.put(String.valueOf(i), new Consulta(String.valueOf(i), Especialidad.Cabecera));
+				} else {
+					this.mapConsulta.put(String.valueOf(i), new Consulta(String.valueOf(i), Especialidad.Especialista));
+				}
 			}
 		}
 		this.citas = this.gestorDTO.getLeerListCitas();
@@ -192,6 +196,7 @@ public class Logica {
 				iterator.remove();
 			}
 		}
+		
 		this.gestorDTO.getGrabarCalendario(this.calendario);
 	}
 
