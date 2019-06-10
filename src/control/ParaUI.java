@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
 
 import listener.btn.ActionAltaMedico;
 import listener.btn.ActionAltaPaciente;
@@ -54,13 +53,11 @@ public class ParaUI extends UI {
 		getItemCitaEspecialista().addActionListener(new ActionItemCitaEspecialista(this));
 		getItemAtenderCita().addActionListener(new ActionItemAtenderCita(this));
 		getItemCitaPrimaria().addActionListener(new ActionItemCitaPrimaria(this));
-
 		// actionlistener botones
 		getAltaPaciente().getBtnAceptar().addActionListener(new ActionAltaPaciente(this));
 		getModificarPaciente().getBtnModificar().addActionListener(new ActionModificarPaciente(this));
 		getAltaMedico().getBtnAceptar().addActionListener(new ActionAltaMedico(this));
 		getBajaPaciente().getBtnDarBaja().addActionListener(new ActionBajaPaciente(this));
-
 		// Cita Operacion
 		getCitaOperacion().getComboPaciente().addActionListener(new SincronizarComboBox(getCitaOperacion().getComboID(),
 				getCitaOperacion().getComboPaciente(), control, false));
@@ -77,6 +74,7 @@ public class ParaUI extends UI {
 				getCitaEspecialista().getComboBoxID(), getCitaEspecialista().getComboBoxNombre(), control, false));
 		getCitaEspecialista().getComboBoxID().addActionListener(new SincronizarComboBox(
 				getCitaEspecialista().getComboBoxID(), getCitaEspecialista().getComboBoxNombre(), control, true));
+		getCitaEspecialista().getComboNombreMedico().addActionListener(new CitaEspecialistaMedico(this));
 		// Consulta Paciente
 		getConsultaPaciente().getComboBoxNombre()
 				.addActionListener(new MostarCamposPaciente(getConsultaPaciente().getComboBoxID(),
@@ -106,9 +104,6 @@ public class ParaUI extends UI {
 		getCitaPrimaria().getComboNombreMedico().addActionListener(new CitaPrimariaMedico(this));
 		getCitaPrimaria().getComboBoxNombre().addActionListener(new SincronizarComboBox(
 				getCitaPrimaria().getComboBoxID(), getCitaPrimaria().getComboBoxNombre(), control, false));
-		// Cita Especialista
-		getCitaEspecialista().getComboNombreMedico().addActionListener(new CitaEspecialistaMedico(this));
-
 		// Ver Historial
 		getVerHistorial().getComboBoxID()
 				.addActionListener(new MostrarCitasTratamientos(getVerHistorial().getComboBoxID(),

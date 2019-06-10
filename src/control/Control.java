@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import modelo.Consulta;
 import modelo.Controller;
+import modelo.Intervencion;
 import modelo.Medico;
 import modelo.Paciente;
 import modelo.enums.Especialidad;
@@ -90,7 +91,6 @@ public class Control {
 
 	public HashMap<String, Consulta> getMapaConsulta() {
 		return this.logica.getMapConsulta();
-
 	}
 
 	public ArrayList<Medico> getEspecialidadMedico(Especialidad especialidad) {
