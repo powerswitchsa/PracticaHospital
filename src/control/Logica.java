@@ -41,7 +41,11 @@ public class Logica {
 		if (this.getMapConsulta() == null) {
 			this.mapConsulta = new HashMap<String, Consulta>();
 			for (int i = 0; i < 4; i++) {
-				this.mapConsulta.put(String.valueOf(i), new Consulta(String.valueOf(i)));
+				if (i < 3) {
+					this.mapConsulta.put(String.valueOf(i), new Consulta(String.valueOf(i), Especialidad.Cabecera));
+				} else {
+					this.mapConsulta.put(String.valueOf(i), new Consulta(String.valueOf(i), Especialidad.Especialista));
+				}
 			}
 		}
 		this.citas = this.gestorDTO.getLeerListCitas();
@@ -144,7 +148,7 @@ public class Logica {
 		int i = Integer.valueOf(posicion[0]);
 		int j = Integer.valueOf(posicion[1]);
 		Medico medico = getMedicoFromName(nombreMedico);
-		Cita cita = new Cita(medico, getPaciente(id),this.calendario.getDiaSemana()[j]+", "+hora, false, "");
+		Cita cita = new Cita(medico, getPaciente(id), this.calendario.getDiaSemana()[j] + ", " + hora, false, "");
 		Paciente paciente = cita.getPaciente();
 		this.citas.add(cita);
 		paciente.addCita(cita);
