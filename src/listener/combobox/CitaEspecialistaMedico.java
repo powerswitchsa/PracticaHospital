@@ -28,7 +28,6 @@ public class CitaEspecialistaMedico implements ActionListener {
 				}
 			}
 		} catch (Exception e2) {
-			e2.printStackTrace();
 		}
 	}
 }

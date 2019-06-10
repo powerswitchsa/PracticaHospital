@@ -123,8 +123,17 @@ public class Logica {
 		return seleccionados;
 	}
 
+	public boolean getCitaOperacion(String nombreCirujano, String nombreMedico, String idPaciente,
+			TipoOperacion tipoOperacion) {
+		Intervencion intervencion = new Intervencion(getMedicoFromName(nombreMedico), getMedicoFromName(nombreMedico),
+				tipoOperacion, false, "");
+		Paciente paciente = this.mapPaciente.get(idPaciente);
+		this.gestorDTO.getGrabarPaciente(paciente);
+		this.gestorDTO.getGrabarMapPaciente(this.mapPaciente);
+		return paciente.asiganarIntervencion(intervencion);
+	}
+
 	public boolean getCitaPrimaria(String id, String nombreMedico, String coordenada, String fechaDia) {
-		//
 		Paciente paciente = getPaciente(id);
 		Medico medico = getMedicoFromName(nombreMedico);
 		Cita cita = new Cita(medico, getPaciente(id), fechaDia, false, "");

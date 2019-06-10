@@ -4,22 +4,22 @@ import java.io.Serializable;
 
 import modelo.enums.TipoOperacion;
 
-public class Intervencion implements Serializable{
+public class Intervencion implements Serializable {
 
 	private Medico medicoSolicitante;
 	private Medico cirujano;
 	private TipoOperacion tipoOperacion;
 	private boolean realizado;
-	private String curado;
+	private String resultado;
 
 	public Intervencion(Medico medicoSolicitante, Medico cirujano, TipoOperacion tipoIntervencion, boolean realizado,
-			String curado) {
+			String resultado) {
 		super();
 		this.medicoSolicitante = medicoSolicitante;
 		this.cirujano = cirujano;
 		this.tipoOperacion = tipoIntervencion;
 		this.realizado = realizado;
-		this.curado = curado;
+		this.resultado = resultado;
 	}
 
 	public Medico getMedicoSolicitante() {
@@ -39,10 +39,11 @@ public class Intervencion implements Serializable{
 	}
 
 	public String isCurado() {
-		return curado;
+		return resultado;
 	}
+
 	public String getFullName() {
-		return cirujano.getApellidos()+cirujano.getNombre();
-		
+		return cirujano.getApellidos() + cirujano.getNombre();
 	}
+
 }

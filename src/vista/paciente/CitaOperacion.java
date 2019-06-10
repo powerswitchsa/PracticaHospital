@@ -13,12 +13,15 @@ import javax.swing.JComboBox;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.GridLayout;
 import javax.swing.border.MatteBorder;
+
+import modelo.enums.TipoOperacion;
+
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 
 public class CitaOperacion extends JPanel {
 
-	private String[] cadenas = { "Paciente :", " ID :", "Tipo Operacion :", "Cirujano :", "Fechas Disponibles :" };
+	private String[] cadenas = { "Paciente :", " ID :", "Tipo Operacion :", "Cirujano :", "Medico Solicitante :" };
 	private JPanel panelLabel;
 	private JPanel panelCombo;
 
@@ -26,7 +29,7 @@ public class CitaOperacion extends JPanel {
 	private JComboBox comboID = new JComboBox();
 	private JComboBox comboTipoOperacion = new JComboBox();
 	private JComboBox comboCirujano = new JComboBox();
-	private JComboBox comboFechasDisponibles = new JComboBox();
+	private JComboBox comboBoxMedicoSolicitante = new JComboBox();
 	private JLabel mensajeSistema;
 	private JButton btnAceptar;
 
@@ -113,9 +116,9 @@ public class CitaOperacion extends JPanel {
 		comboCirujano.setBackground(Color.WHITE);
 		comboCirujano.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		this.panelCombo.add(this.comboCirujano);
-		comboFechasDisponibles.setBackground(Color.WHITE);
-		comboFechasDisponibles.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		this.panelCombo.add(this.comboFechasDisponibles);
+		comboBoxMedicoSolicitante.setBackground(Color.WHITE);
+		comboBoxMedicoSolicitante.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		this.panelCombo.add(this.comboBoxMedicoSolicitante);
 		revalidate();
 	}
 
@@ -143,8 +146,8 @@ public class CitaOperacion extends JPanel {
 		return comboCirujano;
 	}
 
-	public JComboBox getComboFechasDisponibles() {
-		return comboFechasDisponibles;
+	public JComboBox getComboMedicoSolicitante() {
+		return comboBoxMedicoSolicitante;
 	}
 
 	public JLabel getMensajeSistema() {
@@ -153,6 +156,31 @@ public class CitaOperacion extends JPanel {
 
 	public JButton getBtnAceptar() {
 		return btnAceptar;
+	}
+
+	public String getIdPaciente() {
+		return this.comboID.getSelectedItem().toString();
+	}
+
+	public String getNameCirujano() {
+		return this.comboCirujano.getSelectedItem().toString();
+	}
+
+	public TipoOperacion getTipoOperacion() {
+		switch (this.comboTipoOperacion.getSelectedItem().toString()) {
+		case "cambio de corazon":
+			return TipoOperacion.extirpacion;
+		case "cambio de tocha":
+			return TipoOperacion.rinoplastia;
+		case "fixeo de barriga":
+			return TipoOperacion.hernia;
+		default:
+			return null;
+		}
+	}
+
+	public String getNameMedico() {
+		return this.comboBoxMedicoSolicitante.getSelectedItem().toString();
 	}
 
 }

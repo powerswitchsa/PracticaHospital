@@ -22,10 +22,13 @@ public class ActionItemCitaOperacion implements ActionListener {
 		this.paraUI.getCitaOperacion().getComboTipoOperacion().removeAllItems();
 		this.paraUI.rellenarComboBoxPaciente(this.paraUI.getCitaOperacion().getComboID(),
 				this.paraUI.getCitaOperacion().getComboPaciente());
-		this.paraUI.rellenarEspecialidadMedico(this.paraUI.getCitaOperacion().getComboCirujano(), Especialidad.Cirujano);
+		this.paraUI.rellenarEspecialidadMedico(this.paraUI.getCitaOperacion().getComboCirujano(),
+				Especialidad.Cirujano);
 		for (TipoOperacion elementos : TipoOperacion.values()) {
 			this.paraUI.getCitaOperacion().getComboTipoOperacion().addItem(elementos.getOperacion());
 		}
+		this.paraUI.rellenarEspecialidadMedico(this.paraUI.getCitaOperacion().getComboMedicoSolicitante(),
+				Especialidad.Especialista);
 	}
 
 }

@@ -97,12 +97,18 @@ public class CerrarOperacion extends JPanel {
 
 	public void rellenarCloseInt(HashMap<String, Paciente> paciente) {
 		int index = 0;
-//		this.datosCloseInt = new String[paciente.getCitas().size()][columnaCloseInt.length];
+		int numFilas = 0;
+		for (Paciente a : paciente.values()) {
+			numFilas += a.getIntervenciones().size();
+		}
+		this.datosCloseInt = new String[numFilas][columnaCloseInt.length];
 		for (Paciente user : paciente.values()) {
 			for (Intervencion interven : user.getIntervenciones()) {
-				rellenarCloseIntFila(user.getFullName(), interven, index);
+				if (interven != null)
+					rellenarCloseIntFila(user.getFullName(), interven, index);
 				index++;
 			}
+			index = 0;
 		}
 		DefaultTableModel defaultTableModelC = new DefaultTableModel(datosCloseInt, columnaCloseInt);
 		tableCloseHistorial = new JTable(defaultTableModelC);
@@ -111,9 +117,11 @@ public class CerrarOperacion extends JPanel {
 	}
 
 	private void rellenarCloseIntFila(String fullName, Intervencion operacion, int index) {
+
 		this.datosCloseInt[index][0] = fullName;
 		this.datosCloseInt[index][1] = operacion.getTipoIntervencion().getOperacion();
 		this.datosCloseInt[index][2] = operacion.getFullName();
 		this.datosCloseInt[index][3] = operacion.isCurado();
 	}
+
 }

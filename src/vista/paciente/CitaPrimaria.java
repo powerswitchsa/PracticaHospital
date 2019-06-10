@@ -229,12 +229,13 @@ public class CitaPrimaria extends JPanel {
 
 	public void crearBotonera(boolean[][] horario, Turno turno) {
 		this.horario = horario;
+		this.coordenadas = "10;10";
 		for (int i = 0; i < horario.length; i++) {
 			for (int j = 0; j < horario[i].length; j++) {
 				this.botonera[i][j].setEnabled(true);
 				if (i > 3 && Turno.mañana == turno || i < 4 && Turno.tarde == turno) {
 					this.botonera[i][j].setEnabled(false);
-					this.botonera[i][j].setBorder(new MatteBorder(5, 5, 5, 5, Color.ORANGE));
+					this.botonera[i][j].setBorder(new MatteBorder(5, 5, 5, 5, Color.RED));
 				} else {
 					this.botonera[i][j]
 							.setBorder(new MatteBorder(5, 5, 5, 5, this.horario[i][j] ? Color.RED : Color.BLUE));
@@ -250,7 +251,10 @@ public class CitaPrimaria extends JPanel {
 		String[] cadena = this.coordenadas.split(";");
 		int i = Integer.valueOf(cadena[0]);
 		int j = Integer.valueOf(cadena[1]);
-		return this.botonera[i][j].getText();
+		if (i != 10 && j != 10)
+			return this.botonera[i][j].getText();
+		else
+			return "0;0";
 	}
 
 	public String getDia() {
@@ -282,12 +286,25 @@ public class CitaPrimaria extends JPanel {
 		jLabel.setBorder(new MatteBorder(1, 1, 1, 1, Color.BLACK));
 		return jLabel;
 	}
+
 	public String getIDPaciente() {
-		return this.comboBoxID.getSelectedItem().toString();
+		if (this.comboBoxID.getSelectedItem() != null) {
+			String id = this.comboBoxID.getSelectedItem().toString();
+			if (id != null)
+				return id;
+		}
+		return "";
 	}
 
 	public String getNombreMedico() {
-		return this.getComboNombreMedico().getSelectedItem().toString();
+		if (this.getComboNombreMedico().getSelectedItem() != null) {
+			String nombreMedico = this.getComboNombreMedico().getSelectedItem().toString();
+			if (nombreMedico != null) {
+				System.out.println(nombreMedico);
+				return nombreMedico;
+			}
+		}
+		return "";
 	}
 
 	public JComboBox getComboBoxNombre() {
@@ -313,5 +330,5 @@ public class CitaPrimaria extends JPanel {
 	public JLabel getLblMensaje() {
 		return lblMensaje;
 	}
-	
+
 }

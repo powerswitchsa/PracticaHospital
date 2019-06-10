@@ -9,6 +9,7 @@ import javax.swing.JComboBox;
 import listener.btn.ActionAltaMedico;
 import listener.btn.ActionAltaPaciente;
 import listener.btn.ActionBajaPaciente;
+import listener.btn.ActionCitaOperacion;
 import listener.btn.ActionCitaPrimaria;
 import listener.btn.ActionModificarPaciente;
 import listener.combobox.CitaEspecialistaMedico;
@@ -25,12 +26,9 @@ import listener.item.ActionItemConsultaPaciente;
 import listener.item.ActionItemModificarPaciente;
 import listener.item.ActionItemVerHistorial;
 import listener.item.ActionItemAltaMedico;
-import listener.item.ActionItemAltaPaciente;
 import listener.item.ActionItemAtenderCita;
-import listener.item.ActionItemBajaPaciente;
 import listener.item.ActionItemCerrarOperacion;
 import listener.item.ActionItemCitaEspecialista;
-import listener.item.ActionItemCitaOperacion;
 import listener.item.ActionItemCitaPrimaria;
 import modelo.Medico;
 import modelo.Paciente;
@@ -63,6 +61,8 @@ public class ParaUI extends UI {
 		getModificarPaciente().getBtnModificar().addActionListener(new ActionModificarPaciente(this));
 		getAltaMedico().getBtnAceptar().addActionListener(new ActionAltaMedico(this));
 		getBajaPaciente().getBtnDarBaja().addActionListener(new ActionBajaPaciente(this));
+		getCitaOperacion().getBtnAceptar().addActionListener(new ActionCitaOperacion(this));
+
 		getConsultaPaciente().getComboBoxNombre()
 				.addActionListener(new MostarCamposPaciente(getConsultaPaciente().getComboBoxID(),
 						getConsultaPaciente().getComboBoxNombre(), control, false, getConsultaPaciente().getFields()));
@@ -101,12 +101,10 @@ public class ParaUI extends UI {
 				getCitaPrimaria().getComboBoxID(), getCitaPrimaria().getComboBoxNombre(), control, false));
 		getCitaPrimaria().getComboBoxID().addActionListener(new SincronizarComboBox(getCitaPrimaria().getComboBoxID(),
 				getCitaPrimaria().getComboBoxNombre(), control, true));
-		//
 		getCitaPrimaria().getBtnPedirCita()
-		.addActionListener(new ActionCitaPrimaria(getCitaPrimaria().getNombreMedico(),
-				getCitaPrimaria().getCoordenada(), getCitaPrimaria().getIDPaciente(), control,
-				getCitaPrimaria().getDia(), getCitaPrimaria().getHora()));
-		// actionlistener combobox
+				.addActionListener(new ActionCitaPrimaria(getCitaPrimaria().getNombreMedico(),
+						getCitaPrimaria().getCoordenada(), getCitaPrimaria().getIDPaciente(), control,
+						getCitaPrimaria().getDia(), getCitaPrimaria().getHora()));
 		// Consulta Medico
 		getConsultaMedico().getComboBoxID()
 				.addActionListener(new MostrarCamposMedico(getConsultaMedico().getComboBoxID(),
