@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import control.ParaUI;
 import modelo.Medico;
+import modelo.enums.Turno;
 
 public class CitaEspecialistaMedico implements ActionListener {
 

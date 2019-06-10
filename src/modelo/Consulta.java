@@ -6,13 +6,13 @@ import java.util.ArrayList;
 public class Consulta implements Serializable {
 
 	private String id;
-	private boolean[][] horarios;
+	private boolean[][] horario;
 	private ArrayList<Medico> medicos;
 
 	public Consulta(String id) {
 		super();
 		this.medicos = new ArrayList<Medico>();
-		this.horarios = new boolean[8][5];
+		this.horario = new boolean[8][5];
 		this.id = id;
 	}
 
@@ -57,7 +57,7 @@ public class Consulta implements Serializable {
 	}
 
 	public boolean[][] getHorarios() {
-		return horarios;
+		return horario;
 	}
 
 	public void setId(String string) {
@@ -65,5 +65,12 @@ public class Consulta implements Serializable {
 	}
 	public boolean isTrabajando(Medico medico) {
 		return this.medicos.contains(medico);
+	}
+
+	public ArrayList<Medico> getMedicos() {
+		return medicos;
+	}
+	public void asignarHora(int i,int j) {
+		this.horario[i][j]=true;
 	}
 }

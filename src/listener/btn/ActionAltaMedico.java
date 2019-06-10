@@ -23,7 +23,8 @@ public class ActionAltaMedico implements ActionListener {
 			this.paraUI.getAltaMedico().getMensajeSistema().setText("DONE");
 		} else {
 			this.paraUI.getAltaMedico().getMensajeSistema().setText("lo has petado");
-		}
+		}System.out.println(this.paraUI.getAltaMedico().getTurno());
 	}
+	
 
 }
