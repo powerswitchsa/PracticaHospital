@@ -3,7 +3,6 @@ package vista.medico;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.util.ArrayList;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -124,10 +123,6 @@ public class ConsultaMedico extends JPanel {
 		return jLabel;
 	}
 
-	public JTextField[] getFields() {
-		return campos;
-	}
-
 	public void mostrarDatos(Medico medico) {
 		this.campos[0].setText(medico.getNombre());
 		this.campos[1].setText(medico.getApellidos());
@@ -139,6 +134,10 @@ public class ConsultaMedico extends JPanel {
 		for (int i = 0; i < campos.length; i++) {
 			this.campos[i].setText(null);
 		}
+	}
+
+	public JTextField[] getFields() {
+		return campos;
 	}
 
 	public JComboBox<String> getComboNombreMedico() {

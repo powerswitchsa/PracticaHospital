@@ -17,6 +17,8 @@ public class ActionItemVerHistorial implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.paraUI.asociarPanel("verHistorial");
+		this.paraUI.rellenarComboBoxPaciente(this.paraUI.getVerHistorial().getComboBoxID(),
+				this.paraUI.getVerHistorial().getComboBoxNombre());
 	}
 
 }

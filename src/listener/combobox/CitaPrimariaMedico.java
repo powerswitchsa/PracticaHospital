@@ -25,5 +25,4 @@ public class CitaPrimariaMedico implements ActionListener {
 			}
 		}
 	}
-
 }
