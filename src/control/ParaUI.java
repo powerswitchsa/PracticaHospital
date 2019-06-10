@@ -101,12 +101,10 @@ public class ParaUI extends UI {
 				getCitaPrimaria().getComboBoxID(), getCitaPrimaria().getComboBoxNombre(), control, false));
 		getCitaPrimaria().getComboBoxID().addActionListener(new SincronizarComboBox(getCitaPrimaria().getComboBoxID(),
 				getCitaPrimaria().getComboBoxNombre(), control, true));
-		//
 		getCitaPrimaria().getBtnPedirCita()
 				.addActionListener(new ActionCitaPrimaria(getCitaPrimaria().getNombreMedico(),
 						getCitaPrimaria().getCoordenada(), getCitaPrimaria().getIDPaciente(), control,
 						getCitaPrimaria().getDia(), getCitaPrimaria().getHora()));
-		// actionlistener combobox
 		// Consulta Medico
 		getConsultaMedico().getComboBoxID()
 				.addActionListener(new MostrarCamposMedico(getConsultaMedico().getComboBoxID(),

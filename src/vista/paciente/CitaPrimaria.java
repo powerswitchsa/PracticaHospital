@@ -282,12 +282,18 @@ public class CitaPrimaria extends JPanel {
 		jLabel.setBorder(new MatteBorder(1, 1, 1, 1, Color.BLACK));
 		return jLabel;
 	}
+
 	public String getIDPaciente() {
 		return this.comboBoxID.getSelectedItem().toString();
 	}
 
 	public String getNombreMedico() {
-		return this.getComboNombreMedico().getSelectedItem().toString();
+		String nombreMedico = this.getComboNombreMedico().getSelectedItem().toString();
+		if (nombreMedico != null) {
+			return nombreMedico;
+		} else {
+			return "";
+		}
 	}
 
 	public JComboBox getComboBoxNombre() {
@@ -313,5 +319,5 @@ public class CitaPrimaria extends JPanel {
 	public JLabel getLblMensaje() {
 		return lblMensaje;
 	}
-	
+
 }
