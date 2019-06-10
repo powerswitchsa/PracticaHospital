@@ -175,6 +175,10 @@ public class AltaMedico extends JPanel {
 			return Turno.mañana;
 		case "tarde":
 			return Turno.tarde;
+		case "mediaMañana":
+			return Turno.mediaMañana;
+		case "medioDia":
+			return Turno.medioDia;
 		default:
 			return null;
 		}
