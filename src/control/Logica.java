@@ -120,6 +120,16 @@ public class Logica {
 		return seleccionados;
 	}
 
+	public boolean getCitaOperacion(String nombreCirujano, String nombreMedico, String idPaciente,
+			TipoOperacion tipoOperacion) {
+		Intervencion intervencion = new Intervencion(getFullNameMedico(nombreMedico), getFullNameMedico(nombreMedico),
+				tipoOperacion, false, "");
+		Paciente paciente = this.mapPaciente.get(idPaciente);
+		this.gestorDTO.getGrabarPaciente(paciente);
+		this.gestorDTO.getGrabarMapPaciente(this.mapPaciente);
+		return paciente.asiganarIntervencion(intervencion);
+	}
+
 	public HashMap<String, Paciente> getMapPaciente() {
 		return this.mapPaciente;
 	}

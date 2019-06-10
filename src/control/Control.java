@@ -9,6 +9,7 @@ import modelo.Intervencion;
 import modelo.Medico;
 import modelo.Paciente;
 import modelo.enums.Especialidad;
+import modelo.enums.TipoOperacion;
 import modelo.enums.Turno;
 import vista.paciente.CitaOperacion;
 
@@ -31,7 +32,6 @@ public class Control {
 	}
 
 	public boolean getAltaMedico(ArrayList<String> infoMedico, Especialidad tipo, Turno turno) {
-		System.out.println(infoMedico.get(0));
 		Medico medico = new Medico(infoMedico.get(0), infoMedico.get(1), infoMedico.get(2), infoMedico.get(3), tipo,
 				turno);
 //		return this.controller.validarMedico(medico) ? this.logica.getAltaMedico(medico, tipo, turno) : false;
@@ -44,21 +44,21 @@ public class Control {
 				: false;
 	}
 
+	public boolean getCitaOperacion(String nombreCirujano, String nombreMedico, String idPaciente,
+			TipoOperacion tipoOperacion) {
+		return this.logica.getCitaOperacion(nombreCirujano, nombreMedico, idPaciente, tipoOperacion);
+	}
+
 	public boolean getBajaPaciente(String id) {
 		return this.logica.getBajaPaciente(id);
 	}
 
 	public boolean getCitaPrimaria(String id, String nombreMedico, String horario) {
-		// horarios = "i + " " + j" hace referencia a la posicion de la matriz horario
 		return false;
 	}
 
 	public Medico getFullNameMedico(String fullName) {
 		return this.logica.getFullNameMedico(fullName);
-	}
-
-	public boolean getCitaOperacion(CitaOperacion citaOperacion) {
-		return false;
 	}
 
 	public boolean getCitaEspecialista(String... info) {

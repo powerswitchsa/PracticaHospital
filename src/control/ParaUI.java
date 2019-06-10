@@ -8,6 +8,7 @@ import javax.swing.JComboBox;
 import listener.btn.ActionAltaMedico;
 import listener.btn.ActionAltaPaciente;
 import listener.btn.ActionBajaPaciente;
+import listener.btn.ActionCitaOperacion;
 import listener.btn.ActionModificarPaciente;
 import listener.combobox.CitaEspecialistaMedico;
 import listener.combobox.CitaPrimariaMedico;
@@ -58,6 +59,7 @@ public class ParaUI extends UI {
 		getModificarPaciente().getBtnModificar().addActionListener(new ActionModificarPaciente(this));
 		getAltaMedico().getBtnAceptar().addActionListener(new ActionAltaMedico(this));
 		getBajaPaciente().getBtnDarBaja().addActionListener(new ActionBajaPaciente(this));
+		getCitaOperacion().getBtnAceptar().addActionListener(new ActionCitaOperacion(this));
 		// Cita Operacion
 		getCitaOperacion().getComboPaciente().addActionListener(new SincronizarComboBox(getCitaOperacion().getComboID(),
 				getCitaOperacion().getComboPaciente(), control, false));

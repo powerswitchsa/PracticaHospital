@@ -26,7 +26,6 @@ public class CitaPrimariaMedico implements ActionListener {
 				}
 			}
 		} catch (Exception e2) {
-			e2.printStackTrace();
 		}
 	}
 }

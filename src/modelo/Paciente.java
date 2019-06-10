@@ -24,6 +24,10 @@ public class Paciente extends Persona implements Serializable {
 		return intervenciones;
 	}
 
+	public boolean asiganarIntervencion(Intervencion intervencion) {
+		return this.intervenciones.add(intervencion);
+	}
+
 	public String getFullName() {
 		return getApellidos() + ", " + getNombre();
 	}
