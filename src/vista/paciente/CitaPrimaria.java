@@ -218,13 +218,6 @@ public class CitaPrimaria extends JPanel {
 			}
 			indice++;
 		}
-
-//		boolean[][] a = new boolean[horas][dias];
-//		a[0][0] = true;
-//		a[3][3] = true;
-//		a[2][4] = true;
-//		a[1][1] = true;
-//		crearBotonera(a, Turno.mañana);
 	}
 
 	public void crearBotonera(boolean[][] horario, Turno turno) {
@@ -234,7 +227,7 @@ public class CitaPrimaria extends JPanel {
 			for (int j = 0; j < horario[i].length; j++) {
 				this.botonera[i][j].setEnabled(true);
 				this.botonera[i][j].setBackground(Color.WHITE);
-				if (i > 3 && Turno.mañana == turno || i < 4 && Turno.tarde == turno) {
+				if (i != turno.getFilaUno() && i != turno.getFilaDos()) {
 					this.botonera[i][j].setEnabled(false);
 					this.botonera[i][j].setBorder(new MatteBorder(5, 5, 5, 5, Color.RED));
 				} else {
