@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 import listener.btn.ActionAltaMedico;
 import listener.btn.ActionAltaPaciente;
