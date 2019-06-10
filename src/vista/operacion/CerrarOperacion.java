@@ -18,6 +18,8 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import java.util.HashMap;
+
 import javax.swing.SwingConstants;
 
 public class CerrarOperacion extends JPanel {
@@ -93,12 +95,14 @@ public class CerrarOperacion extends JPanel {
 		setLayout(groupLayout);
 	}
 
-	private void rellenarCloseInt(Paciente paciente) {
+	public void rellenarCloseInt(HashMap<String, Paciente> paciente) {
 		int index = 0;
 //		this.datosCloseInt = new String[paciente.getCitas().size()][columnaCloseInt.length];
-		for (Intervencion interven : paciente.getIntervenciones()) {
-			rellenarCloseIntFila(paciente.getFullName(), interven, index);
-			index++;
+		for (Paciente user : paciente.values()) {
+			for (Intervencion interven : user.getIntervenciones()) {
+				rellenarCloseIntFila(user.getFullName(), interven, index);
+				index++;
+			}
 		}
 		DefaultTableModel defaultTableModelC = new DefaultTableModel(datosCloseInt, columnaCloseInt);
 		tableCloseHistorial = new JTable(defaultTableModelC);

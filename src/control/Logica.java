@@ -6,6 +6,7 @@ import java.util.HashMap;
 import almacen.GestorDTO;
 import modelo.Cita;
 import modelo.Consulta;
+import modelo.Intervencion;
 import modelo.Medico;
 import modelo.Paciente;
 import modelo.enums.*;

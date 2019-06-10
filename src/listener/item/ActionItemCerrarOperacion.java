@@ -17,6 +17,7 @@ public class ActionItemCerrarOperacion implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.paraUI.asociarPanel("cerrarOperacion");
+		this.paraUI.getCerrarOperacion().rellenarCloseInt(this.paraUI.getControl().getMapPaciente());
 	}
 
 }
