@@ -11,6 +11,7 @@ import javax.swing.JComboBox;
 import listener.btn.ActionAltaMedico;
 import listener.btn.ActionAltaPaciente;
 import listener.btn.ActionBajaPaciente;
+import listener.btn.ActionCitaEspecialista;
 import listener.btn.ActionCitaOperacion;
 import listener.btn.ActionCitaPrimaria;
 import listener.btn.ActionModificarPaciente;
@@ -86,6 +87,7 @@ public class ParaUI extends UI {
 		getCitaEspecialista().getComboBoxID().addActionListener(new SincronizarComboBox(
 				getCitaEspecialista().getComboBoxID(), getCitaEspecialista().getComboBoxNombre(), control, true));
 		getCitaEspecialista().getComboNombreMedico().addActionListener(new CitaEspecialistaMedico(this));
+		getCitaEspecialista().getBtnPedirCita().addActionListener(new ActionCitaEspecialista(getCitaEspecialista(), control));
 		// Consulta Paciente
 		getConsultaPaciente().getComboBoxNombre()
 				.addActionListener(new MostarCamposPaciente(getConsultaPaciente().getComboBoxID(),
@@ -105,10 +107,8 @@ public class ParaUI extends UI {
 		getCitaPrimaria().getComboBoxID().addActionListener(new SincronizarComboBox(getCitaPrimaria().getComboBoxID(),
 				getCitaPrimaria().getComboBoxNombre(), control, true));
 		
-//		getCitaPrimaria().getBtnPedirCita()
-//				.addActionListener(new ActionCitaPrimaria(getCitaPrimaria().getComboNombreMedico(),
-//						getCitaPrimaria(), getCitaPrimaria().getComboBoxID(), control,
-//						getCitaPrimaria().getDia(), getCitaPrimaria().getHora()));
+		getCitaPrimaria().getBtnPedirCita()
+				.addActionListener(new ActionCitaPrimaria(getCitaPrimaria(), control));
 
 		// Consulta Medico
 		getConsultaMedico().getComboBoxID()

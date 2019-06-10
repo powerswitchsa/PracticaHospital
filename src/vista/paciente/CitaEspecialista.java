@@ -29,8 +29,8 @@ public class CitaEspecialista extends JPanel {
 	private JPanel panelBotonera;
 	private JPanel panelLabel;
 
-	private String[] textHoras = { "8:00-9:00", "9:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00",
-			"13:00-14:00", "14:00-15:00", "15:00-16:00" };
+	private String[] textHoras = { "8:00", "9:00", "10:00", "11:00", "12:00",
+			"13:00", "14:00", "15:00" };
 	private String[] label = { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes" };
 	private int horas = 8;
 	private int dias = 5;
@@ -41,6 +41,8 @@ public class CitaEspecialista extends JPanel {
 	private JComboBox comboBoxNombre;
 	private JComboBox comboBoxID;
 	private JComboBox comboNombreMedico;
+	private JButton btnPedirCita;
+	private JLabel lblMenasaje;
 
 	public CitaEspecialista(Color colorFondo, int letraPequena, int letraGrande, String tipoLetra) {
 		this.botonera = new JButton[horas][dias];
@@ -132,10 +134,10 @@ public class CitaEspecialista extends JPanel {
 
 		panelPedirCita.setBackground(colorFondo);
 
-		JLabel lblMenasaje = new JLabel("");
+		lblMenasaje = new JLabel("");
 		lblMenasaje.setHorizontalAlignment(SwingConstants.CENTER);
 
-		JButton btnPedirCita = new JButton("Pedir Cita");
+		btnPedirCita = new JButton("Pedir Cita");
 		GroupLayout gl_panelPedirCita = new GroupLayout(panelPedirCita);
 		gl_panelPedirCita.setHorizontalGroup(gl_panelPedirCita.createParallelGroup(Alignment.LEADING)
 				.addGap(0, 490, Short.MAX_VALUE)
@@ -292,6 +294,14 @@ public class CitaEspecialista extends JPanel {
 
 	public void setCoordenadas(String coordenadas) {
 		this.coordenadas = coordenadas;
+	}
+
+	public JButton getBtnPedirCita() {
+		return btnPedirCita;
+	}
+
+	public JLabel getLblMenasaje() {
+		return lblMenasaje;
 	}
 	
 
