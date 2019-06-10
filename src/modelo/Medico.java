@@ -17,9 +17,20 @@ public class Medico extends Persona implements Serializable {
 		this.especialidad = especialidad;
 		this.turno = turno;
 		this.horario = new boolean[8][5];
+		if (especialidad == Especialidad.Especialista) {
+			for (int i = 0; i < horario.length; i++) {
+				for (int j = 0; j < horario[i].length; j++) {
+					if (j == 1 || j == 3)
+						this.horario[i][j] = false;
+					else
+						this.horario[i][j] = true;
+				}
+			}
+		}
 	}
-	public void asignarHora(int i,int j) {
-		this.horario[i][j]=true;
+
+	public void asignarHora(int i, int j) {
+		this.horario[i][j] = true;
 	}
 
 	public Especialidad getEspecialidad() {

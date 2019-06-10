@@ -242,7 +242,7 @@ public class CitaEspecialista extends JPanel {
 				this.botonera[i][j].setEnabled(true);
 				if (i > 3 && Turno.mañana == turno || i < 4 && Turno.tarde == turno) {
 					this.botonera[i][j].setEnabled(false);
-					this.botonera[i][j].setBorder(new MatteBorder(5, 5, 5, 5, Color.ORANGE));
+					this.botonera[i][j].setBorder(new MatteBorder(5, 5, 5, 5, Color.RED));
 				} else {
 					this.botonera[i][j]
 							.setBorder(new MatteBorder(5, 5, 5, 5, this.horario[i][j] ? Color.RED : Color.BLUE));
