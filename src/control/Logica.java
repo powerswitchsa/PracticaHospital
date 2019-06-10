@@ -3,6 +3,8 @@ package control;
 import java.util.ArrayList;
 
 import java.util.HashMap;
+import java.util.Iterator;
+
 import almacen.GestorDTO;
 import modelo.Calendario;
 import modelo.Cita;
@@ -144,7 +146,7 @@ public class Logica {
 		int i = Integer.valueOf(posicion[0]);
 		int j = Integer.valueOf(posicion[1]);
 		Medico medico = getMedicoFromName(nombreMedico);
-		Cita cita = new Cita(medico, getPaciente(id),this.calendario.getDiaSemana()[j]+", "+hora, false, "");
+		Cita cita = new Cita(medico, getPaciente(id), this.calendario.getDiaSemana()[j] + ", " + hora, false, "");
 		Paciente paciente = cita.getPaciente();
 		this.citas.add(cita);
 		paciente.addCita(cita);
@@ -183,6 +185,13 @@ public class Logica {
 
 	public void getPasarHora() {
 		this.calendario.sumarHora();
+		for (Iterator iterator = citas.iterator(); iterator.hasNext();) {
+			Cita cita = (Cita) iterator.next();
+			if (calendario.isRealizado(cita.getFecha())) {
+				cita.setAsistencia(true);
+				iterator.remove();
+			}
+		}
 		this.gestorDTO.getGrabarCalendario(this.calendario);
 	}
 

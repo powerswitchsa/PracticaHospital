@@ -62,6 +62,7 @@ public class Consulta implements Serializable {
 	public void setId(String string) {
 		this.id = string;
 	}
+
 	public boolean isTrabajando(Medico medico) {
 		return this.medicos.contains(medico);
 	}
@@ -69,7 +70,8 @@ public class Consulta implements Serializable {
 	public ArrayList<Medico> getMedicos() {
 		return medicos;
 	}
-	public void asignarHora(int i,int j) {
-		this.horario[i][j]=true;
+
+	public void asignarHora(int i, int j) {
+		this.horario[i][j] = true;
 	}
 }
