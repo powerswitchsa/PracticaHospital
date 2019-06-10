@@ -225,7 +225,7 @@ public class CitaEspecialista extends JPanel {
 			for (int j = 0; j < horario[i].length; j++) {
 				this.botonera[i][j].setEnabled(true);
 				this.botonera[i][j].setBackground(Color.WHITE);
-				if (i > 3 && Turno.mañana == turno || i < 4 && Turno.tarde == turno) {
+				if (i != turno.getFilaUno() && i != turno.getFilaDos()) {
 					this.botonera[i][j].setEnabled(false);
 					this.botonera[i][j].setBorder(new MatteBorder(5, 5, 5, 5, Color.RED));
 				} else {
@@ -244,25 +244,6 @@ public class CitaEspecialista extends JPanel {
 		int i = Integer.valueOf(cadena[0]);
 		int j = Integer.valueOf(cadena[1]);
 		return this.botonera[i][j].getText();
-	}
-
-	public String getDia() {
-		String[] cadena = this.coordenadas.split(";");
-		int i = Integer.valueOf(cadena[1]);
-		switch (i) {
-		case 0:
-			return "lunes";
-		case 1:
-			return "martes";
-		case 2:
-			return "miercoles";
-		case 3:
-			return "jueves";
-		case 4:
-			return "viernes";
-		default:
-			return "";
-		}
 	}
 
 	private JLabel crearLabel(String cadena) {
