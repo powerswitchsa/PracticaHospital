@@ -54,8 +54,8 @@ public class Control {
 		return this.logica.getBajaPaciente(id);
 	}
 
-	public boolean getCitaPrimaria(String id, String nombreMedico, String coordenada, String fechaDia) {
-		return this.logica.getCitaPrimaria(id, nombreMedico, coordenada, fechaDia);
+	public boolean getCita(String id, String nombreMedico, String coordenada, String hora) {
+		return this.logica.getCita(id, nombreMedico, coordenada, hora);
 	}
 
 	public Medico getFullNameMedico(String fullName) {

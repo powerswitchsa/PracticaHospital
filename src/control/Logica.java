@@ -139,22 +139,22 @@ public class Logica {
 		return paciente.asiganarIntervencion(intervencion);
 	}
 
-	public boolean getCitaPrimaria(String id, String nombreMedico, String coordenada, String fechaDia) {
-		Paciente paciente = getPaciente(id);
-		Medico medico = getMedicoFromName(nombreMedico);
-		Cita cita = new Cita(medico, getPaciente(id), fechaDia, false, "");
-		paciente.addCita(cita);
-		this.citas.add(cita);
+	public boolean getCita(String id, String nombreMedico, String coordenada, String hora) {
 		String[] posicion = coordenada.split(";");
 		int i = Integer.valueOf(posicion[0]);
 		int j = Integer.valueOf(posicion[1]);
+		Medico medico = getMedicoFromName(nombreMedico);
+		Cita cita = new Cita(medico, getPaciente(id),this.calendario.getDiaSemana()[j]+", "+hora, false, "");
+		Paciente paciente = cita.getPaciente();
+		this.citas.add(cita);
+		paciente.addCita(cita);
 		medico.asignarHora(i, j);
 		for (Consulta consultas : this.mapConsulta.values()) {
 			if (consultas.getMedicos().contains(medico)) {
 				consultas.asignarHora(i, j);
 			}
 		}
-		return false;
+		return this.gestorDTO.getGrabarCitas(this.citas);
 	}
 
 	public String getFecha() {
