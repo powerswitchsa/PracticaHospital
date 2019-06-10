@@ -31,13 +31,12 @@ public class CitaPrimaria extends JPanel {
 	private JPanel panelBotonera;
 	private JPanel panelLabel;
 
-	private String[] textHoras = { "8:00-9:00", "9:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00",
-			"13:00-14:00", "14:00-15:00", "15:00-16:00" };
+	private String[] textHoras = { "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00" };
 	private String[] label = { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes" };
 	private int horas = 8;
 	private int dias = 5;
 	private JButton[][] botonera;
-	private String coordenadas;
+	private String coordenadas = "10;10";
 	private boolean[][] horario;
 
 	private JComboBox comboBoxNombre;
@@ -49,7 +48,6 @@ public class CitaPrimaria extends JPanel {
 	public CitaPrimaria(Color colorFondo, int letraPequena, int letraGrande, String tipoLetra) {
 		this.botonera = new JButton[horas][dias];
 		this.horario = new boolean[horas][dias];
-		this.coordenadas = "10;10";
 		setVisible(true);
 		setBackground(colorFondo);
 		this.colorFondo = colorFondo;
@@ -211,28 +209,22 @@ public class CitaPrimaria extends JPanel {
 							botonera[anteriorX][anteriorY].setBackground(Color.WHITE);
 						}
 						botonera[actualX][actualY].setBackground(Color.GREEN);
-						coordenadas = boton.getName();
+						setCoordenadas(boton.getName());
+//						coordenadas = boton.getName();
 					}
 				});
 				this.panelBotonera.add(this.botonera[i][j]);
 			}
 			indice++;
 		}
-
-//		boolean[][] a = new boolean[horas][dias];
-//		a[0][0] = true;
-//		a[3][3] = true;
-//		a[2][4] = true;
-//		a[1][1] = true;
-//		crearBotonera(a, Turno.mañana);
 	}
 
 	public void crearBotonera(boolean[][] horario, Turno turno) {
 		this.horario = horario;
-		this.coordenadas = "10;10";
 		for (int i = 0; i < horario.length; i++) {
 			for (int j = 0; j < horario[i].length; j++) {
 				this.botonera[i][j].setEnabled(true);
+				this.botonera[i][j].setBackground(Color.WHITE);
 				if (i > 3 && Turno.mañana == turno || i < 4 && Turno.tarde == turno) {
 					this.botonera[i][j].setEnabled(false);
 					this.botonera[i][j].setBorder(new MatteBorder(5, 5, 5, 5, Color.RED));
@@ -251,29 +243,7 @@ public class CitaPrimaria extends JPanel {
 		String[] cadena = this.coordenadas.split(";");
 		int i = Integer.valueOf(cadena[0]);
 		int j = Integer.valueOf(cadena[1]);
-		if (i != 10 && j != 10)
 			return this.botonera[i][j].getText();
-		else
-			return "0;0";
-	}
-
-	public String getDia() {
-		String[] cadena = this.coordenadas.split(";");
-		int i = Integer.valueOf(cadena[1]);
-		switch (i) {
-		case 0:
-			return "lunes";
-		case 1:
-			return "martes";
-		case 2:
-			return "miercoles";
-		case 3:
-			return "jueves";
-		case 4:
-			return "viernes";
-		default:
-			return "";
-		}
 	}
 
 	private JLabel crearLabel(String cadena) {
@@ -320,7 +290,7 @@ public class CitaPrimaria extends JPanel {
 	}
 
 	public String getCoordenada() {
-		return coordenadas;
+		return this.coordenadas;
 	}
 
 	public JButton getBtnPedirCita() {
@@ -331,4 +301,7 @@ public class CitaPrimaria extends JPanel {
 		return lblMensaje;
 	}
 
+	public void setCoordenadas(String coordenadas) {
+		this.coordenadas = coordenadas;
+	}
 }

@@ -134,11 +134,12 @@ public class Logica {
 	}
 
 	public boolean getCitaPrimaria(String id, String nombreMedico, String coordenada, String fechaDia) {
-		Paciente paciente = getPaciente(id);
 		Medico medico = getMedicoFromName(nombreMedico);
 		Cita cita = new Cita(medico, getPaciente(id), fechaDia, false, "");
-		paciente.addCita(cita);
+		Paciente paciente = cita.getPaciente();
+		System.out.println("hola");
 		this.citas.add(cita);
+		paciente.addCita(cita);
 		String[] posicion = coordenada.split(";");
 		int i = Integer.valueOf(posicion[0]);
 		int j = Integer.valueOf(posicion[1]);
@@ -148,7 +149,7 @@ public class Logica {
 				consultas.asignarHora(i, j);
 			}
 		}
-		return false;
+		return this.gestorDTO.getGrabarCitas(this.citas);
 	}
 
 	public HashMap<String, Paciente> getMapPaciente() {

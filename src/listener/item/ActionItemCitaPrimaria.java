@@ -23,6 +23,7 @@ public class ActionItemCitaPrimaria implements ActionListener {
 					this.paraUI.getCitaPrimaria().getComboBoxNombre());
 			this.paraUI.rellenarEspecialidadMedico(this.paraUI.getCitaPrimaria().getComboNombreMedico(),
 					Especialidad.Cabecera);
+			this.paraUI.getCitaPrimaria().setCoordenadas("10;10");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
