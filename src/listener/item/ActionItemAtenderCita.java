@@ -26,7 +26,7 @@ public class ActionItemAtenderCita implements ActionListener {
 		}
 		ArrayList<Medico> medicos = this.paraUI.getControl().getMedicosAtenderCita();
 		for (Medico medico : medicos) {
-			this.paraUI.getAtenderCita().getComboBoxMedico().addItem(medico);
+			this.paraUI.getAtenderCita().getComboBoxMedico().addItem(medico.getFullName());
 		}
 	}
 

@@ -6,14 +6,12 @@ import java.util.HashMap;
 
 import modelo.Consulta;
 import modelo.Controller;
-import modelo.Intervencion;
 import modelo.Medico;
 import modelo.Paciente;
 import modelo.enums.Especialidad;
 import modelo.enums.TipoOperacion;
 import modelo.enums.Turno;
 import vista.medico.AltaMedico;
-import vista.paciente.CitaOperacion;
 
 public class Control {
 
@@ -108,6 +106,7 @@ public class Control {
 		}
 		return null;
 	}
+
 	public Especialidad getEspecialidadCombo(String especialidad) {
 		return this.logica.getEspecialidadCombo(especialidad);
 	}
