@@ -22,6 +22,7 @@ public class AltaMedicoComboEspecialidad implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
+			this.altaMedico.getComboConsulta().removeAllItems();
 			if (this.altaMedico.getComboEspecilidad() != null) {
 				Especialidad tipo = this.altaMedico.getTipoEspecialidad();
 				if (tipo != null) {

@@ -61,4 +61,7 @@ public class Consulta implements Serializable {
 	public Especialidad getEspecialidad() {
 		return especialidad;
 	}
+	public void getAsignarMedico(Medico medico) {
+		this.medicos.add(medico);
+	}
 }

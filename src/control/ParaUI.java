@@ -16,6 +16,7 @@ import listener.btn.ActionCitaEspecialista;
 import listener.btn.ActionCitaOperacion;
 import listener.btn.ActionCitaPrimaria;
 import listener.btn.ActionModificarPaciente;
+import listener.combobox.AltaMedicoComboEspecialidad;
 import listener.combobox.AtenderCitaComboMEdico;
 import listener.combobox.CitaEspecialistaMedico;
 import listener.combobox.CitaPrimariaMedico;
@@ -68,10 +69,11 @@ public class ParaUI extends UI {
 		getAltaMedico().getBtnAceptar().addActionListener(new ActionAltaMedico(this));
 		getBajaPaciente().getBtnDarBaja().addActionListener(new ActionBajaPaciente(this));
 		getCitaOperacion().getBtnAceptar().addActionListener(new ActionCitaOperacion(this));
-
 		getConsultaPaciente().getComboBoxNombre()
 				.addActionListener(new MostarCamposPaciente(getConsultaPaciente().getComboBoxID(),
 						getConsultaPaciente().getComboBoxNombre(), control, false, getConsultaPaciente().getFields()));
+		//Alta paciente
+		getAltaMedico().getComboEspecilidad().addActionListener(new AltaMedicoComboEspecialidad(this, getAltaMedico()));
 		// Cita Operacion
 		getCitaOperacion().getComboPaciente().addActionListener(new SincronizarComboBox(getCitaOperacion().getComboID(),
 				getCitaOperacion().getComboPaciente(), control, false));

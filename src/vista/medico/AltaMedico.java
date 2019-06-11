@@ -90,10 +90,6 @@ public class AltaMedico extends JPanel {
 		setLayout(groupLayout);
 		creandoVista(color, letraPequena, tipoLetra);
 		setVisible(true);
-
-		for (Especialidad esp : Especialidad.values()) {
-			this.comboEspecilidad.addItem(esp);
-		}
 	}
 
 	private void creandoVista(Color color, int letraPequena, String tipoLetra) {

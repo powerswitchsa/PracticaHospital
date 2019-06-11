@@ -17,12 +17,17 @@ public class ActionAltaMedico implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
-			if (this.paraUI.getControl().getAltaMedico(this.paraUI.getAltaMedico().getFieldsMedico(),
-					this.paraUI.getAltaMedico().getTipoEspecialidad(), this.paraUI.getAltaMedico().getTurno())) {
-				this.paraUI.getAltaMedico().getMensajeSistema().setText("DONE");
-				this.paraUI.getAltaMedico().vaciarCampos();
-			} else {
-				this.paraUI.getAltaMedico().getMensajeSistema().setText("lo has petado");
+			if (this.paraUI.getAltaMedico().getComboConsulta().getSelectedItem().toString()!=null) {
+				String idConsulta = this.paraUI.getAltaMedico().getComboConsulta().getSelectedItem().toString();
+				if (this.paraUI.getControl().getAltaMedico(this.paraUI.getAltaMedico().getFieldsMedico(),
+						this.paraUI.getAltaMedico().getTipoEspecialidad(), this.paraUI.getAltaMedico().getTurno(),
+						idConsulta)) {
+					this.paraUI.getAltaMedico().getMensajeSistema().setText("DONE");
+					this.paraUI.getAltaMedico().vaciarCampos();
+				} else {
+					this.paraUI.getAltaMedico().getMensajeSistema().setText("lo has petado");
+				}
+				this.paraUI.asociarPanel("altaMedico");			
 			}
 		} catch (Exception e2) {
 			e2.printStackTrace();

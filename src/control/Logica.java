@@ -45,7 +45,7 @@ public class Logica {
 		if (this.getMapConsulta() == null) {
 			this.mapConsulta = new HashMap<String, Consulta>();
 			for (int i = 0; i < 4; i++) {
-				if (i < 3) {
+				if (i > 1) {
 					this.mapConsulta.put(String.valueOf(i), new Consulta(String.valueOf(i), Especialidad.Cabecera));
 				} else {
 					this.mapConsulta.put(String.valueOf(i), new Consulta(String.valueOf(i), Especialidad.Especialista));
@@ -63,10 +63,11 @@ public class Logica {
 		return this.gestorDTO.getGrabarPaciente(paciente) && this.gestorDTO.getGrabarMapPaciente(this.mapPaciente);
 	}
 
-	public boolean getAltaMedico(Medico medico, Especialidad tipo, Turno turno) {
+	public boolean getAltaMedico(Medico medico, Especialidad tipo, Turno turno,String id) {
 		medico.setId(getUltimaIdMedico());
 		this.mapMedico.put(medico.getId(), medico);
-		return this.gestorDTO.getGrabarMapMedico(this.mapMedico);
+		this.mapConsulta.get(id).getAsignarMedico(medico);
+		return this.gestorDTO.getGrabarMapMedico(this.mapMedico) && this.gestorDTO.getGrabarMapConsulta(this.mapConsulta);
 	}
 
 	public boolean getBajaPaciente(String id) {

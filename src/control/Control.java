@@ -33,11 +33,11 @@ public class Control {
 		return this.logica.getAltaPaciente(paciente);
 	}
 
-	public boolean getAltaMedico(ArrayList<String> infoMedico, Especialidad tipo, Turno turno) {
+	public boolean getAltaMedico(ArrayList<String> infoMedico, Especialidad tipo, Turno turno,String idConsulta) {
 		Medico medico = new Medico(infoMedico.get(0), infoMedico.get(1), infoMedico.get(2), infoMedico.get(3), tipo,
 				turno);
 //		return this.controller.validarMedico(medico) ? this.logica.getAltaMedico(medico, tipo, turno) : false;
-		return this.logica.getAltaMedico(medico, tipo, turno);
+		return this.logica.getAltaMedico(medico, tipo, turno, idConsulta);
 	}
 
 	public boolean getModificarPaciente(String id, String direccion, String telefono) {
