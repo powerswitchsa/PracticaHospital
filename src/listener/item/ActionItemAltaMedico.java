@@ -3,13 +3,8 @@ package listener.item;
 import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
-import javax.swing.JComboBox;
-
-import control.Control;
 import control.ParaUI;
-import modelo.Consulta;
 import modelo.enums.*;
 import modelo.enums.Especialidad;
 import vista.medico.AltaMedico;
