@@ -80,10 +80,10 @@ public class Logica {
 		return this.gestorDTO.getGrabarPaciente(paciente) && this.gestorDTO.getGrabarMapPaciente(this.mapPaciente);
 	}
 
-	public ArrayList<String> getConsultaVacante(AltaMedico altaMedico) {
+	public ArrayList<String> getConsultaVacante(String tipo) {
 		ArrayList<String> idConsulta = new ArrayList<String>();
 		for (Consulta consulta : this.mapConsulta.values()) {
-			if (consulta.getVacantes() && consulta.getEspecialidad() == altaMedico.getTipoEspecialidad()) {
+			if (consulta.getVacantes() && consulta.getEspecialidad().toString() == tipo) {
 				idConsulta.add(consulta.getId());
 			}
 		}

@@ -52,7 +52,7 @@ public class ParaUI extends UI {
 		getItemCitaOperacion().addActionListener(new ActionItemCitaOperacion(this));
 		getItemBajaPaciente().addActionListener(new ActionItemBajaPaciente(this));
 		getItemConsultaMedico().addActionListener(new ActionItemConsultaMedico(this));
-		getItemAltaMedico().addActionListener(new ActionItemAltaMedico(this));
+		getItemAltaMedico().addActionListener(new ActionItemAltaMedico(getAltaMedico(), this));
 		getItemVerHistorial().addActionListener(new ActionItemVerHistorial(this));
 		getItemCerrarOperacion().addActionListener(new ActionItemCerrarOperacion(this));
 		getItemModificarPaciente().addActionListener(new ActionItemModificarPaciente(this));

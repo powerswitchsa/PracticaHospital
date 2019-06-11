@@ -68,8 +68,8 @@ public class Control {
 		return false;
 	}
 
-	public ArrayList<String> getVacanteConsulta(AltaMedico AltaMedico) {
-		return this.logica.getConsultaVacante(AltaMedico);
+	public ArrayList<String> getVacanteConsulta(String tipo) {
+		return this.logica.getConsultaVacante(tipo);
 	}
 
 	public HashMap<String, Paciente> getMapPaciente() {
