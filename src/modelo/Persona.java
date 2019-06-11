@@ -56,7 +56,6 @@ public abstract class Persona implements Serializable {
 	}
 
 	public void setId(String id) {
-		assert id != null && validarId(id).isResultado();
 		this.id = id;
 	}
 
