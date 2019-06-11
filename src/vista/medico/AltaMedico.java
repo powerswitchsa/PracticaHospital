@@ -127,6 +127,13 @@ public class AltaMedico extends JPanel {
 		jLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		return jLabel;
 	}
+	public void vaciarCampos () {
+		for (int i = 0; i < fields.length; i++) {
+			if (i<4) {
+				this.fields[i].setText("");
+			}
+		}
+	}
 
 	public ArrayList<String> getFieldsMedico() {
 		ArrayList<String> campos = new ArrayList<String>();
@@ -183,4 +190,9 @@ public class AltaMedico extends JPanel {
 			return null;
 		}
 	}
+
+	public void setFields(JTextField[] fields) {
+		this.fields = fields;
+	}
+	
 }

@@ -10,6 +10,7 @@ import modelo.Controller;
 import modelo.Medico;
 import modelo.Paciente;
 import modelo.enums.Especialidad;
+import modelo.enums.Medicamento;
 import modelo.enums.TipoOperacion;
 import modelo.enums.Turno;
 import vista.medico.AltaMedico;
@@ -70,8 +71,8 @@ public class Control {
 		return this.logica.getMedicosAtenderCita();
 	}
 
-	public ArrayList<String> getVacanteConsulta(AltaMedico AltaMedico) {
-		return this.logica.getConsultaVacante(AltaMedico);
+	public ArrayList<String> getVacanteConsulta(String tipo) {
+		return this.logica.getConsultaVacante(tipo);
 	}
 
 	public HashMap<String, Paciente> getMapPaciente() {
@@ -121,5 +122,8 @@ public class Control {
 
 	public void getPasarHora() {
 		this.logica.getPasarHora();
+	}
+	public void getAddTratamiento(String nombrePaciente, String dosis, String periodo, Medicamento medicamento) {
+		 this.logica.getAddTratamiento(nombrePaciente, dosis, periodo, medicamento);
 	}
 }

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.swing.JComboBox;
 
+import control.Control;
 import control.ParaUI;
 import modelo.Consulta;
 import modelo.enums.*;
@@ -15,33 +16,34 @@ import vista.medico.AltaMedico;
 
 public class ActionItemAltaMedico implements ActionListener {
 
-	private ParaUI paraUI;
 	private AltaMedico altaMedico;
+	private ParaUI paraUI;
 
-	public ActionItemAltaMedico(ParaUI paraUI) {
+	public ActionItemAltaMedico(AltaMedico altaMedico, ParaUI paraUI) {
 		super();
+		this.altaMedico = altaMedico;
 		this.paraUI = paraUI;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.paraUI.asociarPanel("altaMedico");
-		this.paraUI.getAltaMedico().getComboConsulta().removeAllItems();
-		this.paraUI.getAltaMedico().getComboEspecilidad().removeAllItems();
-		this.paraUI.getAltaMedico().getComboHorario().removeAllItems();
-		altaMedico = this.paraUI.getAltaMedico();
-		ArrayList<String> idConsulta = paraUI.getControl().getVacanteConsulta(this.altaMedico);
-		for (String id : idConsulta) {
-			this.paraUI.getAltaMedico().getComboConsulta().addItem(id);
-		}
+		this.altaMedico.getComboConsulta().removeAllItems();
+		this.altaMedico.getComboEspecilidad().removeAllItems();
+		this.altaMedico.getComboHorario().removeAllItems();
+		this.paraUI.getAltaMedico().getMensajeSistema().setText("");
+//		String tipo = altaMedico.getTipoEspecialidad().toString();
+//		ArrayList<String> idConsulta = paraUI.getControl().getVacanteConsulta(tipo);
+//		for (String id : idConsulta) {
+//			this.altaMedico.getComboConsulta().addItem(id);
+//		}
 		for (Especialidad especial : Especialidad.values()) {
-			this.paraUI.getAltaMedico().getComboEspecilidad().addItem(especial);
+			this.altaMedico.getComboEspecilidad().addItem(especial);
 		}
 		for (Turno elementos : Turno.values()) {
-			this.paraUI.getAltaMedico().getComboHorario().addItem(elementos.name());
+			this.altaMedico.getComboHorario().addItem(elementos.name());
 		}
-		
+
 	}
-	
 
 }

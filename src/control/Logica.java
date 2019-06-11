@@ -12,6 +12,7 @@ import modelo.Consulta;
 import modelo.Intervencion;
 import modelo.Medico;
 import modelo.Paciente;
+import modelo.Tratamiento;
 import modelo.enums.*;
 import vista.medico.AltaMedico;
 
@@ -82,10 +83,10 @@ public class Logica {
 		return this.gestorDTO.getGrabarPaciente(paciente) && this.gestorDTO.getGrabarMapPaciente(this.mapPaciente);
 	}
 
-	public ArrayList<String> getConsultaVacante(AltaMedico altaMedico) {
+	public ArrayList<String> getConsultaVacante(String tipo) {
 		ArrayList<String> idConsulta = new ArrayList<String>();
 		for (Consulta consulta : this.mapConsulta.values()) {
-			if (consulta.getVacantes() && consulta.getEspecialidad() == altaMedico.getTipoEspecialidad()) {
+			if (consulta.getVacantes() && consulta.getEspecialidad().toString() == tipo) {
 				idConsulta.add(consulta.getId());
 			}
 		}
@@ -152,7 +153,8 @@ public class Logica {
 		Paciente paciente = this.mapPaciente.get(idPaciente);
 		this.gestorDTO.getGrabarPaciente(paciente);
 		this.gestorDTO.getGrabarMapPaciente(this.mapPaciente);
-		return paciente.asiganarIntervencion(intervencion);
+		paciente.asiganarIntervencion(intervencion);
+		return this.gestorDTO.getGrabarPaciente(paciente) && this.gestorDTO.getGrabarMapPaciente(this.mapPaciente);
 	}
 
 	public boolean getCita(String id, String nombreMedico, String coordenada, String hora) {
@@ -170,7 +172,8 @@ public class Logica {
 				consultas.asignarHora(i, j);
 			}
 		}
-		return this.gestorDTO.getGrabarCitas(this.citas);
+		return this.gestorDTO.getGrabarCitas(this.citas) && this.gestorDTO.getGrabarPaciente(paciente)
+				&& this.gestorDTO.getGrabarMapPaciente(this.mapPaciente);
 	}
 
 	public ArrayList<Medico> getMedicosAtenderCita() {
@@ -190,6 +193,22 @@ public class Logica {
 			}
 		}
 		return null;
+	}
+
+	public void getAddTratamiento(String nombrePaciente, String dosis, String periodo, Medicamento medicamento) {
+		Paciente paciente = this.getPacienteFullNombre(nombrePaciente);
+		Cita cita = null;
+		for (Cita a : citas) {
+			if (cita.getPaciente() == getPacienteFullNombre(nombrePaciente)
+					&& cita.getFecha().equals(this.calendario.getFecha())) {
+				cita = a;
+			}
+		}
+		cita.setAsistencia(true);
+		this.citas.remove(cita);
+		paciente.getAddTratamiento(new Tratamiento(medicamento, dosis, periodo));
+		this.gestorDTO.getGrabarPaciente(paciente);
+		this.gestorDTO.getGrabarMapPaciente(this.mapPaciente);
 	}
 
 	public void getPasarHora() {

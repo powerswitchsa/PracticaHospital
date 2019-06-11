@@ -117,11 +117,11 @@ public class CerrarOperacion extends JPanel {
 	}
 
 	private void rellenarCloseIntFila(String fullName, Intervencion operacion, int index) {
-
-		this.datosCloseInt[index][0] = fullName;
-		this.datosCloseInt[index][1] = operacion.getTipoIntervencion().getOperacion();
-		this.datosCloseInt[index][2] = operacion.getFullName();
-		this.datosCloseInt[index][3] = operacion.isCurado();
+		if (operacion.isRealizado() == false) {
+			this.datosCloseInt[index][0] = fullName;
+			this.datosCloseInt[index][1] = operacion.getTipoIntervencion().getOperacion();
+			this.datosCloseInt[index][2] = operacion.getFullName();
+			this.datosCloseInt[index][3] = operacion.isCurado();
+		}
 	}
-
 }
