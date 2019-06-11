@@ -15,6 +15,7 @@ import listener.btn.ActionCitaEspecialista;
 import listener.btn.ActionCitaOperacion;
 import listener.btn.ActionCitaPrimaria;
 import listener.btn.ActionModificarPaciente;
+import listener.combobox.AtenderCitaComboMEdico;
 import listener.combobox.CitaEspecialistaMedico;
 import listener.combobox.CitaPrimariaMedico;
 import listener.combobox.MostarCamposPaciente;
@@ -87,7 +88,8 @@ public class ParaUI extends UI {
 		getCitaEspecialista().getComboBoxID().addActionListener(new SincronizarComboBox(
 				getCitaEspecialista().getComboBoxID(), getCitaEspecialista().getComboBoxNombre(), control, true));
 		getCitaEspecialista().getComboNombreMedico().addActionListener(new CitaEspecialistaMedico(this));
-		getCitaEspecialista().getBtnPedirCita().addActionListener(new ActionCitaEspecialista(getCitaEspecialista(), control));
+		getCitaEspecialista().getBtnPedirCita()
+				.addActionListener(new ActionCitaEspecialista(getCitaEspecialista(), control));
 		// Consulta Paciente
 		getConsultaPaciente().getComboBoxNombre()
 				.addActionListener(new MostarCamposPaciente(getConsultaPaciente().getComboBoxID(),
@@ -106,9 +108,8 @@ public class ParaUI extends UI {
 				getCitaPrimaria().getComboBoxID(), getCitaPrimaria().getComboBoxNombre(), control, false));
 		getCitaPrimaria().getComboBoxID().addActionListener(new SincronizarComboBox(getCitaPrimaria().getComboBoxID(),
 				getCitaPrimaria().getComboBoxNombre(), control, true));
-		
-		getCitaPrimaria().getBtnPedirCita()
-				.addActionListener(new ActionCitaPrimaria(getCitaPrimaria(), control));
+
+		getCitaPrimaria().getBtnPedirCita().addActionListener(new ActionCitaPrimaria(getCitaPrimaria(), control));
 
 		// Consulta Medico
 		getConsultaMedico().getComboBoxID()
@@ -128,6 +129,9 @@ public class ParaUI extends UI {
 		getVerHistorial().getComboBoxNombre()
 				.addActionListener(new MostrarCitasTratamientos(getVerHistorial().getComboBoxID(),
 						getVerHistorial().getComboBoxNombre(), control, false, getVerHistorial()));
+		// Atender Cita
+		getAtenderCita().getComboBoxMedico()
+				.addActionListener(new AtenderCitaComboMEdico(getControl(), getAtenderCita()));
 
 		getBtnPasarHora().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import modelo.enums.Especialidad;
-import modelo.enums.TipoOperacion;
 
 public class Consulta implements Serializable {
 
@@ -18,7 +17,7 @@ public class Consulta implements Serializable {
 		this.medicos = new ArrayList<Medico>();
 		this.horario = new Horario();
 		this.id = id;
-		if (especialidad==Especialidad.Especialista) {
+		if (especialidad == Especialidad.Especialista) {
 			for (int i = 0; i < horario.getHorario().length; i++) {
 				for (int j = 0; j < horario.getHorario()[i].length; j++) {
 					if (j == 1 || j == 3)
@@ -28,37 +27,6 @@ public class Consulta implements Serializable {
 				}
 			}
 		}
-	}
-
-	/**
-	 * Comprueba que la fecha que se solicita esta libre
-	 * 
-	 * @param i posiciones de la matriz
-	 * @param j posiciones de la matriz
-	 * @return true si esta libre
-	 */
-	public boolean validarHora(int i, int j) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	/**
-	 * Quita al medico de la lista
-	 * 
-	 * @param id del medico que queremos eliminar
-	 */
-	public void eliminarMedico(int id) {
-		// TODO Auto-generated method stub
-
-	}
-
-	/**
-	 * Se encarga de añadir un nuevo medico a la consulta
-	 * 
-	 * @param medico que queremos asignar
-	 */
-	public void asignarMedico(String id) {
-		// TODO Auto-generated method stub
 	}
 
 	public boolean getVacantes() {

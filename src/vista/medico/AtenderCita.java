@@ -15,191 +15,183 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.SwingConstants;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.MatteBorder;
+import javax.swing.JTextArea;
+import javax.swing.BoxLayout;
 
 public class AtenderCita extends JPanel {
-	private JTextField txtPaciente;
-	private JTextField txtHoraCita;
-	private JTextField txtObservaciones;
-	private JTextField txtPeriodo;
-	private JTextField txtDosis;
-	private JTextField txtMensaje;
 
-	/**
-	 * Create the panel.
-	 */
+	private JTextArea textArea;
+	private JComboBox comboBoxMedico;
+	private JTextField textNombrePaciente;
+	private JComboBox comboBoxMedicamento;
+	private JTextField textFieldDosis;
+	private JTextField textFieldPeriodo;
+
 	public AtenderCita(Color color, int letraPequena, int letraGrande, String tipoLetra) {
 		setBackground(color);
-
 		setBorder(null);
-
-		JLabel lblMedico = new JLabel("Medico");
-		lblMedico.setFont(new Font(tipoLetra, Font.BOLD, 20));
-		lblMedico.setHorizontalAlignment(SwingConstants.CENTER);
-
-		JLabel lblPaciente = new JLabel("Paciente");
-		lblPaciente.setFont(new Font(tipoLetra, Font.BOLD, 20));
-		lblPaciente.setHorizontalAlignment(SwingConstants.CENTER);
-
-		JLabel lblHoraCita = new JLabel("Hora cita");
-		lblHoraCita.setFont(new Font(tipoLetra, Font.BOLD, 20));
-		lblHoraCita.setHorizontalAlignment(SwingConstants.CENTER);
-
-		JLabel lblTitulo = new JLabel("Atencion a cita");
-		lblTitulo.setFont(new Font(tipoLetra, Font.BOLD, letraGrande));
-
-		JComboBox comboBoxMedico = new JComboBox();
-
-		txtPaciente = new JTextField();
-		txtPaciente.setColumns(10);
-
-		txtHoraCita = new JTextField();
-		txtHoraCita.setColumns(10);
-
-		JLabel lblObservaciones = new JLabel("Observaciones");
-		lblObservaciones.setFont(new Font(tipoLetra, Font.BOLD, 20));
-
-		txtObservaciones = new JTextField();
-		txtObservaciones.setColumns(10);
-
-		JButton btnAplicar = new JButton("Aplicar");
-
-		txtMensaje = new JTextField();
-		txtMensaje.setBorder(null);
-		txtMensaje.setFont(new Font(tipoLetra, Font.BOLD, 20));
-		txtMensaje.setForeground(color.RED);
-		txtMensaje.setEditable(false);
-		txtMensaje.setText("Mensaje del Sistema");
-		txtMensaje.setOpaque(false);
-		txtMensaje.setFocusable(false);
-		txtMensaje.setColumns(10);
+		JLabel lblNewLabel = new JLabel("Atender Cita");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Monospaced", Font.BOLD, 30));
 
 		JPanel panel = new JPanel();
-		panel.setOpaque(false);
+		panel.setBackground(color);
+
+		JButton btnNewButton = new JButton("Atender");
+
+		JLabel lblNewLabel_1 = new JLabel("Observaciones");
+		lblNewLabel_1.setFont(new Font("Monospaced", Font.PLAIN, 20));
+
+		textArea = new JTextArea();
+		textArea.setLineWrap(true);
+		textArea.setFont(new Font("Monospaced", Font.PLAIN, 20));
+		textArea.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(20)
-							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(lblPaciente, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblMedico, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(lblHoraCita, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED)))
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addGap(10)
-									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblObservaciones)
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.TRAILING).addGroup(groupLayout
+				.createSequentialGroup()
+				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup().addGap(60)
+								.addComponent(panel, GroupLayout.PREFERRED_SIZE, 398, GroupLayout.PREFERRED_SIZE)
+								.addGap(30)
+								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addGroup(groupLayout.createSequentialGroup()
-											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-												.addComponent(txtObservaciones, GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
-												.addComponent(txtMensaje, GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE))
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-												.addComponent(panel, GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-												.addComponent(btnAplicar, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)))))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addGap(18)
-									.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-										.addComponent(txtHoraCita, Alignment.LEADING)
-										.addComponent(txtPaciente, Alignment.LEADING)
-										.addComponent(comboBoxMedico, Alignment.LEADING, 0, 221, Short.MAX_VALUE)))))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(67)
-							.addComponent(lblTitulo, GroupLayout.PREFERRED_SIZE, 525, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap())
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblTitulo, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-					.addGap(30)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblMedico)
-						.addComponent(comboBoxMedico, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblPaciente, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtPaciente, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblHoraCita, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtHoraCita, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblObservaciones, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-					.addGap(6)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-						.addComponent(txtObservaciones, GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE))
-					.addGap(13)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(txtMensaje, GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-						.addComponent(btnAplicar))
-					.addContainerGap())
-		);
+												.addPreferredGap(ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
+												.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 100,
+														GroupLayout.PREFERRED_SIZE))
+										.addGroup(Alignment.TRAILING,
+												groupLayout.createParallelGroup(Alignment.LEADING)
+														.addComponent(lblNewLabel_1).addComponent(textArea,
+																GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE))))
+						.addGroup(groupLayout.createSequentialGroup().addGap(20).addComponent(lblNewLabel,
+								GroupLayout.DEFAULT_SIZE, 892, Short.MAX_VALUE)))
+				.addGap(30)));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup().addGap(20)
+						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
+						.addGap(39).addComponent(lblNewLabel_1).addGap(20)
+						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(panel, GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
+								.addComponent(textArea, GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE))
+						.addGap(20)
+						.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap()));
 
-		JLabel lblNewLabel_2 = new JLabel("Medicamento");
-		lblNewLabel_2.setFont(new Font(tipoLetra, Font.BOLD, 20));
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(color);
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(color);
+		JLabel lblNewLabel_4 = new JLabel("Tratamiento");
+		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 20));
 
-		JLabel labelDosis = new JLabel("Dosis");
-		labelDosis.setFont(new Font(tipoLetra, Font.BOLD, 20));
-		labelDosis.setHorizontalAlignment(SwingConstants.CENTER);
-
-		JComboBox comboBoxMedicamento = new JComboBox();
-
-		txtPeriodo = new JTextField();
-		txtPeriodo.setColumns(10);
-
-		JLabel lblPeriodo = new JLabel("Periodo");
-		lblPeriodo.setFont(new Font(tipoLetra, Font.BOLD, 20));
-		lblPeriodo.setHorizontalAlignment(SwingConstants.CENTER);
-
-		txtDosis = new JTextField();
-		txtDosis.setColumns(10);
-
-		JLabel lblTratamiento = new JLabel("Tratamiento");
-		lblTratamiento.setFont(new Font(tipoLetra, Font.BOLD, 20));
-		lblTratamiento.setHorizontalAlignment(SwingConstants.CENTER);
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(color);
+		JPanel panel_4 = new JPanel();
+		panel_4.setBackground(color);
+		JPanel panel_5 = new JPanel();
+		panel_5.setBackground(color);
 		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING).addGroup(gl_panel
-				.createSequentialGroup().addGap(20)
-				.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
-						.addComponent(lblTratamiento, Alignment.LEADING, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(lblNewLabel_2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
-				.addGap(35).addComponent(comboBoxMedicamento, 0, 80, Short.MAX_VALUE).addGap(30))
+		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup().addGap(20)
-						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblPeriodo, GroupLayout.PREFERRED_SIZE, 137, GroupLayout.PREFERRED_SIZE)
-								.addComponent(labelDosis, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE))
-						.addGap(35)
-						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addComponent(txtDosis, GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-								.addComponent(txtPeriodo, GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
-						.addGap(30)));
+						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING).addGroup(Alignment.TRAILING, gl_panel
+								.createSequentialGroup().addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+										.addComponent(
+												panel_4, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 356,
+												Short.MAX_VALUE)
+										.addGroup(gl_panel.createSequentialGroup()
+												.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+														.addComponent(panel_3, Alignment.LEADING,
+																GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
+														.addComponent(panel_1, Alignment.LEADING,
+																GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
+														.addComponent(panel_2, Alignment.LEADING,
+																GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
+														.addComponent(lblNewLabel_4, Alignment.LEADING,
+																GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE))))
+								.addGap(20)).addGroup(
+										gl_panel.createSequentialGroup().addComponent(panel_5, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addGap(20)))));
 		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup().addContainerGap().addComponent(lblTratamiento).addGap(22)
-						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel.createSequentialGroup().addGap(3).addComponent(lblNewLabel_2))
-								.addComponent(comboBoxMedicamento, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel.createSequentialGroup().addGap(23).addComponent(labelDosis))
-								.addGroup(gl_panel.createSequentialGroup().addGap(18).addComponent(txtDosis,
-										GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE)))
-						.addGap(13)
-						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel.createSequentialGroup().addGap(6).addComponent(lblPeriodo))
-								.addComponent(txtPeriodo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE))));
+				.addGroup(gl_panel.createSequentialGroup().addGap(20)
+						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE).addGap(30)
+						.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE).addGap(50)
+						.addComponent(lblNewLabel_4).addGap(30)
+						.addComponent(panel_3, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE).addGap(40)
+						.addComponent(panel_4, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE).addGap(40)
+						.addComponent(panel_5, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(123, Short.MAX_VALUE)));
+		panel_5.setLayout(new BoxLayout(panel_5, BoxLayout.X_AXIS));
+
+		JLabel lblPeriodo = new JLabel("Periodo :   ");
+		lblPeriodo.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panel_5.add(lblPeriodo);
+
+		textFieldPeriodo = new JTextField();
+		textFieldPeriodo.setColumns(10);
+		panel_5.add(textFieldPeriodo);
+		panel_4.setLayout(new BoxLayout(panel_4, BoxLayout.X_AXIS));
+
+		JLabel lblDosis = new JLabel("Dosis :      ");
+		lblDosis.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panel_4.add(lblDosis);
+
+		textFieldDosis = new JTextField();
+		textFieldDosis.setColumns(10);
+		panel_4.add(textFieldDosis);
+		panel_3.setLayout(new BoxLayout(panel_3, BoxLayout.X_AXIS));
+
+		JLabel lblNewLabel_5 = new JLabel("Medicina : ");
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panel_3.add(lblNewLabel_5);
+
+		comboBoxMedicamento = new JComboBox();
+		panel_3.add(comboBoxMedicamento);
+		panel_2.setLayout(new BoxLayout(panel_2, BoxLayout.X_AXIS));
+
+		JLabel lblNewLabel_3 = new JLabel("Paciente : ");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panel_2.add(lblNewLabel_3);
+
+		textNombrePaciente = new JTextField();
+		textNombrePaciente.setFocusable(false);
+		panel_2.add(textNombrePaciente);
+		textNombrePaciente.setColumns(10);
+		panel_1.setLayout(new BoxLayout(panel_1, BoxLayout.X_AXIS));
+
+		JLabel lblNewLabel_2 = new JLabel("Medico :   ");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panel_1.add(lblNewLabel_2);
+
+		comboBoxMedico = new JComboBox();
+		panel_1.add(comboBoxMedico);
 		panel.setLayout(gl_panel);
 		setLayout(groupLayout);
 
 	}
+
+	public JTextArea getTextArea() {
+		return textArea;
+	}
+
+	public JComboBox getComboBoxMedico() {
+		return comboBoxMedico;
+	}
+
+	public JTextField getTextNombrePaciente() {
+		return textNombrePaciente;
+	}
+
+	public JComboBox getComboBoxMedicamento() {
+		return comboBoxMedicamento;
+	}
+
+	public JTextField getTextFieldDosis() {
+		return textFieldDosis;
+	}
+
+	public JTextField getTextFieldPeriodo() {
+		return textFieldPeriodo;
+	}
+
 }

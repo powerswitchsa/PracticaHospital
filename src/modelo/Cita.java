@@ -19,6 +19,10 @@ public class Cita implements Serializable {
 		this.observaciones = observaciones;
 	}
 
+	public String getNombrePaciente() {
+		return this.paciente.getFullName();
+	}
+
 	public void setAsistencia(boolean asistencia) {
 		this.asistencia = asistencia;
 	}
