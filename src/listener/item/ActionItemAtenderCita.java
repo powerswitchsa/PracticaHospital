@@ -22,6 +22,8 @@ public class ActionItemAtenderCita implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		this.paraUI.asociarPanel("atenderCita");
 		this.paraUI.getAtenderCita().getComboBoxMedicamento().removeAllItems();
+		this.paraUI.getAtenderCita().getComboBoxMedico().removeAllItems();
+		this.paraUI.getAtenderCita().getTextNombrePaciente().setText(null);
 		for (Medicamento medicamento : Medicamento.values()) {
 			this.paraUI.getAtenderCita().getComboBoxMedicamento().addItem(medicamento);
 		}
