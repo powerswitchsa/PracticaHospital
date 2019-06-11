@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import java.util.HashMap;
 
+import modelo.Cita;
 import modelo.Consulta;
 import modelo.Controller;
 import modelo.Medico;
@@ -59,7 +60,10 @@ public class Control {
 
 	public Medico getFullNameMedico(String fullName) {
 		return this.logica.getMedicoFromName(fullName);
+	}
 
+	public Cita getCitaPorMedico(String medico) {
+		return this.logica.getCitaPorMedico(medico);
 	}
 
 	public ArrayList<Medico> getMedicosAtenderCita() {

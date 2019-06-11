@@ -176,10 +176,20 @@ public class Logica {
 	public ArrayList<Medico> getMedicosAtenderCita() {
 		ArrayList<Medico> medicos = new ArrayList<Medico>();
 		for (Cita cita : this.citas) {
-			if (cita.getFecha() == this.calendario.getFecha())
+			System.out.println(cita.getFecha() + " " + this.calendario.getFecha());
+			if (cita.getFecha().equals(this.calendario.getFecha()))
 				medicos.add(cita.getMedico());
 		}
 		return medicos;
+	}
+
+	public Cita getCitaPorMedico(String medico) {
+		for (Cita cita : citas) {
+			if (cita.getMedico() == getMedicoFromName(medico) && cita.getFecha().equals(this.calendario.getFecha())) {
+				return cita;
+			}
+		}
+		return null;
 	}
 
 	public void getPasarHora() {

@@ -3,6 +3,7 @@ package listener.item;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import control.ParaUI;
 import modelo.Medico;
