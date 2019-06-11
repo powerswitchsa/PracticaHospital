@@ -83,10 +83,10 @@ public class Logica {
 		return this.gestorDTO.getGrabarPaciente(paciente) && this.gestorDTO.getGrabarMapPaciente(this.mapPaciente);
 	}
 
-	public ArrayList<String> getConsultaVacante(String tipo) {
+	public ArrayList<String> getConsultaVacante(Especialidad tipo) {
 		ArrayList<String> idConsulta = new ArrayList<String>();
 		for (Consulta consulta : this.mapConsulta.values()) {
-			if (consulta.getVacantes() && consulta.getEspecialidad().toString() == tipo) {
+			if (consulta.getVacantes() && consulta.getEspecialidad() == tipo) {
 				idConsulta.add(consulta.getId());
 			}
 		}
@@ -128,7 +128,7 @@ public class Logica {
 		return null;
 	}
 
-	public Paciente getPacienteFullNombre(String fullName) {
+	public Paciente getPacienteFromNombre(String fullName) {
 		for (Paciente paciente : this.mapPaciente.values()) {
 			if (paciente.getFullName().equals(fullName))
 				return paciente;
@@ -196,10 +196,10 @@ public class Logica {
 	}
 
 	public void getAddTratamiento(String nombrePaciente, String dosis, String periodo, Medicamento medicamento) {
-		Paciente paciente = this.getPacienteFullNombre(nombrePaciente);
+		Paciente paciente = this.getPacienteFromNombre(nombrePaciente);
 		Cita cita = null;
 		for (Cita a : citas) {
-			if (cita.getPaciente() == getPacienteFullNombre(nombrePaciente)
+			if (cita.getPaciente() == getPacienteFromNombre(nombrePaciente)
 					&& cita.getFecha().equals(this.calendario.getFecha())) {
 				cita = a;
 			}
@@ -213,14 +213,17 @@ public class Logica {
 
 	public void getPasarHora() {
 		this.calendario.sumarHora();
-//		for (Iterator iterator = citas.iterator(); iterator.hasNext();) {
-//			Cita cita = (Cita) iterator.next();
-//			if (calendario.isRealizado(cita.getFecha())) {
-//				cita.setAsistencia(true);
-//				iterator.remove();
-//			}
-//		}
+		for (Iterator iterator = citas.iterator(); iterator.hasNext();) {
+			Cita cita = (Cita) iterator.next();
+			if (this.calendario.isRealizado(cita.getFecha())) {
+				cita.setAsistencia(true);
+				this.gestorDTO.getGrabarPaciente(cita.getPaciente());
+				iterator.remove();
+			}
+		}
 		this.gestorDTO.getGrabarCalendario(this.calendario);
+		this.gestorDTO.getGrabarCitas(this.citas);
+		this.gestorDTO.getGrabarMapPaciente(this.mapPaciente);
 	}
 
 	public String getFecha() {
