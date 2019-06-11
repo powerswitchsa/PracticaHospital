@@ -243,9 +243,9 @@ public class CitaPrimaria extends JPanel {
 		String[] cadena = this.coordenadas.split(";");
 		int i = Integer.valueOf(cadena[0]);
 		int j = Integer.valueOf(cadena[1]);
-		if (i!=10&&j!=10) {
+		if (i != 10 && j != 10) {
 			return this.botonera[i][j].getText();
-		}else {
+		} else {
 			return "00:00";
 		}
 	}

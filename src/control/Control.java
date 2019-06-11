@@ -4,16 +4,15 @@ import java.util.ArrayList;
 
 import java.util.HashMap;
 
+import modelo.Cita;
 import modelo.Consulta;
 import modelo.Controller;
-import modelo.Intervencion;
 import modelo.Medico;
 import modelo.Paciente;
 import modelo.enums.Especialidad;
 import modelo.enums.TipoOperacion;
 import modelo.enums.Turno;
 import vista.medico.AltaMedico;
-import vista.paciente.CitaOperacion;
 
 public class Control {
 
@@ -61,11 +60,14 @@ public class Control {
 
 	public Medico getFullNameMedico(String fullName) {
 		return this.logica.getMedicoFromName(fullName);
-
 	}
 
-	public boolean getCitaEspecialista(String... info) {
-		return false;
+	public Cita getCitaPorMedico(String medico) {
+		return this.logica.getCitaPorMedico(medico);
+	}
+
+	public ArrayList<Medico> getMedicosAtenderCita() {
+		return this.logica.getMedicosAtenderCita();
 	}
 
 	public ArrayList<String> getVacanteConsulta(String tipo) {
@@ -108,6 +110,7 @@ public class Control {
 		}
 		return null;
 	}
+
 	public Especialidad getEspecialidadCombo(String especialidad) {
 		return this.logica.getEspecialidadCombo(especialidad);
 	}

@@ -3,6 +3,8 @@ package control;
 import java.util.ArrayList;
 
 import java.util.HashMap;
+import java.util.Iterator;
+
 import almacen.GestorDTO;
 import modelo.Calendario;
 import modelo.Cita;
@@ -171,6 +173,37 @@ public class Logica {
 		return this.gestorDTO.getGrabarCitas(this.citas);
 	}
 
+	public ArrayList<Medico> getMedicosAtenderCita() {
+		ArrayList<Medico> medicos = new ArrayList<Medico>();
+		for (Cita cita : this.citas) {
+			System.out.println(cita.getFecha() + " " + this.calendario.getFecha());
+			if (cita.getFecha().equals(this.calendario.getFecha()))
+				medicos.add(cita.getMedico());
+		}
+		return medicos;
+	}
+
+	public Cita getCitaPorMedico(String medico) {
+		for (Cita cita : citas) {
+			if (cita.getMedico() == getMedicoFromName(medico) && cita.getFecha().equals(this.calendario.getFecha())) {
+				return cita;
+			}
+		}
+		return null;
+	}
+
+	public void getPasarHora() {
+		this.calendario.sumarHora();
+//		for (Iterator iterator = citas.iterator(); iterator.hasNext();) {
+//			Cita cita = (Cita) iterator.next();
+//			if (calendario.isRealizado(cita.getFecha())) {
+//				cita.setAsistencia(true);
+//				iterator.remove();
+//			}
+//		}
+		this.gestorDTO.getGrabarCalendario(this.calendario);
+	}
+
 	public String getFecha() {
 		return this.calendario.getFecha();
 	}
@@ -193,11 +226,6 @@ public class Logica {
 
 	public HashMap<String, Consulta> getMapConsulta() {
 		return this.mapConsulta;
-	}
-
-	public void getPasarHora() {
-		this.calendario.sumarHora();
-		this.gestorDTO.getGrabarCalendario(this.calendario);
 	}
 
 }

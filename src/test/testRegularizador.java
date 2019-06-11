@@ -18,7 +18,6 @@ class testRegularizador {
 		assertTrue(Pattern.matches(Regularizador.Telefono.getCadena(), "678549821"));
 		assertTrue(Pattern.matches(Regularizador.Direccion.getCadena(), "C/ Puerto Real 12º"));
 		assertTrue(Pattern.matches(Regularizador.Nacimiento.getCadena(), "31/12/1999"));
-
 	}
 
 }

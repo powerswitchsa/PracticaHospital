@@ -2,7 +2,6 @@ package vista.paciente;
 
 import javax.swing.JPanel;
 import java.awt.GridLayout;
-import java.util.Iterator;
 
 import javax.swing.JScrollPane;
 import javax.swing.GroupLayout;
@@ -16,11 +15,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.table.DefaultTableModel;
 
 import modelo.Cita;
-import modelo.Medicamento;
-import modelo.Medico;
 import modelo.Paciente;
 import modelo.Tratamiento;
-import modelo.enums.Especialidad;
 
 import javax.swing.JTable;
 import javax.swing.JComboBox;
