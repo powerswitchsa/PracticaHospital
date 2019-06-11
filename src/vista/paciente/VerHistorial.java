@@ -31,7 +31,7 @@ public class VerHistorial extends JPanel {
 	private JScrollPane scrollCitas = new JScrollPane();
 
 	private String columnaCita[] = { "Paciente	", "Tipo", "Fecha", "Medico" };
-	private String columnaTratamiento[] = { "Paciente", "Medicamento", "Posologia", "Fecha inicio", "Fecha Fin" };
+	private String columnaTratamiento[] = { "Paciente", "Medicamento", "Posologia", "Periodo" };
 	private String datosCita[][];
 	private String datosTratamiento[][];
 	private JComboBox comboBoxNombre;
@@ -167,8 +167,7 @@ public class VerHistorial extends JPanel {
 		this.datosTratamiento[index][0] = fullName;
 		this.datosTratamiento[index][1] = tratamiento.getMedicamento().toString();
 		this.datosTratamiento[index][2] = tratamiento.getDosis();
-		this.datosTratamiento[index][3] = tratamiento.getInicio();
-		this.datosTratamiento[index][4] = tratamiento.getFin();
+		this.datosTratamiento[index][3] = tratamiento.getPeriodo();
 	}
 
 	public JComboBox getComboBoxID() {

@@ -10,6 +10,7 @@ import javax.swing.JComboBox;
 
 import listener.btn.ActionAltaMedico;
 import listener.btn.ActionAltaPaciente;
+import listener.btn.ActionAtenderCitaPendiente;
 import listener.btn.ActionBajaPaciente;
 import listener.btn.ActionCitaEspecialista;
 import listener.btn.ActionCitaOperacion;
@@ -132,6 +133,7 @@ public class ParaUI extends UI {
 		// Atender Cita
 		getAtenderCita().getComboBoxMedico()
 				.addActionListener(new AtenderCitaComboMEdico(getControl(), getAtenderCita()));
+		getAtenderCita().getBtnAtender().addActionListener(new ActionAtenderCitaPendiente(control, getAtenderCita()));
 
 		getBtnPasarHora().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

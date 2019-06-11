@@ -8,15 +8,13 @@ public class Tratamiento implements Serializable {
 
 	private Medicamento medicamento;
 	private String dosis;
-	private String inicio;
-	private String fin;
+	private String periodo;
 
-	public Tratamiento(Medicamento medicamento, String dosis, String inicio, String fin) {
+	public Tratamiento(Medicamento medicamento, String dosis, String periodo) {
 		super();
 		this.medicamento = medicamento;
 		this.dosis = dosis;
-		this.inicio = inicio;
-		this.fin = fin;
+		this.periodo = periodo;
 	}
 
 	public Medicamento getMedicamento() {
@@ -27,12 +25,7 @@ public class Tratamiento implements Serializable {
 		return dosis;
 	}
 
-	public String getInicio() {
-		return inicio;
+	public String getPeriodo() {
+		return periodo;
 	}
-
-	public String getFin() {
-		return fin;
-	}
-
 }
