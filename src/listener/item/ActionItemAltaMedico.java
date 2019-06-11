@@ -5,9 +5,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.JComboBox;
+
 import control.ParaUI;
+import modelo.Consulta;
 import modelo.enums.*;
 import modelo.enums.Especialidad;
+import vista.medico.AltaMedico;
 
 public class ActionItemAltaMedico implements ActionListener {
 
@@ -24,7 +28,8 @@ public class ActionItemAltaMedico implements ActionListener {
 		this.paraUI.getAltaMedico().getComboConsulta().removeAllItems();
 		this.paraUI.getAltaMedico().getComboEspecilidad().removeAllItems();
 		this.paraUI.getAltaMedico().getComboHorario().removeAllItems();
-		ArrayList<String> idConsulta = paraUI.getControl().getVacanteConsulta();
+		ArrayList<String> idConsulta = paraUI.getControl().getVacanteConsulta(this.paraUI.getAltaMedico());
+		
 		for (String id : idConsulta) {
 			this.paraUI.getAltaMedico().getComboConsulta().addItem(id);
 		}
