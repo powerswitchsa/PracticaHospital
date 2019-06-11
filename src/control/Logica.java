@@ -84,7 +84,6 @@ public class Logica {
 		ArrayList<String> idConsulta = new ArrayList<String>();
 		for (Consulta consulta : this.mapConsulta.values()) {
 			if (consulta.getVacantes() && consulta.getEspecialidad() == altaMedico.getTipoEspecialidad()) {
-				System.out.println(altaMedico.getTipoEspecialidad());
 				idConsulta.add(consulta.getId());
 			}
 		}
@@ -98,7 +97,6 @@ public class Logica {
 			}
 		}
 		return null;
-
 	}
 
 	private String getUltimaIdPaciente() {
