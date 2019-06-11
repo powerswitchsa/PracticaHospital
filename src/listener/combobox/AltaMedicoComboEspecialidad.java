@@ -27,7 +27,7 @@ public class AltaMedicoComboEspecialidad implements ActionListener {
 				if (tipo != null) {
 					ArrayList<String> idConsulta = this.paraUI.getControl().getVacanteConsulta(tipo);
 					for (String id : idConsulta) {
-//						this.altaMedico.getComboConsulta().addItem(id);
+						this.altaMedico.getComboConsulta().addItem(id);
 					}
 				}
 			}

@@ -26,7 +26,6 @@ public class ActionAltaMedico implements ActionListener {
 			}
 		} catch (Exception e2) {
 			e2.printStackTrace();
-			System.out.println(this.paraUI.getAltaMedico().getFields().length);
 		}
 	}
 }
