@@ -32,16 +32,19 @@ public class ActionItemAltaMedico implements ActionListener {
 		this.altaMedico.getComboEspecilidad().removeAllItems();
 		this.altaMedico.getComboHorario().removeAllItems();
 		this.paraUI.getAltaMedico().getMensajeSistema().setText("");
-//		String tipo = altaMedico.getTipoEspecialidad().toString();
-//		ArrayList<String> idConsulta = paraUI.getControl().getVacanteConsulta(tipo);
-//		for (String id : idConsulta) {
-//			this.altaMedico.getComboConsulta().addItem(id);
-//		}
+
 		for (Especialidad especial : Especialidad.values()) {
 			this.altaMedico.getComboEspecilidad().addItem(especial);
 		}
+
 		for (Turno elementos : Turno.values()) {
 			this.altaMedico.getComboHorario().addItem(elementos.name());
+		}
+
+		Especialidad tipo = altaMedico.getTipoEspecialidad();
+		ArrayList<String> idConsulta = paraUI.getControl().getVacanteConsulta(tipo);
+		for (String id : idConsulta) {
+			this.altaMedico.getComboConsulta().addItem(id);
 		}
 
 	}

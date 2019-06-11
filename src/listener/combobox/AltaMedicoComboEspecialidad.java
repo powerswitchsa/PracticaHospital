@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import control.Control;
 import control.ParaUI;
+import modelo.enums.Especialidad;
 import vista.medico.AltaMedico;
 
 public class AltaMedicoComboEspecialidad implements ActionListener {
@@ -22,7 +23,7 @@ public class AltaMedicoComboEspecialidad implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		try {
 			if (this.altaMedico.getComboEspecilidad() != null) {
-				String tipo = this.altaMedico.getComboEspecilidad().toString();
+				Especialidad tipo = this.altaMedico.getTipoEspecialidad();
 				if (tipo != null) {
 					ArrayList<String> idConsulta = this.paraUI.getControl().getVacanteConsulta(tipo);
 					for (String id : idConsulta) {
