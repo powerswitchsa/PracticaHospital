@@ -163,6 +163,27 @@ public class Logica {
 		return this.gestorDTO.getGrabarCitas(this.citas);
 	}
 
+	public ArrayList<Medico> getMedicosAtenderCita() {
+		ArrayList<Medico> medicos = new ArrayList<Medico>();
+		for (Cita cita : this.citas) {
+			if (cita.getFecha() == this.calendario.getFecha())
+				medicos.add(cita.getMedico());
+		}
+		return medicos;
+	}
+
+	public void getPasarHora() {
+		this.calendario.sumarHora();
+//		for (Iterator iterator = citas.iterator(); iterator.hasNext();) {
+//			Cita cita = (Cita) iterator.next();
+//			if (calendario.isRealizado(cita.getFecha())) {
+//				cita.setAsistencia(true);
+//				iterator.remove();
+//			}
+//		}
+		this.gestorDTO.getGrabarCalendario(this.calendario);
+	}
+
 	public String getFecha() {
 		return this.calendario.getFecha();
 	}
@@ -185,19 +206,6 @@ public class Logica {
 
 	public HashMap<String, Consulta> getMapConsulta() {
 		return this.mapConsulta;
-	}
-
-	public void getPasarHora() {
-		this.calendario.sumarHora();
-		for (Iterator iterator = citas.iterator(); iterator.hasNext();) {
-			Cita cita = (Cita) iterator.next();
-			if (calendario.isRealizado(cita.getFecha())) {
-				cita.setAsistencia(true);
-				iterator.remove();
-			}
-		}
-		
-		this.gestorDTO.getGrabarCalendario(this.calendario);
 	}
 
 }

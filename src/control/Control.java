@@ -63,8 +63,8 @@ public class Control {
 
 	}
 
-	public boolean getCitaEspecialista(String... info) {
-		return false;
+	public ArrayList<Medico> getMedicosAtenderCita() {
+		return this.logica.getMedicosAtenderCita();
 	}
 
 	public ArrayList<String> getVacanteConsulta() {
