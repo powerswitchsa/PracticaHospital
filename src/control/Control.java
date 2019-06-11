@@ -66,8 +66,8 @@ public class Control {
 		return this.logica.getMedicosAtenderCita();
 	}
 
-	public ArrayList<String> getVacanteConsulta(AltaMedico ataAltaMedico) {
-		return this.logica.getConsultaVacante(ataAltaMedico);
+	public ArrayList<String> getVacanteConsulta(AltaMedico AltaMedico) {
+		return this.logica.getConsultaVacante(AltaMedico);
 	}
 
 	public HashMap<String, Paciente> getMapPaciente() {

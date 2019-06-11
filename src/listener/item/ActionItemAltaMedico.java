@@ -16,6 +16,7 @@ import vista.medico.AltaMedico;
 public class ActionItemAltaMedico implements ActionListener {
 
 	private ParaUI paraUI;
+	private AltaMedico altaMedico;
 
 	public ActionItemAltaMedico(ParaUI paraUI) {
 		super();
@@ -28,8 +29,8 @@ public class ActionItemAltaMedico implements ActionListener {
 		this.paraUI.getAltaMedico().getComboConsulta().removeAllItems();
 		this.paraUI.getAltaMedico().getComboEspecilidad().removeAllItems();
 		this.paraUI.getAltaMedico().getComboHorario().removeAllItems();
-		ArrayList<String> idConsulta = paraUI.getControl().getVacanteConsulta(this.paraUI.getAltaMedico());
-		
+		altaMedico = this.paraUI.getAltaMedico();
+		ArrayList<String> idConsulta = paraUI.getControl().getVacanteConsulta(this.altaMedico);
 		for (String id : idConsulta) {
 			this.paraUI.getAltaMedico().getComboConsulta().addItem(id);
 		}

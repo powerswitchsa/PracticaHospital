@@ -99,7 +99,6 @@ public class Logica {
 			}
 		}
 		return null;
-
 	}
 
 	private String getUltimaIdPaciente() {
