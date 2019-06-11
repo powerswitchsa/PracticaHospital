@@ -35,5 +35,4 @@ public class ActionCitaOperacion implements ActionListener {
 			e2.printStackTrace();
 		}
 	}
-
 }

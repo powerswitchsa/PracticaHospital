@@ -56,4 +56,8 @@ public class Consulta implements Serializable {
 	public void asignarHora(int i, int j) {
 		this.horario.setAsignarCasilla(i, j);
 	}
+
+	public Especialidad getEspecialidad() {
+		return especialidad;
+	}
 }

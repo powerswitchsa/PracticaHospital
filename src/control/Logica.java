@@ -13,6 +13,7 @@ import modelo.Intervencion;
 import modelo.Medico;
 import modelo.Paciente;
 import modelo.enums.*;
+import vista.medico.AltaMedico;
 
 public class Logica {
 
@@ -81,14 +82,25 @@ public class Logica {
 		return this.gestorDTO.getGrabarPaciente(paciente) && this.gestorDTO.getGrabarMapPaciente(this.mapPaciente);
 	}
 
-	public ArrayList<String> getConsultaVacante() {
+	public ArrayList<String> getConsultaVacante(AltaMedico altaMedico) {
 		ArrayList<String> idConsulta = new ArrayList<String>();
 		for (Consulta consulta : this.mapConsulta.values()) {
-			if (consulta.getVacantes()) {
+			if (consulta.getVacantes() && consulta.getEspecialidad() == altaMedico.getTipoEspecialidad()) {
+				System.out.println(altaMedico.getTipoEspecialidad());
 				idConsulta.add(consulta.getId());
 			}
 		}
 		return idConsulta;
+	}
+
+	public Especialidad getEspecialidadCombo(String especialidad) {
+		for (Especialidad espe : Especialidad.values()) {
+			if (espe.name() == especialidad) {
+				return espe;
+			}
+		}
+		return null;
+
 	}
 
 	private String getUltimaIdPaciente() {
