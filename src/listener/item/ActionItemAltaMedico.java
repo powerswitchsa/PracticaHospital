@@ -31,6 +31,7 @@ public class ActionItemAltaMedico implements ActionListener {
 		this.altaMedico.getComboConsulta().removeAllItems();
 		this.altaMedico.getComboEspecilidad().removeAllItems();
 		this.altaMedico.getComboHorario().removeAllItems();
+		this.paraUI.getAltaMedico().getMensajeSistema().setText("");
 //		String tipo = altaMedico.getTipoEspecialidad().toString();
 //		ArrayList<String> idConsulta = paraUI.getControl().getVacanteConsulta(tipo);
 //		for (String id : idConsulta) {
