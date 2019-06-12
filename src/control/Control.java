@@ -10,9 +10,9 @@ import modelo.Controller;
 import modelo.Medico;
 import modelo.Paciente;
 import modelo.enums.Especialidad;
+import modelo.enums.Medicamento;
 import modelo.enums.TipoOperacion;
 import modelo.enums.Turno;
-import vista.medico.AltaMedico;
 
 public class Control {
 
@@ -28,15 +28,14 @@ public class Control {
 	public boolean getAltaPaciente(ArrayList<String> infoPaciente) {
 		Paciente paciente = new Paciente(infoPaciente.get(0), infoPaciente.get(1), infoPaciente.get(2),
 				infoPaciente.get(3), infoPaciente.get(4));
-//		return this.controller.validarPaciente(paciente) ? this.logica.getAltaPaciente(paciente) : false;
-		return this.logica.getAltaPaciente(paciente);
+		return this.controller.validarPaciente(paciente) ? this.logica.getAltaPaciente(paciente) : false;
 	}
 
-	public boolean getAltaMedico(ArrayList<String> infoMedico, Especialidad tipo, Turno turno) {
+	public boolean getAltaMedico(ArrayList<String> infoMedico, Especialidad tipo, Turno turno, String idConsulta) {
 		Medico medico = new Medico(infoMedico.get(0), infoMedico.get(1), infoMedico.get(2), infoMedico.get(3), tipo,
 				turno);
-//		return this.controller.validarMedico(medico) ? this.logica.getAltaMedico(medico, tipo, turno) : false;
-		return this.logica.getAltaMedico(medico, tipo, turno);
+		return this.controller.validarMedico(medico) ? this.logica.getAltaMedico(medico, tipo, turno, idConsulta)
+				: false;
 	}
 
 	public boolean getModificarPaciente(String id, String direccion, String telefono) {
@@ -70,8 +69,8 @@ public class Control {
 		return this.logica.getMedicosAtenderCita();
 	}
 
-	public ArrayList<String> getVacanteConsulta(AltaMedico AltaMedico) {
-		return this.logica.getConsultaVacante(AltaMedico);
+	public ArrayList<String> getVacanteConsulta(Especialidad tipo) {
+		return this.logica.getConsultaVacante(tipo);
 	}
 
 	public HashMap<String, Paciente> getMapPaciente() {
@@ -83,7 +82,7 @@ public class Control {
 	}
 
 	public Paciente getPacienteFullNombre(String fullNombre) {
-		return this.logica.getPacienteFullNombre(fullNombre);
+		return this.logica.getPacienteFromNombre(fullNombre);
 	}
 
 	public HashMap<String, Medico> getMapMedico() {
@@ -121,5 +120,9 @@ public class Control {
 
 	public void getPasarHora() {
 		this.logica.getPasarHora();
+	}
+
+	public void getAddTratamiento(String nombrePaciente, String dosis, String periodo, Medicamento medicamento) {
+		this.logica.getAddTratamiento(nombrePaciente, dosis, periodo, medicamento);
 	}
 }

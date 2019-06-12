@@ -27,6 +27,7 @@ public class AtenderCita extends JPanel {
 	private JComboBox comboBoxMedicamento;
 	private JTextField textFieldDosis;
 	private JTextField textFieldPeriodo;
+	private JButton btnAtender;
 
 	public AtenderCita(Color color, int letraPequena, int letraGrande, String tipoLetra) {
 		setBackground(color);
@@ -38,7 +39,7 @@ public class AtenderCita extends JPanel {
 		JPanel panel = new JPanel();
 		panel.setBackground(color);
 
-		JButton btnNewButton = new JButton("Atender");
+		btnAtender = new JButton("Atender");
 
 		JLabel lblNewLabel_1 = new JLabel("Observaciones");
 		lblNewLabel_1.setFont(new Font("Monospaced", Font.PLAIN, 20));
@@ -57,7 +58,7 @@ public class AtenderCita extends JPanel {
 								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addGroup(groupLayout.createSequentialGroup()
 												.addPreferredGap(ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
-												.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 100,
+												.addComponent(btnAtender, GroupLayout.PREFERRED_SIZE, 100,
 														GroupLayout.PREFERRED_SIZE))
 										.addGroup(Alignment.TRAILING,
 												groupLayout.createParallelGroup(Alignment.LEADING)
@@ -74,7 +75,7 @@ public class AtenderCita extends JPanel {
 								.addComponent(panel, GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
 								.addComponent(textArea, GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE))
 						.addGap(20)
-						.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnAtender, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 						.addContainerGap()));
 
 		JPanel panel_1 = new JPanel();
@@ -192,6 +193,10 @@ public class AtenderCita extends JPanel {
 
 	public JTextField getTextFieldPeriodo() {
 		return textFieldPeriodo;
+	}
+
+	public JButton getBtnAtender() {
+		return btnAtender;
 	}
 
 }

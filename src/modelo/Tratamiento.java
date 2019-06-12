@@ -25,8 +25,7 @@ public class Tratamiento implements Serializable {
 		return dosis;
 	}
 
-	public String getInicio() {
+	public String getPeriodo() {
 		return periodo;
 	}
-
 }

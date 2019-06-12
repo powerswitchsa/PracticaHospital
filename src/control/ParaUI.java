@@ -10,11 +10,13 @@ import javax.swing.JComboBox;
 
 import listener.btn.ActionAltaMedico;
 import listener.btn.ActionAltaPaciente;
+import listener.btn.ActionAtenderCitaPendiente;
 import listener.btn.ActionBajaPaciente;
 import listener.btn.ActionCitaEspecialista;
 import listener.btn.ActionCitaOperacion;
 import listener.btn.ActionCitaPrimaria;
 import listener.btn.ActionModificarPaciente;
+import listener.combobox.AltaMedicoComboEspecialidad;
 import listener.combobox.AtenderCitaComboMEdico;
 import listener.combobox.CitaEspecialistaMedico;
 import listener.combobox.CitaPrimariaMedico;
@@ -53,7 +55,7 @@ public class ParaUI extends UI {
 		getItemCitaOperacion().addActionListener(new ActionItemCitaOperacion(this));
 		getItemBajaPaciente().addActionListener(new ActionItemBajaPaciente(this));
 		getItemConsultaMedico().addActionListener(new ActionItemConsultaMedico(this));
-		getItemAltaMedico().addActionListener(new ActionItemAltaMedico(this));
+		getItemAltaMedico().addActionListener(new ActionItemAltaMedico(getAltaMedico(), this));
 		getItemVerHistorial().addActionListener(new ActionItemVerHistorial(this));
 		getItemCerrarOperacion().addActionListener(new ActionItemCerrarOperacion(this));
 		getItemModificarPaciente().addActionListener(new ActionItemModificarPaciente(this));
@@ -67,10 +69,11 @@ public class ParaUI extends UI {
 		getAltaMedico().getBtnAceptar().addActionListener(new ActionAltaMedico(this));
 		getBajaPaciente().getBtnDarBaja().addActionListener(new ActionBajaPaciente(this));
 		getCitaOperacion().getBtnAceptar().addActionListener(new ActionCitaOperacion(this));
-
 		getConsultaPaciente().getComboBoxNombre()
 				.addActionListener(new MostarCamposPaciente(getConsultaPaciente().getComboBoxID(),
 						getConsultaPaciente().getComboBoxNombre(), control, false, getConsultaPaciente().getFields()));
+		//Alta paciente
+		getAltaMedico().getComboEspecilidad().addActionListener(new AltaMedicoComboEspecialidad(this, getAltaMedico()));
 		// Cita Operacion
 		getCitaOperacion().getComboPaciente().addActionListener(new SincronizarComboBox(getCitaOperacion().getComboID(),
 				getCitaOperacion().getComboPaciente(), control, false));
@@ -132,6 +135,7 @@ public class ParaUI extends UI {
 		// Atender Cita
 		getAtenderCita().getComboBoxMedico()
 				.addActionListener(new AtenderCitaComboMEdico(getControl(), getAtenderCita()));
+		getAtenderCita().getBtnAtender().addActionListener(new ActionAtenderCitaPendiente(control, getAtenderCita()));
 
 		getBtnPasarHora().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

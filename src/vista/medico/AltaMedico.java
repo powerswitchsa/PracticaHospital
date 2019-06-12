@@ -27,9 +27,9 @@ public class AltaMedico extends JPanel {
 			"Turno :" };
 
 	private JTextField[] fields = new JTextField[this.label.length];
-	private JComboBox<Especialidad> comboEspecilidad = crearCombo();
-	private JComboBox comboConsulta = crearCombo();
-	private JComboBox comboHorario = crearCombo();
+	private JComboBox<Especialidad> comboEspecilidad;
+	private JComboBox comboConsulta;
+	private JComboBox comboHorario;
 	private JPanel panelLabel = new JPanel();
 	private JPanel panelText = new JPanel();
 	private JButton btnAceptar;
@@ -38,6 +38,9 @@ public class AltaMedico extends JPanel {
 	public AltaMedico(Color color, int letraPequena, int letraGrande, String tipoLetra) {
 		setVisible(true);
 		setBackground(color);
+		this.comboEspecilidad = new JComboBox<Especialidad>();
+		this.comboConsulta = new JComboBox();
+		this.comboHorario = new JComboBox<Turno>();
 
 		JLabel lblNewLabel = new JLabel("Alta Medico");
 		lblNewLabel.setFont(new Font(tipoLetra, Font.BOLD, letraGrande));
@@ -128,17 +131,20 @@ public class AltaMedico extends JPanel {
 		return jLabel;
 	}
 
+	public void vaciarCampos() {
+		for (int i = 0; i < fields.length; i++) {
+			if (i < 4) {
+				this.fields[i].setText("");
+			}
+		}
+	}
+
 	public ArrayList<String> getFieldsMedico() {
 		ArrayList<String> campos = new ArrayList<String>();
 		for (int i = 0; i < 4; i++) {
 			campos.add(i, this.fields[i].getText().toString());
 		}
 		return campos;
-	}
-
-	private JComboBox<Especialidad> crearCombo() {
-		JComboBox<Especialidad> combo = new JComboBox<Especialidad>();
-		return combo;
 	}
 
 	public JTextField[] getFields() {
@@ -166,7 +172,20 @@ public class AltaMedico extends JPanel {
 	}
 
 	public Especialidad getTipoEspecialidad() {
-		return (Especialidad) getComboEspecilidad().getSelectedItem();
+		if (getComboEspecilidad().getSelectedItem() != null) {
+			switch (getComboEspecilidad().getSelectedItem().toString()) {
+			case "Especialista":
+				return Especialidad.Especialista;
+			case "Cabecera":
+				return Especialidad.Cabecera;
+			case "Cirujano":
+				return Especialidad.Cirujano;
+			default:
+				return null;
+			}
+		} else {
+			return null;
+		}
 	}
 
 	public Turno getTurno() {
@@ -183,4 +202,9 @@ public class AltaMedico extends JPanel {
 			return null;
 		}
 	}
+
+	public void setFields(JTextField[] fields) {
+		this.fields = fields;
+	}
+
 }

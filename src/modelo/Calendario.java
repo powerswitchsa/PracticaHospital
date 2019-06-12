@@ -33,18 +33,20 @@ public class Calendario implements Serializable {
 	}
 
 	public boolean isRealizado(String fecha) {
-		String[] cadena = fecha.split(", ");
-		int diaCita = 0, horaCita = 0, horaActual = 0;
-		for (int i = 0; i < this.diaSemana.length; i++) {
-			if (this.diaSemana[i] == cadena[0]) {
+		String[] cita = fecha.split(", ");
+		int diaCita = 0;
+
+		for (int i = 0; i < diaSemana.length; i++) {
+			if (cita[0].equals(diaSemana[i])) {
 				diaCita = i;
 			}
 		}
-		String[] horasSeparada = cadena[1].split(":");
-		horaCita = Integer.valueOf(horasSeparada[0]);
-		horasSeparada = this.hora.split(":");
-		horaActual = Integer.valueOf(horasSeparada[0]);
-		return this.dia >= diaCita && horaActual > horaCita;
+		if (diaCita == dia) {
+			int horaCita = Integer.valueOf(cita[1].substring(0, 2));
+			int horaActual = Integer.valueOf(this.hora.substring(0, 2));
+			return horaActual > horaCita ? true : false;
+		}
+		return false;
 	}
 
 	public String getFecha() {

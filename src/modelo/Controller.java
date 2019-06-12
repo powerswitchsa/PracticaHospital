@@ -28,7 +28,6 @@ public class Controller {
 
 	public boolean validarPaciente(Paciente paciente) {
 		if (!validarNombre(paciente.getNombre()) || !validarApellidos(paciente.getApellidos())
-				|| !validarDireccion(paciente.getDireccion()) || !validarId(paciente.getId())
 				|| !validarTelefono(paciente.getTelefono()) || !validarNacimiento(paciente.getNacimiento())) {
 			return false;
 		}
@@ -37,7 +36,7 @@ public class Controller {
 
 	public boolean validarMedico(Medico medico) {
 		if (!validarNombre(medico.getNombre()) || !validarApellidos(medico.getApellidos())
-				|| !validarDireccion(medico.getDireccion()) || !validarTelefono(medico.getTelefono())) {
+				|| !validarTelefono(medico.getTelefono())) {
 			return false;
 		}
 		return true;

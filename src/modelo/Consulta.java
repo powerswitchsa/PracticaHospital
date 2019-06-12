@@ -17,6 +17,7 @@ public class Consulta implements Serializable {
 		this.medicos = new ArrayList<Medico>();
 		this.horario = new Horario();
 		this.id = id;
+		this.especialidad = especialidad;
 		if (especialidad == Especialidad.Especialista) {
 			for (int i = 0; i < horario.getHorario().length; i++) {
 				for (int j = 0; j < horario.getHorario()[i].length; j++) {
@@ -59,5 +60,8 @@ public class Consulta implements Serializable {
 
 	public Especialidad getEspecialidad() {
 		return especialidad;
+	}
+	public void getAsignarMedico(Medico medico) {
+		this.medicos.add(medico);
 	}
 }

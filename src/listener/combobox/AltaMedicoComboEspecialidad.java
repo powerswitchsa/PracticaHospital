@@ -4,27 +4,31 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import control.Control;
 import control.ParaUI;
+import modelo.enums.Especialidad;
 import vista.medico.AltaMedico;
 
 public class AltaMedicoComboEspecialidad implements ActionListener {
 	private ParaUI paraUI;
+	private AltaMedico altaMedico;
 
-	public AltaMedicoComboEspecialidad(ParaUI paraUI) {
+	public AltaMedicoComboEspecialidad(ParaUI paraUI, AltaMedico altaMedico) {
 		super();
 		this.paraUI = paraUI;
+		this.altaMedico = altaMedico;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
-			if (this.paraUI.getAltaMedico().getComboEspecilidad() != null) {
-				String tipo = this.paraUI.getAltaMedico().getComboEspecilidad().toString();
+			this.altaMedico.getComboConsulta().removeAllItems();
+			if (this.altaMedico.getComboEspecilidad() != null) {
+				Especialidad tipo = this.altaMedico.getTipoEspecialidad();
 				if (tipo != null) {
-					AltaMedico altamedico = this.paraUI.getAltaMedico();
-					ArrayList<String> idConsulta = paraUI.getControl().getVacanteConsulta(altamedico);
+					ArrayList<String> idConsulta = this.paraUI.getControl().getVacanteConsulta(tipo);
 					for (String id : idConsulta) {
-						this.paraUI.getAltaMedico().getComboConsulta().addItem(id);
+						this.altaMedico.getComboConsulta().addItem(id);
 					}
 				}
 			}

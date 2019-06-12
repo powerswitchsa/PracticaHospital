@@ -44,4 +44,7 @@ public class Paciente extends Persona implements Serializable {
 		return citas;
 	}
 
+	public void getAddTratamiento(Tratamiento tratamiento) {
+		this.tratamientos.add(tratamiento);
+	}
 }
