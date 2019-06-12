@@ -20,6 +20,5 @@ public class Respuesta implements Serializable {
 	public String getComentario() {
 		return comentario;
 	}
-	
 
 }
