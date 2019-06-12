@@ -25,6 +25,8 @@ public class Logica {
 	private ArrayList<Cita> citas;
 	private Calendario calendario;
 
+	int numeroConsultas = 5;
+
 	public Logica() {
 		super();
 		this.gestorDTO = new GestorDTO();
@@ -44,11 +46,14 @@ public class Logica {
 		this.mapConsulta = this.gestorDTO.getLeerMapConsulta();
 		if (this.getMapConsulta() == null) {
 			this.mapConsulta = new HashMap<String, Consulta>();
-			for (int i = 0; i < 4; i++) {
+			for (int i = 0; i < this.numeroConsultas; i++) {
 				if (i > 1) {
 					this.mapConsulta.put(String.valueOf(i), new Consulta(String.valueOf(i), Especialidad.Cabecera));
 				} else {
 					this.mapConsulta.put(String.valueOf(i), new Consulta(String.valueOf(i), Especialidad.Especialista));
+				}
+				if (i == this.numeroConsultas - 1) {
+					this.mapConsulta.put(String.valueOf(i), new Consulta(String.valueOf(i), Especialidad.Cirujano));
 				}
 			}
 		}
@@ -63,11 +68,12 @@ public class Logica {
 		return this.gestorDTO.getGrabarPaciente(paciente) && this.gestorDTO.getGrabarMapPaciente(this.mapPaciente);
 	}
 
-	public boolean getAltaMedico(Medico medico, Especialidad tipo, Turno turno,String id) {
+	public boolean getAltaMedico(Medico medico, Especialidad tipo, Turno turno, String id) {
 		medico.setId(getUltimaIdMedico());
 		this.mapMedico.put(medico.getId(), medico);
 		this.mapConsulta.get(id).getAsignarMedico(medico);
-		return this.gestorDTO.getGrabarMapMedico(this.mapMedico) && this.gestorDTO.getGrabarMapConsulta(this.mapConsulta);
+		return this.gestorDTO.getGrabarMapMedico(this.mapMedico)
+				&& this.gestorDTO.getGrabarMapConsulta(this.mapConsulta);
 	}
 
 	public boolean getBajaPaciente(String id) {
