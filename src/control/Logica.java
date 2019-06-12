@@ -176,7 +176,7 @@ public class Logica {
 	public ArrayList<Medico> getMedicosAtenderCita() {
 		ArrayList<Medico> medicos = new ArrayList<Medico>();
 		for (Cita cita : this.citas) {
-			System.out.println(cita.getFecha() + " " + this.calendario.getFecha());
+//			System.out.println(cita.getFecha() + " " + this.calendario.getFecha());
 			if (cita.getFecha().equals(this.calendario.getFecha()))
 				medicos.add(cita.getMedico());
 		}
