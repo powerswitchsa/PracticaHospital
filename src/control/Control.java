@@ -28,16 +28,16 @@ public class Control {
 	public boolean getAltaPaciente(ArrayList<String> infoPaciente) {
 		Paciente paciente = new Paciente(infoPaciente.get(0), infoPaciente.get(1), infoPaciente.get(2),
 				infoPaciente.get(3), infoPaciente.get(4));
-//		return this.controller.validarPaciente(paciente) ? this.logica.getAltaPaciente(paciente) : false;
-		return this.logica.getAltaPaciente(paciente);
+		return this.controller.validarPaciente(paciente) ? this.logica.getAltaPaciente(paciente) : false;
+//		return this.logica.getAltaPaciente(paciente);
 	}
 
 	public boolean getAltaMedico(ArrayList<String> infoMedico, Especialidad tipo, Turno turno, String idConsulta) {
 		Medico medico = new Medico(infoMedico.get(0), infoMedico.get(1), infoMedico.get(2), infoMedico.get(3), tipo,
 				turno);
-//		return this.controller.validarMedico(medico) ? this.logica.getAltaMedico(medico, tipo, turno, idConsulta)
-//				: false;
-		return this.logica.getAltaMedico(medico, tipo, turno, idConsulta);
+		return this.controller.validarMedico(medico) ? this.logica.getAltaMedico(medico, tipo, turno, idConsulta)
+				: false;
+//		return this.logica.getAltaMedico(medico, tipo, turno, idConsulta);
 	}
 
 	public boolean getModificarPaciente(String id, String direccion, String telefono) {

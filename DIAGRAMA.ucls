@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="almacen.GestorDTO" project="Hospital" file="/Hospital/src/almacen/GestorDTO.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="459" y="748"/>    
+    <position height="-1" width="-1" x="459" y="703"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
